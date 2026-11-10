@@ -51,9 +51,17 @@ General astronomy resources are covered by [awesome-astronomy](https://github.co
 
 ## Surveys and Reviews
 
+- *Machine Learning in Astronomy: A Practical Overview* `arXiv 2019`  
+  [[Paper](https://arxiv.org/abs/1904.07248)]  
+  Lecture notes from the IAC Winter School 2018 covering supervised and unsupervised learning for astronomical datasets.
+
 - *The Frontier of Simulation-Based Inference* `PNAS 2020`  
   [[Paper](https://arxiv.org/abs/1911.01429)] [[Journal](https://doi.org/10.1073/pnas.1912789117)]  
   Review of simulation-based inference methods and the role of machine learning in inference with intractable likelihoods.
+
+- *Enhancing Gravitational-Wave Science with Machine Learning* `MLST 2021`  
+  [[Paper](https://arxiv.org/abs/2005.03745)] [[Journal](https://doi.org/10.1088/2632-2153/abb93a)]  
+  Review of machine learning for LIGO and Virgo data quality, signal modeling, searches and parameter estimation.
 
 - *The Dawes Review 10: The Impact of Deep Learning for the Analysis of Galaxy Surveys* `PASA 2023`  
   [[Paper](https://arxiv.org/abs/2210.01813)] [[Journal](https://doi.org/10.1017/pasa.2022.55)]  
@@ -70,6 +78,27 @@ General astronomy resources are covered by [awesome-astronomy](https://github.co
 - *Constructing Impactful Machine Learning Research for Astronomy: Best Practices for Researchers and Reviewers* `arXiv 2023`  
   [[Paper](https://arxiv.org/abs/2310.12528)]  
   Recommendations on baselines, validation, reproducibility and reporting for machine learning papers in astronomy.
+
+- *What is the Role of Large Language Models in the Evolution of Astronomy Research?* `arXiv 2024`  
+  [[Paper](https://arxiv.org/abs/2409.20252)]  
+  Use cases, survey results and recommendations on LLM adoption in astronomy research.
+
+- *Towards Scientific Intelligence: A Survey of LLM-based Scientific Agents* `arXiv 2025`  
+  [[Paper](https://arxiv.org/abs/2503.24047)]  
+  Survey of LLM-based scientific agents with a section on astronomy and cosmology applications.
+
+- *From AI for Science to Agentic Science: A Survey on Autonomous Scientific Discovery* `arXiv 2025`  
+  [[Paper](https://arxiv.org/abs/2508.14111)] [[Code](https://github.com/AgenticScience/Awesome-Agent-Scientists)]  
+  Domain-oriented survey of autonomous scientific discovery including agentic astronomy and cosmology research.
+
+- *A Survey of Scientific Large Language Models: From Data Foundations to Agent Frontiers* `arXiv 2025`  
+  [[Paper](https://arxiv.org/abs/2508.21148)]  
+  Survey of scientific LLMs and their training data, including astronomy datasets and models.
+
+- *Deep Learning in Astrophysics* `ARA&A 2025`  
+  [[Paper](https://arxiv.org/abs/2510.10713)]  
+  Annual Review covering inductive biases, simulation-based inference, anomaly detection, foundation models, reinforcement learning and LLM agents in astronomy.
+
 
 ## Foundation Models and Representation Learning
 
@@ -107,6 +136,7 @@ General astronomy resources are covered by [awesome-astronomy](https://github.co
   [[Paper](https://arxiv.org/abs/2405.14930)] [[Code](https://github.com/Smith42/astroPT)] [[Model](https://huggingface.co/Smith42/astroPT_v2.0)]  
   Autoregressive transformers from 1M to 2.1B parameters pretrained on 8.6M DESI Legacy Survey galaxy images.
 
+
 ### Spectra
 
 - **(SDSS-VAE)** *Dimensionality Reduction of SDSS Spectra with Variational Autoencoders* `arXiv 2020`  
@@ -129,19 +159,21 @@ General astronomy resources are covered by [awesome-astronomy](https://github.co
   [[Paper](https://arxiv.org/abs/2411.04750)]  
   Transformer pretrained on synthetic stellar spectra and transferred to real spectra across wavelength ranges.
 
+
 ### Time Series
 
 - **(ASTROMER)** *ASTROMER: A Transformer-Based Embedding for the Representation of Light Curves* `A&A 2023`  
   [[Paper](https://arxiv.org/abs/2205.01677)] [[Code](https://github.com/astromer-science)] [[Journal](https://doi.org/10.1051/0004-6361/202243928)] [[Astromer 2](https://arxiv.org/abs/2502.02717)]  
   Self-supervised light-curve encoder pretrained with masked magnitude prediction on MACHO R-band data.
 
-- **(Maven)** *Maven: A Multimodal Foundation Model for Supernova Science* `MLST 2024`  
-  [[Paper](https://arxiv.org/abs/2408.16829)] [[Code](https://github.com/ThomasHelfer/multimodal-supernovae)]  
-  Contrastive alignment of supernova photometry and spectroscopy, pretrained on 0.5M synthetic events and finetuned on ZTF.
-
 - **(Astroconformer)** *Astroconformer: The Prospects of Analyzing Stellar Light Curves with Transformer-Based Deep Learning Models* `MNRAS 2024`  
   [[Paper](https://arxiv.org/abs/2309.16316)] [[Journal](https://doi.org/10.1093/mnras/stae068)] [[Workshop Version](https://arxiv.org/abs/2207.02787)]  
   Conformer model for Kepler light curves that infers surface gravity and frequency of maximum oscillation power.
+
+
+- **(Maven)** *Maven: A Multimodal Foundation Model for Supernova Science* `MLST 2024`  
+  [[Paper](https://arxiv.org/abs/2408.16829)] [[Code](https://github.com/ThomasHelfer/multimodal-supernovae)]  
+  Contrastive alignment of supernova photometry and spectroscopy, pretrained on 0.5M synthetic events and finetuned on ZTF.
 
 ### Multimodal
 
@@ -154,7 +186,7 @@ General astronomy resources are covered by [awesome-astronomy](https://github.co
   Autoregressive pretraining of a single surrogate model across heterogeneous physical simulation systems.
 
 - **(PAPERCLIP)** *PAPERCLIP: Associating Astronomical Observations and Natural Language with Multi-Modal Models* `COLM 2024`  
-  [[Paper](https://arxiv.org/abs/2403.08851)]  
+  [[Paper](https://arxiv.org/abs/2403.08851)] [[Code](https://github.com/smsharma/PAPERCLIP-Hubble)]  
   CLIP finetuned on Hubble Space Telescope observations paired with observing proposal abstracts.
 
 - **(AstroM3)** *AstroM3: A Self-Supervised Multimodal Model for Astronomy* `arXiv 2024`  
@@ -164,6 +196,7 @@ General astronomy resources are covered by [awesome-astronomy](https://github.co
 - **(AION-1)** *AION-1: Omnimodal Foundation Model for Astronomical Sciences* `NeurIPS 2025`  
   [[Paper](https://arxiv.org/abs/2510.17960)] [[Code](https://github.com/PolymathicAI/AION)] [[Model](https://huggingface.co/polymathic-ai/aion-base)]  
   Token-based masked modeling over 39 modalities from Legacy Survey, HSC, SDSS, DESI and Gaia, released at 300M to 3.1B parameters.
+
 
 ## Language and Vision-Language Models
 
@@ -203,6 +236,7 @@ General astronomy resources are covered by [awesome-astronomy](https://github.co
   [[Paper](https://arxiv.org/abs/2505.17592)] [[Model](https://huggingface.co/AstroMLab/AstroSage-70B-20251009)]  
   Llama-3.1-70B with continued pretraining and reasoning-chain SFT. Scores 89.0% on a validated 3,846-question subset of AstroMLab 1.
 
+
 ## Agents and Retrieval Systems
 
 - **(pathfinder)** *pathfinder: A Semantic Framework for Literature Review and Knowledge Discovery in Astronomy* `ApJS 2024`  
@@ -233,6 +267,7 @@ General astronomy resources are covered by [awesome-astronomy](https://github.co
   [[Paper](https://arxiv.org/abs/2510.26887)] [[Code](https://github.com/AstroPilot-AI/Denario)] [[Demo](https://huggingface.co/spaces/astropilot-ai/Denario)]  
   Modular multi-agent research assistant for idea generation, analysis and paper drafting, using cmbagent as its analysis backend.
 
+
 ## Benchmarks
 
 - **(MLGWSC-1)** *MLGWSC-1: The First Machine Learning Gravitational-Wave Search Mock Data Challenge* `arXiv 2022`  
@@ -254,6 +289,7 @@ General astronomy resources are covered by [awesome-astronomy](https://github.co
 - **(IOAA)** *Large Language Models Achieve Gold Medal Performance at the International Olympiad on Astronomy & Astrophysics (IOAA)* `arXiv 2025`  
   [[Paper](https://arxiv.org/abs/2510.05016)]  
   Evaluates five LLMs on 49 theory and 8 data analysis problems from the 2022 to 2025 IOAA exams.
+
 
 ## Galaxies
 
@@ -311,6 +347,7 @@ General astronomy resources are covered by [awesome-astronomy](https://github.co
   [[Paper](https://arxiv.org/abs/2503.15335)]  
   Dwarf galaxy census in Euclid Q1 listed among Zoobot applications.
 
+
 ### Anomaly Detection
 
 - **(Astronomaly)** *Astronomaly: Personalised Active Anomaly Detection in Astronomical Data* `arXiv 2020`  
@@ -329,11 +366,24 @@ General astronomy resources are covered by [awesome-astronomy](https://github.co
   [[Paper](https://arxiv.org/abs/2309.08660)]  
   Applies Astronomaly to about 4M galaxies using pretrained Zoobot representations.
 
+
 ### Physical Properties and Photometric Redshifts
+
+- **(ANNz2)** *ANNz2: Photometric Redshift and Probability Distribution Function Estimation Using Machine Learning* `PASP 2016`  
+  [[Paper](https://arxiv.org/abs/1507.00490)] [[Code](https://github.com/IftachSadeh/ANNZ)]  
+  Ensembles of neural networks and boosted decision trees for photometric redshift PDFs.
+
+- **(Delight)** *Data-driven, Interpretable Photometric Redshifts Trained on Heterogeneous and Unrepresentative Data* `ApJ 2017`  
+  [[Paper](https://arxiv.org/abs/1612.00847)] [[Code](https://github.com/ixkael/Delight)]  
+  Gaussian process photometric redshifts that combine templates with data-driven flux modeling.
 
 - **(Pasquet Photo-z)** *Photometric Redshifts from SDSS Images Using a Convolutional Neural Network* `A&A 2019`  
   [[Paper](https://arxiv.org/abs/1806.06607)] [[Code](https://github.com/jpasquet/photoz)]  
   CNN that predicts redshift probability densities directly from multiband SDSS images.
+
+- **(dense_basis)** *Nonparametric Star Formation History Reconstruction with Gaussian Processes. I. Counting Major Episodes of Star Formation* `ApJ 2019`  
+  [[Journal](https://doi.org/10.3847/1538-4357/ab2052)] [[Code](https://github.com/kartheikiyer/dense_basis)]  
+  Gaussian process representation of galaxy star formation histories for SED fitting.
 
 - **(speculator)** *SPECULATOR: Emulating Stellar Population Synthesis for Fast and Accurate Galaxy Spectra and Photometry* `ApJS 2020`  
   [[Paper](https://arxiv.org/abs/1911.11778)] [[Code](https://github.com/justinalsing/speculator)] [[Journal](https://doi.org/10.3847/1538-4365/ab917f)]  
@@ -343,6 +393,14 @@ General astronomy resources are covered by [awesome-astronomy](https://github.co
   [[Paper](https://arxiv.org/abs/2202.01809)] [[Code](https://github.com/changhoonhahn/provabgs)]  
   Bayesian SED modeling pipeline for DESI BGS that uses neural emulators for speed.
 
+- **(GaMPEN)** *GaMPEN: A Machine-learning Framework for Estimating Bayesian Posteriors of Galaxy Morphological Parameters* `ApJ 2022`  
+  [[Paper](https://arxiv.org/abs/2207.05107)] [[Code](https://github.com/aritraghsh09/GaMPEN)]  
+  Bayesian CNN that predicts posteriors of bulge-to-total ratio, effective radius and flux.
+
+- **(Mangrove)** *Mangrove: Learning Galaxy Properties from Merger Trees* `ApJ 2022`  
+  [[Paper](https://arxiv.org/abs/2210.13473)] [[Code](https://github.com/astrockragh/Mangrove)]  
+  Graph neural networks on dark matter merger trees that emulate semi-analytic galaxy properties.
+
 - **(SBI++)** *SBI++: Flexible, Ultra-fast Likelihood-free Inference Customized for Astronomical Applications* `ApJL 2023`  
   [[Paper](https://arxiv.org/abs/2304.05281)] [[Code](https://github.com/wangbingjie/sbi_pp)]  
   Neural posterior estimation for galaxy SED fitting that handles missing data and out-of-distribution noise.
@@ -351,19 +409,24 @@ General astronomy resources are covered by [awesome-astronomy](https://github.co
   [[Paper](https://arxiv.org/abs/2405.04740)] [[Code](https://github.com/jfcrenshaw/pzflow)]  
   Normalizing flows for modeling galaxy catalogs and photometric redshift posteriors.
 
+- **(RAIL)** *Redshift Assessment Infrastructure Layers (RAIL): Rubin-era Photometric Redshift Stress-testing and At-scale Production* `arXiv 2025`  
+  [[Paper](https://arxiv.org/abs/2505.02928)] [[Code](https://github.com/LSSTDESC/rail)]  
+  LSST DESC framework for training, evaluating and running photometric redshift estimators.
+
+
 ## Gravitational Lensing
 
 - **(CMU DeepLens)** *CMU DeepLens: Deep Learning for Automatic Image-based Galaxy-Galaxy Strong Lens Finding* `MNRAS 2018`  
   [[Paper](https://arxiv.org/abs/1703.02642)] [[Code](https://github.com/McWilliamsCenter/CMUDeepLens)]  
   Residual network strong lens finder.
 
-- **(Substructure Mining)** *Mining for Dark Matter Substructure: Inferring Subhalo Population Properties from Strong Lenses with Machine Learning* `arXiv 2019`  
-  [[Paper](https://arxiv.org/abs/1909.02005)] [[Code](https://github.com/smsharma/mining-for-substructure-lens)]  
-  Likelihood-ratio estimation with neural networks for subhalo population inference from lensed images.
-
 - **(DeepMass)** *Deep Learning Dark Matter Map Reconstructions from DES SV Weak Lensing Data* `MNRAS 2020`  
   [[Paper](https://arxiv.org/abs/1908.00543)] [[Code](https://github.com/NiallJeffrey/DeepMass)]  
   U-Net mass mapping of Dark Energy Survey Science Verification weak lensing data.
+
+- **(Substructure Mining)** *Mining for Dark Matter Substructure: Inferring Subhalo Population Properties from Strong Lenses with Machine Learning* `arXiv 2019`  
+  [[Paper](https://arxiv.org/abs/1909.02005)] [[Code](https://github.com/smsharma/mining-for-substructure-lens)]  
+  Likelihood-ratio estimation with neural networks for subhalo population inference from lensed images.
 
 - **(DeepLense)** *Deep Learning the Morphology of Dark Matter Substructure* `ApJ 2020`  
   [[Journal](https://doi.org/10.3847/1538-4357/ab7925)] [[Code](https://github.com/ML4SCI/DeepLense)]  
@@ -380,6 +443,11 @@ General astronomy resources are covered by [awesome-astronomy](https://github.co
 - **(Lens Mining)** *Mining for Strong Gravitational Lenses with Self-supervised Learning* `arXiv 2021`  
   [[Paper](https://arxiv.org/abs/2110.00023)] [[Code](https://github.com/georgestein/ssl-legacysurvey)]  
   Self-supervised representations of DESI Legacy Survey images used to find new strong lens candidates.
+
+- **(GIGA-Lens)** *GIGA-Lens: Fast Bayesian Inference for Strong Gravitational Lens Modeling* `ApJ 2022`  
+  [[Paper](https://arxiv.org/abs/2202.07663)] [[Code](https://github.com/giga-lens/gigalens)]  
+  GPU-accelerated lens modeling with gradient-based optimization, variational inference and HMC.
+
 
 - **(paltas)** *From Images to Dark Matter: End-to-end Inference of Substructure from Hundreds of Strong Gravitational Lenses* `ApJ 2023`  
   [[Paper](https://arxiv.org/abs/2203.00690)] [[Code](https://github.com/swagnercarena/paltas)]  
@@ -435,11 +503,21 @@ General astronomy resources are covered by [awesome-astronomy](https://github.co
   [[Journal](https://doi.org/10.33232/001c.129699)] [[Code](https://github.com/LSSTDESC/BlendingToolKit)]  
   Simulation and metrics framework for benchmarking detection and deblending algorithms.
 
+
 ## Stars and Stellar Spectroscopy
 
 - **(astroNN)** *Deep Learning of Multi-element Abundances from High-resolution Spectroscopic Data* `MNRAS 2019`  
   [[Paper](https://arxiv.org/abs/1808.04428)] [[Code](https://github.com/henrysky/astroNN)] [[Journal](https://doi.org/10.1093/mnras/sty3217)]  
   Bayesian neural networks for stellar parameters and abundances from APOGEE spectra.
+
+- **(Blancato CNN)** *Data-driven Derivation of Stellar Properties from Photometric Time Series Data Using Convolutional Neural Networks* `ApJ 2022`  
+  [[Paper](https://arxiv.org/abs/2005.09682)] [[Code](https://github.com/kblancato/theia-net)]  
+  CNNs that infer stellar rotation and surface gravity from Kepler light curves.
+
+
+- **(stella)** *stella: Convolutional Neural Networks for Flare Identification in TESS* `JOSS 2020`  
+  [[Journal](https://doi.org/10.21105/joss.02347)] [[Code](https://github.com/afeinstein20/stella)]  
+  CNN flare detection in TESS two-minute light curves.
 
 ## Time-Domain Astronomy and Transients
 
@@ -459,9 +537,22 @@ General astronomy resources are covered by [awesome-astronomy](https://github.co
   [[Paper](https://arxiv.org/abs/1907.11259)] [[Code](https://github.com/dmitryduev/braai)]  
   CNN real-bogus classifier deployed in the ZTF alert pipeline.
 
+- **(Cyclic-Permutation Networks)** *Classification of Periodic Variable Stars with Novel Cyclic-permutation Invariant Neural Networks* `MNRAS 2021`  
+  [[Paper](https://arxiv.org/abs/2011.01243)] [[Code](https://github.com/kmzzhang/periodicnetwork)]  
+  Phase-folded light-curve classifiers that are invariant to cyclic permutations.
+
+- **(Time-Series Transformer)** *Paying Attention to Astronomical Transients: Introducing the Time-series Transformer for Photometric Classification* `RASTI 2024`  
+  [[Paper](https://arxiv.org/abs/2105.06178)] [[Code](https://github.com/tallamjr/astronet)]  
+  Transformer classifier for multiband transient light curves evaluated on PLAsTiCC.
+
 - **(SCONE)** *SCONE: Supernova Classification with a Convolutional Neural Network* `AJ 2021`  
   [[Paper](https://arxiv.org/abs/2106.04370)] [[Code](https://github.com/helenqu/scone)] [[Early-time Paper](https://arxiv.org/abs/2111.05539)]  
   CNN on wavelength-time heatmaps of supernova light curves.
+
+- **(ACAI)** *Phenomenological Classification of the Zwicky Transient Facility Astronomical Event Alerts* `arXiv 2021`  
+  [[Paper](https://arxiv.org/abs/2111.12142)] [[Code](https://github.com/dmitryduev/acai)]  
+  Multi-label deep learning classifiers for ZTF alert phenomenology.
+
 
 - **(BTSbot)** *The Zwicky Transient Facility Bright Transient Survey. III. BTSbot: Automated Identification and Follow-up of Bright Transients with Deep Learning* `arXiv 2024`  
   [[Paper](https://arxiv.org/abs/2401.15167)] [[Code](https://github.com/nabeelre/BTSbot)]  
@@ -472,6 +563,10 @@ General astronomy resources are covered by [awesome-astronomy](https://github.co
   Hierarchical recurrent classifier for real-time LSST alert streams.
 
 ## Exoplanets
+
+- **(Pearson Exoplanet AI)** *Searching for Exoplanets Using Artificial Intelligence* `MNRAS 2018`  
+  [[Paper](https://arxiv.org/abs/1706.04319)] [[Code](https://github.com/pearsonkyle/Exoplanet-Artificial-Intelligence)]  
+  Neural networks that detect transit signals in simulated and Kepler light curves.
 
 - **(AstroNet)** *Identifying Exoplanets with Deep Learning: A Five-planet Resonant Chain around Kepler-80 and an Eighth Planet around Kepler-90* `AJ 2018`  
   [[Journal](https://doi.org/10.3847/1538-3881/aa9e09)] [[Code](https://github.com/google-research/exoplanet-ml)]  
@@ -493,9 +588,26 @@ General astronomy resources are covered by [awesome-astronomy](https://github.co
   [[Paper](https://arxiv.org/abs/1904.02726)] [[Code](https://github.com/yuliang419/Astronet-Triage)] [[Journal](https://doi.org/10.3847/1538-3881/ab21d6)]  
   Neural networks for triage and vetting of TESS transit signals.
 
+- **(SPOCK)** *Predicting the Long-term Stability of Compact Multiplanet Systems* `PNAS 2020`  
+  [[Paper](https://arxiv.org/abs/2007.06521)] [[Code](https://github.com/dtamayo/spock)]  
+  Gradient boosted classifier on short N-body integrations that predicts multiplanet stability.
+
+- **(BNN Chaos)** *A Bayesian Neural Network Predicts the Dissolution of Compact Planetary Systems* `PNAS 2021`  
+  [[Paper](https://arxiv.org/abs/2101.04117)] [[Code](https://github.com/MilesCranmer/bnn_chaos_model)]  
+  Bayesian neural network that predicts instability times of compact planetary systems.
+
 - **(ExoMiner)** *ExoMiner: A Highly Accurate and Explainable Deep Learning Classifier that Validates 301 New Exoplanets* `ApJ 2022`  
   [[Paper](https://arxiv.org/abs/2111.10009)] [[Code](https://github.com/nasa/ExoMiner)] [[Journal](https://doi.org/10.3847/1538-4357/ac4399)]  
   Multi-branch network that mimics expert vetting diagnostics and validates 301 Kepler planets.
+
+- **(HSR4HCI)** *Half-sibling Regression Meets Exoplanet Imaging: PSF Modeling and Subtraction Using a Flexible, Domain Knowledge-driven, Causal Framework* `A&A 2022`  
+  [[Paper](https://arxiv.org/abs/2204.03439)] [[Code](https://github.com/timothygebhard/hsr4hci)]  
+  Data-driven PSF subtraction for high-contrast imaging based on half-sibling regression.
+
+- **(SBI-EAR)** *Neural Posterior Estimation for Exoplanetary Atmospheric Retrieval* `A&A 2023`  
+  [[Paper](https://arxiv.org/abs/2301.06575)] [[Code](https://github.com/MalAstronomy/sbi-ear)]  
+  Normalizing-flow posterior estimation for exoplanet atmospheric retrieval.
+
 
 ## Cosmology and Large-Scale Structure
 
@@ -507,29 +619,41 @@ General astronomy resources are covered by [awesome-astronomy](https://github.co
   [[Journal](https://doi.org/10.1103/PhysRevD.97.083004)] [[Code](https://github.com/tomcharnock/IMNN)]  
   Neural compression that maximises Fisher information for downstream inference.
 
+- **(NNhealpix)** *Convolutional Neural Networks on the HEALPix Sphere: A Pixel-based Algorithm and Its Application to CMB Data Analysis* `A&A 2019`  
+  [[Journal](https://doi.org/10.1051/0004-6361/201935211)] [[Code](https://github.com/ai4cmb/NNhealpix)]  
+  Pixel-based convolutions on HEALPix maps applied to CMB analysis.
+
 - **(3DcosmoGAN)** *Cosmological N-body Simulations: A Challenge for Scalable Generative Models* `arXiv 2019`  
   [[Paper](https://arxiv.org/abs/1908.05519)] [[Code](https://github.com/nperraud/3DcosmoGAN)]  
   Scalable 3D GAN for N-body density fields.
-
-- **(DeepSphere)** *DeepSphere: A Graph-based Spherical CNN* `ICLR 2020`  
-  [[Paper](https://arxiv.org/abs/2012.15000)] [[Code](https://github.com/deepsphere/deepsphere-pytorch)]  
-  Graph convolutions on spherical sky maps such as HEALPix.
 
 - **(Symbolic DL)** *Discovering Symbolic Models from Deep Learning with Inductive Biases* `NeurIPS 2020`  
   [[Paper](https://arxiv.org/abs/2006.11287)] [[Code](https://github.com/MilesCranmer/symbolic_deep_learning)]  
   Graph networks distilled into symbolic expressions, including a dark matter halo example.
 
+- **(FlowPM)** *FlowPM: Distributed TensorFlow Implementation of the FastPM Cosmological N-body Solver* `Astron. Comput. 2021`  
+  [[Paper](https://arxiv.org/abs/2010.11847)] [[Code](https://github.com/DifferentiableUniverseInitiative/flowpm)]  
+  Differentiable particle-mesh N-body simulation for gradient-based inference and hybrid ML models.
+
+- **(LDL)** *Learning Effective Physical Laws for Generating Cosmological Hydrodynamics with Lagrangian Deep Learning* `PNAS 2021`  
+  [[Paper](https://arxiv.org/abs/2010.02926)] [[Code](https://github.com/biweidai/LDL)]  
+  Learned displacement layers that map dark matter simulations to baryonic fields.
+
 - **(Stellar Streams SBI)** *Towards Constraining Warm Dark Matter with Stellar Streams through Neural Simulation-based Inference* `arXiv 2020`  
   [[Paper](https://arxiv.org/abs/2011.14923)] [[Code](https://github.com/JoeriHermans/constraining-dark-matter-with-stellar-streams-and-ml)]  
   Neural ratio estimation for dark matter constraints from stream density variations.
 
+- **(Moment Networks)** *Solving High-dimensional Parameter Inference: Marginal Posterior Densities & Moment Networks* `arXiv 2020`  
+  [[Paper](https://arxiv.org/abs/2011.05991)] [[Code](https://github.com/NiallJeffrey/MomentNetworks)]  
+  Networks that estimate marginal posterior moments for high-dimensional inference.
+
+- **(DeepSphere)** *DeepSphere: A Graph-based Spherical CNN* `ICLR 2020`  
+  [[Paper](https://arxiv.org/abs/2012.15000)] [[Code](https://github.com/deepsphere/deepsphere-pytorch)]  
+  Graph convolutions on spherical sky maps such as HEALPix.
+
 - **(globalemu)** *GLOBALEMU: A Novel and Robust Approach for Emulating the Sky-averaged 21-cm Signal from the Cosmic Dawn and Epoch of Reionization* `MNRAS 2021`  
   [[Paper](https://arxiv.org/abs/2104.04336)] [[Code](https://github.com/htjb/globalemu)]  
   Neural network emulator of the global 21-cm signal.
-
-- **(21cmVAE)** *21cmVAE: A Very Accurate Emulator of the 21 cm Global Signal* `ApJ 2022`  
-  [[Journal](https://doi.org/10.3847/1538-4357/ac6424)] [[Code](https://github.com/christianhbye/21cmVAE)]  
-  Variational autoencoder emulator of the global 21-cm signal.
 
 - **(CosmoPower)** *CosmoPower: Emulating Cosmological Power Spectra for Accelerated Bayesian Inference from Next-generation Surveys* `MNRAS 2022`  
   [[Paper](https://arxiv.org/abs/2106.03846)] [[Code](https://github.com/alessiospuriomancini/cosmopower)] [[Journal](https://doi.org/10.1093/mnras/stac064)]  
@@ -539,6 +663,14 @@ General astronomy resources are covered by [awesome-astronomy](https://github.co
   [[Paper](https://arxiv.org/abs/2111.08683)] [[Code](https://github.com/PabloVD/HaloGraphNet)]  
   Graph neural networks trained on CAMELS to infer halo masses from galaxy properties.
 
+- **(harmonic)** *Machine Learning Assisted Bayesian Model Comparison: Learnt Harmonic Mean Estimator* `arXiv 2021`  
+  [[Paper](https://arxiv.org/abs/2111.12720)] [[Code](https://github.com/astro-informatics/harmonic)] [[Flow Version](https://arxiv.org/abs/2307.00048)]  
+  Learned harmonic mean estimator of the Bayesian evidence from posterior samples.
+
+- **(DeepLSS)** *DeepLSS: Breaking Parameter Degeneracies in Large-scale Structure with Deep Learning Analysis of Combined Probes* `PRX 2022`  
+  [[Paper](https://arxiv.org/abs/2203.09616)] [[Code](https://github.com/tomaszkacprzak/deeplss)]  
+  Deep learning analysis of combined weak lensing and galaxy clustering maps.
+
 - **(CosmoGraphNet)** *Learning Cosmology and Clustering with Cosmic Graphs* `arXiv 2022`  
   [[Paper](https://arxiv.org/abs/2204.13713)] [[Code](https://github.com/PabloVD/CosmoGraphNet)]  
   Graph neural networks on galaxy catalogues for cosmological parameter inference.
@@ -547,9 +679,26 @@ General astronomy resources are covered by [awesome-astronomy](https://github.co
   [[Paper](https://arxiv.org/abs/2205.15726)] [[Code](https://github.com/AarhusCosmology/connect_public)]  
   Iteratively trained emulators of CLASS observables for MCMC.
 
+- **(21cmVAE)** *21cmVAE: A Very Accurate Emulator of the 21 cm Global Signal* `ApJ 2022`  
+  [[Journal](https://doi.org/10.3847/1538-4357/ac6424)] [[Code](https://github.com/christianhbye/21cmVAE)]  
+  Variational autoencoder emulator of the global 21-cm signal.
+
 - **(CosmoPower-JAX)** *CosmoPower-JAX: High-dimensional Bayesian Inference with Differentiable Cosmological Emulators* `arXiv 2023`  
   [[Paper](https://arxiv.org/abs/2305.06347)] [[Code](https://github.com/dpiras/cosmopower-jax)]  
   JAX version of CosmoPower for gradient-based samplers.
+
+- **(Capse.jl)** *Capse.jl: Efficient and Auto-differentiable CMB Power Spectra Emulation* `arXiv 2023`  
+  [[Paper](https://arxiv.org/abs/2307.14339)] [[Code](https://github.com/CosmologicalEmulators/Capse.jl)]  
+  Julia neural emulator of CMB power spectra for gradient-based samplers.
+
+- **(21cmEMU)** *21cmEMU: An Emulator of 21cmFAST Summary Observables* `MNRAS 2024`  
+  [[Paper](https://arxiv.org/abs/2309.05697)] [[Code](https://github.com/21cmfast/21cmEMU)]  
+  Neural emulator of 21cmFAST power spectra and global signals.
+
+- **(Effort.jl)** *Effort.jl: A Fast and Differentiable Emulator for the Effective Field Theory of the Large Scale Structure of the Universe* `arXiv 2025`  
+  [[Paper](https://arxiv.org/abs/2501.04639)] [[Code](https://github.com/CosmologicalEmulators/Effort.jl)]  
+  Differentiable neural emulator of EFTofLSS galaxy power spectra.
+
 
 ## Simulation-Based Inference
 
@@ -565,6 +714,7 @@ General astronomy resources are covered by [awesome-astronomy](https://github.co
   [[Paper](https://arxiv.org/abs/2402.05137)] [[Code](https://github.com/maho3/ltu-ili)] [[Journal](https://doi.org/10.33232/001c.120559)]  
   Unified interface over sbi, pydelfi and lampe with validation and calibration tools.
 
+
 ## Gravitational Waves
 
 - **(Magic Bullet)** *Convolutional Neural Networks: A Magic Bullet for Gravitational-wave Detection?* `PRD 2019`  
@@ -579,17 +729,26 @@ General astronomy resources are covered by [awesome-astronomy](https://github.co
   [[Paper](https://arxiv.org/abs/2005.06534)] [[Code](https://github.com/ML4GW/DeepClean)]  
   Neural network for low-frequency noise subtraction in gravitational-wave detectors.
 
+- **(nessai)** *Nested Sampling with Normalizing Flows for Gravitational-wave Inference* `PRD 2021`  
+  [[Paper](https://arxiv.org/abs/2102.11056)] [[Code](https://github.com/mj-will/nessai)]  
+  Nested sampler that uses normalizing flows to propose new live points.
+
 - **(DINGO)** *Real-time Gravitational-wave Science with Neural Posterior Estimation* `PRL 2021`  
   [[Paper](https://arxiv.org/abs/2106.12594)] [[Code](https://github.com/dingo-gw/dingo)] [[Journal](https://doi.org/10.1103/PhysRevLett.127.241103)]  
   Normalizing-flow posteriors for binary black hole events with inference times of about a minute.
 
-- **(GWAK)** *GWAK: Gravitational-Wave Anomalous Knowledge with Recurrent Autoencoders* `MLST 2024`  
-  [[Journal](https://doi.org/10.1088/2632-2153/ad3a31)] [[Code](https://github.com/ML4GW/gwak)]  
-  Semi-supervised anomaly detection for unmodeled gravitational-wave transients.
+- **(flowMC)** *flowMC: Normalizing Flow Enhanced Sampling Package for Probabilistic Inference in JAX* `arXiv 2022`  
+  [[Paper](https://arxiv.org/abs/2211.06397)] [[Code](https://github.com/kazewong/flowMC)]  
+  MCMC with normalizing-flow global proposals, used for gravitational-wave parameter estimation.
+
 
 - **(Aframe)** *A Machine-learning Pipeline for Real-time Detection of Gravitational Waves from Compact Binary Coalescences* `arXiv 2024`  
   [[Paper](https://arxiv.org/abs/2403.18661)] [[Code](https://github.com/ML4GW/aframe)]  
   Low-latency neural network search pipeline used in O4.
+
+- **(GWAK)** *GWAK: Gravitational-Wave Anomalous Knowledge with Recurrent Autoencoders* `MLST 2024`  
+  [[Journal](https://doi.org/10.1088/2632-2153/ad3a31)] [[Code](https://github.com/ML4GW/gwak)]  
+  Semi-supervised anomaly detection for unmodeled gravitational-wave transients.
 
 ## Solar Physics and Heliophysics
 
@@ -605,23 +764,45 @@ General astronomy resources are covered by [awesome-astronomy](https://github.co
   [[Paper](https://arxiv.org/abs/1903.04538)] [[Code](https://github.com/fluxtransport/SDOML)] [[Journal](https://doi.org/10.3847/1538-4365/ab1005)]  
   Curated 6.5 TB AIA, HMI and EVE dataset with baselines for EUV irradiance forecasting and instrument translation.
 
+- **(Slic)** *Fast Solar Image Classification Using Deep Learning and Its Importance for Automation in Solar Physics* `Solar Physics 2019`  
+  [[Paper](https://arxiv.org/abs/1905.13575)] [[Code](https://github.com/rhero12/Slic)]  
+  CNN classification of solar features in H-alpha images.
+
+- **(Unsupervised MFBD)** *Learning to Do Multiframe Blind Deconvolution Unsupervisedly* `A&A 2021`  
+  [[Paper](https://arxiv.org/abs/2006.01438)] [[Code](https://github.com/aasensio/unsupervisedMFBD)]  
+  Unsupervised neural multiframe blind deconvolution of solar observations.
+
+
 - **(Surya)** *Surya: Foundation Model for Heliophysics* `arXiv 2025`  
   [[Paper](https://arxiv.org/abs/2508.14112)] [[Code](https://github.com/NASA-IMPACT/Surya)]  
   366M-parameter spatiotemporal model trained on eight AIA channels and five HMI products at native resolution.
 
 ## Radio Astronomy
 
-- **(ClaRAN)** *Radio Galaxy Zoo: ClaRAN, a Deep Learning Classifier for Radio Morphologies* `MNRAS 2019`  
-  [[Journal](https://doi.org/10.1093/mnras/sty2646)] [[Code](https://github.com/chenwuperth/rgz_rcnn)]  
-  Faster R-CNN detection and classification of radio source morphologies.
-
 - **(FETCH)** *FETCH: A Deep-learning Based Classifier for Fast Transient Classification* `MNRAS 2020`  
   [[Paper](https://arxiv.org/abs/1902.06343)] [[Code](https://github.com/devanshkv/fetch)]  
   CNN classifier for fast radio burst and single-pulse candidates.
 
+- **(ClaRAN)** *Radio Galaxy Zoo: ClaRAN, a Deep Learning Classifier for Radio Morphologies* `MNRAS 2019`  
+  [[Journal](https://doi.org/10.1093/mnras/sty2646)] [[Code](https://github.com/chenwuperth/rgz_rcnn)]  
+  Faster R-CNN detection and classification of radio source morphologies.
+
+- **(Attention Gating)** *Attention-gating for Improved Radio Galaxy Classification* `MNRAS 2021`  
+  [[Paper](https://arxiv.org/abs/2012.01248)] [[Code](https://github.com/mb010/AstroAttention)]  
+  Attention-gated CNNs for FRI and FRII radio galaxy classification.
+
 - **(POLISH)** *Deep Radio-interferometric Imaging with POLISH: DSA-2000 and Weak Lensing* `MNRAS 2022`  
   [[Paper](https://arxiv.org/abs/2111.03249)] [[Code](https://github.com/liamconnor/polish-pub)]  
   Super-resolution network for radio interferometric image reconstruction.
+
+- **(radionets)** *Deep Learning-based Imaging in Radio Interferometry* `A&A 2022`  
+  [[Journal](https://doi.org/10.1051/0004-6361/202142113)] [[Code](https://github.com/radionets-project/radionets)]  
+  Neural networks that reconstruct radio images from incomplete visibility data.
+
+- **(Radio Galaxy Zoo FM)** *Radio Galaxy Zoo: Building a Multipurpose Foundation Model for Radio Astronomy with Self-supervised Learning* `arXiv 2023`  
+  [[Paper](https://arxiv.org/abs/2305.16127)] [[Code](https://github.com/inigoval/byol)]  
+  BYOL pretraining on unlabelled radio galaxy images for downstream classification.
+
 
 - **(R2D2)** *The R2D2 Deep Neural Network Series Paradigm for Fast Precision Imaging in Radio Astronomy* `ApJS 2024`  
   [[Paper](https://arxiv.org/abs/2403.05452)] [[Code](https://github.com/basp-group/R2D2-RI)] [[Journal](https://doi.org/10.3847/1538-4365/ad46f5)]  
@@ -636,6 +817,7 @@ General astronomy resources are covered by [awesome-astronomy](https://github.co
 - **(AstroVision)** *AstroVision: Towards Autonomous Feature Detection and Description for Missions to Small Bodies Using Deep Learning* `Acta Astronaut. 2023`  
   [[Paper](https://arxiv.org/abs/2208.02053)] [[Data](https://huggingface.co/datasets/travisdriver/astrovision-data)] [[Journal](https://doi.org/10.1016/j.actaastro.2023.01.009)]  
   115,970 annotated real images of 16 small bodies for keypoint detection and description benchmarks.
+
 
 ## Datasets
 
@@ -653,6 +835,7 @@ General astronomy resources are covered by [awesome-astronomy](https://github.co
   [[Paper](https://arxiv.org/abs/2412.02527)] [[Code](https://github.com/MultimodalUniverse/MultimodalUniverse)]  
   Images, spectra, time series and catalogs for hundreds of millions of objects, distributed as Hugging Face datasets with benchmark tasks.
 
+
 ### Simulation Datasets
 
 - **(Quijote)** *The Quijote Simulations* `ApJS 2020`  
@@ -667,30 +850,61 @@ General astronomy resources are covered by [awesome-astronomy](https://github.co
   [[Paper](https://arxiv.org/abs/2412.00568)] [[Code](https://github.com/PolymathicAI/the_well)]  
   15 TB across 16 physics simulation datasets, including MHD and supernova explosion simulations.
 
+
 ## Tools and Libraries
 
+- [AIRI](https://github.com/basp-group/AIRI) learns denoiser-based regularization for radio-interferometric imaging.
+- [AspGap](https://github.com/jiadonglee/aspgap) infers red giant stellar parameters and abundances from Gaia XP spectra.
 - [astroML](https://github.com/astroML/astroML) provides machine learning and statistics routines for astronomy.
+- [astrorapid](https://github.com/daniel-muthukrishna/astrorapid) classifies transients in real time with recurrent neural networks.
+- [avocado](https://github.com/kboone/avocado) classifies photometric transients with Gaussian process augmentation and boosted trees.
 - [BLISS](https://github.com/prob-ml/bliss) performs Bayesian light source separation with amortized variational inference.
+- [D3M](https://github.com/siyucosmo/ML-Recon) emulates N-body displacement fields with deep learning.
 - [DASH](https://github.com/daniel-muthukrishna/astrodash) classifies supernova spectra with deep learning.
+- [deep-potential](https://github.com/gregreen/deep-potential) recovers gravitational potentials from phase-space snapshots with normalizing flows.
 - [DeepDISC](https://github.com/grantmerz/deepdisc) applies Detectron2 instance segmentation to astronomical source detection.
 - [DeepMerge](https://github.com/deepskies/deepmerge-public) classifies high-redshift merging galaxies with CNNs.
-- [deep-potential](https://github.com/gregreen/deep-potential) recovers gravitational potentials from phase-space snapshots with normalizing flows.
+- [DeepSource](https://github.com/vafaei-ar/deepsource) detects point sources in radio images with deep learning.
+- [E2CNNRadGal](https://github.com/as595/E2CNNRadGal) classifies radio galaxies with group-equivariant CNNs.
 - [Fink](https://github.com/astrolabsoftware/fink-broker) is an LSST alert broker with machine learning classification modules.
+- [FLEET](https://github.com/gmzsebastian/FLEET) selects superluminous supernova and tidal disruption event candidates for follow-up.
+- [FlexCode](https://github.com/tpospisi/FlexCode) estimates conditional densities for photometric redshifts.
+- [Galaxy Zoo Bayesian CNN](https://github.com/mwalmsley/galaxy-zoo-bayesian-cnn) trains Bayesian CNNs with active learning on Galaxy Zoo labels.
 - [galaxy-datasets](https://github.com/mwalmsley/galaxy-datasets) loads Galaxy Zoo datasets for PyTorch training.
+- [GalaxyGAN](https://github.com/SpaceML/GalaxyGAN_python) recovers features from degraded galaxy images with GANs.
+- [GPz](https://github.com/OxfordML/GPz) estimates photometric redshifts with sparse Gaussian processes.
 - [Gravity Spy](https://github.com/Gravity-Spy/GravitySpy) classifies LIGO detector glitches with citizen science and machine learning.
 - [InstrumentToInstrument](https://github.com/RobertJaro/InstrumentToInstrument) translates solar observations between instruments.
+- [IrregularTimeSeriesAutoencoder](https://github.com/bnaul/IrregularTimeSeriesAutoencoderPaper) learns recurrent autoencoder features from irregularly sampled light curves.
 - [jax-cosmo](https://github.com/DifferentiableUniverseInitiative/jax_cosmo) provides differentiable cosmology computations in JAX.
 - [jax-lensing](https://github.com/CosmoStat/jax-lensing) implements probabilistic mass mapping with neural score estimation ([paper](https://arxiv.org/abs/2011.08271)).
+- [jim](https://github.com/kazewong/jim) performs gravitational-wave parameter estimation in JAX with flow-enhanced sampling.
+- [lc_classifier](https://github.com/alercebroker/lc_classifier) classifies light curves in the ALeRCE broker.
+- [LIA](https://github.com/dgodinez77/LIA) classifies microlensing events with random forests.
 - [light-curve](https://github.com/light-curve/light-curve-python) extracts light-curve features for transient and variable classification.
+- [map2map](https://github.com/eelregit/map2map) trains field-to-field neural networks on cosmological simulations.
+- [MiraBest](https://github.com/fmporter/MiraBest-full) provides a labelled FRI and FRII radio galaxy dataset.
 - [ml4gw](https://github.com/ML4GW/ml4gw) provides PyTorch utilities for gravitational-wave machine learning.
+- [MLZ](https://github.com/mgckind/MLZ) estimates photometric redshifts with TPZ random forests.
 - [Morpheus](https://github.com/morpheus-project/morpheus) performs pixel-level morphological classification of astronomical images.
+- [MuyGPyS](https://github.com/LLNL/MuyGPyS) provides scalable Gaussian process estimation used for star-galaxy separation.
 - [ParSNIP](https://github.com/kboone/parsnip) builds generative models of transient light curves with physics-enabled deep learning.
+- [PICS](https://github.com/zhuww/ubc_AI) classifies pulsar candidates with image pattern recognition.
+- [pmwd](https://github.com/eelregit/pmwd) implements differentiable particle-mesh N-body simulation in JAX.
 - [PySR](https://github.com/MilesCranmer/PySR) performs symbolic regression for interpretable scientific models ([paper](https://arxiv.org/abs/2305.01582)).
+- [RESSPECT](https://github.com/COINtoolbox/RESSPECT) applies active learning to supernova spectroscopic follow-up.
 - [sbi](https://github.com/sbi-dev/sbi) implements neural posterior, likelihood and ratio estimation ([JOSS](https://doi.org/10.21105/joss.02505)).
+- [ShapeDeconv](https://github.com/CosmoStat/ShapeDeconv) deconvolves galaxy images with deep learning for shape measurement.
 - [SimBIG](https://github.com/changhoonhahn/simbig) performs simulation-based inference of galaxy clustering.
-- [SuperRAENN](https://github.com/villrv/SuperRAENN) classifies supernova light curves with recurrent autoencoder features.
+- [single_pulse_ml](https://github.com/liamconnor/single_pulse_ml) classifies single-pulse and fast radio burst candidates with deep learning.
+- [star-galaxy CNN](https://github.com/EdwardJKim/dl4astro) separates stars and galaxies with CNNs.
+- [StarNet](https://github.com/astroai/starnet) infers stellar parameters from spectra with CNNs.
+- [Superphot+](https://github.com/VTDA-Group/superphot-plus) fits and classifies supernova light curves.
 - [Superphot](https://github.com/griffin-h/superphot) classifies supernovae from photometric light curves.
+- [SuperRAENN](https://github.com/villrv/SuperRAENN) classifies supernova light curves with recurrent autoencoder features.
+- [The Cannon](https://github.com/andycasey/AnniesLasso) provides a data-driven model for stellar labels from spectra.
 - [The Payne](https://github.com/tingyuansen/The_Payne) fits stellar spectra with neural network spectral emulators.
+- [transomaly](https://github.com/daniel-muthukrishna/transomaly) detects anomalous transients in real time.
 
 ## Communities and Groups
 
