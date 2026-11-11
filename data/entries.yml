@@ -272,7 +272,7 @@ sections:
       modality:
       - Spectra
     - name: OmniSpectra
-      title: 'OmniSpectra: A Unified Foundation Model for Native Resolution Astronomical Spectra'
+      title: 'OmniSpectra: A Unified Foundation Model for Universal Spectra Representation Learning'
       venue: arXiv 2026
       links:
         Paper: https://arxiv.org/abs/2601.15351

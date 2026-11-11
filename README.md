@@ -112,7 +112,7 @@ This list tracks machine learning work in astronomy with public papers, linking 
 
 | Date | Paper | Venue | Code | Links |
 |:--|:--|:--|:--|:--|
-| 2026.01 | [OmniSpectra: A Unified Foundation Model for Native Resolution Astronomical Spectra](https://arxiv.org/abs/2601.15351 "Masked-modeling transformer pretrained on 5.5 million spectra from eight surveys at native resolution.") | arXiv 2026 | - | - |
+| 2026.01 | [OmniSpectra: A Unified Foundation Model for Universal Spectra Representation Learning](https://arxiv.org/abs/2601.15351 "Masked-modeling transformer pretrained on 5.5 million spectra from eight surveys at native resolution.") | arXiv 2026 | - | - |
 | 2025.10 | [Universal Spectral Tokenization via Self-Supervised Panchromatic Representation Learning](https://arxiv.org/abs/2510.17959 "Transformer tokenizer that reads spectra on their native wavelength grids, pretrained on SDSS, DESI, GALAH and APOGEE and adapted to object classification and stellar parameter regression.") | arXiv 2025 | - | - |
 | 2025.07 | [SpecCLIP: Aligning and Translating Spectroscopic Measurements for Stars](https://arxiv.org/abs/2507.01939 "Contrastive alignment of LAMOST low-resolution and Gaia XP spectra foundation models for parameter estimation and cross-spectrum prediction.") | arXiv 2025 | - | [LoRA Fine-tuning](https://arxiv.org/abs/2507.20972) |
 | 2025.06 | [Applying Vision Transformers on Spectral Analysis of Astronomical Objects](https://arxiv.org/abs/2506.00294 "Converts one-dimensional spectra into images for pretrained ViT backbones in classification and regression.") | arXiv 2025 | - | - |
