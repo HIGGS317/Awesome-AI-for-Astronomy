@@ -16,5 +16,5 @@ jobs:
       - name: Check links
         uses: lycheeverse/lychee-action@v2
         with:
-          args: --no-progress --max-retries 3 --accept 200,206,429 --exclude-mail README.md CONTRIBUTING.md
+          args: --no-progress --max-retries 3 --accept 200,206,429 --include-mail=false README.md CONTRIBUTING.md
           fail: true
