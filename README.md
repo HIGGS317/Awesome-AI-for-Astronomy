@@ -729,13 +729,15 @@ Contributions are welcome. Entries live in [`data/entries.yml`](data/entries.yml
 
 ## Citation
 
-If this list is useful in your work, please cite it as follows.
+If this list is useful in your work, please cite it as below. GitHub also provides APA and BibTeX formats through the Cite this repository button.
 
 ```bibtex
 @misc{xiao2026awesomeaiastronomy,
   author       = {Xiao, Xinyu},
-  title        = {Awesome {AI} for Astronomy: A Curated List of Machine Learning Papers, Models, Datasets, Benchmarks and Software for Astronomy},
+  title        = {Awesome-AI-for-Astronomy},
   year         = {2026},
+  publisher    = {GitHub},
+  journal      = {GitHub repository},
   howpublished = {\url{https://github.com/Xin-YuXiao/Awesome-AI-for-Astronomy}}
 }
 ```
