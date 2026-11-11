@@ -1352,6 +1352,10 @@ General astronomy resources are covered by [awesome-astronomy](https://github.co
   [[Paper](https://arxiv.org/abs/2304.07764)]  
   Zero-shot crater segmentation with SAM on lunar and Martian images and DEMs.
 
+- **(Lunar Twins)** *Lunar Twins: We Choose to Go to the Moon with Large Language Models* `ACL Findings 2025`  
+  [[Paper](https://aclanthology.org/2025.findings-acl.69/)]  
+  Earth-Moon collaborative Chang'e large model with Yutu-Text and Yutu-VL small models, the Lunar_GenData multi-agent instruction workflow built on Chang'e mission data, and the Lunar_Eval suite.
+
 - *Deep Learning Framework for Crater Detection and Identification on the Moon and Mars* `arXiv 2025`  
   [[Paper](https://arxiv.org/abs/2508.03920)] [[Code](https://github.com/sydney-machine-learning/crater-identification)]  
   Two-stage YOLO detection and CNN or ResNet-50 size classification of craters with an annotated dataset.
@@ -1360,9 +1364,21 @@ General astronomy resources are covered by [awesome-astronomy](https://github.co
   [[Paper](https://arxiv.org/abs/2601.07795)]  
   OWLv2 vision transformer fine-tuned on LRO images for lunar crater detection.
 
+- **(LLaVA-LE)** *LLaVA-LE: Large Language-and-Vision Assistant for Lunar Exploration* `arXiv 2026`  
+  [[Paper](https://arxiv.org/abs/2603.24696)]  
+  LLaVA adapted to lunar remote sensing with LUCID, 96k panchromatic images paired with scientific captions and question-answer pairs.
+
 - *Deep Learning-Based Lunar Crater Terrain Relative Navigation* `arXiv 2026`  
   [[Paper](https://arxiv.org/abs/2606.14776)]  
   U-Net++ crater detector coupled with an extended Kalman filter for lunar landing navigation.
+
+- **(Lunar-Bench)** *Lunar-Bench: Towards Evaluating Task-Oriented Reasoning of LLMs in Lunar Exploration Scenarios* `ACL Findings 2026`  
+  [[Paper](https://aclanthology.org/2026.findings-acl.83/)]  
+  3,000 tasks derived from lunar mission procedures with Environmental Scenario Indicators for safety, efficiency, integrity and alignment; the best of 36 models reaches 47.8% against 65.1% for human experts.
+
+- **(Lunar-R1)** *Lunar-R1: Efficient Reasoning of Large Language Models for Lunar Exploration via Reinforcement Learning* `EMNLP 2026 Industry`  
+  [[Paper](https://aclanthology.org/2026.emnlp-industry.5/)]  
+  8B reasoning model trained by continued pretraining, SFT and RL, with Latent Difficulty Perception that cuts chain-of-thought tokens by 38.9%, the Lunar-QA benchmark and RK3588 NPU deployment.
 
 ## Datasets
 
