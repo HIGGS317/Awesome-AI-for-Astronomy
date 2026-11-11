@@ -1,24 +1,31 @@
 <!-- This file is generated from data/entries.yml by scripts/build.py. Edit the YAML file and run the script instead of editing this file. -->
 
+<div align="center">
+
 # Awesome AI for Astronomy
+
+**A curated list of papers, models, datasets, benchmarks and software for artificial intelligence in astronomy, astrophysics, cosmology, heliophysics and planetary science.**
 
 [![Awesome](https://awesome.re/badge.svg)](https://awesome.re)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](CONTRIBUTING.md)
 [![License: CC0-1.0](https://img.shields.io/badge/License-CC0_1.0-lightgrey.svg)](LICENSE)
 ![Last Commit](https://img.shields.io/github/last-commit/Xin-YuXiao/Awesome-AI-for-Astronomy)
 
-A curated list of papers, models, datasets, benchmarks and software for artificial intelligence in astronomy, astrophysics, cosmology, heliophysics and planetary science. The list currently holds 344 papers and 64 software packages.
+**[Web page](https://xin-yuxiao.github.io/Awesome-AI-for-Astronomy/)** &nbsp;|&nbsp; **[Contents](#contents)** &nbsp;|&nbsp; **[Contributing](CONTRIBUTING.md)** &nbsp;|&nbsp; **[Citation](#citation)**
 
-**[Open the searchable web page](https://xin-yuxiao.github.io/Awesome-AI-for-Astronomy/)** to filter the list by section, year, venue and code availability, and to read a one-sentence summary of every paper.
+</div>
 
-General astronomy resources are covered by [awesome-astronomy](https://github.com/jonathansick/awesome-astronomy), and classical astronomical data science by [awesome-astro-datascience](https://github.com/mpi-astronomy/awesome-astro-datascience). This list tracks machine learning work with public papers, linking public code where it exists, with emphasis on foundation models, language models, agents and benchmarks released since 2021, together with established deep learning methods in each subfield.
+> [!TIP]
+> The [searchable web page](https://xin-yuxiao.github.io/Awesome-AI-for-Astronomy/) filters all 382 papers and 64 software packages by section, year, venue and code availability, and shows a one-sentence summary for every paper.
 
-**Notes**
+## About
 
-1. Papers are listed newest first within each subsection. The date column gives the month of the first arXiv version, or the publication year when there is no arXiv version.
-2. The venue column shows the peer-reviewed venue in bold when it is confirmed by the journal DOI, the official repository or the publisher page. Otherwise it shows `arXiv` and the year.
-3. Every arXiv identifier, DOI and repository link was checked against the paper page or the official repository README before inclusion. Hovering over a paper title shows its one-sentence summary.
-4. Contributions are welcome. See [CONTRIBUTING.md](CONTRIBUTING.md) for the entry format.
+This list tracks machine learning work in astronomy with public papers, linking public code where it exists. It emphasises foundation models, language models, agents and benchmarks released since 2021, together with established deep learning methods in each subfield. General astronomy resources are covered by [awesome-astronomy](https://github.com/jonathansick/awesome-astronomy), and classical astronomical data science by [awesome-astro-datascience](https://github.com/mpi-astronomy/awesome-astro-datascience).
+
+> [!NOTE]
+> - Papers are listed newest first within each subsection. The date column gives the month of the first arXiv version, or the publication year when there is no arXiv version.
+> - Peer-reviewed venues are shown in **bold** when confirmed by the journal DOI, the official repository or the publisher page. Other entries show `arXiv` and the year.
+> - Every arXiv identifier, DOI and repository link was checked against the paper page or the official repository before inclusion. Hovering over a paper title shows its summary.
 
 ## Contents
 
@@ -63,6 +70,7 @@ General astronomy resources are covered by [awesome-astronomy](https://github.co
 |:--|:--|:--|:--|:--|
 | 2026.07 | [Source Finding and Characterisation for SKAO Science](https://arxiv.org/abs/2607.03736 "Review of classical and machine learning source finding and morphology classification for SKAO surveys.") | arXiv 2026 | - | - |
 | 2026.06 | [The Role of Artificial Intelligence in the SKA Era](https://arxiv.org/abs/2606.28493 "Chapter on deep learning for source finding, RFI mitigation, imaging, anomaly detection and scheduling for the SKA.") | arXiv 2026 | - | - |
+| 2026.06 | [Machine Learning and Deep Learning for Exoplanet Detection and Atmospheric Characterization with JWST and the Upcoming Ariel Mission](https://arxiv.org/abs/2606.23766 "Review of machine learning for transit identification, candidate vetting, detrending and atmospheric retrieval, including neural and flow matching posterior estimation, in the context of JWST and Ariel.") | arXiv 2026 | - | - |
 | 2026.03 | [Deep Learning-Based Astronomical Multimodal Data Fusion: A Comprehensive Review](https://arxiv.org/abs/2603.00699 "Review of deep learning methods that fuse images, spectra, time series and catalogues in astronomy.") | arXiv 2026 | - | - |
 | 2026.01 | [Opportunities in AI/ML for the Rubin LSST Dark Energy Science Collaboration](https://arxiv.org/abs/2601.14235 "LSST DESC roadmap covering photometric redshifts, transient classification, weak lensing inference, foundation models and infrastructure.") | arXiv 2026 | - | - |
 | 2025.11 | [Advances and Challenges in Solar Flare Prediction: A Review](https://arxiv.org/abs/2511.20465 "Review of statistical, physics-based and deep learning flare forecasting including CNN, LSTM and transformer models.") | arXiv 2025 | - | - |
@@ -71,6 +79,7 @@ General astronomy resources are covered by [awesome-astronomy](https://github.co
 | 2025.08 | [A Survey of Scientific Large Language Models: From Data Foundations to Agent Frontiers](https://arxiv.org/abs/2508.21148 "Survey of scientific LLMs and their training data, including astronomy datasets and models.") | arXiv 2025 | - | - |
 | 2025.08 | [The Revolution in Strong Lensing Discoveries from Euclid](https://arxiv.org/abs/2508.14624 "Review of how machine learning, citizen science and expert inspection found about 500 high-quality lens candidates in Euclid Q1.") | arXiv 2025 | - | - |
 | 2025.03 | [Towards Scientific Intelligence: A Survey of LLM-based Scientific Agents](https://arxiv.org/abs/2503.24047 "Survey of LLM-based scientific agents with a section on astronomy and cosmology applications.") | arXiv 2025 | - | - |
+| 2025.01 | [Machine Learning in Gamma Astronomy](https://arxiv.org/abs/2501.19064 "Review of deep learning methods for Imaging Atmospheric Cherenkov Telescope data, covering gamma-hadron separation, event reconstruction and fast simulation.") | arXiv 2025 | - | - |
 | 2024.09 | [What is the Role of Large Language Models in the Evolution of Astronomy Research?](https://arxiv.org/abs/2409.20252 "Use cases, survey results and recommendations on LLM adoption in astronomy research.") | arXiv 2024 | - | - |
 | 2023.10 | [Constructing Impactful Machine Learning Research for Astronomy: Best Practices for Researchers and Reviewers](https://arxiv.org/abs/2310.12528 "Recommendations on baselines, validation, reproducibility and reporting for machine learning papers in astronomy.") | arXiv 2023 | - | - |
 | 2023.10 | [Deep Learning Based Systems for Crater Detection: A Review](https://arxiv.org/abs/2310.07727 "Review of CNN, U-Net, R-CNN and transformer crater detection algorithms for the Moon, Mars and Mercury.") | arXiv 2023 | - | - |
@@ -89,6 +98,7 @@ General astronomy resources are covered by [awesome-astronomy](https://github.co
 
 | Date | Paper | Venue | Code | Links |
 |:--|:--|:--|:--|:--|
+| 2026.09 | [Gestalt: A Meta-Foundation Model for Astronomy](https://arxiv.org/abs/2609.38312 "Combines frozen embeddings of 22 foundation models from eight families by whitening and randomised SVD, outperforming every member on 19 of 21 metrics for HSC, JWST and Legacy Survey galaxies.") | arXiv 2026 | - | - |
 | 2024.05 | [AstroPT: Scaling Large Observation Models for Astronomy](https://arxiv.org/abs/2405.14930 "Autoregressive transformers from 1M to 2.1B parameters pretrained on 8.6M DESI Legacy Survey galaxy images.") | **ICML 2024 Workshop (AI4Science)** | [Code](https://github.com/Smith42/astroPT) | [Euclid Paper](https://arxiv.org/abs/2503.15312) [Model](https://huggingface.co/Smith42/astroPT_v2.0) |
 | 2024.04 | **Galaxy Scaling Laws** [Scaling Laws for Galaxy Images](https://arxiv.org/abs/2404.02973 "Supervised scaling study on 840k galaxy images with over 100M Galaxy Zoo annotations.") | arXiv 2024 | [Code](https://github.com/mwalmsley/zoobot) | - |
 | 2023.12 | [Rare Galaxy Classes Identified In Foundation Model Representations](https://arxiv.org/abs/2312.02910 "Searches Zoobot representation space for rare morphological classes.") | arXiv 2023 | [Code](https://github.com/mwalmsley/zoobot) | - |
@@ -103,6 +113,7 @@ General astronomy resources are covered by [awesome-astronomy](https://github.co
 | Date | Paper | Venue | Code | Links |
 |:--|:--|:--|:--|:--|
 | 2026.01 | [OmniSpectra: A Unified Foundation Model for Native Resolution Astronomical Spectra](https://arxiv.org/abs/2601.15351 "Masked-modeling transformer pretrained on 5.5 million spectra from eight surveys at native resolution.") | arXiv 2026 | - | - |
+| 2025.10 | [Universal Spectral Tokenization via Self-Supervised Panchromatic Representation Learning](https://arxiv.org/abs/2510.17959 "Transformer tokenizer that reads spectra on their native wavelength grids, pretrained on SDSS, DESI, GALAH and APOGEE and adapted to object classification and stellar parameter regression.") | arXiv 2025 | - | - |
 | 2025.07 | [SpecCLIP: Aligning and Translating Spectroscopic Measurements for Stars](https://arxiv.org/abs/2507.01939 "Contrastive alignment of LAMOST low-resolution and Gaia XP spectra foundation models for parameter estimation and cross-spectrum prediction.") | arXiv 2025 | - | [LoRA Fine-tuning](https://arxiv.org/abs/2507.20972) |
 | 2025.06 | [Applying Vision Transformers on Spectral Analysis of Astronomical Objects](https://arxiv.org/abs/2506.00294 "Converts one-dimensional spectra into images for pretrained ViT backbones in classification and regression.") | arXiv 2025 | - | - |
 | 2024.11 | [SpectraFM: Tuning into Stellar Foundation Models](https://arxiv.org/abs/2411.04750 "Transformer pretrained on synthetic stellar spectra and transferred to real spectra across wavelength ranges.") | **NeurIPS 2024 Workshop (FM4Science)** | - | - |
@@ -125,6 +136,7 @@ General astronomy resources are covered by [awesome-astronomy](https://github.co
 
 | Date | Paper | Venue | Code | Links |
 |:--|:--|:--|:--|:--|
+| 2026.10 | [Self-Supervised Representation Learning for JWST Galaxy Images and Low Resolution Spectra](https://arxiv.org/abs/2610.31078 "Joint representation of F150W imaging and 1 to 2 micron PRISM spectra that recovers stellar mass at 1 < z < 3 with R2 of about 0.9, with CLIP alignment improving single-modality inference.") | arXiv 2026 | - | - |
 | 2025.10 | [AION-1: Omnimodal Foundation Model for Astronomical Sciences](https://arxiv.org/abs/2510.17960 "Token-based masked modeling over 39 modalities from Legacy Survey, HSC, SDSS, DESI and Gaia, released at 300M to 3.1B parameters.") | **NeurIPS 2025** | [Code](https://github.com/PolymathicAI/AION) | [Model](https://huggingface.co/polymathic-ai/aion-base) |
 | 2024.11 | [AstroM3: A Self-Supervised Multimodal Model for Astronomy](https://arxiv.org/abs/2411.08842 "Trimodal CLIP-style pretraining on variable-star light curves, spectra and metadata.") | arXiv 2024 | [Code](https://github.com/MeriDK/AstroM3) | - |
 | 2024.03 | [PAPERCLIP: Associating Astronomical Observations and Natural Language with Multi-Modal Models](https://arxiv.org/abs/2403.08851 "CLIP finetuned on Hubble Space Telescope observations paired with observing proposal abstracts.") | **COLM 2024** | [Code](https://github.com/smsharma/PAPERCLIP-Hubble) | - |
@@ -155,6 +167,7 @@ General astronomy resources are covered by [awesome-astronomy](https://github.co
 | Date | Paper | Venue | Code | Links |
 |:--|:--|:--|:--|:--|
 | 2026.11 | **auto\_research** [A Semi-autonomous Multi-agent Pipeline for High-energy Astrophysics Research with Enforced Provenance and Verifiable Self-extension](https://arxiv.org/abs/2611.05251 "Multi-agent pipeline that retrieves HEASARC data and writes its own tools, tested by reproducing IXPE polarimetry results.") | arXiv 2026 | - | - |
+| 2026.04 | [Competing with AI Scientists: Agent-Driven Approach to Astrophysics Research](https://arxiv.org/abs/2604.09621 "Cmbagent multi-agent workflow with human intervention that builds a weak lensing inference pipeline and took first place in the FAIR Universe Weak Lensing Uncertainty Challenge.") | arXiv 2026 | - | - |
 | 2025.10 | [Mephisto: Self-Improving Large Language Model-Based Agents for Automated Interpretation of Multi-band Galaxy Observations](https://arxiv.org/abs/2510.08354 "Multi-agent tree search over CIGALE SED models with a self-updating knowledge base, applied to JWST Little Red Dots.") | arXiv 2025 | [Code](https://zenodo.org/records/15589045) | [Short Paper](https://arxiv.org/abs/2409.14807) |
 | 2025.10 | **Denario** [The Denario Project: Deep Knowledge AI Agents for Scientific Discovery](https://arxiv.org/abs/2510.26887 "Modular multi-agent research assistant for idea generation, analysis and paper drafting, using cmbagent as its analysis backend.") | arXiv 2025 | [Code](https://github.com/AstroPilot-AI/Denario) | [Demo](https://huggingface.co/spaces/astropilot-ai/Denario) |
 | 2025.10 | **CTAgent / Gammapygpt** [Domain-Specific Agents for Cherenkov Telescope Array Control Software and Gamma-Ray Data Analysis](https://arxiv.org/abs/2510.01299 "Agents that generate and validate CTAO control software and Gammapy analysis scripts with automated self-correction.") | arXiv 2025 | - | - |
@@ -175,7 +188,11 @@ Benchmarks are grouped by input type. Data and modality benchmarks provide obser
 
 | Date | Paper | Venue | Code | Links |
 |:--|:--|:--|:--|:--|
+| 2026.11 | **FAIR Universe WL** [FAIR Universe Weak Lensing ML Uncertainty Challenge: Dataset and Cosmological Inference Competition](https://arxiv.org/abs/2611.10228 "Simulated HSC-like weak lensing convergence maps and a competition scoring cosmological parameter estimates together with their uncertainty calibration.") | arXiv 2026 | - | - |
+| 2026.08 | [JW-FD: A Long Horizon Multimodal Solar Flare Forecasting Dataset](https://arxiv.org/abs/2608.19195 "Fifteen-year flare forecasting dataset from 2011 to 2025 built from SDO/HMI magnetograms, NOAA region summaries and flare lists, with active region level splits and configurable horizons.") | arXiv 2026 | - | - |
 | 2026.07 | [Moonstone: A Multimodal Foundation Model and Benchmark for Lunar Remote Sensing](https://arxiv.org/abs/2607.03644 "Lunar remote sensing foundation model released with a benchmark of six downstream tasks.") | arXiv 2026 | - | - |
+| 2026.04 | [CraterBench-R: Instance-Level Crater Retrieval for Planetary Scale](https://arxiv.org/abs/2604.06245 "Instance retrieval benchmark of about 25,000 Mars CTX crater identities with verified multi-view queries, used to evaluate 30 vision backbones.") | arXiv 2026 | - | - |
+| 2025.11 | [NuBench: An Open Benchmark for Deep Learning-Based Event Reconstruction in Neutrino Telescopes](https://arxiv.org/abs/2511.13111 "Seven simulated neutrino telescope datasets used to compare ParticleNeT, DynEdge, GRIT and DeepIce on energy, direction, topology, vertex and inelasticity reconstruction.") | arXiv 2025 | - | - |
 | 2025.10 | [Mars-Bench: A Benchmark for Evaluating Foundation Models for Mars Science Tasks](https://arxiv.org/abs/2510.24010 "20 orbital and rover image datasets for classification, segmentation and object detection used to compare natural-image, Earth observation and vision-language backbones.") | **NeurIPS 2025 (Datasets and Benchmarks)** | - | - |
 | 2025.10 | **MMAE** [Multi-Modal Masked Autoencoders for Learning Image-Spectrum Associations for Galaxy Evolution and Cosmology](https://arxiv.org/abs/2510.22527 "Paired dataset of 134,533 HSC galaxy images and DESI spectra with a masked autoencoder baseline for cross-modal reconstruction and redshift estimation.") | arXiv 2025 | - | - |
 | 2025.08 | [SuryaBench: Benchmark Dataset for Advancing Machine Learning in Heliophysics and Space Weather Prediction](https://arxiv.org/abs/2508.14107 "Curated SDO core dataset with application benchmarks on active region emergence, flares, magnetic field extrapolation, EUV irradiance and solar wind prediction.") | arXiv 2025 | - | - |
@@ -201,7 +218,9 @@ Benchmarks are grouped by input type. Data and modality benchmarks provide obser
 | Date | Paper | Venue | Code | Links |
 |:--|:--|:--|:--|:--|
 | 2026.10 | [Astro2Method: Benchmarking LLMs on Machine Learning Method Selection in Astronomy](https://arxiv.org/abs/2610.30282 "500 expert-reviewed binary questions from 346 astronomy papers asking which machine learning method performs better for a stated problem.") | arXiv 2026 | - | [Data](https://huggingface.co/datasets/Xingzhongfan/Astro2Method) |
+| 2026.09 | [Reconstructing Implicit Scientific Knowledge: Evaluating LLM Agents through End-to-End Reproduction of Astronomy](https://arxiv.org/abs/2609.35900 "Reproduction framework that separates execution from verification, applied to one ApJ and thirteen Nature astronomy papers, eleven of which leave the reproduction path ambiguous.") | arXiv 2026 | - | - |
 | 2026.06 | **ALeRCE Text-to-SQL** [Querying an Astronomical Database Using Large Language Models: The ALeRCE Text-to-SQL System](https://arxiv.org/abs/2606.18108 "Evaluates thirteen LLMs on translating natural-language requests into SQL queries over the ALeRCE alert broker database, comparing direct and step-by-step generation.") | **A&A 2026** | - | - |
+| 2026.03 | [AI Cosplaying as Astrophysicists: A Controlled Synthetic-Agent Study of AI-Assisted Astrophysical Research Workflows](https://arxiv.org/abs/2603.29039 "Controlled study of 144 synthetic researchers on 2,592 astrophysics assignments, comparing solo work with four styles of AI assistance over 12,960 scored episodes.") | arXiv 2026 | - | - |
 | 2025.10 | **IOAA** [Large Language Models Achieve Gold Medal Performance at the International Olympiad on Astronomy & Astrophysics (IOAA)](https://arxiv.org/abs/2510.05016 "Evaluates five LLMs on 49 theory and 8 data analysis problems from the 2022 to 2025 IOAA exams.") | arXiv 2025 | - | - |
 | 2025.10 | [ReplicationBench: Can AI Agents Replicate Astrophysics Research Papers?](https://arxiv.org/abs/2510.24591 "111 tasks derived from 20 astrophysics papers that test whether agents can reproduce published results, with the best models scoring about 20 percent.") | arXiv 2025 | - | - |
 | 2025.07 | **CosmoPaperQA** [Evaluating Retrieval-Augmented Generation Agents for Autonomous Scientific Discovery in Astrophysics](https://arxiv.org/abs/2507.07155 "105 expert-written question-answer pairs from cosmology papers for comparing retrieval-augmented generation agents against human evaluation.") | arXiv 2025 | - | [Data](https://huggingface.co/datasets/ASTROANTS/CosmoPaperQA) |
@@ -217,6 +236,7 @@ Benchmarks are grouped by input type. Data and modality benchmarks provide obser
 
 | Date | Paper | Venue | Code | Links |
 |:--|:--|:--|:--|:--|
+| 2026.08 | [A General-Purpose VLM Can Teach an Astronomy Foundation Model to Better Recognize Galaxy Morphology](https://arxiv.org/abs/2608.02300 "Distils a general-purpose VLM answering Galaxy Zoo decision tree questions into Zoobot through side tuning, with teacher uncertainty guiding which galaxies are sent for human labels.") | arXiv 2026 | - | - |
 | 2025.03 | [Euclid Q1: Exploring Galaxy Morphology across Cosmic Time through Sersic Fits](https://arxiv.org/abs/2503.15309 "Euclid Q1 morphology study listed among Zoobot applications.") | arXiv 2025 | - | - |
 | 2025.03 | [Euclid Q1: First Visual Morphology Catalogue](https://arxiv.org/abs/2503.15310 "First Euclid visual morphology catalogue produced with Galaxy Zoo volunteers and Zoobot.") | arXiv 2025 | - | - |
 | 2025.03 | [Euclid Q1: A First Look at the Fraction of Bars in Massive Galaxies at z \< 1](https://arxiv.org/abs/2503.15311 "Bar fraction measurement in Euclid Q1 using machine learning morphology.") | arXiv 2025 | - | - |
@@ -280,6 +300,7 @@ Benchmarks are grouped by input type. Data and modality benchmarks provide obser
 
 | Date | Paper | Venue | Code | Links |
 |:--|:--|:--|:--|:--|
+| 2026.04 | **AgileLens** [Euclid Quick Data Release (Q1). AgileLens: A Scalable CNN-Based Pipeline for Strong Gravitational Lens Identification](https://arxiv.org/abs/2604.06648 "Iterative fine-tuning of a modified VGG16 from 27 seed lenses to 30,686 training images, yielding 441 grade A or B candidates in Euclid Q1, 130 of them new.") | arXiv 2026 | - | - |
 | 2025.11 | [Euclid Quick Data Release (Q1). Searching for Giant Gravitational Arcs in Galaxy Clusters with Mask Region-based Convolutional Neural Networks](https://arxiv.org/abs/2511.03064 "Mask R-CNN instance segmentation of cluster-scale lensed arcs trained on Euclidised HST simulations.") | arXiv 2025 | - | - |
 | 2025.05 | **GLUE I** [Gravitational Lenses in UNIONS and Euclid (GLUE) I: A Search for Strong Gravitational Lenses in UNIONS with Subaru, CFHT, and Pan-STARRS Data](https://arxiv.org/abs/2505.05032 "ResNet lens finder based on CMU-DeepLens applied to 8 million UNIONS galaxies.") | arXiv 2025 | - | - |
 | 2025.03 | [Euclid Q1: The Strong Lensing Discovery Engine A, System Overview and Lens Catalogue](https://arxiv.org/abs/2503.15324 "Overview of the Euclid Q1 strong lens search combining volunteers and machine learning.") | arXiv 2025 | - | - |
@@ -331,7 +352,10 @@ Benchmarks are grouped by input type. Data and modality benchmarks provide obser
 
 | Date | Paper | Venue | Code | Links |
 |:--|:--|:--|:--|:--|
+| 2026.05 | [Spectra as Language: Large Language Models for Scalable Stellar Parameter and Abundance Inference](https://arxiv.org/abs/2605.22162 "Fine-tunes a large language model on LAMOST low-resolution spectra in two stages to infer stellar parameters and elemental abundances, validated against Gaia-ESO and GALAH DR4.") | arXiv 2026 | - | - |
 | 2026.04 | [ASTRAFier: A Novel and Scalable Transformer-based Stellar Variability Classifier](https://arxiv.org/abs/2604.07437 "BiLSTM, attention and CNN classifier applied to about 2.8 million TESS light curves.") | arXiv 2026 | - | - |
+| 2026.04 | [Homogeneous Stellar Parameters from Heterogeneous Spectra with Deep Learning](https://arxiv.org/abs/2604.25786 "Single transformer trained across APOGEE, GALAH, DESI and Gaia RVS that outputs atmospheric parameters, 20 abundances, distances and ages on one consistent scale.") | arXiv 2026 | - | - |
+| 2026.04 | [Potential of Gaia XP Spectra in Red Giant Star Asteroseismology: A Deep-Learning Approach](https://arxiv.org/abs/2604.17045 "CNN-LSTM models trained on Kepler red giants recover delta nu, nu max and period spacing from Gaia XP spectra and provide predictions for more than 2.5 million giants.") | arXiv 2026 | - | - |
 | 2026.03 | [A Generalist Model Including Evolved Star Mass and Age](https://arxiv.org/abs/2603.03732 "Extends a transformer stellar foundation model to infer mass and age of giants from Gaia XP spectra.") | arXiv 2026 | - | - |
 | 2025.10 | [EBOP MAVEN: A Machine Learning Model to Estimate the Input Parameters for Analytic Fitting of Detached Eclipsing Binary Light Curves](https://arxiv.org/abs/2510.21465 "CNN that predicts detached eclipsing binary parameters from phase-folded TESS light curves to initialise JKTEBOP fits.") | arXiv 2025 | - | - |
 | 2025.08 | [The Use of Conditional Variational Autoencoders in Generating Stellar Spectra](https://arxiv.org/abs/2508.17059 "CVAE that generates stellar spectra over a grid of atmospheric parameters, rotation and instrumental resolution.") | arXiv 2025 | - | - |
@@ -353,6 +377,7 @@ Benchmarks are grouped by input type. Data and modality benchmarks provide obser
 | 2026.07 | [NAPTIME: A Neural-Process Framework for Rubin Alert Classification](https://arxiv.org/abs/2607.19236 "Neural process that jointly reconstructs and classifies sparse multiband light curves on ELAsTiCC2 and MALLORN.") | arXiv 2026 | - | - |
 | 2026.06 | [PIE-ADA: Physics-Informed Ensemble with Adaptive Data Augmentation for Photometric Transient Classification](https://arxiv.org/abs/2606.29367 "Physics-motivated light-curve augmentation for rare classes combined with gradient boosted ensembles.") | arXiv 2026 | - | - |
 | 2025.02 | [Real-Time Active Learning for Optimised Spectroscopic Follow-up: Enhancing Early SN Ia Classification with the Fink Broker](https://arxiv.org/abs/2502.19555 "Active learning loop on the Fink stream that selects spectroscopic targets to improve early SN Ia classifiers.") | arXiv 2025 | - | - |
+| 2025.02 | [Transfer Learning for Transient Classification: From Simulations to Real Data and ZTF to LSST](https://arxiv.org/abs/2502.18558 "Shows that transient classifiers pretrained on simulations or ZTF light curves can be adapted to real data and to LSST with small labelled samples.") | arXiv 2025 | - | - |
 | 2025.01 | [ORACLE: A Real-Time, Hierarchical, Deep-Learning Photometric Classifier for the LSST](https://arxiv.org/abs/2501.01496 "Hierarchical recurrent classifier for real-time LSST alert streams.") | arXiv 2025 | [Code](https://github.com/uiucsn/ORACLE) | - |
 | 2025.01 | [AMPEL Workflows for LSST: Modular and Reproducible Real-time Photometric Classification](https://arxiv.org/abs/2501.16511 "SNGuess, FollowMe and FinalBet classification channels for ELAsTiCC alerts.") | arXiv 2025 | - | - |
 | 2024.04 | **CATS** [Transient Classifiers for Fink](https://arxiv.org/abs/2404.08798 "Tree-based and deep learning classifiers in the Fink broker evaluated on ELAsTiCC, including the CATS architecture.") | arXiv 2024 | - | - |
@@ -376,6 +401,7 @@ Benchmarks are grouped by input type. Data and modality benchmarks provide obser
 
 | Date | Paper | Venue | Code | Links |
 |:--|:--|:--|:--|:--|
+| 2026.06 | **ExoVeil** [One Transit Is All You Need: Detecting Exoplanets Through Learned Stellar Behaviour with ExoVeil](https://arxiv.org/abs/2606.02778 "Transformer world model trained on 16,499 Kepler light curves predicts stellar flux, with matched filtering on residuals reaching AUC 0.938 on DR25 and recovering 47 TESS planets zero-shot.") | arXiv 2026 | - | - |
 | 2026.04 | [ExoNet: Calibrated Multimodal Deep Learning for TESS Exoplanet Candidate Vetting Using Phase-Folded Light Curves, Stellar Parameters, and Multi-Head Attention](https://arxiv.org/abs/2604.15560 "Late fusion of light-curve CNN features with attention and stellar parameters, calibrated by temperature scaling.") | arXiv 2026 | - | - |
 | 2026.03 | **RAVEN** [Automatic Search for Transiting Planets in TESS-SPOC FFIs with RAVEN: Over 100 Newly Validated Planets and Over 2000 Vetted Candidates](https://arxiv.org/abs/2603.22597 "Machine learning classifiers trained on injected simulations combined with statistical validation for TESS FFI candidates.") | arXiv 2026 | - | - |
 | 2025.11 | [WATSON-Net: Vetting, Validation, and Analysis of Transits from Space Observations with Neural Networks](https://arxiv.org/abs/2511.08768 "Multi-branch network for transit vetting integrated into the SHERLOCK pipeline.") | arXiv 2025 | - | - |
@@ -408,13 +434,17 @@ Benchmarks are grouped by input type. Data and modality benchmarks provide obser
 
 | Date | Paper | Venue | Code | Links |
 |:--|:--|:--|:--|:--|
+| 2026.09 | [Neural Posterior Estimation for Tomographic Weak Lensing Mass Mapping](https://arxiv.org/abs/2609.07833 "Amortised network that maps multiband images directly to a variational posterior over tomographic shear and convergence, validated on LSST DESC DC2 images.") | arXiv 2026 | - | - |
 | 2026.07 | [From Dark Matter to Galaxies: Halo-Free Mock Generation via Conditional Point-Cloud Diffusion](https://arxiv.org/abs/2607.19808 "Point-cloud diffusion that generates galaxy positions and star formation rates from IllustrisTNG dark matter fields.") | arXiv 2026 | - | - |
 | 2026.06 | [Dark Energy Survey Year 3 Results: Optimized wCDM Simulation-based Inference with Weak Lensing Map-level Hybrid Statistics](https://arxiv.org/abs/2606.11309 "Hybrid power spectrum and neural summaries that compress DES Y3 lensing maps to seven statistics.") | arXiv 2026 | - | - |
 | 2026.06 | [Field-level Weak Lensing Cosmology with 60 Simulations Using Multifidelity Simulation-based Inference](https://arxiv.org/abs/2606.23346 "Pretraining on lognormal mocks and fine-tuning on 60 N-body simulations for KiDS-Legacy field-level inference.") | arXiv 2026 | - | - |
 | 2026.06 | [Simulation-Based Inference for Cluster Cosmology with Set-Based Neural Network Architectures](https://arxiv.org/abs/2606.27439 "Set-based networks and autoregressive flows on eRASS1-like cluster catalogues.") | arXiv 2026 | - | - |
+| 2026.06 | **JADE** [Joint Inference of Weak Lensing Convergence Map and Cosmology with Diffusion Models](https://arxiv.org/abs/2606.31988 "Pixel-space diffusion transformer that treats cosmological parameters as tokens and samples convergence maps and parameters jointly from noisy shear fields.") | arXiv 2026 | [Code](https://github.com/b-remy/jade) | - |
+| 2026.02 | [C3NN-SBI: Learning Hierarchies of N-Point Statistics from Cosmological Fields with Physics-Informed Neural Networks](https://arxiv.org/abs/2602.16768 "Couples a correlator convolutional network whose summaries map to given N-point orders with simulation-based inference on DES Y3-like convergence maps.") | arXiv 2026 | - | - |
 | 2025.11 | [Dark Energy Survey Year 3 Results: Simulation-based wCDM Inference from Weak Lensing and Galaxy Clustering Maps with Deep Learning. I. Analysis Design](https://arxiv.org/abs/2511.04681 "Graph CNN compression of spherical lensing and clustering maps with normalizing-flow likelihoods.") | arXiv 2025 | - | - |
 | 2025.11 | [Fast End-to-End Framework for Cosmological Parameter Inference from CMB Data Using Machine Learning](https://arxiv.org/abs/2511.01291 "Combines analytical blind separation of foregrounds with neural network parameter inference.") | arXiv 2025 | - | - |
 | 2025.11 | [Deep-learning Mitigation of Foregrounds and Beam Effects in 21-cm Intensity Mapping Using Hybrid Frequency Differencing and PCA](https://arxiv.org/abs/2511.15072 "Two-channel UNet with frequency-differenced and PCA-cleaned inputs for HI reconstruction under realistic beams.") | arXiv 2025 | - | - |
+| 2025.11 | [The Shear-to-Cosmology Paradigm I. Hybrid Field-Level and Simulation-Based Framework for Weak Lensing Surveys](https://arxiv.org/abs/2511.22851 "Maps observed shear fields directly to cosmological parameters, roughly doubling the figure of merit of convergence-based inference on CSST-like mocks.") | arXiv 2025 | - | - |
 | 2025.09 | **21cmLSTM / 21cmKAN** [Emulating Global 21 cm Cosmology Observations from the Lunar Far Side to Achieve Quick and Reliable Physical Constraints](https://arxiv.org/abs/2509.00976 "LSTM and Kolmogorov-Arnold network emulators of the global 21-cm signal for Bayesian inference.") | arXiv 2025 | [Code](https://github.com/jdorigojones/21cmKAN) | - |
 | 2025.09 | [Exploring the Early Universe with Deep Learning](https://arxiv.org/abs/2509.22018 "Benchmark of deep learning models that recover the neutral hydrogen fraction from 2D 21-cm power spectra.") | arXiv 2025 | - | - |
 | 2025.06 | [Dark Energy Survey Year 3 Results: wCDM Cosmology from Simulation-based Inference with Persistent Homology on the Sphere](https://arxiv.org/abs/2506.13439 "Spherical persistent homology summaries with neural compression and likelihood estimation on DES Y3 lensing maps.") | arXiv 2025 | - | - |
@@ -473,10 +503,14 @@ Benchmarks are grouped by input type. Data and modality benchmarks provide obser
 
 | Date | Paper | Venue | Code | Links |
 |:--|:--|:--|:--|:--|
+| 2026.10 | **GammaLearn** [Deep Learning for Cherenkov Astronomy: Performance of GammaLearn on LST-1](https://arxiv.org/abs/2610.10392 "Applies the gamma-PhysNet CNN to LST-1 Crab Nebula observations, improving sensitivity over the random forest analysis below 1 TeV.") | arXiv 2026 | - | - |
+| 2026.09 | **candela** [A Differentiable Neural Surrogate for Photon Propagation in Neutrino Telescopes](https://arxiv.org/abs/2609.04695 "SIREN neural field that learns the IceCube photon Green function, predicting photon yield and arrival-time distributions for a point energy deposit and sensor.") | arXiv 2026 | - | - |
 | 2025.10 | [Multivariate Time Series Classification of Fermi-Detected Gamma-Ray Transients Using Convolutional-Recurrent Neural Networks](https://arxiv.org/abs/2510.22412 "CNN-LSTM classifiers that separate GRBs, TGFs, solar flares and SGRs in Fermi-GBM light curves and flag outliers.") | arXiv 2025 | - | - |
 | 2025.09 | [Unsupervised Machine Learning Classification of Gamma-ray Bursts Based on the Rest-frame Prompt Emission Parameters](https://arxiv.org/abs/2509.08224 "Unsupervised clustering of GRBs into types using rest-frame prompt emission properties.") | arXiv 2025 | - | - |
 | 2025.09 | **ASID** [Towards a Foundation Model for Astrophysical Source Detection: An End-to-End Gamma-Ray Data Analysis Pipeline Using Deep Learning](https://arxiv.org/abs/2509.25128 "U-Net detection with CNN classification and deep-ensemble flux estimation on Fermi-LAT and CTAO simulations.") | arXiv 2025 | - | - |
 | 2025.05 | [A Robust Neural Determination of the Source-count Distribution of the Fermi-LAT Sky at High Latitudes](https://arxiv.org/abs/2505.02906 "Neural ratio estimation with spherical convolutions on 14 years of high-latitude Fermi-LAT photon maps.") | arXiv 2025 | - | - |
+| 2025.05 | [Fast Low Energy Reconstruction Using Convolutional Neural Networks](https://arxiv.org/abs/2505.16777 "IceCube Collaboration CNNs that reconstruct energy, direction, vertex and flavour signature of GeV neutrinos in DeepCore for oscillation measurements.") | arXiv 2025 | - | - |
+| 2024.08 | [Enhancing Events in Neutrino Telescopes through Deep Learning-Driven Super-Resolution](https://arxiv.org/abs/2408.08474 "Predicts hits on virtual optical modules between real ones to super-resolve neutrino telescope events, improving muon angular reconstruction.") | arXiv 2024 | - | - |
 | 2024.01 | **DeepGRB** [Deep Learning for Gamma-Ray Bursts: A Data Driven Event Framework for X/Gamma-Ray Analysis in Space Telescopes](https://arxiv.org/abs/2401.15632 "Neural background estimation with FOCuS-Poisson trigger search on Fermi-GBM count rates.") | arXiv 2024 | - | - |
 | 2022.09 | **GraphNeT IceCube** [Graph Neural Networks for Low-Energy Event Classification & Reconstruction in IceCube](https://arxiv.org/abs/2209.03042 "Point-cloud GNN that classifies and reconstructs GeV-scale neutrino events in IceCube.") | **JINST 2022** | [Code](https://github.com/graphnet-team/graphnet) | [Journal](https://doi.org/10.1088/1748-0221/17/11/P11003) |
 | 2021.10 | **Fermi GCE SBI** [A Neural Simulation-based Inference Approach for Characterizing the Galactic Center γ-ray Excess](https://arxiv.org/abs/2110.06931 "Normalizing-flow posterior estimation on spherical Fermi-LAT maps with graph neural network summaries.") | arXiv 2021 | [Code](https://github.com/smsharma/fermi-gce-flows) | - |
@@ -491,7 +525,13 @@ Benchmarks are grouped by input type. Data and modality benchmarks provide obser
 |:--|:--|:--|:--|:--|
 | 2026.11 | [Deep-Learning-Assisted Bayesian Inference for Extreme-Mass-Ratio Inspirals](https://arxiv.org/abs/2611.11922 "Deep learning acceleration of Bayesian parameter inference for EMRI signals.") | arXiv 2026 | - | - |
 | 2026.10 | [Scalable and Sequential Inference of the Neutron Star Equation of State with the Einstein Telescope](https://arxiv.org/abs/2610.07975 "Normalizing-flow stacking of single-event posteriors with GPU sequential Monte Carlo for EOS inference.") | arXiv 2026 | - | - |
+| 2026.09 | [BilbyFlow: User-Friendly Neural Posterior Estimation for Gravitational-Wave Astronomy](https://arxiv.org/abs/2609.00766 "Adds neural posterior estimation to Bilby, analysing 38 high-mass GWTC-3 events with a median importance-sampling efficiency of 7 percent.") | arXiv 2026 | - | - |
+| 2026.09 | [Searching for Gravitational Wave Echo with Group Equivariant Neural Posterior Estimation](https://arxiv.org/abs/2609.18337 "DINGO-based GNPE model for echo searches that analyses an O4a event in under 20 minutes on one GPU and finds no significant echo evidence.") | arXiv 2026 | - | - |
 | 2026.07 | [AI-enabled Gravitational-waves Searches for Binary Neutron Stars at Optimal Sensitivity](https://arxiv.org/abs/2607.01372 "Neural network BNS search with heterodyned inputs that runs in real time on a single GPU.") | arXiv 2026 | - | - |
+| 2026.07 | [Identifying Lensed Gravitational Waves with Physics-Informed Posterior Learning](https://arxiv.org/abs/2607.03885 "Fuses waveform features with neural posterior samples of common-source parameters to rank lensed multi-image signals against unrelated overlapping mergers in O4 data.") | arXiv 2026 | - | - |
+| 2026.04 | **labrador** [A Domain-Optimized Machine-Learning Tool for Gravitational Wave Inference](https://arxiv.org/abs/2604.08897 "Neural posterior estimation with heterodyning, tailored coordinates and neural rescaling built on cogwheel, covering long signals with secondary masses below 10 solar masses.") | arXiv 2026 | - | - |
+| 2026.02 | [Factorized Neural Posterior Estimation for Rapid and Reliable Inference of Parameterized Post-Einsteinian Deviation Parameters in Gravitational Waves](https://arxiv.org/abs/2602.01319 "Independent normalizing flows for each ppE deviation parameter give posteriors in about 0.4 s per event, a speedup of about 9 x 10^4 over MCMC.") | arXiv 2026 | - | - |
+| 2025.11 | **DINGO-lensing** [Identification and Characterization of Distorted Gravitational Waves by Lensing Using Deep Learning](https://arxiv.org/abs/2511.07186 "Extends DINGO to lensed signals, reducing parameter estimation and lensing Bayes factor computation from weeks to seconds while matching Bilby.") | arXiv 2025 | - | - |
 | 2024.09 | [A Binary Neutron Star Merger Search Pipeline Powered by Deep Learning](https://arxiv.org/abs/2409.06266 "CNN on matched-filter SNR time series that detects BNS mergers and is robust to glitches.") | arXiv 2024 | - | - |
 | 2024.08 | [A Machine-learning Classifier for the Postmerger Remnant of Binary Neutron Stars](https://arxiv.org/abs/2408.10678 "Gradient boosted trees trained on numerical-relativity simulations predict BNS merger outcomes from inspiral parameters.") | arXiv 2024 | - | - |
 | 2024.07 | **DINGO-BNS** [Real-time Inference for Binary Neutron Star Mergers Using Machine Learning](https://arxiv.org/abs/2407.09602 "Prior-conditioned neural posterior estimation that infers all BNS parameters in about one second, including before merger.") | **Nature 2025** | [Code](https://github.com/dingo-gw/dingo) | - |
@@ -511,6 +551,7 @@ Benchmarks are grouped by input type. Data and modality benchmarks provide obser
 
 | Date | Paper | Venue | Code | Links |
 |:--|:--|:--|:--|:--|
+| 2026.07 | **FlareEUV** [A Deep Learning Framework for Predicting Solar EUV Irradiance During Significant Flares](https://arxiv.org/abs/2607.19597 "Attention model on 13 co-aligned SDO AIA and HMI channels that forecasts daily 6.5 nm EVE irradiance over three days for 33 significant flares.") | arXiv 2026 | - | - |
 | 2026.04 | [Predicting Associations between Solar Flares and Coronal Mass Ejections Using SDO/HMI Magnetograms and a Hybrid Neural Network](https://arxiv.org/abs/2604.10016 "ViT and LSTM hybrid that predicts whether upcoming flares will be eruptive or confined.") | arXiv 2026 | - | - |
 | 2026.02 | [Prediction of Major Solar Flares Using Interpretable Class-dependent Reward Framework with Active Region Magnetograms and Domain Knowledge](https://arxiv.org/abs/2602.16264 "CNN, CNN-BiLSTM and transformer models with class-dependent rewards for imbalanced M-class flare prediction.") | arXiv 2026 | - | - |
 | 2025.11 | [JW-Flare: Accurate Solar Flare Forecasting Method Based on Multimodal Large Language Models](https://arxiv.org/abs/2511.08970 "Multimodal LLM fine-tuned with LoRA on magnetograms and textual magnetic parameters for 24-hour flare forecasts.") | arXiv 2025 | - | - |
@@ -531,7 +572,7 @@ Benchmarks are grouped by input type. Data and modality benchmarks provide obser
 | Date | Paper | Venue | Code | Links |
 |:--|:--|:--|:--|:--|
 | 2026.08 | **YOLO-Chars** [Radio Galaxies Detection and Characterization Using Deep Learning Techniques](https://arxiv.org/abs/2608.21474 "Two-stage YOLO detection and characterisation network for flux, size and position angle on SKA SDC1 images.") | **MNRAS 2026** | - | - |
-| 2025.09 | [YOLO-CIANNA: Galaxy Detection with Deep Learning in Radio Data](https://arxiv.org/abs/2509.12082 "3D CNN detector for HI sources in SKA SDC2 hyperspectral cubes, extending the method that won SDC2.") | arXiv 2025 | - | - |
+| 2025.09 | [YOLO-CIANNA: Galaxy Detection with Deep Learning in Radio Data. II. Winning the SKA SDC2 Using a Generalized 3D-YOLO Network](https://arxiv.org/abs/2509.12082 "3D CNN detector for HI sources in SKA SDC2 hyperspectral cubes, extending the method that won SDC2.") | **A&A 2026** | - | - |
 | 2025.06 | [Simulating Realistic Radio Continuum Survey Maps with Diffusion Models](https://arxiv.org/abs/2506.11715 "Diffusion-generated radio galaxies assembled into sky models and imaged to mimic LoTSS pointings.") | arXiv 2025 | - | - |
 | 2025.03 | [Classification of Radio Sources Through Self-Supervised Learning](https://arxiv.org/abs/2503.19111 "Self-supervised pretraining and deep clustering that classify LoTSS-DR2 radio galaxies into 12 morphology classes.") | arXiv 2025 | - | - |
 | 2024.10 | [Simulating Images of Radio Galaxies with Diffusion Models](https://arxiv.org/abs/2410.07794 "Continuous-time diffusion model that generates radio galaxy images with control over flux and morphology.") | arXiv 2024 | - | - |
@@ -551,8 +592,12 @@ Benchmarks are grouped by input type. Data and modality benchmarks provide obser
 
 | Date | Paper | Venue | Code | Links |
 |:--|:--|:--|:--|:--|
+| 2026.09 | [Multimodal-Multiresolution Foundation Model for Lunar Remote Sensing](https://arxiv.org/abs/2609.13283 "TerraMind-style model pretrained on nearly two million co-registered tile bundles over 11 modalities at 1 m and 100 m scales, evaluated on craters, irregular mare patches and ice prospectivity.") | arXiv 2026 | - | - |
+| 2026.07 | [LunarFM: A Shared Multimodal Representation of the Moon's Surface](https://arxiv.org/abs/2607.22408 "Foundation model mapping 18 channels from six instruments on three lunar missions into one embedding for similarity search, resource mapping, mineral regression and geology classification.") | arXiv 2026 | - | - |
 | 2026.06 | [Deep Learning-Based Lunar Crater Terrain Relative Navigation](https://arxiv.org/abs/2606.14776 "U-Net++ crater detector coupled with an extended Kalman filter for lunar landing navigation.") | arXiv 2026 | - | - |
+| 2026.04 | [MOMO: Mars Orbital Model Foundation Model for Mars Orbital Applications](https://arxiv.org/abs/2604.02719 "Multi-sensor foundation model for Mars that combines representations from several orbital instruments for downstream remote sensing tasks.") | arXiv 2026 | - | - |
 | 2026.03 | [LLaVA-LE: Large Language-and-Vision Assistant for Lunar Exploration](https://arxiv.org/abs/2603.24696 "LLaVA adapted to lunar remote sensing with LUCID, 96k panchromatic images paired with scientific captions and question-answer pairs.") | arXiv 2026 | - | - |
+| 2026.03 | [VAD4Space: Visual Anomaly Detection for Planetary Surface Imagery](https://arxiv.org/abs/2603.13993 "Benchmarks unsupervised visual anomaly detection methods on lunar and Mars rover imagery, with PaDiM localising craters without labels.") | arXiv 2026 | - | - |
 | 2026.01 | [Vision-Language Model for Accurate Crater Detection](https://arxiv.org/abs/2601.07795 "OWLv2 vision transformer fine-tuned on LRO images for lunar crater detection.") | arXiv 2026 | - | - |
 | 2026 | [Lunar-Bench: Towards Evaluating Task-Oriented Reasoning of LLMs in Lunar Exploration Scenarios](https://aclanthology.org/2026.findings-acl.83/ "3,000 tasks derived from lunar mission procedures with Environmental Scenario Indicators for safety, efficiency, integrity and alignment; the best of 36 models reaches 47.8% against 65.1% for human experts.") | **ACL Findings 2026** | - | - |
 | 2026 | [Lunar-R1: Efficient Reasoning of Large Language Models for Lunar Exploration via Reinforcement Learning](https://aclanthology.org/2026.emnlp-industry.5/ "8B reasoning model trained by continued pretraining, SFT and RL, with Latent Difficulty Perception that cuts chain-of-thought tokens by 38.9%, the Lunar-QA benchmark and RK3588 NPU deployment.") | **EMNLP 2026 Industry** | - | - |
@@ -679,7 +724,20 @@ Benchmarks are grouped by input type. Data and modality benchmarks provide obser
 
 ## Contributing
 
-Pull requests are welcome. Please read [CONTRIBUTING.md](CONTRIBUTING.md) before submitting.
+Contributions are welcome. Entries live in [`data/entries.yml`](data/entries.yml), and this README and the web page are generated from that file. Please read [CONTRIBUTING.md](CONTRIBUTING.md) for the entry format and the checks run on each pull request.
+
+## Citation
+
+If this list is useful in your work, please cite it as follows.
+
+```bibtex
+@misc{xiao2026awesomeaiastronomy,
+  author       = {Xiao, Xinyu},
+  title        = {Awesome {AI} for Astronomy: A Curated List of Machine Learning Papers, Models, Datasets, Benchmarks and Software for Astronomy},
+  year         = {2026},
+  howpublished = {\url{https://github.com/Xin-YuXiao/Awesome-AI-for-Astronomy}}
+}
+```
 
 ## License
 

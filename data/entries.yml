@@ -106,6 +106,16 @@ sections:
     links:
       Paper: https://arxiv.org/abs/2607.03736
     desc: Review of classical and machine learning source finding and morphology classification for SKAO surveys.
+  - title: Machine Learning and Deep Learning for Exoplanet Detection and Atmospheric Characterization with JWST and the Upcoming Ariel Mission
+    venue: arXiv 2026
+    links:
+      Paper: https://arxiv.org/abs/2606.23766
+    desc: Review of machine learning for transit identification, candidate vetting, detrending and atmospheric retrieval, including neural and flow matching posterior estimation, in the context of JWST and Ariel.
+  - title: Machine Learning in Gamma Astronomy
+    venue: arXiv 2025
+    links:
+      Paper: https://arxiv.org/abs/2501.19064
+    desc: Review of deep learning methods for Imaging Atmospheric Cherenkov Telescope data, covering gamma-hadron separation, event reconstruction and fast simulation.
 - title: Foundation Models and Representation Learning
   subsections:
   - title: Images
@@ -169,6 +179,12 @@ sections:
         Code: https://github.com/Smith42/astroPT
         Model: https://huggingface.co/Smith42/astroPT_v2.0
       desc: Autoregressive transformers from 1M to 2.1B parameters pretrained on 8.6M DESI Legacy Survey galaxy images.
+    - name: Gestalt
+      title: 'Gestalt: A Meta-Foundation Model for Astronomy'
+      venue: arXiv 2026
+      links:
+        Paper: https://arxiv.org/abs/2609.38312
+      desc: Combines frozen embeddings of 22 foundation models from eight families by whitening and randomised SVD, outperforming every member on 19 of 21 metrics for HSC, JWST and Legacy Survey galaxies.
   - title: Spectra
     entries:
     - name: SDSS-VAE
@@ -225,6 +241,11 @@ sections:
       links:
         Paper: https://arxiv.org/abs/2601.15351
       desc: Masked-modeling transformer pretrained on 5.5 million spectra from eight surveys at native resolution.
+    - title: Universal Spectral Tokenization via Self-Supervised Panchromatic Representation Learning
+      venue: arXiv 2025
+      links:
+        Paper: https://arxiv.org/abs/2510.17959
+      desc: Transformer tokenizer that reads spectra on their native wavelength grids, pretrained on SDSS, DESI, GALAH and APOGEE and adapted to object classification and stellar parameter regression.
   - title: Time Series
     entries:
     - name: ASTROMER
@@ -301,6 +322,11 @@ sections:
         Code: https://github.com/PolymathicAI/AION
         Model: https://huggingface.co/polymathic-ai/aion-base
       desc: Token-based masked modeling over 39 modalities from Legacy Survey, HSC, SDSS, DESI and Gaia, released at 300M to 3.1B parameters.
+    - title: Self-Supervised Representation Learning for JWST Galaxy Images and Low Resolution Spectra
+      venue: arXiv 2026
+      links:
+        Paper: https://arxiv.org/abs/2610.31078
+      desc: Joint representation of F150W imaging and 1 to 2 micron PRISM spectra that recovers stellar mass at 1 < z < 3 with R2 of about 0.9, with CLIP alignment improving single-modality inference.
 - title: Language and Vision-Language Models
   entries:
   - name: astroBERT
@@ -446,6 +472,11 @@ sections:
     links:
       Paper: https://arxiv.org/abs/2611.05251
     desc: Multi-agent pipeline that retrieves HEASARC data and writes its own tools, tested by reproducing IXPE polarimetry results.
+  - title: 'Competing with AI Scientists: Agent-Driven Approach to Astrophysics Research'
+    venue: arXiv 2026
+    links:
+      Paper: https://arxiv.org/abs/2604.09621
+    desc: Cmbagent multi-agent workflow with human intervention that builds a weak lensing inference pipeline and took first place in the FAIR Universe Weak Lensing Uncertainty Challenge.
 - title: Benchmarks
   subsections:
   - title: Data and Modality Benchmarks
@@ -512,6 +543,30 @@ sections:
       links:
         Paper: https://arxiv.org/abs/2607.03644
       desc: Lunar remote sensing foundation model released with a benchmark of six downstream tasks.
+    - name: NuBench
+      title: 'NuBench: An Open Benchmark for Deep Learning-Based Event Reconstruction in Neutrino Telescopes'
+      venue: arXiv 2025
+      links:
+        Paper: https://arxiv.org/abs/2511.13111
+      desc: Seven simulated neutrino telescope datasets used to compare ParticleNeT, DynEdge, GRIT and DeepIce on energy, direction, topology, vertex and inelasticity reconstruction.
+    - name: CraterBench-R
+      title: 'CraterBench-R: Instance-Level Crater Retrieval for Planetary Scale'
+      venue: arXiv 2026
+      links:
+        Paper: https://arxiv.org/abs/2604.06245
+      desc: Instance retrieval benchmark of about 25,000 Mars CTX crater identities with verified multi-view queries, used to evaluate 30 vision backbones.
+    - name: JW-FD
+      title: 'JW-FD: A Long Horizon Multimodal Solar Flare Forecasting Dataset'
+      venue: arXiv 2026
+      links:
+        Paper: https://arxiv.org/abs/2608.19195
+      desc: Fifteen-year flare forecasting dataset from 2011 to 2025 built from SDO/HMI magnetograms, NOAA region summaries and flare lists, with active region level splits and configurable horizons.
+    - name: FAIR Universe WL
+      title: 'FAIR Universe Weak Lensing ML Uncertainty Challenge: Dataset and Cosmological Inference Competition'
+      venue: arXiv 2026
+      links:
+        Paper: https://arxiv.org/abs/2611.10228
+      desc: Simulated HSC-like weak lensing convergence maps and a competition scoring cosmological parameter estimates together with their uncertainty calibration.
   - title: Multimodal Model Evaluation
     entries:
     - name: AstroChart
@@ -602,6 +657,16 @@ sections:
         Paper: https://arxiv.org/abs/2610.30282
         Data: https://huggingface.co/datasets/Xingzhongfan/Astro2Method
       desc: 500 expert-reviewed binary questions from 346 astronomy papers asking which machine learning method performs better for a stated problem.
+    - title: 'Reconstructing Implicit Scientific Knowledge: Evaluating LLM Agents through End-to-End Reproduction of Astronomy'
+      venue: arXiv 2026
+      links:
+        Paper: https://arxiv.org/abs/2609.35900
+      desc: Reproduction framework that separates execution from verification, applied to one ApJ and thirteen Nature astronomy papers, eleven of which leave the reproduction path ambiguous.
+    - title: 'AI Cosplaying as Astrophysicists: A Controlled Synthetic-Agent Study of AI-Assisted Astrophysical Research Workflows'
+      venue: arXiv 2026
+      links:
+        Paper: https://arxiv.org/abs/2603.29039
+      desc: Controlled study of 144 synthetic researchers on 2,592 astrophysics assignments, comparing solo work with four styles of AI assistance over 12,960 scored episodes.
   intro: Benchmarks are grouped by input type. Data and modality benchmarks provide observational or simulated data with fixed splits and metrics for task-specific models. The two evaluation subsections test general or domain-adapted language and vision-language models.
 - title: Galaxies
   subsections:
@@ -693,6 +758,11 @@ sections:
       links:
         Paper: https://arxiv.org/abs/2503.15335
       desc: Dwarf galaxy census in Euclid Q1 listed among Zoobot applications.
+    - title: A General-Purpose VLM Can Teach an Astronomy Foundation Model to Better Recognize Galaxy Morphology
+      venue: arXiv 2026
+      links:
+        Paper: https://arxiv.org/abs/2608.02300
+      desc: Distils a general-purpose VLM answering Galaxy Zoo decision tree questions into Zoobot through side tuning, with teacher uncertainty guiding which galaxies are sent for human labels.
   - title: Anomaly Detection
     entries:
     - name: Weirdest Galaxies
@@ -1028,6 +1098,12 @@ sections:
     links:
       Paper: https://arxiv.org/abs/2511.03064
     desc: Mask R-CNN instance segmentation of cluster-scale lensed arcs trained on Euclidised HST simulations.
+  - name: AgileLens
+    title: 'Euclid Quick Data Release (Q1). AgileLens: A Scalable CNN-Based Pipeline for Strong Gravitational Lens Identification'
+    venue: arXiv 2026
+    links:
+      Paper: https://arxiv.org/abs/2604.06648
+    desc: Iterative fine-tuning of a modified VGG16 from 27 seed lenses to 30,686 training images, yielding 441 grade A or B candidates in Euclid Q1, 130 of them new.
 - title: Source Detection, Deblending and Image Simulation
   entries:
   - name: scarlet
@@ -1218,6 +1294,21 @@ sections:
     links:
       Paper: https://arxiv.org/abs/2604.07437
     desc: BiLSTM, attention and CNN classifier applied to about 2.8 million TESS light curves.
+  - title: Homogeneous Stellar Parameters from Heterogeneous Spectra with Deep Learning
+    venue: arXiv 2026
+    links:
+      Paper: https://arxiv.org/abs/2604.25786
+    desc: Single transformer trained across APOGEE, GALAH, DESI and Gaia RVS that outputs atmospheric parameters, 20 abundances, distances and ages on one consistent scale.
+  - title: 'Potential of Gaia XP Spectra in Red Giant Star Asteroseismology: A Deep-Learning Approach'
+    venue: arXiv 2026
+    links:
+      Paper: https://arxiv.org/abs/2604.17045
+    desc: CNN-LSTM models trained on Kepler red giants recover delta nu, nu max and period spacing from Gaia XP spectra and provide predictions for more than 2.5 million giants.
+  - title: 'Spectra as Language: Large Language Models for Scalable Stellar Parameter and Abundance Inference'
+    venue: arXiv 2026
+    links:
+      Paper: https://arxiv.org/abs/2605.22162
+    desc: Fine-tunes a large language model on LAMOST low-resolution spectra in two stages to infer stellar parameters and elemental abundances, validated against Gaia-ESO and GALAH DR4.
 - title: Time-Domain Astronomy and Transients
   entries:
   - name: snmachine
@@ -1350,6 +1441,11 @@ sections:
     links:
       Paper: https://arxiv.org/abs/2607.19236
     desc: Neural process that jointly reconstructs and classifies sparse multiband light curves on ELAsTiCC2 and MALLORN.
+  - title: 'Transfer Learning for Transient Classification: From Simulations to Real Data and ZTF to LSST'
+    venue: arXiv 2025
+    links:
+      Paper: https://arxiv.org/abs/2502.18558
+    desc: Shows that transient classifiers pretrained on simulations or ZTF light curves can be adapted to real data and to LSST with small labelled samples.
 - title: Exoplanets
   entries:
   - name: Pearson Exoplanet AI
@@ -1515,6 +1611,12 @@ sections:
     links:
       Paper: https://arxiv.org/abs/2604.15560
     desc: Late fusion of light-curve CNN features with attention and stellar parameters, calibrated by temperature scaling.
+  - name: ExoVeil
+    title: 'One Transit Is All You Need: Detecting Exoplanets Through Learned Stellar Behaviour with ExoVeil'
+    venue: arXiv 2026
+    links:
+      Paper: https://arxiv.org/abs/2606.02778
+    desc: Transformer world model trained on 16,499 Kepler light curves predicts stellar flux, with matched filtering on residuals reaching AUC 0.938 on DR25 and recovering 47 TESS planets zero-shot.
 - title: Cosmology and Large-Scale Structure
   entries:
   - name: CosmoGAN
@@ -1784,6 +1886,29 @@ sections:
     links:
       Paper: https://arxiv.org/abs/2607.19808
     desc: Point-cloud diffusion that generates galaxy positions and star formation rates from IllustrisTNG dark matter fields.
+  - name: JADE
+    title: Joint Inference of Weak Lensing Convergence Map and Cosmology with Diffusion Models
+    venue: arXiv 2026
+    links:
+      Paper: https://arxiv.org/abs/2606.31988
+      Code: https://github.com/b-remy/jade
+    desc: Pixel-space diffusion transformer that treats cosmological parameters as tokens and samples convergence maps and parameters jointly from noisy shear fields.
+  - name: C3NN-SBI
+    title: 'C3NN-SBI: Learning Hierarchies of N-Point Statistics from Cosmological Fields with Physics-Informed Neural Networks'
+    venue: arXiv 2026
+    links:
+      Paper: https://arxiv.org/abs/2602.16768
+    desc: Couples a correlator convolutional network whose summaries map to given N-point orders with simulation-based inference on DES Y3-like convergence maps.
+  - title: The Shear-to-Cosmology Paradigm I. Hybrid Field-Level and Simulation-Based Framework for Weak Lensing Surveys
+    venue: arXiv 2025
+    links:
+      Paper: https://arxiv.org/abs/2511.22851
+    desc: Maps observed shear fields directly to cosmological parameters, roughly doubling the figure of merit of convergence-based inference on CSST-like mocks.
+  - title: Neural Posterior Estimation for Tomographic Weak Lensing Mass Mapping
+    venue: arXiv 2026
+    links:
+      Paper: https://arxiv.org/abs/2609.07833
+    desc: Amortised network that maps multiband images directly to a variational posterior over tomographic shear and convergence, validated on LSST DESC DC2 images.
 - title: Simulation-Based Inference
   entries:
   - name: pydelfi
@@ -1918,6 +2043,28 @@ sections:
     links:
       Paper: https://arxiv.org/abs/2510.22412
     desc: CNN-LSTM classifiers that separate GRBs, TGFs, solar flares and SGRs in Fermi-GBM light curves and flag outliers.
+  - name: candela
+    title: A Differentiable Neural Surrogate for Photon Propagation in Neutrino Telescopes
+    venue: arXiv 2026
+    links:
+      Paper: https://arxiv.org/abs/2609.04695
+    desc: SIREN neural field that learns the IceCube photon Green function, predicting photon yield and arrival-time distributions for a point energy deposit and sensor.
+  - name: GammaLearn
+    title: 'Deep Learning for Cherenkov Astronomy: Performance of GammaLearn on LST-1'
+    venue: arXiv 2026
+    links:
+      Paper: https://arxiv.org/abs/2610.10392
+    desc: Applies the gamma-PhysNet CNN to LST-1 Crab Nebula observations, improving sensitivity over the random forest analysis below 1 TeV.
+  - title: Fast Low Energy Reconstruction Using Convolutional Neural Networks
+    venue: arXiv 2025
+    links:
+      Paper: https://arxiv.org/abs/2505.16777
+    desc: IceCube Collaboration CNNs that reconstruct energy, direction, vertex and flavour signature of GeV neutrinos in DeepCore for oscillation measurements.
+  - title: Enhancing Events in Neutrino Telescopes through Deep Learning-Driven Super-Resolution
+    venue: arXiv 2024
+    links:
+      Paper: https://arxiv.org/abs/2408.08474
+    desc: Predicts hits on virtual optical modules between real ones to super-resolve neutrino telescope events, improving muon angular reconstruction.
 - title: Gravitational Waves
   entries:
   - name: Magic Bullet
@@ -2017,6 +2164,39 @@ sections:
     links:
       Paper: https://arxiv.org/abs/2611.11922
     desc: Deep learning acceleration of Bayesian parameter inference for EMRI signals.
+  - name: labrador
+    title: A Domain-Optimized Machine-Learning Tool for Gravitational Wave Inference
+    venue: arXiv 2026
+    links:
+      Paper: https://arxiv.org/abs/2604.08897
+    desc: Neural posterior estimation with heterodyning, tailored coordinates and neural rescaling built on cogwheel, covering long signals with secondary masses below 10 solar masses.
+  - name: BilbyFlow
+    title: 'BilbyFlow: User-Friendly Neural Posterior Estimation for Gravitational-Wave Astronomy'
+    venue: arXiv 2026
+    links:
+      Paper: https://arxiv.org/abs/2609.00766
+    desc: Adds neural posterior estimation to Bilby, analysing 38 high-mass GWTC-3 events with a median importance-sampling efficiency of 7 percent.
+  - title: Factorized Neural Posterior Estimation for Rapid and Reliable Inference of Parameterized Post-Einsteinian Deviation Parameters in Gravitational Waves
+    venue: arXiv 2026
+    links:
+      Paper: https://arxiv.org/abs/2602.01319
+    desc: Independent normalizing flows for each ppE deviation parameter give posteriors in about 0.4 s per event, a speedup of about 9 x 10^4 over MCMC.
+  - title: Searching for Gravitational Wave Echo with Group Equivariant Neural Posterior Estimation
+    venue: arXiv 2026
+    links:
+      Paper: https://arxiv.org/abs/2609.18337
+    desc: DINGO-based GNPE model for echo searches that analyses an O4a event in under 20 minutes on one GPU and finds no significant echo evidence.
+  - title: Identifying Lensed Gravitational Waves with Physics-Informed Posterior Learning
+    venue: arXiv 2026
+    links:
+      Paper: https://arxiv.org/abs/2607.03885
+    desc: Fuses waveform features with neural posterior samples of common-source parameters to rank lensed multi-image signals against unrelated overlapping mergers in O4 data.
+  - name: DINGO-lensing
+    title: Identification and Characterization of Distorted Gravitational Waves by Lensing Using Deep Learning
+    venue: arXiv 2025
+    links:
+      Paper: https://arxiv.org/abs/2511.07186
+    desc: Extends DINGO to lensed signals, reducing parameter estimation and lensing Bayes factor computation from weeks to seconds while matching Bilby.
 - title: Solar Physics and Heliophysics
   entries:
   - name: DeepVel
@@ -2098,6 +2278,12 @@ sections:
     links:
       Paper: https://arxiv.org/abs/2604.10016
     desc: ViT and LSTM hybrid that predicts whether upcoming flares will be eruptive or confined.
+  - name: FlareEUV
+    title: A Deep Learning Framework for Predicting Solar EUV Irradiance During Significant Flares
+    venue: arXiv 2026
+    links:
+      Paper: https://arxiv.org/abs/2607.19597
+    desc: Attention model on 13 co-aligned SDO AIA and HMI channels that forecasts daily 6.5 nm EVE irradiance over three days for 33 significant flares.
 - title: Radio Astronomy
   entries:
   - name: FETCH
@@ -2181,8 +2367,8 @@ sections:
       Paper: https://arxiv.org/abs/2506.11715
     desc: Diffusion-generated radio galaxies assembled into sky models and imaged to mimic LoTSS pointings.
   - name: YOLO-CIANNA
-    title: 'YOLO-CIANNA: Galaxy Detection with Deep Learning in Radio Data'
-    venue: arXiv 2025
+    title: 'YOLO-CIANNA: Galaxy Detection with Deep Learning in Radio Data. II. Winning the SKA SDC2 Using a Generalized 3D-YOLO Network'
+    venue: A&A 2026
     links:
       Paper: https://arxiv.org/abs/2509.12082
     desc: 3D CNN detector for HI sources in SKA SDC2 hyperspectral cubes, extending the method that won SDC2.
@@ -2255,6 +2441,29 @@ sections:
     links:
       Paper: https://aclanthology.org/2026.emnlp-industry.5/
     desc: 8B reasoning model trained by continued pretraining, SFT and RL, with Latent Difficulty Perception that cuts chain-of-thought tokens by 38.9%, the Lunar-QA benchmark and RK3588 NPU deployment.
+  - name: LunarFM
+    title: 'LunarFM: A Shared Multimodal Representation of the Moon''s Surface'
+    venue: arXiv 2026
+    links:
+      Paper: https://arxiv.org/abs/2607.22408
+    desc: Foundation model mapping 18 channels from six instruments on three lunar missions into one embedding for similarity search, resource mapping, mineral regression and geology classification.
+  - title: Multimodal-Multiresolution Foundation Model for Lunar Remote Sensing
+    venue: arXiv 2026
+    links:
+      Paper: https://arxiv.org/abs/2609.13283
+    desc: TerraMind-style model pretrained on nearly two million co-registered tile bundles over 11 modalities at 1 m and 100 m scales, evaluated on craters, irregular mare patches and ice prospectivity.
+  - name: VAD4Space
+    title: 'VAD4Space: Visual Anomaly Detection for Planetary Surface Imagery'
+    venue: arXiv 2026
+    links:
+      Paper: https://arxiv.org/abs/2603.13993
+    desc: Benchmarks unsupervised visual anomaly detection methods on lunar and Mars rover imagery, with PaDiM localising craters without labels.
+  - name: MOMO
+    title: 'MOMO: Mars Orbital Model Foundation Model for Mars Orbital Applications'
+    venue: arXiv 2026
+    links:
+      Paper: https://arxiv.org/abs/2604.02719
+    desc: Multi-sensor foundation model for Mars that combines representations from several orbital instruments for downstream remote sensing tasks.
 - title: Datasets
   subsections:
   - title: Observational Datasets

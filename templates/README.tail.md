@@ -1,6 +1,19 @@
 ## Contributing
 
-Pull requests are welcome. Please read [CONTRIBUTING.md](CONTRIBUTING.md) before submitting.
+Contributions are welcome. Entries live in [`data/entries.yml`](data/entries.yml), and this README and the web page are generated from that file. Please read [CONTRIBUTING.md](CONTRIBUTING.md) for the entry format and the checks run on each pull request.
+
+## Citation
+
+If this list is useful in your work, please cite it as follows.
+
+```bibtex
+@misc{xiao2026awesomeaiastronomy,
+  author       = {Xiao, Xinyu},
+  title        = {Awesome {AI} for Astronomy: A Curated List of Machine Learning Papers, Models, Datasets, Benchmarks and Software for Astronomy},
+  year         = {2026},
+  howpublished = {\url{https://github.com/Xin-YuXiao/Awesome-AI-for-Astronomy}}
+}
+```
 
 ## License
 
