@@ -1,6 +1,6 @@
 # Contributing
 
-Thank you for helping improve this list.
+Thank you for helping improve this list. Participation in this project is governed by the [Code of Conduct](CODE_OF_CONDUCT.md).
 
 ## Inclusion criteria
 
