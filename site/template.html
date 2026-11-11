@@ -350,8 +350,10 @@ footer p { margin: 0; }
   $("built").innerHTML = "Built from " + (D.commit ? '<a href="' + D.repo + "/commit/" + D.commit + '">commit ' + D.commit + "</a>" : "the repository") + " on " + fmtDate(D.built) + ".";
   $("fyear").innerHTML = '<option value="">All years</option>' + years.map(function (y) { return '<option value="' + y + '">' + y + "</option>"; }).join("");
   $("fmod").innerHTML = '<option value="">All modalities</option>' + D.modalities.map(function (m) { return '<option value="' + esc(m) + '">' + esc(m) + "</option>"; }).join("");
+  /* Sections whose papers are all tagged; the modality filter notes that other sections are incomplete. */
   var tagged = topSecs.filter(function (s) {
-    return papers.some(function (e) { return e.top === s.id && e.mod.length; });
+    var own = papers.filter(function (e) { return e.top === s.id; });
+    return own.length && own.every(function (e) { return e.mod.length; });
   }).map(function (s) { return s.title; });
 
   /* Filters. Each dimension tests one property of a paper; link entries only pass when no paper filter is set. */
@@ -493,7 +495,7 @@ footer p { margin: 0; }
     if (active) $("reset").addEventListener("click", reset);
 
     var out = st.mod ? '<p class="modnote">Modality tags have been added to ' + tagged.length + " sections so far (" + tagged.map(esc).join(", ") +
-      "). Papers in other sections are not tagged yet and are hidden while this filter is on.</p>" : "";
+      "). Most papers in other sections are not tagged yet and are hidden while this filter is on.</p>" : "";
     var tops = st.sec ? [byId[st.sec].parent ? byId[byId[st.sec].parent] : byId[st.sec]] : topSecs;
     tops.forEach(function (t) {
       var subs = children[t.id] || [];
