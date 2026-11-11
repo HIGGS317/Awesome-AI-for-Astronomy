@@ -8,7 +8,7 @@ If this list is useful in your work, please cite it as below. GitHub also provid
 
 ```bibtex
 @misc{xiao2026awesomeaiastronomy,
-  author       = {Xiao, Xinyu},
+  author       = {Xin-Yu Xiao},
   title        = {Awesome-AI-for-Astronomy},
   year         = {2026},
   publisher    = {GitHub},

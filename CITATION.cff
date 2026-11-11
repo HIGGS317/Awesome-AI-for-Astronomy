@@ -5,7 +5,7 @@ title: "Awesome-AI-for-Astronomy"
 abstract: "A curated list of papers, models, datasets, benchmarks and software for artificial intelligence in astronomy, astrophysics, cosmology, heliophysics and planetary science."
 authors:
   - family-names: "Xiao"
-    given-names: "Xinyu"
+    given-names: "Xin-Yu"
 repository-code: "https://github.com/Xin-YuXiao/Awesome-AI-for-Astronomy"
 url: "https://xin-yuxiao.github.io/Awesome-AI-for-Astronomy/"
 license: CC0-1.0
