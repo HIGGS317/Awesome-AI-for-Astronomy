@@ -92,16 +92,20 @@ def validate(data):
 # README ----------------------------------------------------------------------
 
 def paper_table(entries):
-    rows = ["| Date | Name | Title | Venue | Code | Links |", "|:--|:--|:--|:--|:--|:--|"]
+    rows = ["| Date | Paper | Venue | Code | Links |", "|:--|:--|:--|:--|:--|"]
     for e in sorted(entries, key=date_of, reverse=True):
         y, m = date_of(e)
         date = f"{y}.{m:02d}" if m else str(y)
-        name = f"**{md_escape(e['name'])}**" if e.get("name") else ""
+        show = e.get("name") and not e["title"].lower().startswith(e["name"].lower())
+        name = f"**{md_escape(e['name'])}** " if show else ""
         p = primary_label(e)
         title = f"[{md_escape(e['title'])}]({e['links'][p]} \"{tooltip(e['desc'])}\")"
         code = " ".join(f"[{lab}]({u})" for lab, u in e["links"].items() if is_code(lab))
         other = " ".join(f"[{lab}]({u})" for lab, u in e["links"].items() if lab != p and not is_code(lab))
-        rows.append(f"| {date} | {name} | {title} | {md_escape(e['venue'])} | {code or '-'} | {other or '-'} |")
+        venue = md_escape(e["venue"])
+        if not e["venue"].lower().startswith("arxiv"):
+            venue = f"**{venue}**"
+        rows.append(f"| {date} | {name}{title} | {venue} | {code or '-'} | {other or '-'} |")
     return "\n".join(rows)
 
 
@@ -125,7 +129,10 @@ def readme(data):
         for sub in sec.get("subsections", []):
             toc.append(f"  - [{sub['title']}](#{slug(sub['title'])})")
     body = []
-    for sec in data["sections"]:
+    top = '<p align="right"><a href="#contents">Back to contents</a></p>'
+    for i, sec in enumerate(data["sections"]):
+        if i:
+            body += [top, ""]
         body += [f"## {sec['title']}", ""]
         if sec.get("intro"):
             body += [sec["intro"], ""]
