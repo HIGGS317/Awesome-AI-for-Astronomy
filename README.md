@@ -27,6 +27,9 @@ General astronomy resources are covered by [awesome-astronomy](https://github.co
 - [Language and Vision-Language Models](#language-and-vision-language-models)
 - [Agents and Retrieval Systems](#agents-and-retrieval-systems)
 - [Benchmarks](#benchmarks)
+  - [Data and Modality Benchmarks](#data-and-modality-benchmarks)
+  - [Multimodal Model Evaluation](#multimodal-model-evaluation)
+  - [Text and Reasoning Evaluation](#text-and-reasoning-evaluation)
 - [Galaxies](#galaxies)
   - [Morphology and Catalogues](#morphology-and-catalogues)
   - [Anomaly Detection](#anomaly-detection)
@@ -115,6 +118,10 @@ General astronomy resources are covered by [awesome-astronomy](https://github.co
 - *Opportunities in AI/ML for the Rubin LSST Dark Energy Science Collaboration* `arXiv 2026`  
   [[Paper](https://arxiv.org/abs/2601.14235)]  
   LSST DESC roadmap covering photometric redshifts, transient classification, weak lensing inference, foundation models and infrastructure.
+
+- *Deep Learning-Based Astronomical Multimodal Data Fusion: A Comprehensive Review* `arXiv 2026`  
+  [[Paper](https://arxiv.org/abs/2603.00699)]  
+  Review of deep learning methods that fuse images, spectra, time series and catalogues in astronomy.
 
 - *The Role of Artificial Intelligence in the SKA Era* `arXiv 2026`  
   [[Paper](https://arxiv.org/abs/2606.28493)]  
@@ -324,9 +331,73 @@ General astronomy resources are covered by [awesome-astronomy](https://github.co
 
 ## Benchmarks
 
+Benchmarks are grouped by input type. Data and modality benchmarks provide observational or simulated data with fixed splits and metrics for task-specific models. The two evaluation subsections test general or domain-adapted language and vision-language models.
+
+### Data and Modality Benchmarks
+
+- *The Strong Gravitational Lens Finding Challenge* `A&A 2019`  
+  [[Paper](https://arxiv.org/abs/1802.03609)]  
+  Open challenge in which participants classified 100,000 simulated space-based and ground-based cutouts as lenses or non-lenses, comparing CNNs, SVMs, arc finders and visual inspection.
+
 - **(MLGWSC-1)** *MLGWSC-1: The First Machine Learning Gravitational-Wave Search Mock Data Challenge* `arXiv 2022`  
   [[Paper](https://arxiv.org/abs/2209.11146)] [[Code](https://github.com/gwastro/ml-mock-data-challenge-1)]  
   Common datasets and metrics for comparing machine learning gravitational-wave search algorithms.
+
+- **(SKA SDC2)** *SKA Science Data Challenge 2: Analysis and Results* `arXiv 2023`  
+  [[Paper](https://arxiv.org/abs/2303.07943)]  
+  Detection and characterisation of 233,245 simulated HI sources in a 2,000 h SKA-MID spectral line cube, with reproducibility awards for open pipelines.
+
+- **(MiraBest)** *MiraBest: A Dataset of Morphologically Classified Radio Galaxies for Machine Learning* `RASTI 2023`  
+  [[Paper](https://arxiv.org/abs/2305.11108)] [[Code](https://github.com/fmporter/MiraBest-full)] [[Journal](https://doi.org/10.1093/rasti/rzad017)]  
+  1,256 NVSS and FIRST radio-loud AGN labelled by Fanaroff-Riley class with confidence flags, distributed as a batched dataset for deep learning libraries.
+
+- **(RadioGalaxyNET)** *RadioGalaxyNET: Dataset and Novel Computer Vision Algorithms for the Detection of Extended Radio Galaxies and Infrared Hosts* `arXiv 2023`  
+  [[Paper](https://arxiv.org/abs/2312.00306)]  
+  2,800 radio and infrared images with 4,155 expert-annotated galaxies in COCO format for multi-component radio galaxy and host detection.
+
+- **(CosmoBench)** *CosmoBench: A Multiscale, Multiview, Multitask Cosmology Benchmark for Geometric Deep Learning* `NeurIPS 2025 (Datasets and Benchmarks)`  
+  [[Paper](https://arxiv.org/abs/2507.03707)]  
+  About 34,000 point clouds from Quijote, CAMELS-SAM and CAMELS together with 25,000 merger trees for cosmological parameter inference and tree tasks.
+
+- **(SuryaBench)** *SuryaBench: Benchmark Dataset for Advancing Machine Learning in Heliophysics and Space Weather Prediction* `arXiv 2025`  
+  [[Paper](https://arxiv.org/abs/2508.14107)]  
+  Curated SDO core dataset with application benchmarks on active region emergence, flares, magnetic field extrapolation, EUV irradiance and solar wind prediction.
+
+- **(Mars-Bench)** *Mars-Bench: A Benchmark for Evaluating Foundation Models for Mars Science Tasks* `NeurIPS 2025 (Datasets and Benchmarks)`  
+  [[Paper](https://arxiv.org/abs/2510.24010)]  
+  20 orbital and rover image datasets for classification, segmentation and object detection used to compare natural-image, Earth observation and vision-language backbones.
+
+- **(MMAE)** *Multi-Modal Masked Autoencoders for Learning Image-Spectrum Associations for Galaxy Evolution and Cosmology* `arXiv 2025`  
+  [[Paper](https://arxiv.org/abs/2510.22527)]  
+  Paired dataset of 134,533 HSC galaxy images and DESI spectra with a masked autoencoder baseline for cross-modal reconstruction and redshift estimation.
+
+- **(Moonstone)** *Moonstone: A Multimodal Foundation Model and Benchmark for Lunar Remote Sensing* `arXiv 2026`  
+  [[Paper](https://arxiv.org/abs/2607.03644)]  
+  Lunar remote sensing foundation model released with a benchmark of six downstream tasks.
+
+### Multimodal Model Evaluation
+
+- **(AstroChart)** *DomainCQA: Crafting Knowledge-Intensive QA from Domain-Specific Charts* `AAAI 2026`  
+  [[Paper](https://arxiv.org/abs/2503.19498)] [[Data](https://huggingface.co/datasets/yangjing0128/AstroChart)]  
+  AstroChart provides 1,690 question-answer pairs over 482 astronomy charts and is used to evaluate 21 MLLMs on perception, numerical reasoning and domain knowledge.
+
+- **(AstroMMBench)** *AstroMMBench: A Benchmark for Evaluating Multimodal Large Language Models Capabilities in Astronomy* `arXiv 2025`  
+  [[Paper](https://arxiv.org/abs/2510.00063)]  
+  621 expert-reviewed multiple-choice questions on astronomical images across six subfields, used to evaluate 25 MLLMs.
+
+- **(MarsRetrieval)** *MarsRetrieval: Benchmarking Vision-Language Models for Planetary-Scale Geospatial Retrieval on Mars* `arXiv 2026`  
+  [[Paper](https://arxiv.org/abs/2602.13961)]  
+  Benchmark of vision-language models on retrieval over Mars orbital imagery at planetary scale.
+
+- **(AstroVLBench)** *A Systematic Evaluation of Vision-Language Models for Observational Astronomical Reasoning Tasks* `arXiv 2026`  
+  [[Paper](https://arxiv.org/abs/2604.24589)] [[Data](https://huggingface.co/datasets/XiaomanZhang/AstroVLBench)]  
+  More than 4,100 expert-verified instances over five tasks covering HSC imaging, FIRST and NVSS radio maps, AKARI photometry, PLAsTiCC light curves and optical spectra.
+
+- **(AstroAlertBench)** *AstroAlertBench: Evaluating the Accuracy, Reasoning, and Honesty of Multimodal LLMs in Astronomical Classification* `arXiv 2026`  
+  [[Paper](https://arxiv.org/abs/2605.05573)] [[Code](https://github.com/LLM-for-Astronomy/AstroAlertBench)]  
+  Evaluates 13 multimodal LLMs on transient alert review through metadata grounding, scientific reasoning and hierarchical classification over five classes.
+
+### Text and Reasoning Evaluation
 
 - **(AstroMLab 1)** *AstroMLab 1: Who Wins Astronomy Jeopardy!?* `Astron. Comput. 2025`  
   [[Paper](https://arxiv.org/abs/2407.11194)]  
@@ -336,17 +407,29 @@ General astronomy resources are covered by [awesome-astronomy](https://github.co
   [[Paper](https://arxiv.org/abs/2505.20538)] [[Code](https://github.com/SebaJoe/AstroVisBench)] [[Project](https://astrovisbench.github.io)]  
   864 processing and visualization tasks from 110 NOIRLab and STScI notebooks, scored by execution and a VLM judge.
 
-- **(AstroMMBench)** *AstroMMBench: A Benchmark for Evaluating Multimodal Large Language Models Capabilities in Astronomy* `arXiv 2025`  
-  [[Paper](https://arxiv.org/abs/2510.00063)]  
-  621 expert-reviewed multiple-choice questions on astronomical images across six subfields, used to evaluate 25 MLLMs.
+- **(Astro-QA)** *An Astronomical Question Answering Dataset for Evaluating Large Language Models* `Scientific Data 2025`  
+  [[Journal](https://doi.org/10.1038/s41597-025-04613-9)] [[Data](https://figshare.com/articles/dataset/Astro-QA/28235639)]  
+  3,082 English and Chinese questions of six types across astrophysics, astrometry, celestial mechanics, history and techniques, evaluated on 27 LLMs.
+
+- **(CosmoPaperQA)** *Evaluating Retrieval-Augmented Generation Agents for Autonomous Scientific Discovery in Astrophysics* `arXiv 2025`  
+  [[Paper](https://arxiv.org/abs/2507.07155)] [[Data](https://huggingface.co/datasets/ASTROANTS/CosmoPaperQA)]  
+  105 expert-written question-answer pairs from cosmology papers for comparing retrieval-augmented generation agents against human evaluation.
 
 - **(IOAA)** *Large Language Models Achieve Gold Medal Performance at the International Olympiad on Astronomy & Astrophysics (IOAA)* `arXiv 2025`  
   [[Paper](https://arxiv.org/abs/2510.05016)]  
   Evaluates five LLMs on 49 theory and 8 data analysis problems from the 2022 to 2025 IOAA exams.
 
-- *A Systematic Evaluation of Vision-Language Models for Observational Astronomical Reasoning Tasks* `arXiv 2026`  
-  [[Paper](https://arxiv.org/abs/2604.24589)]  
-  Benchmark of vision-language models on reasoning over real multi-modal observational data.
+- **(ReplicationBench)** *ReplicationBench: Can AI Agents Replicate Astrophysics Research Papers?* `arXiv 2025`  
+  [[Paper](https://arxiv.org/abs/2510.24591)]  
+  111 tasks derived from 20 astrophysics papers that test whether agents can reproduce published results, with the best models scoring about 20 percent.
+
+- **(ALeRCE Text-to-SQL)** *Querying an Astronomical Database Using Large Language Models: The ALeRCE Text-to-SQL System* `A&A 2026`  
+  [[Paper](https://arxiv.org/abs/2606.18108)]  
+  Evaluates thirteen LLMs on translating natural-language requests into SQL queries over the ALeRCE alert broker database, comparing direct and step-by-step generation.
+
+- **(Astro2Method)** *Astro2Method: Benchmarking LLMs on Machine Learning Method Selection in Astronomy* `arXiv 2026`  
+  [[Paper](https://arxiv.org/abs/2610.30282)] [[Data](https://huggingface.co/datasets/Xingzhongfan/Astro2Method)]  
+  500 expert-reviewed binary questions from 346 astronomy papers asking which machine learning method performs better for a stated problem.
 
 ## Galaxies
 
@@ -1450,7 +1533,6 @@ General astronomy resources are covered by [awesome-astronomy](https://github.co
 - [magnify](https://github.com/jiwoncpark/magnify) models AGN light curves with Gaussian process and neural network tools.
 - [map2map](https://github.com/eelregit/map2map) trains field-to-field neural networks on cosmological simulations.
 - [MCCD](https://github.com/CosmoStat/mccd) models the PSF across multiple CCDs with data-driven methods.
-- [MiraBest](https://github.com/fmporter/MiraBest-full) provides a labelled FRI and FRII radio galaxy dataset.
 - [ml4gw](https://github.com/ML4GW/ml4gw) provides PyTorch utilities for gravitational-wave machine learning.
 - [ML_GBT_SETI](https://github.com/PetchMa/ML_GBT_SETI) searches Green Bank Telescope data for technosignatures with machine learning.
 - [MLZ](https://github.com/mgckind/MLZ) estimates photometric redshifts with TPZ random forests.
