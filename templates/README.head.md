@@ -10,6 +10,7 @@
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](CONTRIBUTING.md)
 [![License: CC0-1.0](https://img.shields.io/badge/License-CC0_1.0-lightgrey.svg)](LICENSE)
 ![Last Commit](https://img.shields.io/github/last-commit/Xin-YuXiao/Awesome-AI-for-Astronomy)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.24132725.svg)](https://doi.org/10.5281/zenodo.24132725)
 
 **[Web page](https://xin-yuxiao.github.io/Awesome-AI-for-Astronomy/)** &nbsp;|&nbsp; **[Contents](#contents)** &nbsp;|&nbsp; **[Contributing](CONTRIBUTING.md)** &nbsp;|&nbsp; **[Citation](#citation)**
 

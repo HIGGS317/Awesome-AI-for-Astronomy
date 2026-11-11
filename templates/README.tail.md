@@ -4,7 +4,7 @@ Contributions are welcome. Entries live in [`data/entries.yml`](data/entries.yml
 
 ## Citation
 
-If this list is useful in your work, please cite it as below. GitHub also provides APA and BibTeX formats through the Cite this repository button.
+If this list is useful in your work, please cite it as below. Each release is archived on Zenodo, and v1.0.0 has the DOI [10.5281/zenodo.24132725](https://doi.org/10.5281/zenodo.24132725). GitHub also provides APA and BibTeX formats through the Cite this repository button.
 
 ```bibtex
 @misc{xiao2026awesomeaiastronomy,
@@ -13,7 +13,8 @@ If this list is useful in your work, please cite it as below. GitHub also provid
   year         = {2026},
   publisher    = {GitHub},
   journal      = {GitHub repository},
-  howpublished = {\url{https://github.com/Xin-YuXiao/Awesome-AI-for-Astronomy}}
+  howpublished = {\url{https://github.com/Xin-YuXiao/Awesome-AI-for-Astronomy}},
+  doi          = {10.5281/zenodo.24132725}
 }
 ```
 
