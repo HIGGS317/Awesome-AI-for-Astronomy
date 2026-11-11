@@ -72,7 +72,9 @@ def walk(data):
 
 
 def validate(data):
+    """Check required fields and reject papers listed twice (same title, arXiv link or DOI)."""
     errors = []
+    seen = {}
     for sec, sub in walk(data):
         node = sub or sec
         for e in node.get("entries", []):
@@ -85,6 +87,17 @@ def validate(data):
                 for k in ("title", "venue", "links", "desc"):
                     if not e.get(k):
                         errors.append(f"{where}: paper missing {k}: {e.get('title', e)}")
+                if e.get("title"):
+                    key = re.sub(r"[^a-z0-9]", "", e["title"].lower())
+                    seen.setdefault(("title", key), []).append(where)
+                for lab in ("Paper", "Journal"):
+                    url = (e.get("links") or {}).get(lab)
+                    if url:
+                        key = url.lower().rstrip("/").replace("http://", "https://")
+                        seen.setdefault((lab, key), []).append(where)
+    for (kind, key), places in seen.items():
+        if len(places) > 1:
+            errors.append(f"duplicate {kind} {key} in: {'; '.join(places)}")
     if errors:
         sys.exit("\n".join(errors))
 

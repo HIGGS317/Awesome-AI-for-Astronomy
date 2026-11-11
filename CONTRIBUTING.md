@@ -6,8 +6,9 @@ Thank you for helping improve this list.
 
 1. The work applies machine learning or AI methods to astronomy, astrophysics, cosmology, heliophysics or planetary science.
 2. The paper is publicly available (arXiv, journal or proceedings).
-3. At least one artifact is public, such as code, model weights, a dataset or a hosted service, or the paper is a survey or benchmark of clear value to the field.
-4. The work is not already listed.
+3. Public code, model weights, datasets or hosted services are strongly preferred and are linked in the Code and Links columns. A paper without a public artifact is accepted when it reports a clear methodological or scientific contribution, a benchmark or a survey; the web page can filter the list to entries with public code.
+4. The venue is the peer-reviewed journal, conference or workshop that accepted the paper, confirmed by a DOI, the proceedings, the official program or the authors' repository. Otherwise the venue is `arXiv` with the year of the first version.
+5. The work is not already listed. `scripts/build.py` rejects entries that repeat the title, arXiv link or DOI of another entry.
 
 Software without an accompanying paper can be added to the Tools and Libraries section, linking to its official repository.
 

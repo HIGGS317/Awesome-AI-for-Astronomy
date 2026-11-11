@@ -137,14 +137,15 @@ sections:
       desc: Self-supervised representations of 42M DESI Legacy Imaging Survey galaxies with a public similarity search tool.
     - name: Zoobot Representations
       title: Practical Galaxy Morphology Tools from Deep Supervised Representation Learning
-      venue: arXiv 2021
+      venue: MNRAS 2022
       links:
         Paper: https://arxiv.org/abs/2110.12735
+        Journal: https://doi.org/10.1093/mnras/stac525
         Code: https://github.com/mwalmsley/zoobot
       desc: Representations learned from Galaxy Zoo labels reused for similarity search, anomaly finding and new classification tasks.
     - name: Zoobot FM
-      title: Towards Foundation Models for Galaxy Morphology
-      venue: arXiv 2022
+      title: Towards Galaxy Foundation Models with Hybrid Contrastive Learning
+      venue: ICML 2022 Workshop (ML4Astro)
       links:
         Paper: https://arxiv.org/abs/2206.11927
         Code: https://github.com/mwalmsley/zoobot
@@ -182,7 +183,7 @@ sections:
       desc: Autoregressive transformers from 1M to 2.1B parameters pretrained on 8.6M DESI Legacy Survey galaxy images.
     - name: Gestalt
       title: 'Gestalt: A Meta-Foundation Model for Astronomy'
-      venue: arXiv 2026
+      venue: NeurIPS 2026 Workshop (Interpretability for Discovery)
       links:
         Paper: https://arxiv.org/abs/2609.38312
       desc: Combines frozen embeddings of 22 foundation models from eight families by whitening and randomised SVD, outperforming every member on 19 of 21 metrics for HSC, JWST and Legacy Survey galaxies.
@@ -190,9 +191,10 @@ sections:
     entries:
     - name: SDSS-VAE
       title: Dimensionality Reduction of SDSS Spectra with Variational Autoencoders
-      venue: arXiv 2020
+      venue: AJ 2020
       links:
         Paper: https://arxiv.org/abs/2002.10464
+        Journal: https://doi.org/10.3847/1538-3881/ab9644
         Code: https://github.com/stephenportillo/SDSS-VAE
       desc: Variational autoencoder compression of SDSS galaxy spectra into a low-dimensional latent space.
     - name: Cycle-StarNet
@@ -324,9 +326,10 @@ sections:
         Model: https://huggingface.co/polymathic-ai/aion-base
       desc: Token-based masked modeling over 39 modalities from Legacy Survey, HSC, SDSS, DESI and Gaia, released at 300M to 3.1B parameters.
     - title: Self-Supervised Representation Learning for JWST Galaxy Images and Low Resolution Spectra
-      venue: arXiv 2026
+      venue: NeurIPS 2026 Workshop (RPS)
       links:
         Paper: https://arxiv.org/abs/2610.31078
+        Code: https://github.com/2003cy/neurips2026_ssl_jwst
       desc: Joint representation of F150W imaging and 1 to 2 micron PRISM spectra that recovers stellar mass at 1 < z < 3 with R2 of about 0.9, with CLIP alignment improving single-modality inference.
 - title: Language and Vision-Language Models
   entries:
@@ -339,9 +342,10 @@ sections:
     desc: BERT model with 110M parameters trained on NASA ADS papers for named entity recognition and classification.
   - name: AstroLLaMA
     title: 'AstroLLaMA: Towards Specialized Foundation Models in Astronomy'
-    venue: arXiv 2023
+    venue: IJCNLP-AACL 2023 Workshop (WIESP)
     links:
       Paper: https://arxiv.org/abs/2309.06126
+      ACL Anthology: https://aclanthology.org/2023.wiesp-1.7/
       Model: https://huggingface.co/universeTBD
     desc: LLaMA-2-7B finetuned on over 300k astro-ph abstracts.
   - name: AstroLLaMA-Chat
@@ -500,16 +504,18 @@ sections:
       desc: Open challenge in which participants classified 100,000 simulated space-based and ground-based cutouts as lenses or non-lenses, comparing CNNs, SVMs, arc finders and visual inspection.
     - name: MLGWSC-1
       title: 'MLGWSC-1: The First Machine Learning Gravitational-Wave Search Mock Data Challenge'
-      venue: arXiv 2022
+      venue: PRD 2023
       links:
         Paper: https://arxiv.org/abs/2209.11146
+        Journal: https://doi.org/10.1103/PhysRevD.107.023021
         Code: https://github.com/gwastro/ml-mock-data-challenge-1
       desc: Common datasets and metrics for comparing machine learning gravitational-wave search algorithms.
     - name: SKA SDC2
       title: 'SKA Science Data Challenge 2: Analysis and Results'
-      venue: arXiv 2023
+      venue: MNRAS 2023
       links:
         Paper: https://arxiv.org/abs/2303.07943
+        Journal: https://doi.org/10.1093/mnras/stad1375
       desc: Detection and characterisation of 233,245 simulated HI sources in a 2,000 h SKA-MID spectral line cube, with reproducibility awards for open pipelines.
     - name: MiraBest
       title: 'MiraBest: A Dataset of Morphologically Classified Radio Galaxies for Machine Learning'
@@ -521,9 +527,10 @@ sections:
       desc: 1,256 NVSS and FIRST radio-loud AGN labelled by Fanaroff-Riley class with confidence flags, distributed as a batched dataset for deep learning libraries.
     - name: RadioGalaxyNET
       title: 'RadioGalaxyNET: Dataset and Novel Computer Vision Algorithms for the Detection of Extended Radio Galaxies and Infrared Hosts'
-      venue: arXiv 2023
+      venue: PASA 2024
       links:
         Paper: https://arxiv.org/abs/2312.00306
+        Journal: https://doi.org/10.1017/pasa.2023.64
       desc: 2,800 radio and infrared images with 4,155 expert-annotated galaxies in COCO format for multi-component radio galaxy and host detection.
     - name: CosmoBench
       title: 'CosmoBench: A Multiscale, Multiview, Multitask Cosmology Benchmark for Geometric Deep Learning'
@@ -578,6 +585,8 @@ sections:
       venue: arXiv 2026
       links:
         Paper: https://arxiv.org/abs/2611.10228
+        Data: https://doi.org/10.5281/zenodo.20056065
+        Code: https://github.com/FAIR-Universe/Cosmology_Challenge
       desc: Simulated HSC-like weak lensing convergence maps and a competition scoring cosmological parameter estimates together with their uncertainty calibration.
   - title: Multimodal Model Evaluation
     entries:
@@ -713,10 +722,11 @@ sections:
         Paper: https://arxiv.org/abs/2302.02005
         Code: https://github.com/deepskies/DeepAstroUDA
       desc: Universal domain adaptation between SDSS, DECaLS and LSST mock images that also clusters unknown classes.
-    - title: 'Harnessing the Hubble Space Telescope Archives: A Catalogue of 21,926 Interacting Galaxies'
-      venue: arXiv 2023
+    - title: 'Harnessing the Hubble Space Telescope Archives: A Catalog of 21,926 Interacting Galaxies'
+      venue: ApJ 2023
       links:
         Paper: https://arxiv.org/abs/2303.00366
+        Journal: https://doi.org/10.3847/1538-4357/acc0ff
       desc: Zoobot-based search of the HST archive for interacting galaxies.
     - name: Astroformer
       title: 'Astroformer: More Data Might Not be All You Need for Classification'
@@ -725,10 +735,11 @@ sections:
         Paper: https://arxiv.org/abs/2304.05350
         Code: https://github.com/Rishit-dagli/Astroformer
       desc: Hybrid transformer and convolutional classifier trained in the low-data regime on Galaxy10 DECals.
-    - title: 'Transfer Learning for Galaxy Feature Detection: Finding Giant Star-forming Clumps in Low Redshift Galaxies Using Faster R-CNN'
-      venue: arXiv 2023
+    - title: 'Transfer Learning for Galaxy Feature Detection: Finding Giant Star-forming Clumps in Low-redshift Galaxies Using Faster Region-based Convolutional Neural Network'
+      venue: RASTI 2024
       links:
         Paper: https://arxiv.org/abs/2312.03503
+        Journal: https://doi.org/10.1093/rasti/rzae013
       desc: Object detection of star-forming clumps in galaxy images with transfer learning.
     - title: Euclid Preparation. Measuring Detailed Galaxy Morphologies for Euclid with Machine Learning
       venue: arXiv 2024
@@ -786,17 +797,19 @@ sections:
         Journal: https://doi.org/10.1093/mnras/stw3021
       desc: Unsupervised random forest outlier scores for about two million SDSS galaxy spectra.
     - name: Sequencer
-      title: 'Extracting the Main Trend in a Dataset: the Sequencer Algorithm'
-      venue: arXiv 2020
+      title: 'Extracting the Main Trend in a Data Set: The Sequencer Algorithm'
+      venue: ApJ 2021
       links:
         Paper: https://arxiv.org/abs/2006.13948
+        Journal: https://doi.org/10.3847/1538-4357/abfc4d
         Code: https://github.com/dalya/Sequencer
       desc: Unsupervised ordering algorithm that recovers one-dimensional trends in spectra and other datasets.
     - name: Astronomaly
       title: 'Astronomaly: Personalised Active Anomaly Detection in Astronomical Data'
-      venue: arXiv 2020
+      venue: Astron. Comput. 2021
       links:
         Paper: https://arxiv.org/abs/2010.11202
+        Journal: https://doi.org/10.1016/j.ascom.2021.100481
         Protege: https://arxiv.org/abs/2411.04188
         Code: https://github.com/MichelleLochner/astronomaly
       desc: Active learning framework that combines anomaly scores with user feedback to rank interesting objects.
@@ -810,20 +823,23 @@ sections:
       desc: Wasserstein GAN anomaly scores for HSC galaxy images.
     - name: DeepAdversaries
       title: 'DeepAdversaries: Examining the Robustness of Deep Learning Models for Galaxy Morphology Classification'
-      venue: arXiv 2021
+      venue: MLST 2022
       links:
-        Paper: https://arxiv.org/abs/2111.00961
+        Paper: https://arxiv.org/abs/2112.14299
+        Journal: https://doi.org/10.1088/2632-2153/ac7f1a
         Code: https://github.com/AleksCipri/DeepAdversaries
       desc: Studies the robustness of galaxy morphology classifiers to image perturbations.
     - title: 'Astronomaly at Scale: Searching for Anomalies Amongst 4 Million Galaxies'
-      venue: arXiv 2023
+      venue: MNRAS 2024
       links:
         Paper: https://arxiv.org/abs/2309.08660
+        Journal: https://doi.org/10.1093/mnras/stae496
       desc: Applies Astronomaly to about 4M galaxies using pretrained Zoobot representations.
     - title: Enabling Unsupervised Discovery in Astronomical Images through Self-Supervised Representations
-      venue: arXiv 2023
+      venue: MNRAS 2024
       links:
         Paper: https://arxiv.org/abs/2311.14157
+        Journal: https://doi.org/10.1093/mnras/stae926
       desc: Self-supervised features with clustering, artefact removal, anomaly detection and similarity search on survey images.
     - name: AnomalyMatch
       title: 'AnomalyMatch: Discovering Rare Objects of Interest with Semi-supervised and Active Learning'
@@ -900,9 +916,10 @@ sections:
       desc: Neural network emulator of stellar population synthesis for fast SED fitting.
     - name: PROVABGS
       title: The DESI PRObabilistic Value-Added Bright Galaxy Survey (PROVABGS) Mock Challenge
-      venue: arXiv 2022
+      venue: ApJ 2023
       links:
         Paper: https://arxiv.org/abs/2202.01809
+        Journal: https://doi.org/10.3847/1538-4357/ac8983
         Code: https://github.com/changhoonhahn/provabgs
       desc: Bayesian SED modeling pipeline for DESI BGS that uses neural emulators for speed.
     - name: SEDflow
@@ -999,9 +1016,10 @@ sections:
     desc: U-Net mass mapping of Dark Energy Survey Science Verification weak lensing data.
   - name: Substructure Mining
     title: 'Mining for Dark Matter Substructure: Inferring Subhalo Population Properties from Strong Lenses with Machine Learning'
-    venue: arXiv 2019
+    venue: ApJ 2019
     links:
       Paper: https://arxiv.org/abs/1909.02005
+      Journal: https://doi.org/10.3847/1538-4357/ab4c41
       Code: https://github.com/smsharma/mining-for-substructure-lens
     desc: Likelihood-ratio estimation with neural networks for subhalo population inference from lensed images.
   - name: DeepLense
@@ -1035,9 +1053,10 @@ sections:
     desc: Configuration-driven simulation of strong lensing training sets for deep learning.
   - name: Lens Mining
     title: Mining for Strong Gravitational Lenses with Self-supervised Learning
-    venue: arXiv 2021
+    venue: ApJ 2022
     links:
       Paper: https://arxiv.org/abs/2110.00023
+      Journal: https://doi.org/10.3847/1538-4357/ac6d63
       Code: https://github.com/georgestein/ssl-legacysurvey
     desc: Self-supervised representations of DESI Legacy Survey images used to find new strong lens candidates.
   - name: GIGA-Lens
@@ -1135,9 +1154,10 @@ sections:
     desc: Instance segmentation for joint detection, deblending and star-galaxy classification.
   - name: DeblenderVAE
     title: 'Deblending Galaxies with Variational Autoencoders: A Joint Multi-band, Multi-instrument Approach'
-    venue: arXiv 2020
+    venue: MNRAS 2021
     links:
       Paper: https://arxiv.org/abs/2005.12039
+      Journal: https://doi.org/10.1093/mnras/staa3062
       Code: https://github.com/LSSTDESC/DeblenderVAE
       Updated Code: https://github.com/astrodeepnet/debvader
     desc: VAE-based deblender trained jointly on ground and space-based simulated images.
@@ -1164,16 +1184,18 @@ sections:
     desc: Random forest star and galaxy separation for Pan-STARRS1 sources.
   - name: MuyGPs Star-Galaxy Images
     title: Star-Galaxy Image Separation with Computationally Efficient Gaussian Process Classification
-    venue: arXiv 2021
+    venue: AJ 2022
     links:
       Paper: https://arxiv.org/abs/2105.01106
+      Journal: https://doi.org/10.3847/1538-3881/ac4e93
       Code: https://github.com/LLNL/MuyGPyS
     desc: Scalable local Gaussian process classification of star and galaxy image cutouts.
   - name: MuyGPs Blends
-    title: Gaussian Process Classification of Galaxy Blend Identification in LSST
-    venue: arXiv 2021
+    title: Gaussian Process Classification for Galaxy Blend Identification in LSST
+    venue: ApJ 2022
     links:
       Paper: https://arxiv.org/abs/2107.09246
+      Journal: https://doi.org/10.3847/1538-4357/ac35ca
       Code: https://github.com/LLNL/MuyGPyS
     desc: Gaussian process classifiers that flag blended galaxies in simulated LSST images.
   - name: astroddpm
@@ -1233,6 +1255,20 @@ sections:
       Code: https://github.com/pmelchior/scarlet2
       Journal: https://doi.org/10.21105/joss.09646
     desc: JAX scene modeling for multi-band, multi-epoch and multi-instrument data with neural network priors.
+  - name: FluxFlow
+    title: 'FluxFlow: Conservative Flow-Matching for Astronomical Image Super-Resolution'
+    venue: NeurIPS 2026
+    links:
+      Paper: https://arxiv.org/abs/2605.03749
+      Code: https://github.com/I2WM/FluxFlow
+    desc: Pixel-space flow matching for super-resolution that weights training by observational uncertainty and source regions, with a training-free Wiener-regularised correction against spurious sources; introduces 19,500 co-registered DESI to HST image pairs.
+  - title: 'Denoising the Deep Sky: Physics-Based CCD Noise Formation for Astronomical Imaging'
+    venue: ECCV 2026
+    links:
+      Paper: https://arxiv.org/abs/2601.23276
+      Code: https://github.com/ShuhongLL/Denoising-Deep-Sky
+      Data: https://huggingface.co/datasets/ToferFish/MuSCAT-RawImage
+    desc: Synthesises paired training data from a CCD noise model covering shot noise, response non-uniformity, dark current, readout effects, cosmic rays and hot pixels on stacked high-SNR bases; releases multi-band raw frames from two twin ground-based telescopes.
 - title: Stars and Stellar Spectroscopy
   entries:
   - name: astroNN
@@ -1405,9 +1441,10 @@ sections:
       Code: https://github.com/LLNL/MuyGPyS
     desc: Scalable Gaussian processes for filling gaps in and forecasting light curves.
   - title: Identifying Light-curve Signals with a Deep-learning-based Object Detection Algorithm. II. A General Light-curve Classification Framework
-    venue: arXiv 2023
+    venue: ApJS 2024
     links:
       Paper: https://arxiv.org/abs/2311.08080
+      Journal: https://doi.org/10.3847/1538-4365/ad62fd
     desc: Object-detection based classifier on light curves and power spectra from Kepler, TESS and ZTF.
   - name: BTSbot
     title: 'The Zwicky Transient Facility Bright Transient Survey. III. BTSbot: Automated Identification and Follow-up of Bright Transients with Deep Learning'
@@ -1632,10 +1669,11 @@ sections:
 - title: Cosmology and Large-Scale Structure
   entries:
   - name: CosmoGAN
-    title: Creating Virtual Universes Using Generative Adversarial Networks
-    venue: arXiv 2017
+    title: 'CosmoGAN: Creating High-fidelity Weak Lensing Convergence Maps Using Generative Adversarial Networks'
+    venue: Comput. Astrophys. Cosmol. 2019
     links:
       Paper: https://arxiv.org/abs/1706.02390
+      Journal: https://doi.org/10.1186/s40668-019-0029-9
       Code: https://github.com/MustafaMustafa/cosmoGAN
     desc: GAN that generates weak lensing convergence maps.
   - name: IMNN
@@ -1654,9 +1692,10 @@ sections:
     desc: Pixel-based convolutions on HEALPix maps applied to CMB analysis.
   - name: 3DcosmoGAN
     title: 'Cosmological N-body Simulations: A Challenge for Scalable Generative Models'
-    venue: arXiv 2019
+    venue: Comput. Astrophys. Cosmol. 2019
     links:
       Paper: https://arxiv.org/abs/1908.05519
+      Journal: https://doi.org/10.1186/s40668-019-0032-1
       Code: https://github.com/nperraud/3DcosmoGAN
     desc: Scalable 3D GAN for N-body density fields.
   - name: Symbolic DL
@@ -1690,9 +1729,10 @@ sections:
     desc: 3D UNet ensemble that separates cosmological HI signal from radio foregrounds.
   - name: Stellar Streams SBI
     title: Towards Constraining Warm Dark Matter with Stellar Streams through Neural Simulation-based Inference
-    venue: arXiv 2020
+    venue: MNRAS 2021
     links:
       Paper: https://arxiv.org/abs/2011.14923
+      Journal: https://doi.org/10.1093/mnras/stab2181
       Code: https://github.com/JoeriHermans/constraining-dark-matter-with-stellar-streams-and-ml
     desc: Neural ratio estimation for dark matter constraints from stream density variations.
   - name: Moment Networks
@@ -1771,16 +1811,18 @@ sections:
     desc: Deep learning analysis of combined weak lensing and galaxy clustering maps.
   - name: LINNA
     title: 'LINNA: Likelihood Inference Neural Network Accelerator'
-    venue: arXiv 2022
+    venue: JCAP 2023
     links:
       Paper: https://arxiv.org/abs/2203.05583
+      Journal: https://doi.org/10.1088/1475-7516/2023/01/016
       Code: https://github.com/chto/linna
     desc: Neural network emulation of the likelihood for accelerated cosmological parameter inference.
   - name: CosmoGraphNet
     title: Learning Cosmology and Clustering with Cosmic Graphs
-    venue: arXiv 2022
+    venue: ApJ 2022
     links:
       Paper: https://arxiv.org/abs/2204.13713
+      Journal: https://doi.org/10.3847/1538-4357/ac8930
       Code: https://github.com/PabloVD/CosmoGraphNet
     desc: Graph neural networks on galaxy catalogues for cosmological parameter inference.
   - name: CONNECT
@@ -1799,21 +1841,24 @@ sections:
     desc: Variational autoencoder emulator of the global 21-cm signal.
   - name: CosmoPower-JAX
     title: 'CosmoPower-JAX: High-dimensional Bayesian Inference with Differentiable Cosmological Emulators'
-    venue: arXiv 2023
+    venue: OJAp 2023
     links:
       Paper: https://arxiv.org/abs/2305.06347
+      Journal: https://doi.org/10.21105/astro.2305.06347
       Code: https://github.com/dpiras/cosmopower-jax
     desc: JAX version of CosmoPower for gradient-based samplers.
   - title: In Search of Global 21-cm Signal Using Artificial Neural Network in Light of ARCADE 2
-    venue: arXiv 2023
+    venue: EPJC 2025
     links:
       Paper: https://arxiv.org/abs/2306.02039
+      Journal: https://doi.org/10.1140/epjc/s10052-025-14256-0
     desc: Neural network that extracts global 21-cm parameters from antenna temperatures with foregrounds and ionospheric distortion.
   - name: Capse.jl
     title: 'Capse.jl: Efficient and Auto-differentiable CMB Power Spectra Emulation'
-    venue: arXiv 2023
+    venue: OJAp 2024
     links:
       Paper: https://arxiv.org/abs/2307.14339
+      Journal: https://doi.org/10.21105/astro.2307.14339
       Code: https://github.com/CosmologicalEmulators/Capse.jl
     desc: Julia neural emulator of CMB power spectra for gradient-based samplers.
   - name: 21cmEMU
@@ -1939,9 +1984,10 @@ sections:
     desc: Simulation-efficient marginal posterior estimation with prior truncation.
   - name: swyft TMNRE
     title: Fast and Credible Likelihood-Free Cosmology with Truncated Marginal Neural Ratio Estimation
-    venue: arXiv 2021
+    venue: JCAP 2022
     links:
       Paper: https://arxiv.org/abs/2111.08030
+      Journal: https://doi.org/10.1088/1475-7516/2022/09/004
       Code: https://github.com/undark-lab/swyft
     desc: Truncated marginal neural ratio estimation applied to CMB cosmological inference.
   - name: margarine
@@ -1953,9 +1999,10 @@ sections:
     desc: Normalizing flows and KDEs that learn nuisance-free marginal posteriors for marginal KL divergences and emulation.
   - name: pocoMC
     title: Accelerating Astronomical and Cosmological Inference with Preconditioned Monte Carlo
-    venue: arXiv 2022
+    venue: MNRAS 2022
     links:
-      Paper: https://arxiv.org/abs/2207.05660
+      Paper: https://arxiv.org/abs/2207.05652
+      Journal: https://doi.org/10.1093/mnras/stac2272
       Code: https://github.com/minaskar/pocomc
     desc: Sequential Monte Carlo sampler preconditioned with normalizing flows.
   - name: GPry
@@ -1975,9 +2022,10 @@ sections:
     desc: Coverage test that checks generative posterior estimators using samples alone.
   - name: nautilus
     title: 'nautilus: Boosting Bayesian Importance Nested Sampling with Deep Learning'
-    venue: arXiv 2023
+    venue: MNRAS 2023
     links:
       Paper: https://arxiv.org/abs/2306.16923
+      Journal: https://doi.org/10.1093/mnras/stad2441
       Code: https://github.com/johannesulf/nautilus
     desc: Importance nested sampling with neural network emulation of the likelihood contours.
   - name: nbi
@@ -2015,9 +2063,10 @@ sections:
     desc: Neural networks that estimate source-count distributions and flux fractions of gamma-ray templates.
   - name: Fermi GCE SBI
     title: A Neural Simulation-based Inference Approach for Characterizing the Galactic Center γ-ray Excess
-    venue: arXiv 2021
+    venue: PRD 2022
     links:
       Paper: https://arxiv.org/abs/2110.06931
+      Journal: https://doi.org/10.1103/PhysRevD.105.063017
       Code: https://github.com/smsharma/fermi-gce-flows
     desc: Normalizing-flow posterior estimation on spherical Fermi-LAT maps with graph neural network summaries.
   - name: GraphNeT IceCube
@@ -2095,9 +2144,10 @@ sections:
     desc: Conditional VAE for rapid compact binary parameter estimation.
   - name: DeepClean
     title: Noise Reduction in Gravitational-wave Data via Deep Learning
-    venue: arXiv 2020
+    venue: Phys. Rev. Res. 2020
     links:
       Paper: https://arxiv.org/abs/2005.06534
+      Journal: https://doi.org/10.1103/PhysRevResearch.2.033066
       Code: https://github.com/ML4GW/DeepClean
     desc: Neural network for low-frequency noise subtraction in gravitational-wave detectors.
   - name: nessai
@@ -2118,16 +2168,18 @@ sections:
     desc: Normalizing-flow posteriors for binary black hole events with inference times of about a minute.
   - name: flowMC
     title: 'flowMC: Normalizing Flow Enhanced Sampling Package for Probabilistic Inference in JAX'
-    venue: arXiv 2022
+    venue: JOSS 2023
     links:
       Paper: https://arxiv.org/abs/2211.06397
+      Journal: https://doi.org/10.21105/joss.05021
       Code: https://github.com/kazewong/flowMC
     desc: MCMC with normalizing-flow global proposals, used for gravitational-wave parameter estimation.
   - name: Peregrine
     title: 'Peregrine: Sequential Simulation-based Inference for Gravitational Wave Signals'
-    venue: arXiv 2023
+    venue: PRD 2023
     links:
       Paper: https://arxiv.org/abs/2304.02035
+      Journal: https://doi.org/10.1103/PhysRevD.108.042004
       Code: https://github.com/PEREGRINE-GW/peregrine
     desc: Truncated marginal neural ratio estimation for compact binary parameter estimation.
   - name: Aframe
@@ -2342,17 +2394,19 @@ sections:
       Code: https://github.com/radionets-project/radionets
     desc: Neural networks that reconstruct radio images from incomplete visibility data.
   - name: Radio Galaxy Zoo FM
-    title: 'Radio Galaxy Zoo: Building a Multipurpose Foundation Model for Radio Astronomy with Self-supervised Learning'
-    venue: arXiv 2023
+    title: 'Radio Galaxy Zoo: Towards Building the First Multipurpose Foundation Model for Radio Astronomy with Self-supervised Learning'
+    venue: RASTI 2024
     links:
       Paper: https://arxiv.org/abs/2305.16127
+      Journal: https://doi.org/10.1093/rasti/rzad055
       Code: https://github.com/inigoval/byol
     desc: BYOL pretraining on unlabelled radio galaxy images for downstream classification.
   - name: AIRI
-    title: Plug-and-play Imaging with Model Uncertainty Quantification in Radio Astronomy
-    venue: arXiv 2023
+    title: 'The AIRI Plug-and-Play Algorithm for Image Reconstruction in Radio-Interferometry: Variations and Robustness'
+    venue: MNRAS 2025
     links:
       Paper: https://arxiv.org/abs/2312.07137
+      Journal: https://doi.org/10.1093/mnras/staf022
       Code: https://github.com/basp-group/AIRI
     desc: Learned denoisers in proximal algorithms for radio-interferometric imaging with uncertainty quantification.
   - name: R2D2
@@ -2408,10 +2462,11 @@ sections:
       Data: https://huggingface.co/datasets/travisdriver/astrovision-data
       Journal: https://doi.org/10.1016/j.actaastro.2023.01.009
     desc: 115,970 annotated real images of 16 small bodies for keypoint detection and description benchmarks.
-  - title: Deep Learning Universal Crater Detection Using Segment Anything Model (SAM)
-    venue: arXiv 2023
+  - title: A Flexible Deep Learning Crater Detection Scheme Using Segment Anything Model (SAM)
+    venue: Icarus 2024
     links:
       Paper: https://arxiv.org/abs/2304.07764
+      Journal: https://doi.org/10.1016/j.icarus.2023.115797
     desc: Zero-shot crater segmentation with SAM on lunar and Martian images and DEMs.
   - name: Lunar Twins
     title: 'Lunar Twins: We Choose to Go to the Moon with Large Language Models'
@@ -2476,6 +2531,13 @@ sections:
     links:
       Paper: https://arxiv.org/abs/2604.02719
     desc: Multi-sensor foundation model for Mars that combines representations from several orbital instruments for downstream remote sensing tasks.
+  - name: ThermoONet
+    title: Deep Learning-enabled Size Estimation of Comets Indicates a More Dynamic Early Solar System
+    venue: Nat. Commun. 2026
+    links:
+      Journal: https://doi.org/10.1038/s41467-026-72646-8
+      Code: https://github.com/zsjnb7/ThermoONet-Comet
+    desc: DeepONet thermophysical model of water sublimation, fitted with simulated annealing to the water production curves of 28 comets to estimate nucleus sizes.
 - title: Datasets
   subsections:
   - title: Observational Datasets
