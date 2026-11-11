@@ -710,6 +710,22 @@ General astronomy resources are covered by [awesome-astronomy](https://github.co
   [[Paper](https://arxiv.org/abs/2407.06858)]  
   LSTM and transformer model pretrained contrastively on Kepler light curves and trained on spot-model simulations.
 
+- *Predicting Metallicities and Carbon Abundances from Gaia XP Spectra for (Carbon-enhanced) Metal-poor Stars* `arXiv 2024`  
+  [[Paper](https://arxiv.org/abs/2410.11077)]  
+  Heteroscedastic neural network ensemble that predicts [Fe/H] and [C/Fe] for more than 10 million XP stars.
+
+- *Mapping the Milky Way with Gaia Bp/Rp Spectra I: Systematic Flux Corrections and Atmospheric Parameters for 68 Million Stars* `arXiv 2024`  
+  [[Paper](https://arxiv.org/abs/2411.19105)]  
+  APOGEE-trained network that corrects XP flux systematics before model-atmosphere fitting.
+
+- **(UA-CSNet)** *Metallicities of 20 Million Giant Stars Based on Gaia XP Spectra* `arXiv 2025`  
+  [[Paper](https://arxiv.org/abs/2505.05281)]  
+  Uncertainty-aware cost-sensitive network that estimates metallicities down to [Fe/H] about -4 for giants.
+
+- *Millions of Main-Sequence Binary Stars from Gaia BP/RP Spectra* `arXiv 2025`  
+  [[Paper](https://arxiv.org/abs/2507.09622)]  
+  Neural spectral emulator of single stars used to identify more than 14 million binary candidates from XP spectra.
+
 - *The Use of Conditional Variational Autoencoders in Generating Stellar Spectra* `arXiv 2025`  
   [[Paper](https://arxiv.org/abs/2508.17059)]  
   CVAE that generates stellar spectra over a grid of atmospheric parameters, rotation and instrumental resolution.
@@ -870,6 +886,14 @@ General astronomy resources are covered by [awesome-astronomy](https://github.co
   [[Paper](https://arxiv.org/abs/2502.18045)]  
   Neural ratio estimation for marginal posteriors and amortized Bayesian model comparison, applied to WASP-39b.
 
+- *Exoplanet Transit Candidate Identification in TESS Full-Frame Images via a Transformer-Based Algorithm* `arXiv 2025`  
+  [[Paper](https://arxiv.org/abs/2502.07542)]  
+  Convolutional embeddings and transformer encoder applied to flux, centroid and background series of 4.1 million light curves.
+
+- **(DART-Vetter)** *DART-Vetter: A Deep LeARning Tool for Automatic Triage of Exoplanet Candidates* `arXiv 2025`  
+  [[Paper](https://arxiv.org/abs/2506.05556)]  
+  Compact CNN on phase-folded light curves that triages TESS and Kepler threshold crossing events.
+
 - *Towards the Habitable Worlds Observatory: Retrieval of Reflection Spectra from Evolving Earth Analogues Using 1D CNNs* `arXiv 2025`  
   [[Paper](https://arxiv.org/abs/2508.00076)]  
   1D CNN retrieval of composition and planetary properties from HWO-like reflected-light spectra.
@@ -881,6 +905,22 @@ General astronomy resources are covered by [awesome-astronomy](https://github.co
 - *Exoplanetary Atmospheres Retrieval via a Quantum Extreme Learning Machine* `arXiv 2025`  
   [[Paper](https://arxiv.org/abs/2509.03617)]  
   Quantum extreme learning machine retrieval executed on IBM quantum hardware.
+
+- *Identifying Exoplanets with Deep Learning: A CNN and RNN Classifier for Kepler DR25 and Candidate Vetting* `arXiv 2025`  
+  [[Paper](https://arxiv.org/abs/2509.04793)]  
+  CNN, bidirectional LSTM and attention classifier for Kepler DR25 transit signals.
+
+- **(WATSON-Net)** *WATSON-Net: Vetting, Validation, and Analysis of Transits from Space Observations with Neural Networks* `arXiv 2025`  
+  [[Paper](https://arxiv.org/abs/2511.08768)]  
+  Multi-branch network for transit vetting integrated into the SHERLOCK pipeline.
+
+- **(RAVEN)** *Automatic Search for Transiting Planets in TESS-SPOC FFIs with RAVEN: Over 100 Newly Validated Planets and Over 2000 Vetted Candidates* `arXiv 2026`  
+  [[Paper](https://arxiv.org/abs/2603.22597)]  
+  Machine learning classifiers trained on injected simulations combined with statistical validation for TESS FFI candidates.
+
+- **(ExoNet)** *ExoNet: Calibrated Multimodal Deep Learning for TESS Exoplanet Candidate Vetting Using Phase-Folded Light Curves, Stellar Parameters, and Multi-Head Attention* `arXiv 2026`  
+  [[Paper](https://arxiv.org/abs/2604.15560)]  
+  Late fusion of light-curve CNN features with attention and stellar parameters, calibrated by temperature scaling.
 
 ## Cosmology and Large-Scale Structure
 
@@ -980,6 +1020,10 @@ General astronomy resources are covered by [awesome-astronomy](https://github.co
   [[Paper](https://arxiv.org/abs/2305.06347)] [[Code](https://github.com/dpiras/cosmopower-jax)]  
   JAX version of CosmoPower for gradient-based samplers.
 
+- *In Search of Global 21-cm Signal Using Artificial Neural Network in Light of ARCADE 2* `arXiv 2023`  
+  [[Paper](https://arxiv.org/abs/2306.02039)]  
+  Neural network that extracts global 21-cm parameters from antenna temperatures with foregrounds and ionospheric distortion.
+
 - **(Capse.jl)** *Capse.jl: Efficient and Auto-differentiable CMB Power Spectra Emulation* `arXiv 2023`  
   [[Paper](https://arxiv.org/abs/2307.14339)] [[Code](https://github.com/CosmologicalEmulators/Capse.jl)]  
   Julia neural emulator of CMB power spectra for gradient-based samplers.
@@ -996,6 +1040,10 @@ General astronomy resources are covered by [awesome-astronomy](https://github.co
   [[Paper](https://arxiv.org/abs/2409.17975)]  
   Compares simulation budgets of explicit and implicit full-field inference for LSST Y10-like convergence maps.
 
+- *Nonlinear Reconstruction of 21cm Global Signal from 21cm Power Spectrum with Artificial Neural Networks* `arXiv 2024`  
+  [[Paper](https://arxiv.org/abs/2412.20862)]  
+  Neural network that predicts the global 21-cm signal from power spectrum measurements under SKA-like noise.
+
 - **(Effort.jl)** *Effort.jl: A Fast and Differentiable Emulator for the Effective Field Theory of the Large Scale Structure of the Universe* `arXiv 2025`  
   [[Paper](https://arxiv.org/abs/2501.04639)] [[Code](https://github.com/CosmologicalEmulators/Effort.jl)]  
   Differentiable neural emulator of EFTofLSS galaxy power spectra.
@@ -1004,9 +1052,25 @@ General astronomy resources are covered by [awesome-astronomy](https://github.co
   [[Paper](https://arxiv.org/abs/2506.13439)]  
   Spherical persistent homology summaries with neural compression and likelihood estimation on DES Y3 lensing maps.
 
+- **(21cmLSTM / 21cmKAN)** *Emulating Global 21 cm Cosmology Observations from the Lunar Far Side to Achieve Quick and Reliable Physical Constraints* `arXiv 2025`  
+  [[Paper](https://arxiv.org/abs/2509.00976)] [[Code](https://github.com/jdorigojones/21cmKAN)]  
+  LSTM and Kolmogorov-Arnold network emulators of the global 21-cm signal for Bayesian inference.
+
+- *Exploring the Early Universe with Deep Learning* `arXiv 2025`  
+  [[Paper](https://arxiv.org/abs/2509.22018)]  
+  Benchmark of deep learning models that recover the neutral hydrogen fraction from 2D 21-cm power spectra.
+
 - *Dark Energy Survey Year 3 Results: Simulation-based wCDM Inference from Weak Lensing and Galaxy Clustering Maps with Deep Learning. I. Analysis Design* `arXiv 2025`  
   [[Paper](https://arxiv.org/abs/2511.04681)]  
   Graph CNN compression of spherical lensing and clustering maps with normalizing-flow likelihoods.
+
+- *Fast End-to-End Framework for Cosmological Parameter Inference from CMB Data Using Machine Learning* `arXiv 2025`  
+  [[Paper](https://arxiv.org/abs/2511.01291)]  
+  Combines analytical blind separation of foregrounds with neural network parameter inference.
+
+- *Deep-learning Mitigation of Foregrounds and Beam Effects in 21-cm Intensity Mapping Using Hybrid Frequency Differencing and PCA* `arXiv 2025`  
+  [[Paper](https://arxiv.org/abs/2511.15072)]  
+  Two-channel UNet with frequency-differenced and PCA-cleaned inputs for HI reconstruction under realistic beams.
 
 - *Dark Energy Survey Year 3 Results: Optimized wCDM Simulation-based Inference with Weak Lensing Map-level Hybrid Statistics* `arXiv 2026`  
   [[Paper](https://arxiv.org/abs/2606.11309)]  
