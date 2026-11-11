@@ -1,1 +1,9 @@
-https://xin-yuxiao.github.io/Awesome-AI-for-Astronomy/
+# Publisher landing pages that reject automated requests (403 or 202).
+# These DOIs were checked by hand when the entries were added.
+^https://doi\.org/10\.1051/
+^https://doi\.org/10\.1073/
+^https://doi\.org/10\.1093/
+^https://doi\.org/10\.1098/
+^https://doi\.org/10\.1109/
+# Project web page, built by the Web Page workflow.
+^https://xin-yuxiao\.github\.io/Awesome-AI-for-Astronomy/
