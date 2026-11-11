@@ -80,6 +80,10 @@ General astronomy resources are covered by [awesome-astronomy](https://github.co
   [[Paper](https://arxiv.org/abs/2310.12528)]  
   Recommendations on baselines, validation, reproducibility and reporting for machine learning papers in astronomy.
 
+- *Deep Learning Based Systems for Crater Detection: A Review* `arXiv 2023`  
+  [[Paper](https://arxiv.org/abs/2310.07727)]  
+  Review of CNN, U-Net, R-CNN and transformer crater detection algorithms for the Moon, Mars and Mercury.
+
 - *What is the Role of Large Language Models in the Evolution of Astronomy Research?* `arXiv 2024`  
   [[Paper](https://arxiv.org/abs/2409.20252)]  
   Use cases, survey results and recommendations on LLM adoption in astronomy research.
@@ -434,9 +438,33 @@ General astronomy resources are covered by [awesome-astronomy](https://github.co
   [[Paper](https://arxiv.org/abs/2309.08660)]  
   Applies Astronomaly to about 4M galaxies using pretrained Zoobot representations.
 
+- *Enabling Unsupervised Discovery in Astronomical Images through Self-Supervised Representations* `arXiv 2023`  
+  [[Paper](https://arxiv.org/abs/2311.14157)]  
+  Self-supervised features with clustering, artefact removal, anomaly detection and similarity search on survey images.
+
+- **(AnomalyMatch)** *AnomalyMatch: Discovering Rare Objects of Interest with Semi-supervised and Active Learning* `arXiv 2025`  
+  [[Paper](https://arxiv.org/abs/2505.03509)]  
+  FixMatch with EfficientNet and a user-in-the-loop active learning interface, integrated into ESA Datalabs.
+
+- **(AnomalyMatch HLA)** *Identifying Astrophysical Anomalies in 99.6 Million Source Cutouts from the Hubble Legacy Archive Using AnomalyMatch* `A&A 2025`  
+  [[Paper](https://arxiv.org/abs/2505.03508)]  
+  Applies AnomalyMatch to the full Hubble Legacy Archive and reports 1,176 new anomalies across 19 classes.
+
 - **(Coniferest)** *Coniferest: A Complete Active Anomaly Detection Framework* `Astron. Comput. 2025`  
   [[Code](https://github.com/snad-space/coniferest)] [[Journal](https://doi.org/10.1016/j.ascom.2025.100960)]  
   Isolation-forest based active anomaly detection with expert feedback, used by the SNAD team on ZTF data.
+
+- *Re-envisioning Euclid Galaxy Morphology: Identifying and Interpreting Features with Sparse Autoencoders* `arXiv 2025`  
+  [[Paper](https://arxiv.org/abs/2510.23749)]  
+  Sparse autoencoders on Zoobot and masked-autoencoder embeddings of Euclid Q1 galaxies to surface interpretable features.
+
+- **(astromorph)** *astromorph: Self-supervised Machine Learning Pipeline for Astronomical Morphology Analysis* `arXiv 2026`  
+  [[Paper](https://arxiv.org/abs/2602.09223)]  
+  BYOL-based embedding pipeline applied to ALMA protoplanetary disks and infrared dark clouds.
+
+- *Agentic Active Learning Meets Visual Embeddings: Finding Anomalies among 370 000 Variable Stars from ASAS-SN* `arXiv 2026`  
+  [[Paper](https://arxiv.org/abs/2608.23688)]  
+  DINOv2 light-curve embeddings, isolation forests and multimodal LLM agents that vet anomaly candidates.
 
 ### Physical Properties and Photometric Redshifts
 
@@ -1056,6 +1084,26 @@ General astronomy resources are covered by [awesome-astronomy](https://github.co
   [[Paper](https://arxiv.org/abs/2209.03042)] [[Code](https://github.com/graphnet-team/graphnet)] [[Journal](https://doi.org/10.1088/1748-0221/17/11/P11003)]  
   Point-cloud GNN that classifies and reconstructs GeV-scale neutrino events in IceCube.
 
+- **(DeepGRB)** *Deep Learning for Gamma-Ray Bursts: A Data Driven Event Framework for X/Gamma-Ray Analysis in Space Telescopes* `arXiv 2024`  
+  [[Paper](https://arxiv.org/abs/2401.15632)]  
+  Neural background estimation with FOCuS-Poisson trigger search on Fermi-GBM count rates.
+
+- *A Robust Neural Determination of the Source-count Distribution of the Fermi-LAT Sky at High Latitudes* `arXiv 2025`  
+  [[Paper](https://arxiv.org/abs/2505.02906)]  
+  Neural ratio estimation with spherical convolutions on 14 years of high-latitude Fermi-LAT photon maps.
+
+- *Unsupervised Machine Learning Classification of Gamma-ray Bursts Based on the Rest-frame Prompt Emission Parameters* `arXiv 2025`  
+  [[Paper](https://arxiv.org/abs/2509.08224)]  
+  Unsupervised clustering of GRBs into types using rest-frame prompt emission properties.
+
+- **(ASID)** *Towards a Foundation Model for Astrophysical Source Detection: An End-to-End Gamma-Ray Data Analysis Pipeline Using Deep Learning* `arXiv 2025`  
+  [[Paper](https://arxiv.org/abs/2509.25128)]  
+  U-Net detection with CNN classification and deep-ensemble flux estimation on Fermi-LAT and CTAO simulations.
+
+- *Multivariate Time Series Classification of Fermi-Detected Gamma-Ray Transients Using Convolutional-Recurrent Neural Networks* `arXiv 2025`  
+  [[Paper](https://arxiv.org/abs/2510.22412)]  
+  CNN-LSTM classifiers that separate GRBs, TGFs, solar flares and SGRs in Fermi-GBM light curves and flag outliers.
+
 ## Gravitational Waves
 
 - **(Magic Bullet)** *Convolutional Neural Networks: A Magic Bullet for Gravitational-wave Detection?* `PRD 2019`  
@@ -1235,6 +1283,22 @@ General astronomy resources are covered by [awesome-astronomy](https://github.co
 - **(AstroVision)** *AstroVision: Towards Autonomous Feature Detection and Description for Missions to Small Bodies Using Deep Learning* `Acta Astronaut. 2023`  
   [[Paper](https://arxiv.org/abs/2208.02053)] [[Data](https://huggingface.co/datasets/travisdriver/astrovision-data)] [[Journal](https://doi.org/10.1016/j.actaastro.2023.01.009)]  
   115,970 annotated real images of 16 small bodies for keypoint detection and description benchmarks.
+
+- *Deep Learning Universal Crater Detection Using Segment Anything Model (SAM)* `arXiv 2023`  
+  [[Paper](https://arxiv.org/abs/2304.07764)]  
+  Zero-shot crater segmentation with SAM on lunar and Martian images and DEMs.
+
+- *Deep Learning Framework for Crater Detection and Identification on the Moon and Mars* `arXiv 2025`  
+  [[Paper](https://arxiv.org/abs/2508.03920)] [[Code](https://github.com/sydney-machine-learning/crater-identification)]  
+  Two-stage YOLO detection and CNN or ResNet-50 size classification of craters with an annotated dataset.
+
+- *Vision-Language Model for Accurate Crater Detection* `arXiv 2026`  
+  [[Paper](https://arxiv.org/abs/2601.07795)]  
+  OWLv2 vision transformer fine-tuned on LRO images for lunar crater detection.
+
+- *Deep Learning-Based Lunar Crater Terrain Relative Navigation* `arXiv 2026`  
+  [[Paper](https://arxiv.org/abs/2606.14776)]  
+  U-Net++ crater detector coupled with an extended Kalman filter for lunar landing navigation.
 
 ## Datasets
 
