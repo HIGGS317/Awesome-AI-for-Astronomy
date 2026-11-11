@@ -16,7 +16,7 @@
 </div>
 
 > [!TIP]
-> The [searchable web page](https://xin-yuxiao.github.io/Awesome-AI-for-Astronomy/) filters all 381 papers and 65 software packages by section, year, venue and code availability, and shows a one-sentence summary for every paper.
+> The [searchable web page](https://xin-yuxiao.github.io/Awesome-AI-for-Astronomy/) filters all 382 papers and 65 software packages by section, year, venue and code availability, and shows a one-sentence summary for every paper.
 
 ## About
 
@@ -168,6 +168,7 @@ This list tracks machine learning work in astronomy with public papers, linking 
 |:--|:--|:--|:--|:--|
 | 2026.11 | **auto\_research** [A Semi-autonomous Multi-agent Pipeline for High-energy Astrophysics Research with Enforced Provenance and Verifiable Self-extension](https://arxiv.org/abs/2611.05251 "Multi-agent pipeline that retrieves HEASARC data and writes its own tools, tested by reproducing IXPE polarimetry results.") | arXiv 2026 | - | - |
 | 2026.04 | [Competing with AI Scientists: Agent-Driven Approach to Astrophysics Research](https://arxiv.org/abs/2604.09621 "Cmbagent multi-agent workflow with human intervention that builds a weak lensing inference pipeline and took first place in the FAIR Universe Weak Lensing Uncertainty Challenge.") | arXiv 2026 | - | - |
+| 2026.01 | [Spec-o3: A Tool-Augmented Vision-Language Agent for Rare Celestial Object Candidate Vetting via Automated Spectral Inspection](https://arxiv.org/abs/2601.06498 "Qwen2.5-VL agent that zooms into wavelength ranges with a spectral visualisation tool, trained by cold-start SFT on expert inspection trajectories and outcome-based RL, raising macro-F1 on five LAMOST rare-object vetting tasks from 28.3 to 76.5 and transferring to SDSS and DESI.") | **ACL 2026** | [Code](https://github.com/Maxwell-Jia/spec-o3) | [ACL Anthology](https://aclanthology.org/2026.acl-long.256/) [Model](https://huggingface.co/Maxwell-Jia/spec-o3-7b) [Data](https://huggingface.co/datasets/Maxwell-Jia/SpecVI-Bench) |
 | 2025.10 | [Mephisto: Self-Improving Large Language Model-Based Agents for Automated Interpretation of Multi-band Galaxy Observations](https://arxiv.org/abs/2510.08354 "Multi-agent tree search over CIGALE SED models with a self-updating knowledge base, applied to JWST Little Red Dots.") | arXiv 2025 | [Code](https://zenodo.org/records/15589045) | [Short Paper](https://arxiv.org/abs/2409.14807) |
 | 2025.10 | **Denario** [The Denario Project: Deep Knowledge AI Agents for Scientific Discovery](https://arxiv.org/abs/2510.26887 "Modular multi-agent research assistant for idea generation, analysis and paper drafting, using cmbagent as its analysis backend.") | arXiv 2025 | [Code](https://github.com/AstroPilot-AI/Denario) | [Demo](https://huggingface.co/spaces/astropilot-ai/Denario) |
 | 2025.10 | **CTAgent / Gammapygpt** [Domain-Specific Agents for Cherenkov Telescope Array Control Software and Gamma-Ray Data Analysis](https://arxiv.org/abs/2510.01299 "Agents that generate and validate CTAO control software and Gammapy analysis scripts with automated self-correction.") | arXiv 2025 | - | - |

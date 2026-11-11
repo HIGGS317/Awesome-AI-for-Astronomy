@@ -478,6 +478,16 @@ sections:
     links:
       Paper: https://arxiv.org/abs/2604.09621
     desc: Cmbagent multi-agent workflow with human intervention that builds a weak lensing inference pipeline and took first place in the FAIR Universe Weak Lensing Uncertainty Challenge.
+  - name: Spec-o3
+    title: 'Spec-o3: A Tool-Augmented Vision-Language Agent for Rare Celestial Object Candidate Vetting via Automated Spectral Inspection'
+    venue: ACL 2026
+    links:
+      Paper: https://arxiv.org/abs/2601.06498
+      ACL Anthology: https://aclanthology.org/2026.acl-long.256/
+      Code: https://github.com/Maxwell-Jia/spec-o3
+      Model: https://huggingface.co/Maxwell-Jia/spec-o3-7b
+      Data: https://huggingface.co/datasets/Maxwell-Jia/SpecVI-Bench
+    desc: Qwen2.5-VL agent that zooms into wavelength ranges with a spectral visualisation tool, trained by cold-start SFT on expert inspection trajectories and outcome-based RL, raising macro-F1 on five LAMOST rare-object vetting tasks from 28.3 to 76.5 and transferring to SDSS and DESI.
 - title: Benchmarks
   subsections:
   - title: Data and Modality Benchmarks
