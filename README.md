@@ -7,7 +7,7 @@
 
 A curated list of papers, models, datasets, benchmarks and software for artificial intelligence in astronomy, astrophysics, cosmology, heliophysics and planetary science.
 
-General astronomy resources are covered by [awesome-astronomy](https://github.com/jonathansick/awesome-astronomy), and classical astronomical data science by [awesome-astro-datascience](https://github.com/mpi-astronomy/awesome-astro-datascience). This list tracks machine learning work with public papers and public code, with emphasis on foundation models, language models, agents and benchmarks released since 2021, together with established deep learning methods in each subfield.
+General astronomy resources are covered by [awesome-astronomy](https://github.com/jonathansick/awesome-astronomy), and classical astronomical data science by [awesome-astro-datascience](https://github.com/mpi-astronomy/awesome-astro-datascience). This list tracks machine learning work with public papers, linking public code where it exists, with emphasis on foundation models, language models, agents and benchmarks released since 2021, together with established deep learning methods in each subfield.
 
 **Notes**
 
@@ -96,9 +96,29 @@ General astronomy resources are covered by [awesome-astronomy](https://github.co
   [[Paper](https://arxiv.org/abs/2508.21148)]  
   Survey of scientific LLMs and their training data, including astronomy datasets and models.
 
+- *The Revolution in Strong Lensing Discoveries from Euclid* `arXiv 2025`  
+  [[Paper](https://arxiv.org/abs/2508.14624)]  
+  Review of how machine learning, citizen science and expert inspection found about 500 high-quality lens candidates in Euclid Q1.
+
 - *Deep Learning in Astrophysics* `ARA&A 2025`  
   [[Paper](https://arxiv.org/abs/2510.10713)]  
   Annual Review covering inductive biases, simulation-based inference, anomaly detection, foundation models, reinforcement learning and LLM agents in astronomy.
+
+- *Advances and Challenges in Solar Flare Prediction: A Review* `arXiv 2025`  
+  [[Paper](https://arxiv.org/abs/2511.20465)]  
+  Review of statistical, physics-based and deep learning flare forecasting including CNN, LSTM and transformer models.
+
+- *Opportunities in AI/ML for the Rubin LSST Dark Energy Science Collaboration* `arXiv 2026`  
+  [[Paper](https://arxiv.org/abs/2601.14235)]  
+  LSST DESC roadmap covering photometric redshifts, transient classification, weak lensing inference, foundation models and infrastructure.
+
+- *The Role of Artificial Intelligence in the SKA Era* `arXiv 2026`  
+  [[Paper](https://arxiv.org/abs/2606.28493)]  
+  Chapter on deep learning for source finding, RFI mitigation, imaging, anomaly detection and scheduling for the SKA.
+
+- *Source Finding and Characterisation for SKAO Science* `arXiv 2026`  
+  [[Paper](https://arxiv.org/abs/2607.03736)]  
+  Review of classical and machine learning source finding and morphology classification for SKAO surveys.
 
 ## Foundation Models and Representation Learning
 
@@ -464,9 +484,33 @@ General astronomy resources are covered by [awesome-astronomy](https://github.co
   [[Paper](https://arxiv.org/abs/2405.04740)] [[Code](https://github.com/jfcrenshaw/pzflow)]  
   Normalizing flows for modeling galaxy catalogs and photometric redshift posteriors.
 
+- *Galaxy Spectroscopy without Spectra: Galaxy Properties from Photometric Images with Conditional Diffusion Models* `arXiv 2024`  
+  [[Paper](https://arxiv.org/abs/2406.18175)]  
+  Diffusion model with contrastive networks that predicts optical spectra and photometric redshifts from SDSS images.
+
+- **(CLAP)** *CLAP. I. Resolving Miscalibration for Deep Learning-based Galaxy Photometric Redshift Estimation* `arXiv 2024`  
+  [[Paper](https://arxiv.org/abs/2410.19390)]  
+  Supervised contrastive learning with adaptive KNN to calibrate photometric redshift probability densities.
+
+- **(Hybrid-z)** *Hybrid-z: Enhancing the Kilo-Degree Survey Bright Galaxy Sample Photometric Redshifts with Deep Learning* `A&A 2025`  
+  [[Paper](https://arxiv.org/abs/2501.01942)]  
+  Inception CNN on four-band images combined with an MLP on nine-band magnitudes for 1.2 million KiDS-Bright galaxies.
+
 - **(RAIL)** *Redshift Assessment Infrastructure Layers (RAIL): Rubin-era Photometric Redshift Stress-testing and At-scale Production* `arXiv 2025`  
   [[Paper](https://arxiv.org/abs/2505.02928)] [[Code](https://github.com/LSSTDESC/rail)]  
   LSST DESC framework for training, evaluating and running photometric redshift estimators.
+
+- *Template-Fitting Meets Deep Learning: Redshift Estimation Using Physics-Guided Neural Networks* `arXiv 2025`  
+  [[Paper](https://arxiv.org/abs/2507.00866)]  
+  Multimodal network with cross-attention and Bayesian layers that integrates SED templates on HSC PDR3 data.
+
+- *Deep Learning Improves Photometric Redshifts in All Regions of Color Space* `arXiv 2025`  
+  [[Paper](https://arxiv.org/abs/2507.06299)]  
+  Self-organizing map analysis showing lower scatter and attenuation bias for image-based photo-z on SDSS.
+
+- **(PITA)** *Optimizing Deep Learning Photometric Redshifts for the Roman Space Telescope with HST/CANDELS* `arXiv 2026`  
+  [[Paper](https://arxiv.org/abs/2602.10207)]  
+  Semi-supervised network that combines contrastive, color and redshift losses on CANDELS images.
 
 ## Gravitational Lensing
 
@@ -518,6 +562,10 @@ General astronomy resources are covered by [awesome-astronomy](https://github.co
   [[Paper](https://arxiv.org/abs/2406.15542)] [[Code](https://github.com/Ciela-Institute/caustics)]  
   Differentiable, GPU-accelerated lensing simulator for machine learning workflows.
 
+- *Euclid: Finding Strong Gravitational Lenses in the Early Release Observations Using Convolutional Neural Networks* `arXiv 2025`  
+  [[Paper](https://arxiv.org/abs/2502.09802)]  
+  Five CNN lens finders applied to 13 Euclid ERO fields, followed by visual inspection and spectroscopic confirmation.
+
 - *Euclid Q1: The Strong Lensing Discovery Engine A, System Overview and Lens Catalogue* `arXiv 2025`  
   [[Paper](https://arxiv.org/abs/2503.15324)]  
   Overview of the Euclid Q1 strong lens search combining volunteers and machine learning.
@@ -533,6 +581,18 @@ General astronomy resources are covered by [awesome-astronomy](https://github.co
 - *Euclid Q1: The Strong Lensing Discovery Engine E, Ensemble Classification of Strong Gravitational Lenses* `arXiv 2025`  
   [[Paper](https://arxiv.org/abs/2503.15328)]  
   Ensemble classification of lens candidates and lessons for Euclid DR1.
+
+- **(LEMON)** *Euclid Quick Data Release (Q1). LEMON -- Lens Modelling with Neural Networks. Automated and Fast Modelling of Euclid Gravitational Lenses with a Singular Isothermal Ellipsoid Mass Profile* `arXiv 2025`  
+  [[Paper](https://arxiv.org/abs/2503.15329)]  
+  Bayesian neural network that predicts lens mass and light parameters and initialises classical lens modelling.
+
+- **(GLUE I)** *Gravitational Lenses in UNIONS and Euclid (GLUE) I: A Search for Strong Gravitational Lenses in UNIONS with Subaru, CFHT, and Pan-STARRS Data* `arXiv 2025`  
+  [[Paper](https://arxiv.org/abs/2505.05032)]  
+  ResNet lens finder based on CMU-DeepLens applied to 8 million UNIONS galaxies.
+
+- *Euclid Quick Data Release (Q1). Searching for Giant Gravitational Arcs in Galaxy Clusters with Mask Region-based Convolutional Neural Networks* `arXiv 2025`  
+  [[Paper](https://arxiv.org/abs/2511.03064)]  
+  Mask R-CNN instance segmentation of cluster-scale lensed arcs trained on Euclidised HST simulations.
 
 ## Source Detection, Deblending and Image Simulation
 
@@ -580,9 +640,25 @@ General astronomy resources are covered by [awesome-astronomy](https://github.co
   [[Paper](https://arxiv.org/abs/2407.19297)] [[Code](https://github.com/LLNL/MuyGPyS)]  
   Scalable Gaussian process classification of blended stellar images.
 
+- *Denoising Diffusion Probabilistic Model for Realistic and Fast Generated Euclid-like Data for Weak Lensing Analysis* `arXiv 2025`  
+  [[Paper](https://arxiv.org/abs/2504.07183)]  
+  DDPM trained on CANDELS images that generates Euclid-like galaxies for shear calibration.
+
 - **(BTK)** *The Blending ToolKit: A Simulation Framework for Evaluation of Galaxy Detection and Deblending* `OJAp 2025`  
   [[Journal](https://doi.org/10.33232/001c.129699)] [[Code](https://github.com/LSSTDESC/BlendingToolKit)]  
   Simulation and metrics framework for benchmarking detection and deblending algorithms.
+
+- **(GalaxySD)** *Can AI Dream of Unseen Galaxies? Conditional Diffusion Model for Galaxy Morphology Augmentation* `arXiv 2025`  
+  [[Paper](https://arxiv.org/abs/2506.16233)]  
+  Stable Diffusion fine-tuned on Galaxy Zoo 2 morphology prompts to augment classifiers and find rare dusty early-type galaxies.
+
+- **(GalCatDiff)** *Category-based Galaxy Image Generation via Diffusion Models* `arXiv 2025`  
+  [[Paper](https://arxiv.org/abs/2506.16255)]  
+  Class-conditioned diffusion model with residual attention blocks trained on Galaxy10 DECaLS categories.
+
+- *Diffusion-based Galaxy Simulations for the Roman High Latitude Survey* `arXiv 2026`  
+  [[Paper](https://arxiv.org/abs/2604.22917)]  
+  DDPM trained on JWST JADES imaging to generate Roman-like multi-band galaxy stamps for weak lensing.
 
 - **(scarlet2)** *scarlet2: Astronomical Scene Modeling in JAX* `JOSS 2026`  
   [[Code](https://github.com/pmelchior/scarlet2)] [[Journal](https://doi.org/10.21105/joss.09646)]  
@@ -676,9 +752,29 @@ General astronomy resources are covered by [awesome-astronomy](https://github.co
   [[Paper](https://arxiv.org/abs/2401.15167)] [[Follow-up](https://arxiv.org/abs/2512.11957)] [[Code](https://github.com/nabeelre/BTSbot)]  
   Multimodal CNN that selects bright transients for automated spectroscopic follow-up.
 
+- **(CATS)** *Transient Classifiers for Fink* `arXiv 2024`  
+  [[Paper](https://arxiv.org/abs/2404.08798)]  
+  Tree-based and deep learning classifiers in the Fink broker evaluated on ELAsTiCC, including the CATS architecture.
+
 - **(ORACLE)** *ORACLE: A Real-Time, Hierarchical, Deep-Learning Photometric Classifier for the LSST* `arXiv 2025`  
   [[Paper](https://arxiv.org/abs/2501.01496)] [[Code](https://github.com/uiucsn/ORACLE)]  
   Hierarchical recurrent classifier for real-time LSST alert streams.
+
+- **(AMPEL)** *AMPEL Workflows for LSST: Modular and Reproducible Real-time Photometric Classification* `arXiv 2025`  
+  [[Paper](https://arxiv.org/abs/2501.16511)]  
+  SNGuess, FollowMe and FinalBet classification channels for ELAsTiCC alerts.
+
+- *Real-Time Active Learning for Optimised Spectroscopic Follow-up: Enhancing Early SN Ia Classification with the Fink Broker* `arXiv 2025`  
+  [[Paper](https://arxiv.org/abs/2502.19555)]  
+  Active learning loop on the Fink stream that selects spectroscopic targets to improve early SN Ia classifiers.
+
+- **(PIE-ADA)** *PIE-ADA: Physics-Informed Ensemble with Adaptive Data Augmentation for Photometric Transient Classification* `arXiv 2026`  
+  [[Paper](https://arxiv.org/abs/2606.29367)]  
+  Physics-motivated light-curve augmentation for rare classes combined with gradient boosted ensembles.
+
+- **(NAPTIME)** *NAPTIME: A Neural-Process Framework for Rubin Alert Classification* `arXiv 2026`  
+  [[Paper](https://arxiv.org/abs/2607.19236)]  
+  Neural process that jointly reconstructs and classifies sparse multiband light curves on ELAsTiCC2 and MALLORN.
 
 ## Exoplanets
 
@@ -896,6 +992,10 @@ General astronomy resources are covered by [awesome-astronomy](https://github.co
   [[Paper](https://arxiv.org/abs/2606.27439)]  
   Set-based networks and autoregressive flows on eRASS1-like cluster catalogues.
 
+- *From Dark Matter to Galaxies: Halo-Free Mock Generation via Conditional Point-Cloud Diffusion* `arXiv 2026`  
+  [[Paper](https://arxiv.org/abs/2607.19808)]  
+  Point-cloud diffusion that generates galaxy positions and star formation rates from IllustrisTNG dark matter fields.
+
 ## Simulation-Based Inference
 
 - **(pydelfi)** *Fast Likelihood-free Cosmology with Neural Density Estimators and Active Learning* `MNRAS 2019`  
@@ -1052,6 +1152,22 @@ General astronomy resources are covered by [awesome-astronomy](https://github.co
   [[Paper](https://arxiv.org/abs/2508.14112)] [[Code](https://github.com/NASA-IMPACT/Surya)]  
   366M-parameter spatiotemporal model trained on eight AIA channels and five HMI products at native resolution.
 
+- *Solar Flare Forecasting with Foundational Transformer Models across Image, Video, and Time-series Modalities* `arXiv 2025`  
+  [[Paper](https://arxiv.org/abs/2510.23400)]  
+  Compares SigLIP2, VideoMAE and Moirai2 on SDO/HMI magnetograms and GOES X-ray fluxes.
+
+- **(JW-Flare)** *JW-Flare: Accurate Solar Flare Forecasting Method Based on Multimodal Large Language Models* `arXiv 2025`  
+  [[Paper](https://arxiv.org/abs/2511.08970)]  
+  Multimodal LLM fine-tuned with LoRA on magnetograms and textual magnetic parameters for 24-hour flare forecasts.
+
+- *Prediction of Major Solar Flares Using Interpretable Class-dependent Reward Framework with Active Region Magnetograms and Domain Knowledge* `arXiv 2026`  
+  [[Paper](https://arxiv.org/abs/2602.16264)]  
+  CNN, CNN-BiLSTM and transformer models with class-dependent rewards for imbalanced M-class flare prediction.
+
+- *Predicting Associations between Solar Flares and Coronal Mass Ejections Using SDO/HMI Magnetograms and a Hybrid Neural Network* `arXiv 2026`  
+  [[Paper](https://arxiv.org/abs/2604.10016)]  
+  ViT and LSTM hybrid that predicts whether upcoming flares will be eruptive or confined.
+
 ## Radio Astronomy
 
 - **(FETCH)** *FETCH: A Deep-learning Based Classifier for Fast Transient Classification* `MNRAS 2020`  
@@ -1089,6 +1205,26 @@ General astronomy resources are covered by [awesome-astronomy](https://github.co
 - **(R2D2)** *The R2D2 Deep Neural Network Series Paradigm for Fast Precision Imaging in Radio Astronomy* `ApJS 2024`  
   [[Paper](https://arxiv.org/abs/2403.05452)] [[Code](https://github.com/basp-group/R2D2-RI)] [[Journal](https://doi.org/10.3847/1538-4365/ad46f5)]  
   Series of residual networks for radio interferometric imaging.
+
+- *Simulating Images of Radio Galaxies with Diffusion Models* `arXiv 2024`  
+  [[Paper](https://arxiv.org/abs/2410.07794)]  
+  Continuous-time diffusion model that generates radio galaxy images with control over flux and morphology.
+
+- *Classification of Radio Sources Through Self-Supervised Learning* `arXiv 2025`  
+  [[Paper](https://arxiv.org/abs/2503.19111)]  
+  Self-supervised pretraining and deep clustering that classify LoTSS-DR2 radio galaxies into 12 morphology classes.
+
+- *Simulating Realistic Radio Continuum Survey Maps with Diffusion Models* `arXiv 2025`  
+  [[Paper](https://arxiv.org/abs/2506.11715)]  
+  Diffusion-generated radio galaxies assembled into sky models and imaged to mimic LoTSS pointings.
+
+- **(YOLO-CIANNA)** *YOLO-CIANNA: Galaxy Detection with Deep Learning in Radio Data* `arXiv 2025`  
+  [[Paper](https://arxiv.org/abs/2509.12082)]  
+  3D CNN detector for HI sources in SKA SDC2 hyperspectral cubes, extending the method that won SDC2.
+
+- **(YOLO-Chars)** *Radio Galaxies Detection and Characterization Using Deep Learning Techniques* `MNRAS 2026`  
+  [[Paper](https://arxiv.org/abs/2608.21474)]  
+  Two-stage YOLO detection and characterisation network for flux, size and position angle on SKA SDC1 images.
 
 ## Planetary Science and Small Bodies
 
