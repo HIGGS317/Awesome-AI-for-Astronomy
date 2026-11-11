@@ -2,12 +2,15 @@
 """Generate README.md and the web page from data/entries.yml.
 
 Usage:
-    python scripts/build.py                 # write README.md and _site/index.html
+    python scripts/build.py                 # write README.md and the web page in _site/
     python scripts/build.py --check         # exit with status 1 if README.md is out of date
+
+Besides index.html, the site directory receives entries.json, papers.csv and sitemap.xml.
 
 Requires PyYAML (pip install pyyaml).
 """
 import argparse
+import csv
 import datetime
 import html
 import json
@@ -20,9 +23,16 @@ import yaml
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 REPO = "https://github.com/Xin-YuXiao/Awesome-AI-for-Astronomy"
+PAGE = "https://xin-yuxiao.github.io/Awesome-AI-for-Astronomy/"
 ARXIV = re.compile(r"arxiv\.org/abs/(\d{2})(\d{2})\.\d{4,5}")
 YEAR = re.compile(r"(?:19|20)\d{2}")
 MDLINK = re.compile(r"\[([^\]]+)\]\(([^)\s]+)\)")
+ARXIV_ID = re.compile(r"arxiv\.org/abs/(\d{4}\.\d{4,5})")
+DOI = re.compile(r"doi\.org/(10\.\d{4,9}/\S+)$")
+CONFERENCES = re.compile(r"^(NeurIPS|ICML|ICLR|ACL|EMNLP|NAACL|AAAI|IJCAI|CVPR|ICCV|ECCV|COLM|KDD|ICECET)\b")
+# Observation or data modalities accepted in the optional modality field.
+MODALITIES = ["Images", "Spectra", "Data cubes", "Time series", "Tabular", "Text", "Point clouds", "Simulations"]
+HF_MODEL = re.compile(r"huggingface\.co/(?!datasets/|spaces/|papers/)[^/]+(/[^/]+)?/?$")
 
 
 def slug(text):
@@ -49,6 +59,41 @@ def primary_label(e):
 
 def is_code(label):
     return "code" in label.lower()
+
+
+def pub_type(venue):
+    """Classify a venue string as Preprint, Workshop, Conference or Journal."""
+    if venue.lower().startswith("arxiv"):
+        return "Preprint"
+    if "workshop" in venue.lower():
+        return "Workshop"
+    if CONFERENCES.match(venue):
+        return "Conference"
+    return "Journal"
+
+
+def resources(e):
+    """Return the kinds of public artifacts linked from a paper: code, model and data."""
+    out = set()
+    for label, url in e["links"].items():
+        low = label.lower()
+        if is_code(label):
+            out.add("code")
+        if re.search(r"model|weights|checkpoint", low) or (not is_code(label) and HF_MODEL.search(url)):
+            out.add("model")
+        if re.search(r"data|kaggle", low) or (not is_code(label) and re.search(r"huggingface\.co/datasets/|zenodo\.org|kaggle\.com", url)):
+            out.add("data")
+    return [k for k in ("code", "model", "data") if k in out]
+
+
+def arxiv_id(e):
+    m = ARXIV_ID.search(e["links"].get("Paper", ""))
+    return m.group(1) if m else ""
+
+
+def doi_of(e):
+    m = DOI.search(e["links"].get("Journal", ""))
+    return m.group(1) if m else ""
 
 
 def md_escape(text):
@@ -90,6 +135,9 @@ def validate(data):
                 if e.get("title"):
                     key = re.sub(r"[^a-z0-9]", "", e["title"].lower())
                     seen.setdefault(("title", key), []).append(where)
+                mods = e.get("modality", [])
+                if not isinstance(mods, list) or any(m not in MODALITIES for m in mods):
+                    errors.append(f"{where}: modality must be a list drawn from {MODALITIES}: {e['title']}")
                 for lab in ("Paper", "Journal"):
                     url = (e.get("links") or {}).get(lab)
                     if url:
@@ -170,6 +218,14 @@ def inline_html(text):
     return MDLINK.sub(lambda m: '<a href="%s">%s</a>' % (html.escape(m.group(2)), m.group(1)), out)
 
 
+def built_info():
+    try:
+        commit = subprocess.check_output(["git", "rev-parse", "--short", "HEAD"], cwd=ROOT, text=True).strip()
+    except Exception:
+        commit = ""
+    return datetime.date.today().isoformat(), commit
+
+
 def site_data(data):
     secs = []
     for sec, sub in walk(data):
@@ -185,13 +241,16 @@ def site_data(data):
                 "name": e.get("name", ""),
                 "title": e["title"],
                 "venue": e["venue"],
-                "reviewed": not e["venue"].lower().startswith("arxiv"),
+                "type": pub_type(e["venue"]),
+                "reviewed": pub_type(e["venue"]) != "Preprint",
                 "note": e.get("note", ""),
                 "year": y or None,
                 "date": f"{y}.{m:02d}" if m else str(y),
                 "sort": y * 100 + m,
                 "primary": e["links"][primary_label(e)],
                 "links": [{"label": k, "url": v} for k, v in e["links"].items()],
+                "res": resources(e),
+                "mod": e.get("modality", []),
                 "desc": inline_html(e["desc"]),
             })
         entries.sort(key=lambda x: x.get("sort", 0), reverse=True)
@@ -201,11 +260,150 @@ def site_data(data):
             "intro": inline_html(node["intro"]) if node.get("intro") else "",
             "entries": entries,
         })
-    try:
-        commit = subprocess.check_output(["git", "rev-parse", "--short", "HEAD"], cwd=ROOT, text=True).strip()
-    except Exception:
-        commit = ""
-    return {"repo": REPO, "built": datetime.date.today().isoformat(), "commit": commit, "sections": secs}
+    built, commit = built_info()
+    return {"repo": REPO, "built": built, "commit": commit, "modalities": MODALITIES, "sections": secs}
+
+
+def static_html(site):
+    """Render the full list as plain HTML so the page is readable and indexable without JavaScript.
+
+    The markup mirrors the rows that the script in site/template.html renders, so the
+    page does not change appearance when the script takes over.
+    """
+    esc = lambda t: html.escape(str(t), quote=True)
+    cols = ('<div class="cols" aria-hidden="true"><span>Date</span><span>Paper</span><span>Venue</span>'
+            '<span class="h-links">Code and resources</span></div>')
+
+    def paper_row(e):
+        name = e["name"] if e["name"] and not e["title"].lower().startswith(e["name"].lower()) else ""
+        pills = [f'<a class="pill code" href="{esc(l["url"])}">{esc(l["label"])}</a>' for l in e["links"] if is_code(l["label"])]
+        pills += [f'<a class="pill" href="{esc(l["url"])}">{esc(l["label"])}</a>' for l in e["links"] if not is_code(l["label"])]
+        tags = "".join(f'<span class="tag">{esc(t)}</span>' for t in e["mod"])
+        return ('<div class="row"><span class="date">' + esc(e["date"]) + '</span><div class="paper">'
+                + (f'<span class="nm">{esc(name)}</span>' if name else "")
+                + f'<a class="ttl" href="{esc(e["primary"])}">{esc(e["title"])}</a>'
+                + (f'<span class="tags">{tags}</span>' if tags else "")
+                + f'<p class="sum">{e["desc"]}</p></div>'
+                + f'<div class="vcell"><span class="venue{" rev" if e["reviewed"] else ""}">{esc(e["venue"])}</span>'
+                + (f'<span class="note">{esc(e["note"])}</span>' if e["note"] else "")
+                + '</div><div class="links">' + "".join(pills) + "</div></div>")
+
+    def link_row(e):
+        return f'<div class="lrow"><a href="{esc(e["url"])}">{esc(e["name"])}</a><span>{e["desc"]}</span></div>'
+
+    def block(entries):
+        paper = entries[0]["kind"] == "paper"
+        return (cols if paper else "") + '<div class="rows">' + "".join(paper_row(e) if paper else link_row(e) for e in entries) + "</div>"
+
+    def n(k):
+        return f"{k} {'entry' if k == 1 else 'entries'}"
+
+    out = []
+    secs = site["sections"]
+    for top in [s for s in secs if not s["parent"]]:
+        subs = [s for s in secs if s["parent"] == top["id"]]
+        k = len(top["entries"]) + sum(len(s["entries"]) for s in subs)
+        if not k:
+            continue
+        out.append(f'<section class="sec" id="{top["id"]}"><div class="sechead"><h2>{esc(top["title"])}</h2><span class="n">{n(k)}</span></div>')
+        if top["intro"]:
+            out.append(f'<p class="secintro">{top["intro"]}</p>')
+        if top["entries"]:
+            out.append(block(top["entries"]))
+        for sub in subs:
+            if sub["entries"]:
+                out.append(f'<div class="subhead" id="{sub["id"]}"><h3>{esc(sub["title"])}</h3><span class="n">{n(len(sub["entries"]))}</span></div>')
+                out.append(block(sub["entries"]))
+        out.append("</section>")
+    return "".join(out)
+
+
+def json_ld(site, papers):
+    built = site["built"]
+    doc = {
+        "@context": "https://schema.org",
+        "@type": "Dataset",
+        "name": "Awesome AI for Astronomy",
+        "description": ("A curated index of papers, models, datasets, benchmarks and software for machine learning "
+                        f"in astronomy, astrophysics, cosmology, heliophysics and planetary science, with {papers} papers."),
+        "url": PAGE,
+        "sameAs": REPO,
+        "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "isAccessibleForFree": True,
+        "creator": {"@type": "Person", "name": "Xin-Yu Xiao", "url": "https://github.com/Xin-YuXiao"},
+        "keywords": ["astronomy", "astrophysics", "machine learning", "deep learning", "foundation models", "benchmarks"],
+        "dateModified": built,
+        "distribution": [
+            {"@type": "DataDownload", "encodingFormat": "application/json", "contentUrl": PAGE + "entries.json"},
+            {"@type": "DataDownload", "encodingFormat": "text/csv", "contentUrl": PAGE + "papers.csv"},
+        ],
+    }
+    return json.dumps(doc, ensure_ascii=False, indent=1).replace("</", "<\\/")
+
+
+# Data export -------------------------------------------------------------------
+
+def export_records(data):
+    """Return (papers, links) as flat records for entries.json and papers.csv."""
+    papers, links = [], []
+    for sec, sub in walk(data):
+        node = sub or sec
+        for e in node.get("entries", []):
+            if sec.get("kind") == "links":
+                links.append({"section": sec["title"], "name": e["name"], "url": e["url"], "description": plain(e["desc"])})
+                continue
+            y, m = date_of(e)
+            papers.append({
+                "section": sec["title"],
+                "subsection": sub["title"] if sub else "",
+                "name": e.get("name", ""),
+                "title": e["title"],
+                "venue": e["venue"],
+                "publication_type": pub_type(e["venue"]),
+                "note": e.get("note", ""),
+                "year": y or None,
+                "month": m or None,
+                "arxiv_id": arxiv_id(e),
+                "doi": doi_of(e),
+                "url": e["links"][primary_label(e)],
+                "code": [u for k, u in e["links"].items() if is_code(k)],
+                "links": e["links"],
+                "resources": resources(e),
+                "modality": e.get("modality", []),
+                "summary": plain(e["desc"]),
+            })
+    return papers, links
+
+
+def write_exports(data, outdir):
+    papers, links = export_records(data)
+    built, commit = built_info()
+    meta = {"title": "Awesome AI for Astronomy", "source": REPO, "page": PAGE, "license": "CC0-1.0",
+            "generated": built, "commit": commit, "papers": len(papers), "links": len(links)}
+    (outdir / "entries.json").write_text(
+        json.dumps({"meta": meta, "papers": papers, "links": links}, ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
+
+    fields = ["section", "subsection", "name", "title", "venue", "publication_type", "note", "year", "month",
+              "arxiv_id", "doi", "url", "code", "other_links", "resources", "modality", "summary"]
+    with open(outdir / "papers.csv", "w", newline="", encoding="utf-8") as fh:
+        w = csv.DictWriter(fh, fieldnames=fields)
+        w.writeheader()
+        for p in papers:
+            row = {k: p.get(k, "") for k in fields}
+            row["code"] = " ".join(p["code"])
+            row["other_links"] = " ".join(f"{k}={u}" for k, u in p["links"].items() if not is_code(k) and u != p["url"])
+            row["resources"] = ";".join(p["resources"])
+            row["modality"] = ";".join(p["modality"])
+            row["year"] = p["year"] or ""
+            row["month"] = p["month"] or ""
+            w.writerow(row)
+
+    (outdir / "sitemap.xml").write_text(
+        '<?xml version="1.0" encoding="UTF-8"?>\n'
+        '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
+        f"  <url><loc>{PAGE}</loc><lastmod>{built}</lastmod></url>\n"
+        "</urlset>\n", encoding="utf-8")
+    return len(papers)
 
 
 def main():
@@ -225,12 +423,18 @@ def main():
         return
     target.write_text(text, encoding="utf-8")
 
-    payload = json.dumps(site_data(data), ensure_ascii=False, separators=(",", ":")).replace("</", "<\\/")
-    template = (ROOT / "site" / "template.html").read_text(encoding="utf-8")
     out = pathlib.Path(args.site)
     out.parent.mkdir(parents=True, exist_ok=True)
-    out.write_text(template.replace("/*__DATA__*/null", payload), encoding="utf-8")
-    print(f"wrote README.md and {out}")
+    papers = write_exports(data, out.parent)
+    site = site_data(data)
+    payload = json.dumps(site, ensure_ascii=False, separators=(",", ":")).replace("</", "<\\/")
+    page = (ROOT / "site" / "template.html").read_text(encoding="utf-8")
+    for key, value in (("/*__DATA__*/null", payload), ("<!--__STATIC__-->", static_html(site)),
+                       ("/*__LD__*/", json_ld(site, papers))):
+        assert key in page, key
+        page = page.replace(key, value)
+    out.write_text(page, encoding="utf-8")
+    print(f"wrote README.md, {out} and entries.json, papers.csv, sitemap.xml in {out.parent}")
 
 
 if __name__ == "__main__":

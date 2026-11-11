@@ -24,6 +24,8 @@ python scripts/build.py --check  # confirm README.md matches data/entries.yml
 
 Pull requests are checked with `--check`, so commit the regenerated `README.md` together with your change to `data/entries.yml`.
 
+Once a month the Metadata Audit workflow ([`scripts/audit.py`](scripts/audit.py)) compares the entries still listed as arXiv preprints with arXiv and Crossref, and opens an issue listing papers that appear to have been published or retitled. Each finding is confirmed by hand before the entry is changed.
+
 ## Entry format
 
 Add the entry to the most specific section or subsection in `data/entries.yml`. The order inside the file does not matter, since the tables are sorted newest first by the date of the first arXiv version.
@@ -38,6 +40,7 @@ Add the entry to the most specific section or subsection in `data/entries.yml`. 
     Model: https://huggingface.co/owner/model
   desc: One sentence stating the method, the data and the scale.
   note: Oral                    # optional: Oral, Spotlight or an award, shown as a separate tag
+  modality: [Images, Spectra]   # optional, see below
 ```
 
 Rules for the entry
@@ -45,7 +48,8 @@ Rules for the entry
 - Use the arXiv abstract page for `Paper` when one exists. The date column is derived from this identifier.
 - Confirm the arXiv identifier against the paper page or the official repository README.
 - Use the confirmed peer-reviewed venue. Use `arXiv Year` when no venue is confirmed.
-- Use a label containing `Code` for source code links, so they appear in the code column and in the code filter of the web page. Other labels such as `Journal`, `Data`, `Model` or `Project` are shown as additional links.
+- Use a label containing `Code` for source code links, so they appear in the code column and in the code filter of the web page. Label model weights `Model` and datasets `Data`, so the resource filter of the web page finds them. Other labels such as `Journal` or `Project` are shown as additional links.
+- `modality` lists the kinds of data the work uses, drawn from `Images`, `Spectra`, `Data cubes`, `Time series`, `Tabular`, `Text`, `Point clouds` and `Simulations`. It is filled in for the Foundation Models and Benchmarks sections so far and is optional elsewhere.
 - Keep the description to one factual sentence. Report data scale and model size when available.
 - Quote the title with single quotes when it contains a colon.
 
@@ -55,5 +59,5 @@ Entries in Tools and Libraries, Communities and Groups and Related Awesome Lists
 
 - [ ] Every link resolves.
 - [ ] The venue and year match the paper.
-- [ ] `python scripts/build.py --check` passes.
+- [ ] `python scripts/build.py --check` passes. It also rejects duplicate titles, arXiv links and DOIs, and unknown modality values.
 - [ ] One pull request adds or edits entries for one topic.

@@ -128,6 +128,8 @@ sections:
         Code and Models: https://portal.nersc.gov/project/dasrepo/self-supervised-learning-sdss
         Journal: https://doi.org/10.3847/2041-8213/abf2c7
       desc: Contrastive pretraining on about 1.2M SDSS galaxy images, evaluated on morphology classification and photometric redshift estimation.
+      modality:
+      - Images
     - name: Galaxy Search
       title: Self-Supervised Similarity Search for Large Scientific Datasets
       venue: NeurIPS 2021 Workshop (ML4PS)
@@ -135,6 +137,8 @@ sections:
         Paper: https://arxiv.org/abs/2110.13151
         Code: https://github.com/georgestein/galaxy_search
       desc: Self-supervised representations of 42M DESI Legacy Imaging Survey galaxies with a public similarity search tool.
+      modality:
+      - Images
     - name: Zoobot Representations
       title: Practical Galaxy Morphology Tools from Deep Supervised Representation Learning
       venue: MNRAS 2022
@@ -143,6 +147,8 @@ sections:
         Journal: https://doi.org/10.1093/mnras/stac525
         Code: https://github.com/mwalmsley/zoobot
       desc: Representations learned from Galaxy Zoo labels reused for similarity search, anomaly finding and new classification tasks.
+      modality:
+      - Images
     - name: Zoobot FM
       title: Towards Galaxy Foundation Models with Hybrid Contrastive Learning
       venue: ICML 2022 Workshop (ML4Astro)
@@ -150,6 +156,8 @@ sections:
         Paper: https://arxiv.org/abs/2206.11927
         Code: https://github.com/mwalmsley/zoobot
       desc: Pretraining galaxy morphology encoders on Galaxy Zoo volunteer responses for transfer to downstream tasks.
+      modality:
+      - Images
     - name: Zoobot
       title: 'Zoobot: Adaptable Deep Learning Models for Galaxy Morphology'
       venue: JOSS 2023
@@ -158,6 +166,8 @@ sections:
         Code: https://github.com/mwalmsley/zoobot
         PyPI: https://pypi.org/project/zoobot/
       desc: Pretrained galaxy morphology encoders and finetuning utilities, deployed in the Euclid morphology pipeline.
+      modality:
+      - Images
     - name: Rare Galaxy Classes
       title: Rare Galaxy Classes Identified In Foundation Model Representations
       venue: arXiv 2023
@@ -165,6 +175,8 @@ sections:
         Paper: https://arxiv.org/abs/2312.02910
         Code: https://github.com/mwalmsley/zoobot
       desc: Searches Zoobot representation space for rare morphological classes.
+      modality:
+      - Images
     - name: Galaxy Scaling Laws
       title: Scaling Laws for Galaxy Images
       venue: arXiv 2024
@@ -172,6 +184,8 @@ sections:
         Paper: https://arxiv.org/abs/2404.02973
         Code: https://github.com/mwalmsley/zoobot
       desc: Supervised scaling study on 840k galaxy images with over 100M Galaxy Zoo annotations.
+      modality:
+      - Images
     - name: AstroPT
       title: 'AstroPT: Scaling Large Observation Models for Astronomy'
       venue: ICML 2024 Workshop (AI4Science)
@@ -181,12 +195,16 @@ sections:
         Code: https://github.com/Smith42/astroPT
         Model: https://huggingface.co/Smith42/astroPT_v2.0
       desc: Autoregressive transformers from 1M to 2.1B parameters pretrained on 8.6M DESI Legacy Survey galaxy images.
+      modality:
+      - Images
     - name: Gestalt
       title: 'Gestalt: A Meta-Foundation Model for Astronomy'
       venue: NeurIPS 2026 Workshop (Interpretability for Discovery)
       links:
         Paper: https://arxiv.org/abs/2609.38312
       desc: Combines frozen embeddings of 22 foundation models from eight families by whitening and randomised SVD, outperforming every member on 19 of 21 metrics for HSC, JWST and Legacy Survey galaxies.
+      modality:
+      - Images
   - title: Spectra
     entries:
     - name: SDSS-VAE
@@ -197,6 +215,8 @@ sections:
         Journal: https://doi.org/10.3847/1538-3881/ab9644
         Code: https://github.com/stephenportillo/SDSS-VAE
       desc: Variational autoencoder compression of SDSS galaxy spectra into a low-dimensional latent space.
+      modality:
+      - Spectra
     - name: Cycle-StarNet
       title: 'Cycle-StarNet: Bridging the Gap between Theory and Data by Leveraging Large Data Sets'
       venue: ApJ 2021
@@ -205,6 +225,8 @@ sections:
         Code: https://github.com/teaghan/Cycle_SN
         Journal: https://doi.org/10.3847/1538-4357/abca96
       desc: Domain adaptation between synthetic and observed stellar spectra with cycle-consistent networks.
+      modality:
+      - Spectra
     - name: spender
       title: 'Autoencoding Galaxy Spectra I: Architecture'
       venue: AJ 2023
@@ -213,6 +235,8 @@ sections:
         Code: https://github.com/pmelchior/spender
         Journal: https://doi.org/10.3847/1538-3881/ace0ff
       desc: Attentive convolutional autoencoder that models galaxy spectra in the rest frame with explicit redshifting and resampling, trained on SDSS-II.
+      modality:
+      - Spectra
     - name: Stellar FM
       title: Towards an Astronomical Foundation Model for Stars with a Transformer-Based Model
       venue: MNRAS 2024
@@ -220,17 +244,24 @@ sections:
         Paper: https://arxiv.org/abs/2308.10944
         Code: https://github.com/henrysky/astroNN_stars_foundation
       desc: Transformer trained on cross-survey APOGEE, Gaia and 2MASS data that performs discriminative and generative stellar tasks without task-specific finetuning.
+      modality:
+      - Spectra
+      - Tabular
     - name: SpectraFM
       title: 'SpectraFM: Tuning into Stellar Foundation Models'
       venue: NeurIPS 2024 Workshop (FM4Science)
       links:
         Paper: https://arxiv.org/abs/2411.04750
       desc: Transformer pretrained on synthetic stellar spectra and transferred to real spectra across wavelength ranges.
+      modality:
+      - Spectra
     - title: Applying Vision Transformers on Spectral Analysis of Astronomical Objects
       venue: arXiv 2025
       links:
         Paper: https://arxiv.org/abs/2506.00294
       desc: Converts one-dimensional spectra into images for pretrained ViT backbones in classification and regression.
+      modality:
+      - Spectra
     - name: SpecCLIP
       title: 'SpecCLIP: Aligning and Translating Spectroscopic Measurements for Stars'
       venue: arXiv 2025
@@ -238,17 +269,23 @@ sections:
         Paper: https://arxiv.org/abs/2507.01939
         LoRA Fine-tuning: https://arxiv.org/abs/2507.20972
       desc: Contrastive alignment of LAMOST low-resolution and Gaia XP spectra foundation models for parameter estimation and cross-spectrum prediction.
+      modality:
+      - Spectra
     - name: OmniSpectra
       title: 'OmniSpectra: A Unified Foundation Model for Native Resolution Astronomical Spectra'
       venue: arXiv 2026
       links:
         Paper: https://arxiv.org/abs/2601.15351
       desc: Masked-modeling transformer pretrained on 5.5 million spectra from eight surveys at native resolution.
+      modality:
+      - Spectra
     - title: Universal Spectral Tokenization via Self-Supervised Panchromatic Representation Learning
       venue: arXiv 2025
       links:
         Paper: https://arxiv.org/abs/2510.17959
       desc: Transformer tokenizer that reads spectra on their native wavelength grids, pretrained on SDSS, DESI, GALAH and APOGEE and adapted to object classification and stellar parameter regression.
+      modality:
+      - Spectra
   - title: Time Series
     entries:
     - name: ASTROMER
@@ -260,6 +297,8 @@ sections:
         Journal: https://doi.org/10.1051/0004-6361/202243928
         Astromer 2: https://arxiv.org/abs/2502.02717
       desc: Self-supervised light-curve encoder pretrained with masked magnitude prediction on MACHO R-band data.
+      modality:
+      - Time series
     - name: Astroconformer
       title: 'Astroconformer: The Prospects of Analyzing Stellar Light Curves with Transformer-Based Deep Learning Models'
       venue: MNRAS 2024
@@ -268,6 +307,8 @@ sections:
         Journal: https://doi.org/10.1093/mnras/stae068
         Workshop Version: https://arxiv.org/abs/2207.02787
       desc: Conformer model for Kepler light curves that infers surface gravity and frequency of maximum oscillation power.
+      modality:
+      - Time series
     - name: Maven
       title: 'Maven: A Multimodal Foundation Model for Supernova Science'
       venue: MLST 2024
@@ -275,17 +316,24 @@ sections:
         Paper: https://arxiv.org/abs/2408.16829
         Code: https://github.com/ThomasHelfer/multimodal-supernovae
       desc: Contrastive alignment of supernova photometry and spectroscopy, pretrained on 0.5M synthetic events and finetuned on ZTF.
+      modality:
+      - Spectra
+      - Time series
     - name: FALCO
       title: 'FALCO: A Foundation Model of Astronomical Light Curves for Time Domain Astronomy'
       venue: arXiv 2025
       links:
         Paper: https://arxiv.org/abs/2504.20290
       desc: Self-supervised transformer on Kepler light curves for variability classification, surface gravity estimation and flare identification.
+      modality:
+      - Time series
     - title: What Does Self-supervision Add to Engineered Features for Stellar Light Curves?
       venue: arXiv 2026
       links:
         Paper: https://arxiv.org/abs/2610.14283
       desc: Measures the information that self-supervised light-curve encoders add beyond engineered periodogram and variability features.
+      modality:
+      - Time series
   - title: Multimodal
     entries:
     - name: AstroCLIP
@@ -296,6 +344,9 @@ sections:
         Code: https://github.com/PolymathicAI/AstroCLIP
         Journal: https://doi.org/10.1093/mnras/stae1450
       desc: Contrastive alignment of DESI galaxy images and spectra in a shared embedding space.
+      modality:
+      - Images
+      - Spectra
     - name: MPP
       title: Multiple Physics Pretraining for Physical Surrogate Models
       venue: NeurIPS 2024
@@ -303,6 +354,8 @@ sections:
         Paper: https://arxiv.org/abs/2310.02994
         Code: https://github.com/PolymathicAI/multiple_physics_pretraining
       desc: Autoregressive pretraining of a single surrogate model across heterogeneous physical simulation systems.
+      modality:
+      - Simulations
     - name: PAPERCLIP
       title: 'PAPERCLIP: Associating Astronomical Observations and Natural Language with Multi-Modal Models'
       venue: COLM 2024
@@ -310,6 +363,9 @@ sections:
         Paper: https://arxiv.org/abs/2403.08851
         Code: https://github.com/smsharma/PAPERCLIP-Hubble
       desc: CLIP finetuned on Hubble Space Telescope observations paired with observing proposal abstracts.
+      modality:
+      - Images
+      - Text
     - name: AstroM3
       title: 'AstroM3: A Self-Supervised Multimodal Model for Astronomy'
       venue: arXiv 2024
@@ -317,6 +373,10 @@ sections:
         Paper: https://arxiv.org/abs/2411.08842
         Code: https://github.com/MeriDK/AstroM3
       desc: Trimodal CLIP-style pretraining on variable-star light curves, spectra and metadata.
+      modality:
+      - Spectra
+      - Time series
+      - Tabular
     - name: AION-1
       title: 'AION-1: Omnimodal Foundation Model for Astronomical Sciences'
       venue: NeurIPS 2025
@@ -325,12 +385,19 @@ sections:
         Code: https://github.com/PolymathicAI/AION
         Model: https://huggingface.co/polymathic-ai/aion-base
       desc: Token-based masked modeling over 39 modalities from Legacy Survey, HSC, SDSS, DESI and Gaia, released at 300M to 3.1B parameters.
+      modality:
+      - Images
+      - Spectra
+      - Tabular
     - title: Self-Supervised Representation Learning for JWST Galaxy Images and Low Resolution Spectra
       venue: NeurIPS 2026 Workshop (RPS)
       links:
         Paper: https://arxiv.org/abs/2610.31078
         Code: https://github.com/2003cy/neurips2026_ssl_jwst
       desc: Joint representation of F150W imaging and 1 to 2 micron PRISM spectra that recovers stellar mass at 1 < z < 3 with R2 of about 0.9, with CLIP alignment improving single-modality inference.
+      modality:
+      - Images
+      - Spectra
 - title: Language and Vision-Language Models
   entries:
   - name: astroBERT
@@ -502,6 +569,8 @@ sections:
       links:
         Paper: https://arxiv.org/abs/1802.03609
       desc: Open challenge in which participants classified 100,000 simulated space-based and ground-based cutouts as lenses or non-lenses, comparing CNNs, SVMs, arc finders and visual inspection.
+      modality:
+      - Images
     - name: MLGWSC-1
       title: 'MLGWSC-1: The First Machine Learning Gravitational-Wave Search Mock Data Challenge'
       venue: PRD 2023
@@ -510,6 +579,8 @@ sections:
         Journal: https://doi.org/10.1103/PhysRevD.107.023021
         Code: https://github.com/gwastro/ml-mock-data-challenge-1
       desc: Common datasets and metrics for comparing machine learning gravitational-wave search algorithms.
+      modality:
+      - Time series
     - name: SKA SDC2
       title: 'SKA Science Data Challenge 2: Analysis and Results'
       venue: MNRAS 2023
@@ -517,6 +588,8 @@ sections:
         Paper: https://arxiv.org/abs/2303.07943
         Journal: https://doi.org/10.1093/mnras/stad1375
       desc: Detection and characterisation of 233,245 simulated HI sources in a 2,000 h SKA-MID spectral line cube, with reproducibility awards for open pipelines.
+      modality:
+      - Data cubes
     - name: MiraBest
       title: 'MiraBest: A Dataset of Morphologically Classified Radio Galaxies for Machine Learning'
       venue: RASTI 2023
@@ -525,6 +598,8 @@ sections:
         Code: https://github.com/fmporter/MiraBest-full
         Journal: https://doi.org/10.1093/rasti/rzad017
       desc: 1,256 NVSS and FIRST radio-loud AGN labelled by Fanaroff-Riley class with confidence flags, distributed as a batched dataset for deep learning libraries.
+      modality:
+      - Images
     - name: RadioGalaxyNET
       title: 'RadioGalaxyNET: Dataset and Novel Computer Vision Algorithms for the Detection of Extended Radio Galaxies and Infrared Hosts'
       venue: PASA 2024
@@ -532,54 +607,75 @@ sections:
         Paper: https://arxiv.org/abs/2312.00306
         Journal: https://doi.org/10.1017/pasa.2023.64
       desc: 2,800 radio and infrared images with 4,155 expert-annotated galaxies in COCO format for multi-component radio galaxy and host detection.
+      modality:
+      - Images
     - name: CosmoBench
       title: 'CosmoBench: A Multiscale, Multiview, Multitask Cosmology Benchmark for Geometric Deep Learning'
       venue: NeurIPS 2025 (Datasets and Benchmarks)
       links:
         Paper: https://arxiv.org/abs/2507.03707
       desc: About 34,000 point clouds from Quijote, CAMELS-SAM and CAMELS together with 25,000 merger trees for cosmological parameter inference and tree tasks.
+      modality:
+      - Point clouds
     - name: SuryaBench
       title: 'SuryaBench: Benchmark Dataset for Advancing Machine Learning in Heliophysics and Space Weather Prediction'
       venue: arXiv 2025
       links:
         Paper: https://arxiv.org/abs/2508.14107
       desc: Curated SDO core dataset with application benchmarks on active region emergence, flares, magnetic field extrapolation, EUV irradiance and solar wind prediction.
+      modality:
+      - Images
+      - Time series
     - name: Mars-Bench
       title: 'Mars-Bench: A Benchmark for Evaluating Foundation Models for Mars Science Tasks'
       venue: NeurIPS 2025 (Datasets and Benchmarks)
       links:
         Paper: https://arxiv.org/abs/2510.24010
       desc: 20 orbital and rover image datasets for classification, segmentation and object detection used to compare natural-image, Earth observation and vision-language backbones.
+      modality:
+      - Images
     - name: MMAE
       title: Multi-Modal Masked Autoencoders for Learning Image-Spectrum Associations for Galaxy Evolution and Cosmology
       venue: arXiv 2025
       links:
         Paper: https://arxiv.org/abs/2510.22527
       desc: Paired dataset of 134,533 HSC galaxy images and DESI spectra with a masked autoencoder baseline for cross-modal reconstruction and redshift estimation.
+      modality:
+      - Images
+      - Spectra
     - name: Moonstone
       title: 'Moonstone: A Multimodal Foundation Model and Benchmark for Lunar Remote Sensing'
       venue: arXiv 2026
       links:
         Paper: https://arxiv.org/abs/2607.03644
       desc: Lunar remote sensing foundation model released with a benchmark of six downstream tasks.
+      modality:
+      - Images
     - name: NuBench
       title: 'NuBench: An Open Benchmark for Deep Learning-Based Event Reconstruction in Neutrino Telescopes'
       venue: arXiv 2025
       links:
         Paper: https://arxiv.org/abs/2511.13111
       desc: Seven simulated neutrino telescope datasets used to compare ParticleNeT, DynEdge, GRIT and DeepIce on energy, direction, topology, vertex and inelasticity reconstruction.
+      modality:
+      - Point clouds
     - name: CraterBench-R
       title: 'CraterBench-R: Instance-Level Crater Retrieval for Planetary Scale'
       venue: arXiv 2026
       links:
         Paper: https://arxiv.org/abs/2604.06245
       desc: Instance retrieval benchmark of about 25,000 Mars CTX crater identities with verified multi-view queries, used to evaluate 30 vision backbones.
+      modality:
+      - Images
     - name: JW-FD
       title: 'JW-FD: A Long Horizon Multimodal Solar Flare Forecasting Dataset'
       venue: arXiv 2026
       links:
         Paper: https://arxiv.org/abs/2608.19195
       desc: Fifteen-year flare forecasting dataset from 2011 to 2025 built from SDO/HMI magnetograms, NOAA region summaries and flare lists, with active region level splits and configurable horizons.
+      modality:
+      - Images
+      - Tabular
     - name: FAIR Universe WL
       title: 'FAIR Universe Weak Lensing ML Uncertainty Challenge: Dataset and Cosmological Inference Competition'
       venue: arXiv 2026
@@ -588,6 +684,8 @@ sections:
         Data: https://doi.org/10.5281/zenodo.20056065
         Code: https://github.com/FAIR-Universe/Cosmology_Challenge
       desc: Simulated HSC-like weak lensing convergence maps and a competition scoring cosmological parameter estimates together with their uncertainty calibration.
+      modality:
+      - Images
   - title: Multimodal Model Evaluation
     entries:
     - name: AstroChart
@@ -597,18 +695,27 @@ sections:
         Paper: https://arxiv.org/abs/2503.19498
         Data: https://huggingface.co/datasets/yangjing0128/AstroChart
       desc: AstroChart provides 1,690 question-answer pairs over 482 astronomy charts and is used to evaluate 21 MLLMs on perception, numerical reasoning and domain knowledge.
+      modality:
+      - Images
+      - Text
     - name: AstroMMBench
       title: 'AstroMMBench: A Benchmark for Evaluating Multimodal Large Language Models Capabilities in Astronomy'
       venue: arXiv 2025
       links:
         Paper: https://arxiv.org/abs/2510.00063
       desc: 621 expert-reviewed multiple-choice questions on astronomical images across six subfields, used to evaluate 25 MLLMs.
+      modality:
+      - Images
+      - Text
     - name: MarsRetrieval
       title: 'MarsRetrieval: Benchmarking Vision-Language Models for Planetary-Scale Geospatial Retrieval on Mars'
       venue: arXiv 2026
       links:
         Paper: https://arxiv.org/abs/2602.13961
       desc: Benchmark of vision-language models on retrieval over Mars orbital imagery at planetary scale.
+      modality:
+      - Images
+      - Text
     - name: AstroVLBench
       title: A Systematic Evaluation of Vision-Language Models for Observational Astronomical Reasoning Tasks
       venue: arXiv 2026
@@ -616,6 +723,12 @@ sections:
         Paper: https://arxiv.org/abs/2604.24589
         Data: https://huggingface.co/datasets/XiaomanZhang/AstroVLBench
       desc: More than 4,100 expert-verified instances over five tasks covering HSC imaging, FIRST and NVSS radio maps, AKARI photometry, PLAsTiCC light curves and optical spectra.
+      modality:
+      - Images
+      - Spectra
+      - Time series
+      - Tabular
+      - Text
     - name: AstroAlertBench
       title: 'AstroAlertBench: Evaluating the Accuracy, Reasoning, and Honesty of Multimodal LLMs in Astronomical Classification'
       venue: arXiv 2026
@@ -623,6 +736,10 @@ sections:
         Paper: https://arxiv.org/abs/2605.05573
         Code: https://github.com/LLM-for-Astronomy/AstroAlertBench
       desc: Evaluates 13 multimodal LLMs on transient alert review through metadata grounding, scientific reasoning and hierarchical classification over five classes.
+      modality:
+      - Images
+      - Tabular
+      - Text
   - title: Text and Reasoning Evaluation
     entries:
     - name: AstroMLab 1
@@ -631,6 +748,8 @@ sections:
       links:
         Paper: https://arxiv.org/abs/2407.11194
       desc: 4,425 multiple-choice questions curated from the Annual Review of Astronomy and Astrophysics for evaluating LLM knowledge recall.
+      modality:
+      - Text
     - name: AstroVisBench
       title: 'AstroVisBench: A Code Benchmark for Scientific Computing and Visualization in Astronomy'
       venue: NeurIPS 2025 (Datasets and Benchmarks)
@@ -639,6 +758,8 @@ sections:
         Code: https://github.com/SebaJoe/AstroVisBench
         Project: https://astrovisbench.github.io
       desc: 864 processing and visualization tasks from 110 NOIRLab and STScI notebooks, scored by execution and a VLM judge.
+      modality:
+      - Text
     - name: Astro-QA
       title: An Astronomical Question Answering Dataset for Evaluating Large Language Models
       venue: Scientific Data 2025
@@ -646,6 +767,8 @@ sections:
         Journal: https://doi.org/10.1038/s41597-025-04613-9
         Data: https://figshare.com/articles/dataset/Astro-QA/28235639
       desc: 3,082 English and Chinese questions of six types across astrophysics, astrometry, celestial mechanics, history and techniques, evaluated on 27 LLMs.
+      modality:
+      - Text
     - name: CosmoPaperQA
       title: Evaluating Retrieval-Augmented Generation Agents for Autonomous Scientific Discovery in Astrophysics
       venue: arXiv 2025
@@ -653,24 +776,32 @@ sections:
         Paper: https://arxiv.org/abs/2507.07155
         Data: https://huggingface.co/datasets/ASTROANTS/CosmoPaperQA
       desc: 105 expert-written question-answer pairs from cosmology papers for comparing retrieval-augmented generation agents against human evaluation.
+      modality:
+      - Text
     - name: IOAA
       title: Large Language Models Achieve Gold Medal Performance at the International Olympiad on Astronomy & Astrophysics (IOAA)
       venue: arXiv 2025
       links:
         Paper: https://arxiv.org/abs/2510.05016
       desc: Evaluates five LLMs on 49 theory and 8 data analysis problems from the 2022 to 2025 IOAA exams.
+      modality:
+      - Text
     - name: ReplicationBench
       title: 'ReplicationBench: Can AI Agents Replicate Astrophysics Research Papers?'
       venue: arXiv 2025
       links:
         Paper: https://arxiv.org/abs/2510.24591
       desc: 111 tasks derived from 20 astrophysics papers that test whether agents can reproduce published results, with the best models scoring about 20 percent.
+      modality:
+      - Text
     - name: ALeRCE Text-to-SQL
       title: 'Querying an Astronomical Database Using Large Language Models: The ALeRCE Text-to-SQL System'
       venue: A&A 2026
       links:
         Paper: https://arxiv.org/abs/2606.18108
       desc: Evaluates thirteen LLMs on translating natural-language requests into SQL queries over the ALeRCE alert broker database, comparing direct and step-by-step generation.
+      modality:
+      - Text
     - name: Astro2Method
       title: 'Astro2Method: Benchmarking LLMs on Machine Learning Method Selection in Astronomy'
       venue: arXiv 2026
@@ -678,16 +809,22 @@ sections:
         Paper: https://arxiv.org/abs/2610.30282
         Data: https://huggingface.co/datasets/Xingzhongfan/Astro2Method
       desc: 500 expert-reviewed binary questions from 346 astronomy papers asking which machine learning method performs better for a stated problem.
+      modality:
+      - Text
     - title: 'Reconstructing Implicit Scientific Knowledge: Evaluating LLM Agents through End-to-End Reproduction of Astronomy'
       venue: arXiv 2026
       links:
         Paper: https://arxiv.org/abs/2609.35900
       desc: Reproduction framework that separates execution from verification, applied to one ApJ and thirteen Nature astronomy papers, eleven of which leave the reproduction path ambiguous.
+      modality:
+      - Text
     - title: 'AI Cosplaying as Astrophysicists: A Controlled Synthetic-Agent Study of AI-Assisted Astrophysical Research Workflows'
       venue: arXiv 2026
       links:
         Paper: https://arxiv.org/abs/2603.29039
       desc: Controlled study of 144 synthetic researchers on 2,592 astrophysics assignments, comparing solo work with four styles of AI assistance over 12,960 scored episodes.
+      modality:
+      - Text
   intro: Benchmarks are grouped by input type. Data and modality benchmarks provide observational or simulated data with fixed splits and metrics for task-specific models. The two evaluation subsections test general or domain-adapted language and vision-language models.
 - title: Galaxies
   subsections:

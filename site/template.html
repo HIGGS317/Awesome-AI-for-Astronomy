@@ -5,6 +5,17 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Awesome AI for Astronomy</title>
 <meta name="description" content="Curated index of papers, models, datasets, benchmarks and software for artificial intelligence in astronomy.">
+<link rel="canonical" href="https://xin-yuxiao.github.io/Awesome-AI-for-Astronomy/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Awesome AI for Astronomy">
+<meta property="og:title" content="Awesome AI for Astronomy">
+<meta property="og:description" content="Curated index of papers, models, datasets, benchmarks and software for artificial intelligence in astronomy.">
+<meta property="og:url" content="https://xin-yuxiao.github.io/Awesome-AI-for-Astronomy/">
+<meta name="twitter:card" content="summary">
+<link rel="alternate" type="application/json" href="entries.json" title="All entries as JSON">
+<link rel="alternate" type="text/csv" href="papers.csv" title="Papers as CSV">
+<script type="application/ld+json">/*__LD__*/</script>
+<script>document.documentElement.classList.add("js");</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
@@ -31,7 +42,7 @@
   --note-bg: #fdecc8;
   --note-fg: #8a4b00;
   --sans: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
-  --bar: 64px;
+  --bar: 112px;
   color-scheme: light;
 }
 :root[data-theme="dark"] {
@@ -84,8 +95,8 @@ h1 { margin: 0; font-size: 26px; line-height: 1.2; font-weight: 600; letter-spac
 
 /* Filter bar */
 .bar { position: sticky; top: 0; z-index: 10; background: var(--surface); border-bottom: 1px solid var(--rule); }
-.bar .wrap { display: flex; gap: 10px; align-items: center; height: var(--bar); }
-.search { position: relative; flex: 1 1 360px; max-width: 520px; }
+.bar .wrap { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; min-height: var(--bar); padding-top: 12px; padding-bottom: 12px; }
+.search { position: relative; flex: 1 1 100%; }
 .search svg { position: absolute; left: 11px; top: 50%; transform: translateY(-50%); color: var(--faint); }
 .search input { width: 100%; height: 38px; font: 14.5px var(--sans); color: var(--ink); background: var(--sunken); border: 1px solid var(--rule); border-radius: 8px; padding: 0 40px 0 34px; }
 .search input::placeholder { color: var(--faint); }
@@ -148,6 +159,11 @@ body.nosum .sum { display: none; }
 .pill { display: inline-block; font-size: 12.5px; line-height: 1; padding: 6px 9px; border-radius: 6px; border: 1px solid var(--rule); color: var(--ink); background: var(--surface); white-space: nowrap; font-weight: 500; }
 .pill:hover { border-color: var(--accent); color: var(--accent); text-decoration: none; }
 .pill.code { border-color: color-mix(in srgb, var(--accent) 45%, var(--rule)); color: var(--accent); }
+.tags { display: inline-flex; flex-wrap: wrap; gap: 4px; margin-left: 8px; vertical-align: 1px; }
+.tag { font: 500 11.5px/1 var(--sans); padding: 3px 6px; border-radius: 4px; border: 1px solid var(--rule); color: var(--muted); background: transparent; }
+button.tag { cursor: pointer; }
+button.tag:hover, button.tag[aria-pressed="true"] { border-color: var(--accent); color: var(--accent); }
+.modnote { margin: 0 0 14px; padding: 10px 14px; border: 1px solid var(--rule); border-radius: 10px; background: var(--surface); color: var(--muted); font-size: 13.5px; }
 mark { background: var(--mark); color: inherit; border-radius: 2px; padding: 0 1px; }
 
 .lrow { display: grid; grid-template-columns: 220px minmax(0, 1fr); gap: 0 18px; padding: 10px 20px; border-bottom: 1px solid var(--rule); }
@@ -160,6 +176,11 @@ mark { background: var(--mark); color: inherit; border-radius: 2px; padding: 0 1
 .empty p { margin: 0 0 8px; }
 .linkbtn { font: inherit; color: var(--accent); background: none; border: 0; padding: 0; cursor: pointer; text-decoration: underline; text-underline-offset: 2px; }
 
+/* Without JavaScript the prerendered list is shown on its own, with summaries. */
+html:not(.js) .bar, html:not(.js) .toc, html:not(.js) .stats, html:not(.js) #theme { display: none; }
+html:not(.js) .layout { grid-template-columns: minmax(0, 1fr); }
+html:not(.js) .sum { display: block; }
+
 footer { border-top: 1px solid var(--rule); color: var(--muted); font-size: 13px; background: var(--surface); }
 footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 6px 24px; padding-top: 18px; padding-bottom: 22px; }
 footer p { margin: 0; }
@@ -171,8 +192,6 @@ footer p { margin: 0; }
 }
 @media (max-width: 980px) {
   .bar { position: static; }
-  .bar .wrap { flex-wrap: wrap; height: auto; padding-top: 12px; padding-bottom: 12px; }
-  .search { flex-basis: 100%; max-width: none; }
   .count { margin-left: 0; width: 100%; }
   .layout { grid-template-columns: minmax(0, 1fr); gap: 0; padding-top: 16px; }
   .toc { display: none; }
@@ -196,7 +215,7 @@ footer p { margin: 0; }
 }
 </style>
 </head>
-<body>
+<body class="nosum">
 <header class="band">
   <div class="wrap">
     <div>
@@ -216,8 +235,8 @@ footer p { margin: 0; }
       <ul class="stats" id="stats"></ul>
     </div>
     <div class="actions">
-      <a class="btn" id="contrib" href="#">Contribute</a>
-      <a class="btn primary" id="repo" href="#">View on GitHub</a>
+      <a class="btn" id="contrib" href="https://github.com/Xin-YuXiao/Awesome-AI-for-Astronomy/blob/main/CONTRIBUTING.md">Contribute</a>
+      <a class="btn primary" id="repo" href="https://github.com/Xin-YuXiao/Awesome-AI-for-Astronomy">View on GitHub</a>
       <button type="button" class="btn icon" id="theme" aria-label="Switch to dark theme" title="Switch theme">
         <svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13Zm0 1.5v10a5 5 0 0 1 0-10Z" fill="currentColor"/></svg>
       </button>
@@ -235,13 +254,24 @@ footer p { margin: 0; }
     </form>
     <label class="sr-only" for="fyear">Year</label>
     <select class="ctl" id="fyear"></select>
-    <label class="sr-only" for="fvenue">Venue</label>
-    <select class="ctl" id="fvenue">
+    <label class="sr-only" for="ftype">Venue type</label>
+    <select class="ctl" id="ftype">
       <option value="">All venues</option>
       <option value="rev">Peer-reviewed</option>
-      <option value="pre">arXiv preprints</option>
+      <option value="Journal">Journal</option>
+      <option value="Conference">Conference</option>
+      <option value="Workshop">Workshop</option>
+      <option value="Preprint">arXiv preprint</option>
     </select>
-    <label class="chip"><input type="checkbox" id="fcode"> Code available</label>
+    <label class="sr-only" for="fres">Public resources</label>
+    <select class="ctl" id="fres">
+      <option value="">Any resources</option>
+      <option value="code">Code</option>
+      <option value="model">Model weights</option>
+      <option value="data">Data</option>
+    </select>
+    <label class="sr-only" for="fmod">Data modality</label>
+    <select class="ctl" id="fmod"></select>
     <label class="chip"><input type="checkbox" id="fsum"> Show summaries</label>
     <span class="count" id="count" aria-live="polite"></span>
   </div>
@@ -254,14 +284,14 @@ footer p { margin: 0; }
       <label class="sr-only" for="secsel">Section</label>
       <select class="ctl" id="secsel"></select>
     </div>
-    <div id="results"></div>
+    <div id="results"><!--__STATIC__--></div>
   </main>
 </div>
 
 <footer>
   <div class="wrap">
     <p id="built"></p>
-    <p>Generated from data/entries.yml. The list is released under CC0 1.0.</p>
+    <p>Download the data as <a href="entries.json">JSON</a> or <a href="papers.csv">CSV</a>. Generated from data/entries.yml and released under CC0 1.0.</p>
   </div>
 </footer>
 
@@ -292,7 +322,7 @@ footer p { margin: 0; }
     s.entries.forEach(function (e) {
       e.sec = s.id;
       e.top = s.parent || s.id;
-      e.code = e.kind === "paper" && e.links.some(function (l) { return isCode(l.label); });
+      e.code = e.kind === "paper" && e.res.indexOf("code") >= 0;
       e.showName = e.kind === "paper" && !!e.name && e.title.toLowerCase().indexOf(e.name.toLowerCase()) !== 0;
       e.hay = [e.name, e.title || "", e.venue || "", e.note || "", strip(e.desc), s.title, s.parent ? byId[s.parent].title : ""].join(" ").toLowerCase();
       all.push(e);
@@ -319,18 +349,40 @@ footer p { margin: 0; }
   $("contrib").href = D.repo + "/blob/main/CONTRIBUTING.md";
   $("built").innerHTML = "Built from " + (D.commit ? '<a href="' + D.repo + "/commit/" + D.commit + '">commit ' + D.commit + "</a>" : "the repository") + " on " + fmtDate(D.built) + ".";
   $("fyear").innerHTML = '<option value="">All years</option>' + years.map(function (y) { return '<option value="' + y + '">' + y + "</option>"; }).join("");
+  $("fmod").innerHTML = '<option value="">All modalities</option>' + D.modalities.map(function (m) { return '<option value="' + esc(m) + '">' + esc(m) + "</option>"; }).join("");
+  var tagged = topSecs.filter(function (s) {
+    return papers.some(function (e) { return e.top === s.id && e.mod.length; });
+  }).map(function (s) { return s.title; });
 
-  var st = { q: "", terms: [], year: "", venue: "", code: false, sec: "" };
-  function paperOnly() { return st.year || st.venue || st.code; }
+  /* Filters. Each dimension tests one property of a paper; link entries only pass when no paper filter is set. */
+  var st = { q: "", terms: [], year: "", type: "", res: "", mod: "", sec: "" };
+  var TESTS = {
+    year: function (e) { return e.year === +st.year; },
+    type: function (e) { return st.type === "rev" ? e.reviewed : e.type === st.type; },
+    res: function (e) { return e.res.indexOf(st.res) >= 0; },
+    mod: function (e) { return e.mod.indexOf(st.mod) >= 0; }
+  };
+  function paperOnly() { return st.year || st.type || st.res || st.mod; }
   function inScope(e) { return !st.sec || e.sec === st.sec || e.top === st.sec; }
-  function pass(e, ignoreYear) {
+  function pass(e, ignore) {
     for (var i = 0; i < st.terms.length; i++) if (e.hay.indexOf(st.terms[i]) < 0) return false;
     if (e.kind !== "paper") return !paperOnly();
-    if (!ignoreYear && st.year && e.year !== +st.year) return false;
-    if (st.venue === "rev" && !e.reviewed) return false;
-    if (st.venue === "pre" && e.reviewed) return false;
-    if (st.code && !e.code) return false;
+    for (var k in TESTS) if (k !== ignore && st[k] && !TESTS[k](e)) return false;
     return true;
+  }
+  /* Show how many papers each option would leave, given the other filters. */
+  function countOptions(id, dim) {
+    var saved = st[dim], c = {};
+    Array.prototype.forEach.call($(id).options, function (o) {
+      if (!o.value) return;
+      st[dim] = o.value;
+      c[o.value] = papers.filter(function (e) { return inScope(e) && pass(e, ""); }).length;
+    });
+    st[dim] = saved;
+    Array.prototype.forEach.call($(id).options, function (o) {
+      if (!o.dataset.label) o.dataset.label = o.textContent;
+      if (o.value) o.textContent = o.dataset.label + " (" + c[o.value] + ")";
+    });
   }
   function termRe() {
     return new RegExp("(" + st.terms.map(function (x) { return esc(x).replace(/[.*+?^${}()|[\]\\]/g, "\\$&"); }).join("|") + ")", "gi");
@@ -393,6 +445,9 @@ footer p { margin: 0; }
     return '<div class="row"><span class="date">' + esc(e.date) + '</span><div class="paper">' +
       (e.showName ? '<span class="nm">' + hl(e.name) + "</span>" : "") +
       '<a class="ttl" href="' + esc(e.primary) + '">' + hl(e.title) + "</a>" +
+      (e.mod.length ? '<span class="tags">' + e.mod.map(function (m) {
+        return '<button type="button" class="tag" data-mod="' + esc(m) + '" aria-pressed="' + (st.mod === m) + '" title="Show papers tagged ' + esc(m) + '">' + esc(m) + "</button>";
+      }).join("") + "</span>" : "") +
       (e.desc ? '<p class="sum">' + hlHTML(e.desc) + "</p>" : "") + "</div>" +
       '<div class="vcell"><span class="venue' + (e.reviewed ? " rev" : "") + '">' + hl(e.venue) + "</span>" +
       (e.note ? '<span class="note">' + hl(e.note) + "</span>" : "") + '</div><div class="links">' + links + "</div></div>";
@@ -408,19 +463,18 @@ footer p { margin: 0; }
 
   function render() {
     st.terms = st.q.toLowerCase().split(/\s+/).filter(Boolean);
-    var shown = all.filter(function (e) { return inScope(e) && pass(e, false); });
+    var shown = all.filter(function (e) { return inScope(e) && pass(e, ""); });
     var bySec = {};
     shown.forEach(function (e) { (bySec[e.sec] = bySec[e.sec] || []).push(e); });
 
-    var yc = {};
-    papers.forEach(function (e) { if (inScope(e) && pass(e, true)) yc[e.year] = (yc[e.year] || 0) + 1; });
-    Array.prototype.forEach.call($("fyear").options, function (o) {
-      if (o.value) o.textContent = o.value + " (" + (yc[o.value] || 0) + ")";
-    });
+    countOptions("fyear", "year");
+    countOptions("ftype", "type");
+    countOptions("fres", "res");
+    countOptions("fmod", "mod");
 
     var sc = {}, total = 0;
     all.forEach(function (e) {
-      if (!pass(e, false)) return;
+      if (!pass(e, "")) return;
       total++;
       sc[e.sec] = (sc[e.sec] || 0) + 1;
       if (e.top !== e.sec) sc[e.top] = (sc[e.top] || 0) + 1;
@@ -438,7 +492,8 @@ footer p { margin: 0; }
       (active ? ' <button type="button" class="linkbtn" id="reset">Clear filters</button>' : "");
     if (active) $("reset").addEventListener("click", reset);
 
-    var out = "";
+    var out = st.mod ? '<p class="modnote">Modality tags have been added to ' + tagged.length + " sections so far (" + tagged.map(esc).join(", ") +
+      "). Papers in other sections are not tagged yet and are hidden while this filter is on.</p>" : "";
     var tops = st.sec ? [byId[st.sec].parent ? byId[byId[st.sec].parent] : byId[st.sec]] : topSecs;
     tops.forEach(function (t) {
       var subs = children[t.id] || [];
@@ -454,8 +509,8 @@ footer p { margin: 0; }
       });
       out += "</section>";
     });
-    if (!out) {
-      out = '<div class="empty"><p>No entries match these filters.</p><p>Try another year or venue, clear the search, or choose all sections.</p>' +
+    if (!/class="sec"/.test(out)) {
+      out += '<div class="empty"><p>No entries match these filters.</p><p>Try another year or venue, clear the search, or choose all sections.</p>' +
         '<button type="button" class="linkbtn" id="reset2">Clear filters and show all sections</button></div>';
     }
     $("results").innerHTML = out;
@@ -464,8 +519,8 @@ footer p { margin: 0; }
   }
   function reset() {
     st.q = ""; $("q").value = "";
-    st.year = ""; st.venue = ""; st.code = false;
-    $("fyear").value = ""; $("fvenue").value = ""; $("fcode").checked = false;
+    st.year = ""; st.type = ""; st.res = ""; st.mod = "";
+    $("fyear").value = ""; $("ftype").value = ""; $("fres").value = ""; $("fmod").value = "";
     render();
   }
 
@@ -476,8 +531,16 @@ footer p { margin: 0; }
     if (ev.key === "/" && !/input|select|textarea/i.test(document.activeElement.tagName)) { ev.preventDefault(); $("q").focus(); }
   });
   $("fyear").addEventListener("change", function (ev) { st.year = ev.target.value; render(); });
-  $("fvenue").addEventListener("change", function (ev) { st.venue = ev.target.value; render(); });
-  $("fcode").addEventListener("change", function (ev) { st.code = ev.target.checked; render(); });
+  $("ftype").addEventListener("change", function (ev) { st.type = ev.target.value; render(); });
+  $("fres").addEventListener("change", function (ev) { st.res = ev.target.value; render(); });
+  $("fmod").addEventListener("change", function (ev) { st.mod = ev.target.value; render(); });
+  $("results").addEventListener("click", function (ev) {
+    var b = ev.target.closest("button.tag");
+    if (!b) return;
+    st.mod = st.mod === b.dataset.mod ? "" : b.dataset.mod;
+    $("fmod").value = st.mod;
+    render();
+  });
   function applySum(on) { document.body.classList.toggle("nosum", !on); $("fsum").checked = on; }
   $("fsum").addEventListener("change", function (ev) { applySum(ev.target.checked); store.set("aia-sum", ev.target.checked ? "1" : "0"); });
   applySum(store.get("aia-sum") === "1");
