@@ -16,7 +16,7 @@
 </div>
 
 > [!TIP]
-> The [searchable web page](https://xin-yuxiao.github.io/Awesome-AI-for-Astronomy/) filters all 382 papers and 64 software packages by section, year, venue and code availability, and shows a one-sentence summary for every paper.
+> The [searchable web page](https://xin-yuxiao.github.io/Awesome-AI-for-Astronomy/) filters all 381 papers and 65 software packages by section, year, venue and code availability, and shows a one-sentence summary for every paper.
 
 ## About
 
@@ -102,7 +102,7 @@ This list tracks machine learning work in astronomy with public papers, linking 
 | 2024.05 | [AstroPT: Scaling Large Observation Models for Astronomy](https://arxiv.org/abs/2405.14930 "Autoregressive transformers from 1M to 2.1B parameters pretrained on 8.6M DESI Legacy Survey galaxy images.") | **ICML 2024 Workshop (AI4Science)** | [Code](https://github.com/Smith42/astroPT) | [Euclid Paper](https://arxiv.org/abs/2503.15312) [Model](https://huggingface.co/Smith42/astroPT_v2.0) |
 | 2024.04 | **Galaxy Scaling Laws** [Scaling Laws for Galaxy Images](https://arxiv.org/abs/2404.02973 "Supervised scaling study on 840k galaxy images with over 100M Galaxy Zoo annotations.") | arXiv 2024 | [Code](https://github.com/mwalmsley/zoobot) | - |
 | 2023.12 | [Rare Galaxy Classes Identified In Foundation Model Representations](https://arxiv.org/abs/2312.02910 "Searches Zoobot representation space for rare morphological classes.") | arXiv 2023 | [Code](https://github.com/mwalmsley/zoobot) | - |
-| 2023 | [Zoobot: Adaptable Deep Learning Models for Galaxy Morphology](https://github.com/mwalmsley/zoobot "Pretrained galaxy morphology encoders and finetuning utilities, deployed in the Euclid morphology pipeline.") | **JOSS 2023** | [Code](https://github.com/mwalmsley/zoobot) | [PyPI](https://pypi.org/project/zoobot/) |
+| 2023 | [Zoobot: Adaptable Deep Learning Models for Galaxy Morphology](https://doi.org/10.21105/joss.05312 "Pretrained galaxy morphology encoders and finetuning utilities, deployed in the Euclid morphology pipeline.") | **JOSS 2023** | [Code](https://github.com/mwalmsley/zoobot) | [PyPI](https://pypi.org/project/zoobot/) |
 | 2022.06 | **Zoobot FM** [Towards Foundation Models for Galaxy Morphology](https://arxiv.org/abs/2206.11927 "Pretraining galaxy morphology encoders on Galaxy Zoo volunteer responses for transfer to downstream tasks.") | arXiv 2022 | [Code](https://github.com/mwalmsley/zoobot) | - |
 | 2021.10 | **Galaxy Search** [Self-Supervised Similarity Search for Large Scientific Datasets](https://arxiv.org/abs/2110.13151 "Self-supervised representations of 42M DESI Legacy Imaging Survey galaxies with a public similarity search tool.") | **NeurIPS 2021 Workshop (ML4PS)** | [Code](https://github.com/georgestein/galaxy_search) | - |
 | 2021.10 | **Zoobot Representations** [Practical Galaxy Morphology Tools from Deep Supervised Representation Learning](https://arxiv.org/abs/2110.12735 "Representations learned from Galaxy Zoo labels reused for similarity search, anomaly finding and new classification tasks.") | arXiv 2021 | [Code](https://github.com/mwalmsley/zoobot) | - |
@@ -616,7 +616,6 @@ Benchmarks are grouped by input type. Data and modality benchmarks provide obser
 | Date | Paper | Venue | Code | Links |
 |:--|:--|:--|:--|:--|
 | 2024.12 | **Multimodal Universe** [The Multimodal Universe: Enabling Large-Scale Machine Learning with 100 TB of Astronomical Scientific Data](https://arxiv.org/abs/2412.02527 "Images, spectra, time series and catalogs for hundreds of millions of objects, distributed as Hugging Face datasets with benchmark tasks.") | **NeurIPS 2024 (Datasets and Benchmarks)** | [Code](https://github.com/MultimodalUniverse/MultimodalUniverse) | - |
-| 2021 | [Galaxy10 DECaLS](https://github.com/henrysky/Galaxy10 "17,736 DECaLS g, r, z galaxy images in 10 morphology classes with Galaxy Zoo labels.") | **Dataset 2021** | [Code](https://github.com/henrysky/Galaxy10) | [Data](https://doi.org/10.5281/zenodo.10845026) |
 | 2018.10 | **PLAsTiCC** [The Photometric LSST Astronomical Time-series Classification Challenge (PLAsTiCC): Data Set](https://arxiv.org/abs/1810.00001 "Simulated LSST multi-band light curves for transient and variable classification.") | arXiv 2018 | - | [Kaggle](https://www.kaggle.com/c/PLAsTiCC-2018) |
 
 ### Simulation Datasets
@@ -648,12 +647,13 @@ Benchmarks are grouped by input type. Data and modality benchmarks provide obser
 | [DeepMerge](https://github.com/deepskies/deepmerge-public) | classifies high-redshift merging galaxies with CNNs. |
 | [DeepSource](https://github.com/vafaei-ar/deepsource) | detects point sources in radio images with deep learning. |
 | [E2CNNRadGal](https://github.com/as595/E2CNNRadGal) | classifies radio galaxies with group-equivariant CNNs. |
-| [fink-science](https://github.com/astrolabsoftware/fink-science) | hosts the science modules and classifiers run on the Fink alert stream. |
 | [Fink](https://github.com/astrolabsoftware/fink-broker) | is an LSST alert broker with machine learning classification modules. |
+| [fink-science](https://github.com/astrolabsoftware/fink-science) | hosts the science modules and classifiers run on the Fink alert stream. |
 | [FLEET](https://github.com/gmzsebastian/FLEET) | selects superluminous supernova and tidal disruption event candidates for follow-up. |
 | [FlexCode](https://github.com/tpospisi/FlexCode) | estimates conditional densities for photometric redshifts. |
 | [Galaxy Zoo Bayesian CNN](https://github.com/mwalmsley/galaxy-zoo-bayesian-cnn) | trains Bayesian CNNs with active learning on Galaxy Zoo labels. |
 | [galaxy-datasets](https://github.com/mwalmsley/galaxy-datasets) | loads Galaxy Zoo datasets for PyTorch training. |
+| [Galaxy10 DECaLS](https://github.com/henrysky/Galaxy10) | provides 17,736 DECaLS g, r, z galaxy images in 10 morphology classes with Galaxy Zoo labels ([Zenodo](https://doi.org/10.5281/zenodo.10845026)). |
 | [GalaxyGAN](https://github.com/SpaceML/GalaxyGAN_python) | recovers features from degraded galaxy images with GANs. |
 | [GPz](https://github.com/OxfordML/GPz) | estimates photometric redshifts with sparse Gaussian processes. |
 | [Gravity Spy](https://github.com/Gravity-Spy/GravitySpy) | classifies LIGO detector glitches with citizen science and machine learning. |
@@ -690,8 +690,8 @@ Benchmarks are grouped by input type. Data and modality benchmarks provide obser
 | [star-galaxy CNN](https://github.com/EdwardJKim/dl4astro) | separates stars and galaxies with CNNs. |
 | [StarNet](https://github.com/astroai/starnet) | infers stellar parameters from spectra with CNNs. |
 | [sunbird](https://github.com/florpi/sunbird) | emulates galaxy clustering summary statistics with neural networks. |
-| [Superphot+](https://github.com/VTDA-Group/superphot-plus) | fits and classifies supernova light curves. |
 | [Superphot](https://github.com/griffin-h/superphot) | classifies supernovae from photometric light curves. |
+| [Superphot+](https://github.com/VTDA-Group/superphot-plus) | fits and classifies supernova light curves. |
 | [SuperRAENN](https://github.com/villrv/SuperRAENN) | classifies supernova light curves with recurrent autoencoder features. |
 | [The Cannon](https://github.com/andycasey/AnniesLasso) | provides a data-driven model for stellar labels from spectra. |
 | [The Payne](https://github.com/tingyuansen/The_Payne) | fits stellar spectra with neural network spectral emulators. |
