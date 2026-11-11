@@ -288,6 +288,15 @@ sections:
       - Spectra
   - title: Time Series
     entries:
+    - title: Domain-Informed Multi-View Self-Distillation for Astronomical Light-Curve Representation Learning with JEPA
+      venue: arXiv 2026
+      links:
+        Paper: https://arxiv.org/abs/2606.28446
+        Code: https://github.com/ruiyicheng/domain-informed-lightcurve-jepa
+        Model: https://huggingface.co/ruiyicheng/domain-informed-lightcurve-jepa-exp21
+      desc: Domain-informed JEPA combines raw, periodogram and phase-folded light-curve views with uncertainty-aware tokenization and multi-view self-distillation, trained on LEAVES and evaluated on StarEmbed and 12 irregular time-series datasets.
+      modality:
+      - Time series
     - name: ASTROMER
       title: 'ASTROMER: A Transformer-Based Embedding for the Representation of Light Curves'
       venue: A&A 2023
@@ -564,6 +573,17 @@ sections:
   subsections:
   - title: Data and Modality Benchmarks
     entries:
+    - name: LenghuSky-8
+      title: 'LenghuSky-8: An 8-Year All-Sky Cloud Dataset with Star-Aware Masks and Alt-Az Calibration for Segmentation and Nowcasting'
+      venue: CVPR Findings 2026
+      links:
+        Paper: https://arxiv.org/abs/2603.16429
+        Code: https://github.com/ruiyicheng/LenghuSky-8
+        Data: https://huggingface.co/datasets/ruiyicheng/LenghuSky-8
+      desc: Eight-year dataset of 429,620 all-sky images with star-aware cloud masks and per-pixel altitude-azimuth calibration, supporting DINOv3-based segmentation and short-horizon cloud nowcasting benchmarks for observatory operations.
+      modality:
+      - Images
+      - Time series
     - title: The Strong Gravitational Lens Finding Challenge
       venue: A&A 2019
       links:
@@ -1496,6 +1516,16 @@ sections:
     desc: Fine-tunes a large language model on LAMOST low-resolution spectra in two stages to infer stellar parameters and elemental abundances, validated against Gaia-ESO and GALAH DR4.
 - title: Time-Domain Astronomy and Transients
   entries:
+  - name: DeepAP
+    title: 'DeepAP: Deep Learning-based Aperture Photometry Feasibility Assessment and Aperture Size Prediction'
+    venue: RAA 2025
+    links:
+      Paper: https://arxiv.org/abs/2508.03400
+      Code: https://github.com/ruiyicheng/DeepAP
+      Journal: https://doi.org/10.1088/1674-4527/adf716
+    desc: Two-stage framework uses a Vision Transformer to assess aperture-photometry feasibility and a ResNet to predict aperture size for optical survey photometry, achieving a test ROC AUC of 0.96 for feasibility assessment.
+    modality:
+    - Images
   - name: snmachine
     title: Photometric Supernova Classification with Machine Learning
     venue: ApJS 2016
