@@ -105,6 +105,8 @@ def paper_table(entries):
         venue = md_escape(e["venue"])
         if not e["venue"].lower().startswith("arxiv"):
             venue = f"**{venue}**"
+        if e.get("note"):
+            venue += f" `{md_escape(e['note'])}`"
         rows.append(f"| {date} | {name}{title} | {venue} | {code or '-'} | {other or '-'} |")
     return "\n".join(rows)
 
@@ -171,6 +173,7 @@ def site_data(data):
                 "title": e["title"],
                 "venue": e["venue"],
                 "reviewed": not e["venue"].lower().startswith("arxiv"),
+                "note": e.get("note", ""),
                 "year": y or None,
                 "date": f"{y}.{m:02d}" if m else str(y),
                 "sort": y * 100 + m,

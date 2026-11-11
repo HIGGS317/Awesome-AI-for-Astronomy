@@ -411,6 +411,7 @@ sections:
       Model: https://huggingface.co/Maxwell-Jia/spec-o3-7b
       Data: https://huggingface.co/datasets/Maxwell-Jia/SpecVI-Bench
     desc: Tool-using vision-language agent trained with supervised fine-tuning on expert inspection trajectories and outcome-based reinforcement learning, which vets rare-object candidates by iteratively inspecting spectral regions, raising macro-F1 on five LAMOST tasks from 28.3 to 76.5 with transfer to SDSS and DESI.
+    note: Oral
 - title: Agents and Retrieval Systems
   entries:
   - name: pathfinder

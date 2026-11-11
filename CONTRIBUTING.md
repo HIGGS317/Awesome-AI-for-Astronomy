@@ -36,6 +36,7 @@ Add the entry to the most specific section or subsection in `data/entries.yml`. 
     Code: https://github.com/owner/repo
     Model: https://huggingface.co/owner/model
   desc: One sentence stating the method, the data and the scale.
+  note: Oral                    # optional: Oral, Spotlight or an award, shown as a separate tag
 ```
 
 Rules for the entry
