@@ -401,6 +401,16 @@ sections:
     links:
       Paper: https://arxiv.org/abs/2609.17644
     desc: Evaluates whether continued pretraining and instruction tuning on astronomy corpora help open-ended scientific reasoning.
+  - name: Spec-o3
+    title: 'Spec-o3: A Tool-Augmented Vision-Language Agent for Rare Celestial Object Candidate Vetting via Automated Spectral Inspection'
+    venue: ACL 2026
+    links:
+      Paper: https://arxiv.org/abs/2601.06498
+      ACL Anthology: https://aclanthology.org/2026.acl-long.256/
+      Code: https://github.com/Maxwell-Jia/spec-o3
+      Model: https://huggingface.co/Maxwell-Jia/spec-o3-7b
+      Data: https://huggingface.co/datasets/Maxwell-Jia/SpecVI-Bench
+    desc: Tool-using vision-language agent trained with supervised fine-tuning on expert inspection trajectories and outcome-based reinforcement learning, which vets rare-object candidates by iteratively inspecting spectral regions, raising macro-F1 on five LAMOST tasks from 28.3 to 76.5 with transfer to SDSS and DESI.
 - title: Agents and Retrieval Systems
   entries:
   - name: pathfinder
@@ -478,16 +488,6 @@ sections:
     links:
       Paper: https://arxiv.org/abs/2604.09621
     desc: Cmbagent multi-agent workflow with human intervention that builds a weak lensing inference pipeline and took first place in the FAIR Universe Weak Lensing Uncertainty Challenge.
-  - name: Spec-o3
-    title: 'Spec-o3: A Tool-Augmented Vision-Language Agent for Rare Celestial Object Candidate Vetting via Automated Spectral Inspection'
-    venue: ACL 2026
-    links:
-      Paper: https://arxiv.org/abs/2601.06498
-      ACL Anthology: https://aclanthology.org/2026.acl-long.256/
-      Code: https://github.com/Maxwell-Jia/spec-o3
-      Model: https://huggingface.co/Maxwell-Jia/spec-o3-7b
-      Data: https://huggingface.co/datasets/Maxwell-Jia/SpecVI-Bench
-    desc: Qwen2.5-VL agent that zooms into wavelength ranges with a spectral visualisation tool, trained by cold-start SFT on expert inspection trajectories and outcome-based RL, raising macro-F1 on five LAMOST rare-object vetting tasks from 28.3 to 76.5 and transferring to SDSS and DESI.
 - title: Benchmarks
   subsections:
   - title: Data and Modality Benchmarks
