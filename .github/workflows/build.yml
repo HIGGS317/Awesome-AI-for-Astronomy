@@ -27,8 +27,8 @@ jobs:
     if: github.event_name == 'pull_request'
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
         with:
           python-version: "3.12"
       - run: pip install pyyaml
@@ -40,6 +40,9 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: write
+      pages: read
+    outputs:
+      pages: ${{ steps.pages.outputs.enabled }}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
@@ -57,12 +60,25 @@ jobs:
             git commit -m "Regenerate README.md from data/entries.yml"
             git push
           fi
-      - uses: actions/upload-pages-artifact@v3
+      - name: Check whether GitHub Pages is enabled
+        id: pages
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          if gh api "repos/${GITHUB_REPOSITORY}/pages" > /dev/null 2>&1; then
+            echo "enabled=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "enabled=false" >> "$GITHUB_OUTPUT"
+            echo "::notice::GitHub Pages is not enabled, so the web page was built but not deployed. Set Settings > Pages > Source to GitHub Actions to publish it."
+          fi
+      - if: steps.pages.outputs.enabled == 'true'
+        uses: actions/upload-pages-artifact@v5
         with:
           path: _site
 
   deploy:
     needs: build
+    if: needs.build.outputs.pages == 'true'
     runs-on: ubuntu-latest
     permissions:
       pages: write
@@ -72,4 +88,4 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - id: deployment
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@v5
