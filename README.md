@@ -7,6 +7,8 @@
 
 A curated list of papers, models, datasets, benchmarks and software for artificial intelligence in astronomy, astrophysics, cosmology, heliophysics and planetary science.
 
+A searchable version with section, year, code and venue filters is available at [xin-yuxiao.github.io/Awesome-AI-for-Astronomy](https://xin-yuxiao.github.io/Awesome-AI-for-Astronomy/). It is rebuilt from this README on every push.
+
 General astronomy resources are covered by [awesome-astronomy](https://github.com/jonathansick/awesome-astronomy), and classical astronomical data science by [awesome-astro-datascience](https://github.com/mpi-astronomy/awesome-astro-datascience). This list tracks machine learning work with public papers, linking public code where it exists, with emphasis on foundation models, language models, agents and benchmarks released since 2021, together with established deep learning methods in each subfield.
 
 **Notes**

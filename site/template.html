@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Awesome AI for Astronomy</title>
+<meta name="description" content="Searchable index of papers, models, datasets, benchmarks and software for artificial intelligence in astronomy.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=Spectral:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #f2f4f7;
+  --surface: #ffffff;
+  --ink: #172036;
+  --muted: #5a6377;
+  --rule: #d8dde5;
+  --accent: #b42318;
+  --accent-soft: #fbe4e1;
+  --mark: #fde7b0;
+  --serif: "Spectral", Georgia, "Times New Roman", serif;
+  --sans: "Atkinson Hyperlegible", system-ui, -apple-system, "Segoe UI", sans-serif;
+  color-scheme: light;
+}
+:root[data-theme="dark"] {
+  --bg: #0f1629;
+  --surface: #151e35;
+  --ink: #e7eaf1;
+  --muted: #9ba4b8;
+  --rule: #2b3653;
+  --accent: #ff7b6c;
+  --accent-soft: #3b2130;
+  --mark: #5b4a1c;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font: 16px/1.5 var(--sans);
+  font-variant-numeric: tabular-nums;
+}
+a { color: inherit; text-decoration-color: color-mix(in srgb, currentColor 40%, transparent); text-underline-offset: 2px; }
+a:hover { text-decoration-color: currentColor; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 2px; }
+.sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+.wrap { max-width: 1180px; margin: 0 auto; padding: 0 24px; }
+
+/* Masthead */
+.masthead { background: var(--surface); border-bottom: 1px solid var(--rule); }
+.masthead .wrap { padding-top: 36px; padding-bottom: 20px; }
+.titlebar { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 12px 24px; }
+h1 {
+  margin: 0;
+  font: 600 44px/1.05 var(--serif);
+  letter-spacing: -0.012em;
+}
+.toplinks { display: flex; flex-wrap: wrap; gap: 8px 18px; align-items: center; font-size: 15px; }
+.toplinks a, .toplinks button { white-space: nowrap; }
+.toplinks button {
+  font: inherit; color: var(--muted); background: none; border: 1px solid var(--rule);
+  border-radius: 999px; padding: 3px 12px; cursor: pointer;
+}
+.toplinks button:hover { color: var(--ink); border-color: var(--muted); }
+.lede { max-width: 68ch; margin: 12px 0 0; color: var(--muted); font-size: 17px; }
+
+.finder { margin-top: 24px; position: relative; max-width: 760px; }
+.finder input {
+  width: 100%;
+  font: 18px/1.3 var(--sans);
+  color: var(--ink);
+  background: var(--bg);
+  border: 1px solid var(--rule);
+  border-radius: 10px;
+  padding: 13px 44px 13px 16px;
+}
+.finder input::placeholder { color: var(--muted); }
+.finder input:focus { outline: none; border-color: var(--ink); background: var(--surface); }
+.finder kbd {
+  position: absolute; right: 12px; top: 50%; transform: translateY(-50%);
+  font: 13px/1 var(--sans); color: var(--muted);
+  border: 1px solid var(--rule); border-radius: 5px; padding: 4px 7px;
+}
+
+/* Year histogram: the one expressive element on the page */
+.timeline { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 16px 32px; align-items: end; margin-top: 22px; }
+.histwrap { max-width: 760px; }
+.histcap { font-size: 14px; color: var(--muted); margin: 0 0 6px; }
+.hist { display: flex; gap: 4px; align-items: flex-end; }
+.yearbtn {
+  flex: 1 1 0; min-width: 0;
+  display: flex; flex-direction: column; align-items: stretch; gap: 4px;
+  background: none; border: 0; padding: 0; cursor: pointer; color: var(--muted);
+  font: 12px/1 var(--sans);
+}
+.yearbtn .col { position: relative; height: 72px; }
+.yearbtn .col { border-bottom: 0; }
+.yearbtn .fill { position: absolute; left: 0; right: 0; bottom: 0; border-radius: 3px 3px 0 0; min-height: 1px; }
+.yearbtn .fill { background: var(--ink); transition: height .18s ease-out; }
+.yearbtn .n { font-size: 11px; text-align: center; min-height: 11px; }
+.yearbtn .y { text-align: center; padding-top: 2px; border-top: 1px solid var(--rule); }
+.yearbtn:hover .fill { background: color-mix(in srgb, var(--accent) 60%, var(--ink)); }
+.yearbtn[aria-pressed="true"] { color: var(--accent); font-weight: 700; }
+.yearbtn[aria-pressed="true"] .fill { background: var(--accent); }
+.yearbtn[aria-pressed="true"] .y { border-top: 2px solid var(--accent); }
+
+.filters { display: flex; flex-direction: column; gap: 8px; font-size: 15px; padding-bottom: 18px; }
+.filters label { display: flex; gap: 8px; align-items: center; cursor: pointer; white-space: nowrap; }
+.filters input { accent-color: var(--accent); width: 16px; height: 16px; margin: 0; }
+
+/* Layout */
+.layout { display: grid; grid-template-columns: 250px minmax(0, 1fr); gap: 40px; padding-top: 28px; padding-bottom: 64px; }
+.toc { position: sticky; top: 16px; align-self: start; max-height: calc(100vh - 32px); overflow: auto; padding-right: 4px; }
+.toc ol { list-style: none; margin: 0; padding: 0; }
+.toc li ol { margin: 2px 0 6px; }
+.toc a {
+  display: flex; justify-content: space-between; gap: 12px;
+  padding: 5px 10px; border-left: 2px solid transparent;
+  text-decoration: none; color: var(--ink); font-size: 15px; line-height: 1.3;
+}
+.toc li ol a { padding-left: 24px; font-size: 14px; color: var(--muted); }
+.toc a:hover { background: var(--surface); }
+.toc a[aria-current="true"] { border-left-color: var(--accent); background: var(--surface); font-weight: 700; color: var(--ink); }
+.toc a .c { color: var(--muted); font-weight: 400; font-size: 13px; }
+.toc a.zero { opacity: .45; }
+.toc .all { margin-bottom: 8px; padding-bottom: 8px; border-bottom: 1px solid var(--rule); }
+.tocselect { display: none; }
+
+.status { display: flex; flex-wrap: wrap; gap: 8px 16px; align-items: baseline; margin: 0 0 8px; color: var(--muted); font-size: 15px; }
+.linkbtn { font: inherit; color: var(--accent); background: none; border: 0; padding: 0; cursor: pointer; text-decoration: underline; text-underline-offset: 2px; }
+
+/* Sections */
+.sec { margin-top: 36px; }
+.sec:first-of-type { margin-top: 16px; }
+.sec > h2, .sub > h3 { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; margin: 0; }
+.sec > h2 { font: 600 28px/1.2 var(--serif); padding-bottom: 8px; border-bottom: 2px solid var(--ink); }
+.sub { margin-top: 24px; }
+.sub > h3 { font: 500 21px/1.25 var(--serif); padding-bottom: 6px; border-bottom: 1px solid var(--rule); }
+.sec h2 .c, .sub h3 .c { font: 400 14px/1 var(--sans); color: var(--muted); white-space: nowrap; }
+.crumb { font-size: 14px; color: var(--muted); margin: 0 0 2px; }
+.secintro { color: var(--muted); max-width: 70ch; margin: 10px 0 0; }
+.secintro p { margin: 0; }
+
+/* Entries */
+.entries { list-style: none; margin: 0; padding: 0; }
+.entry { display: grid; grid-template-columns: 52px minmax(0, 1fr); gap: 0 16px; }
+.entry .yr {
+  text-align: right; padding-top: 14px; font-size: 14px; color: var(--muted);
+  border-right: 1px solid var(--rule); padding-right: 12px; margin-right: -16px;
+}
+.entry .yr span { position: relative; }
+.entry .yr span::after {
+  content: ""; position: absolute; right: -16px; top: 50%; width: 7px; height: 7px;
+  border-radius: 50%; background: var(--surface); border: 1px solid var(--muted); transform: translate(50%, -50%);
+}
+.entry .bd { padding: 12px 0 12px 16px; border-bottom: 1px solid var(--rule); max-width: 76ch; }
+.entry:last-child .bd { border-bottom: 0; }
+.etitle { margin: 0; font: 500 18px/1.35 var(--serif); }
+.ename { font: 700 15px/1 var(--sans); margin-right: 6px; }
+.meta { display: flex; flex-wrap: wrap; gap: 4px 14px; align-items: baseline; margin-top: 5px; font-size: 14px; }
+.venue { color: var(--muted); }
+.venue.rev { color: var(--ink); border: 1px solid var(--rule); border-radius: 4px; padding: 0 6px; background: var(--bg); }
+.meta a { color: var(--ink); }
+.meta a.code { font-weight: 700; }
+.desc { margin: 5px 0 0; color: var(--muted); font-size: 15px; }
+.desc code { font-size: 13px; }
+body.nodesc .desc { display: none; }
+mark { background: var(--mark); color: inherit; border-radius: 2px; padding: 0 1px; }
+
+.linkrow { padding: 9px 0; border-bottom: 1px solid var(--rule); max-width: 80ch; }
+.linkrow:last-child { border-bottom: 0; }
+.linkrow a { font-weight: 700; }
+.linkrow span { color: var(--muted); }
+
+.empty { margin-top: 32px; padding: 24px; background: var(--surface); border: 1px solid var(--rule); border-radius: 10px; max-width: 60ch; }
+.empty p { margin: 0 0 8px; }
+
+footer { border-top: 1px solid var(--rule); color: var(--muted); font-size: 14px; }
+footer .wrap { padding-top: 20px; padding-bottom: 32px; }
+footer p { margin: 0 0 4px; max-width: 80ch; }
+
+@media (max-width: 880px) {
+  h1 { font-size: 34px; }
+  .layout { grid-template-columns: minmax(0, 1fr); gap: 0; padding-top: 16px; }
+  .toc { display: none; }
+  .tocselect { display: block; margin-bottom: 12px; }
+  .tocselect select { width: 100%; font: 16px var(--sans); padding: 10px; border: 1px solid var(--rule); border-radius: 8px; background: var(--surface); color: var(--ink); }
+  .timeline { grid-template-columns: minmax(0, 1fr); }
+  .filters { flex-direction: row; flex-wrap: wrap; gap: 8px 18px; padding-bottom: 0; }
+}
+@media (max-width: 520px) {
+  .wrap { padding: 0 16px; }
+  .masthead .wrap { padding-top: 24px; }
+  .entry { grid-template-columns: 40px minmax(0, 1fr); }
+  .entry .yr { font-size: 12px; padding-right: 8px; }
+  .yearbtn { font-size: 10px; }
+  .yearbtn .n { font-size: 9px; }
+}
+@media (prefers-reduced-motion: reduce) { .yearbtn .fill { transition: none; } }
+</style>
+</head>
+<body>
+<header class="masthead">
+  <div class="wrap">
+    <div class="titlebar">
+      <h1 id="title">Awesome AI for Astronomy</h1>
+      <nav class="toplinks" aria-label="Project links">
+        <a id="repo" href="#">GitHub repository</a>
+        <a id="contrib" href="#">Add an entry</a>
+        <button type="button" id="theme">Dark theme</button>
+      </nav>
+    </div>
+    <p class="lede" id="lede"></p>
+    <form class="finder" role="search" onsubmit="return false">
+      <label class="sr-only" for="q">Search the list</label>
+      <input id="q" type="search" autocomplete="off" spellcheck="false" placeholder="Search papers, models, venues">
+      <kbd aria-hidden="true">/</kbd>
+    </form>
+    <div class="timeline">
+      <div class="histwrap">
+        <p class="histcap" id="histcap">Papers by year of first arXiv version. Select one or more years to filter.</p>
+        <div class="hist" id="hist" role="group" aria-label="Filter by year"></div>
+      </div>
+      <div class="filters" role="group" aria-label="Filters">
+        <label><input type="checkbox" id="fcode"> Has public code</label>
+        <label><input type="checkbox" id="frev"> Peer-reviewed venue</label>
+        <label><input type="checkbox" id="fdesc" checked> Show descriptions</label>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="wrap layout">
+  <nav class="toc" id="toc" aria-label="Sections"></nav>
+  <main id="main">
+    <div class="tocselect">
+      <label class="sr-only" for="secsel">Section</label>
+      <select id="secsel"></select>
+    </div>
+    <p class="status" id="status" aria-live="polite"></p>
+    <div id="results"></div>
+  </main>
+</div>
+
+<footer>
+  <div class="wrap">
+    <p id="built"></p>
+    <p>This page is generated from README.md by scripts/build_site.py. To add or correct an entry, edit README.md as described in CONTRIBUTING.md.</p>
+  </div>
+</footer>
+
+<script id="data" type="application/json">/*__DATA__*/null</script>
+<script>
+(function () {
+  "use strict";
+  var D = JSON.parse(document.getElementById("data").textContent);
+  var S = D.sections;
+  var $ = function (id) { return document.getElementById(id); };
+  var store = {
+    get: function (k) { try { return localStorage.getItem(k); } catch (e) { return null; } },
+    set: function (k, v) { try { localStorage.setItem(k, v); } catch (e) {} }
+  };
+
+  function esc(t) { return String(t).replace(/[&<>"]/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]; }); }
+  function strip(h) { return h.replace(/<[^>]+>/g, ""); }
+
+  /* Index */
+  var byId = {};
+  var children = {};
+  var all = [];
+  S.forEach(function (s) {
+    byId[s.id] = s;
+    if (s.parent) (children[s.parent] = children[s.parent] || []).push(s.id);
+    s.entries.forEach(function (e) {
+      e.sec = s.id;
+      e.top = s.parent || s.id;
+      e.code = e.kind === "paper" && e.links.some(function (l) { return /code/i.test(l.label); });
+      e.hay = [e.name, e.title || "", e.venue || "", strip(e.desc), s.title, s.parent ? byId[s.parent].title : ""].join(" ").toLowerCase();
+      all.push(e);
+    });
+  });
+  var papers = all.filter(function (e) { return e.kind === "paper"; });
+  var years = [];
+  papers.forEach(function (e) { if (e.year && years.indexOf(e.year) < 0) years.push(e.year); });
+  years.sort();
+  var topSecs = S.filter(function (s) { return !s.parent; });
+  var linkCount = all.length - papers.length;
+
+  /* Static text */
+  $("lede").innerHTML = D.intro + " " + papers.length + " papers and " + linkCount + " software, community and list links, updated <span style=\"white-space:nowrap\">" + D.built + "</span>.";
+  $("repo").href = D.repo;
+  $("contrib").href = D.repo + "/blob/main/CONTRIBUTING.md";
+  $("built").innerHTML = "Built from " + (D.commit ? '<a href="' + D.repo + "/commit/" + D.commit + '">commit ' + D.commit + "</a>" : "README.md") + " on " + D.built + ".";
+
+  /* State */
+  var st = { q: "", terms: [], years: {}, code: false, rev: false, sec: "" };
+  function yearsOn() { return Object.keys(st.years).length > 0; }
+  function paperOnly() { return yearsOn() || st.code || st.rev; }
+  function inScope(e) { return !st.sec || e.sec === st.sec || e.top === st.sec; }
+  function pass(e, ignoreYear) {
+    for (var i = 0; i < st.terms.length; i++) if (e.hay.indexOf(st.terms[i]) < 0) return false;
+    if (e.kind !== "paper") return !paperOnly();
+    if (!ignoreYear && yearsOn() && !st.years[e.year]) return false;
+    if (st.code && !e.code) return false;
+    if (st.rev && !e.reviewed) return false;
+    return true;
+  }
+
+  /* Highlight search terms in text or in simple HTML */
+  function hlText(t) {
+    var out = esc(t);
+    if (!st.terms.length) return out;
+    var re = new RegExp("(" + st.terms.map(function (x) { return esc(x).replace(/[.*+?^${}()|[\]\\]/g, "\\$&"); }).join("|") + ")", "gi");
+    return out.replace(re, "<mark>$1</mark>");
+  }
+  function hlHTML(h) {
+    if (!st.terms.length) return h;
+    var re = new RegExp("(" + st.terms.map(function (x) { return esc(x).replace(/[.*+?^${}()|[\]\\]/g, "\\$&"); }).join("|") + ")", "gi");
+    return h.split(/(<[^>]+>)/).map(function (part) { return part.charAt(0) === "<" ? part : part.replace(re, "<mark>$1</mark>"); }).join("");
+  }
+
+  /* Histogram */
+  var hist = $("hist");
+  years.forEach(function (y) {
+    var b = document.createElement("button");
+    b.type = "button";
+    b.className = "yearbtn";
+    b.dataset.year = y;
+    b.setAttribute("aria-pressed", "false");
+    b.innerHTML = '<span class="n"></span><span class="col"><span class="fill"></span></span><span class="y">' + y + "</span>";
+    b.addEventListener("click", function () {
+      if (st.years[y]) delete st.years[y]; else st.years[y] = true;
+      render();
+    });
+    hist.appendChild(b);
+  });
+
+  /* Section navigation */
+  function tocHTML() {
+    var h = '<ol><li class="all"><a href="#" data-sec=""><span>All sections</span><span class="c" data-c=""></span></a></li>';
+    topSecs.forEach(function (s) {
+      h += '<li><a href="#' + s.id + '" data-sec="' + s.id + '"><span>' + esc(s.title) + '</span><span class="c" data-c="' + s.id + '"></span></a>';
+      if (children[s.id]) {
+        h += "<ol>";
+        children[s.id].forEach(function (c) {
+          h += '<li><a href="#' + c + '" data-sec="' + c + '"><span>' + esc(byId[c].title) + '</span><span class="c" data-c="' + c + '"></span></a></li>';
+        });
+        h += "</ol>";
+      }
+      h += "</li>";
+    });
+    return h + "</ol>";
+  }
+  $("toc").innerHTML = tocHTML();
+  var sel = $("secsel");
+  sel.innerHTML = '<option value="">All sections</option>' + topSecs.map(function (s) {
+    var o = '<option value="' + s.id + '">' + esc(s.title) + "</option>";
+    (children[s.id] || []).forEach(function (c) { o += '<option value="' + c + '">   ' + esc(byId[c].title) + "</option>"; });
+    return o;
+  }).join("");
+  sel.addEventListener("change", function () { go(sel.value); });
+  $("toc").addEventListener("click", function (ev) {
+    var a = ev.target.closest("a[data-sec]");
+    if (!a) return;
+    ev.preventDefault();
+    go(a.dataset.sec);
+  });
+  function go(id) {
+    st.sec = byId[id] ? id : "";
+    if (st.sec) { if (location.hash !== "#" + st.sec) location.hash = st.sec; }
+    else if (location.hash) history.replaceState(null, "", location.pathname + location.search);
+    render();
+    var top = $("main").getBoundingClientRect().top + window.scrollY - 12;
+    if (window.scrollY > top) window.scrollTo(0, top);
+  }
+  window.addEventListener("hashchange", function () {
+    var id = location.hash.slice(1);
+    if (id !== st.sec) { st.sec = byId[id] ? id : ""; render(); }
+  });
+
+  /* Rendering */
+  function entryHTML(e, showYear) {
+    if (e.kind === "link") {
+      return '<li class="linkrow"><a href="' + esc(e.url) + '">' + hlText(e.name) + "</a> <span>" + hlHTML(e.desc) + "</span></li>";
+    }
+    var nameShown = e.name && e.title.toLowerCase().indexOf(e.name.toLowerCase()) !== 0;
+    var h = '<li class="entry"><div class="yr">' + (showYear ? "<span>" + (e.year || "") + "</span>" : "") + '</div><div class="bd">';
+    h += '<p class="etitle">' + (nameShown ? '<span class="ename">' + hlText(e.name) + "</span>" : "") + hlText(e.title) + "</p>";
+    h += '<div class="meta"><span class="venue' + (e.reviewed ? " rev" : "") + '">' + hlText(e.venue) + "</span>";
+    e.links.forEach(function (l) {
+      h += '<a href="' + esc(l.url) + '"' + (/code/i.test(l.label) ? ' class="code"' : "") + ">" + esc(l.label) + "</a>";
+    });
+    h += "</div>";
+    if (e.desc) h += '<p class="desc">' + hlHTML(e.desc) + "</p>";
+    return h + "</div></li>";
+  }
+  function listHTML(entries) {
+    var prev = null;
+    return '<ol class="entries">' + entries.map(function (e) {
+      var show = e.year !== prev;
+      prev = e.year;
+      return entryHTML(e, show);
+    }).join("") + "</ol>";
+  }
+  function count(n) { return n + (n === 1 ? " entry" : " entries"); }
+
+  function render() {
+    st.terms = st.q.toLowerCase().split(/\s+/).filter(Boolean);
+    var shown = all.filter(function (e) { return inScope(e) && pass(e, false); });
+    var bySec = {};
+    shown.forEach(function (e) { (bySec[e.sec] = bySec[e.sec] || []).push(e); });
+
+    /* Histogram counts ignore the year filter so the distribution stays visible */
+    var yc = {};
+    papers.forEach(function (e) { if (inScope(e) && pass(e, true)) yc[e.year] = (yc[e.year] || 0) + 1; });
+    var ymax = Math.max(1, Math.max.apply(null, years.map(function (y) { return yc[y] || 0; })));
+    Array.prototype.forEach.call(hist.children, function (b) {
+      var y = +b.dataset.year, n = yc[y] || 0;
+      b.querySelector(".fill").style.height = n ? (100 * n / ymax) + "%" : "0";
+      b.querySelector(".n").textContent = n || "";
+      b.setAttribute("aria-pressed", st.years[y] ? "true" : "false");
+      b.setAttribute("aria-label", y + ", " + count(n));
+    });
+
+    /* Section counts ignore the section scope */
+    var sc = {}, total = 0;
+    all.forEach(function (e) {
+      if (!pass(e, false)) return;
+      total++;
+      sc[e.sec] = (sc[e.sec] || 0) + 1;
+      if (e.top !== e.sec) sc[e.top] = (sc[e.top] || 0) + 1;
+    });
+    Array.prototype.forEach.call($("toc").querySelectorAll("a[data-sec]"), function (a) {
+      var id = a.dataset.sec, n = id ? (sc[id] || 0) : total;
+      a.querySelector(".c").textContent = n;
+      a.classList.toggle("zero", n === 0);
+      a.setAttribute("aria-current", id === st.sec ? "true" : "false");
+    });
+    sel.value = st.sec;
+
+    /* Status line */
+    var active = st.terms.length || yearsOn() || st.code || st.rev;
+    var ys = Object.keys(st.years).sort();
+    var parts = [];
+    if (st.terms.length) parts.push("matching " + esc(st.q.trim()));
+    if (ys.length) parts.push("from " + ys.join(", "));
+    if (st.code) parts.push("with code");
+    if (st.rev) parts.push("in peer-reviewed venues");
+    var where = st.sec ? " in " + esc(byId[st.sec].title) : "";
+    $("status").innerHTML = "<span>Showing " + count(shown.length) + where + (parts.length ? " " + parts.join(", ") : "") + ".</span>" +
+      (active ? '<button type="button" class="linkbtn" id="reset">Reset filters</button>' : "");
+    if (active) $("reset").addEventListener("click", reset);
+
+    /* Results */
+    var h = "";
+    var tops = st.sec ? [byId[st.sec].parent ? byId[byId[st.sec].parent] : byId[st.sec]] : topSecs;
+    tops.forEach(function (t) {
+      var subs = children[t.id] || [];
+      if (st.sec && st.sec !== t.id) subs = [st.sec];
+      var n = (bySec[t.id] || []).length + subs.reduce(function (a, c) { return a + (bySec[c] || []).length; }, 0);
+      if (!n) return;
+      h += '<section class="sec" id="s-' + t.id + '"><h2>' + esc(t.title) + '<span class="c">' + count(n) + "</span></h2>";
+      if (t.intro && !active) h += '<div class="secintro">' + t.intro + "</div>";
+      if (bySec[t.id]) h += listHTML(bySec[t.id]);
+      subs.forEach(function (c) {
+        var es = bySec[c];
+        if (!es) return;
+        h += '<div class="sub"><h3>' + esc(byId[c].title) + '<span class="c">' + count(es.length) + "</span></h3>" + listHTML(es) + "</div>";
+      });
+      h += "</section>";
+    });
+    if (!h) {
+      h = '<div class="empty"><p>No entries match these filters.</p><p>Remove a year, clear the search or choose all sections.</p>' +
+        '<button type="button" class="linkbtn" id="reset2">Reset filters and show all sections</button></div>';
+    }
+    $("results").innerHTML = h;
+    var r2 = $("reset2");
+    if (r2) r2.addEventListener("click", function () { reset(); go(""); });
+  }
+
+  function reset() {
+    st.q = ""; $("q").value = "";
+    st.years = {}; st.code = false; st.rev = false;
+    $("fcode").checked = false; $("frev").checked = false;
+    render();
+  }
+
+  /* Controls */
+  var timer;
+  $("q").addEventListener("input", function (ev) {
+    clearTimeout(timer);
+    timer = setTimeout(function () { st.q = ev.target.value; render(); }, 90);
+  });
+  $("q").addEventListener("keydown", function (ev) {
+    if (ev.key === "Escape") { ev.target.value = ""; st.q = ""; render(); }
+  });
+  document.addEventListener("keydown", function (ev) {
+    if (ev.key === "/" && document.activeElement !== $("q") && !/input|select|textarea/i.test(document.activeElement.tagName)) {
+      ev.preventDefault();
+      $("q").focus();
+    }
+  });
+  $("fcode").addEventListener("change", function (ev) { st.code = ev.target.checked; render(); });
+  $("frev").addEventListener("change", function (ev) { st.rev = ev.target.checked; render(); });
+  function applyDesc(on) { document.body.classList.toggle("nodesc", !on); $("fdesc").checked = on; }
+  $("fdesc").addEventListener("change", function (ev) { applyDesc(ev.target.checked); store.set("aia-desc", ev.target.checked ? "1" : "0"); });
+  applyDesc(store.get("aia-desc") !== "0");
+
+  function applyTheme(t) {
+    document.documentElement.setAttribute("data-theme", t);
+    $("theme").textContent = t === "dark" ? "Light theme" : "Dark theme";
+  }
+  var saved = store.get("aia-theme");
+  applyTheme(saved || (window.matchMedia && matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light"));
+  $("theme").addEventListener("click", function () {
+    var t = document.documentElement.getAttribute("data-theme") === "dark" ? "light" : "dark";
+    applyTheme(t);
+    store.set("aia-theme", t);
+  });
+
+  var h0 = location.hash.slice(1);
+  st.sec = byId[h0] ? h0 : "";
+  render();
+})();
+</script>
+</body>
+</html>
