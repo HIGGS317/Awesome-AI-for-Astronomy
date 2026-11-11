@@ -1,0 +1,80 @@
+name: Suggest a paper or tool
+description: Propose a paper, model, dataset, benchmark or software package for the list.
+title: 'Suggest adding '
+body:
+- type: markdown
+  attributes:
+    value: Thanks for helping improve the list. Please check the [web page](https://xin-yuxiao.github.io/Awesome-AI-for-Astronomy/) first to make sure the work is not already listed.
+- type: input
+  id: title
+  attributes:
+    label: Paper or tool title
+  validations:
+    required: true
+- type: input
+  id: paper
+  attributes:
+    label: Paper link
+    description: arXiv abstract page, DOI or proceedings page.
+  validations:
+    required: false
+- type: input
+  id: code
+  attributes:
+    label: Code, data or model links
+    description: Official repository, dataset or model weights, if public.
+  validations:
+    required: false
+- type: input
+  id: venue
+  attributes:
+    label: Venue and year
+    description: Peer-reviewed venue if accepted, for example NeurIPS 2025 or ApJ 2026. Add Oral, Spotlight or an award if it applies.
+    placeholder: arXiv 2026
+  validations:
+    required: true
+- type: dropdown
+  id: section
+  attributes:
+    label: Suggested section
+    options:
+    - Surveys and Reviews
+    - Foundation Models and Representation Learning / Images
+    - Foundation Models and Representation Learning / Spectra
+    - Foundation Models and Representation Learning / Time Series
+    - Foundation Models and Representation Learning / Multimodal
+    - Language and Vision-Language Models
+    - Agents and Retrieval Systems
+    - Benchmarks / Data and Modality Benchmarks
+    - Benchmarks / Multimodal Model Evaluation
+    - Benchmarks / Text and Reasoning Evaluation
+    - Galaxies / Morphology and Catalogues
+    - Galaxies / Anomaly Detection
+    - Galaxies / Physical Properties and Photometric Redshifts
+    - Gravitational Lensing
+    - Source Detection, Deblending and Image Simulation
+    - Stars and Stellar Spectroscopy
+    - Time-Domain Astronomy and Transients
+    - Exoplanets
+    - Cosmology and Large-Scale Structure
+    - Simulation-Based Inference
+    - High-Energy Astrophysics and Astroparticle Physics
+    - Gravitational Waves
+    - Solar Physics and Heliophysics
+    - Radio Astronomy
+    - Planetary Science and Small Bodies
+    - Datasets / Observational Datasets
+    - Datasets / Simulation Datasets
+    - Tools and Libraries
+    - Communities and Groups
+    - Related Awesome Lists
+    - Not sure
+  validations:
+    required: true
+- type: textarea
+  id: desc
+  attributes:
+    label: One-sentence description
+    description: State the method, the data and the scale.
+  validations:
+    required: true

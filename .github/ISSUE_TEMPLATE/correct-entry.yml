@@ -1,0 +1,17 @@
+name: Correct an entry
+description: Report a broken link, wrong venue or inaccurate description.
+title: 'Correct '
+body:
+- type: input
+  id: entry
+  attributes:
+    label: Entry title or name
+  validations:
+    required: true
+- type: textarea
+  id: problem
+  attributes:
+    label: What is wrong and what should it be
+    description: Please include a link that confirms the correction, such as the publisher page or official repository.
+  validations:
+    required: true
