@@ -17,7 +17,7 @@
 </div>
 
 > [!TIP]
-> The [searchable web page](https://xin-yuxiao.github.io/Awesome-AI-for-Astronomy/) filters all 388 papers and 65 software packages by section, year, venue type, public code, model weights or data, and data modality, and shows a one-sentence summary for every paper. The full list can also be downloaded as [JSON](https://xin-yuxiao.github.io/Awesome-AI-for-Astronomy/entries.json) or [CSV](https://xin-yuxiao.github.io/Awesome-AI-for-Astronomy/papers.csv).
+> The [searchable web page](https://xin-yuxiao.github.io/Awesome-AI-for-Astronomy/) filters all 389 papers and 65 software packages by section, year, venue type, public code, model weights or data, and data modality, and shows a one-sentence summary for every paper. The full list can also be downloaded as [JSON](https://xin-yuxiao.github.io/Awesome-AI-for-Astronomy/entries.json) or [CSV](https://xin-yuxiao.github.io/Awesome-AI-for-Astronomy/papers.csv).
 
 ## About
 
@@ -304,6 +304,7 @@ Benchmarks are grouped by input type. Data and modality benchmarks provide obser
 
 | Date | Paper | Venue | Code | Links |
 |:--|:--|:--|:--|:--|
+| 2026.11 | [SHINE: Shear inference environment - Generative forward modelling for radio weak gravitational lensing](https://arxiv.org/abs/2611.14301 "A convolutional autoencoder trained on HST COSMOS galaxy images supplies morphologies for shear inference on 10,000 simulated radio interferometric visibilities.") | arXiv 2026 | [Code](https://github.com/CentofantiEze/Radio_WL_Generative_Forward_Model) | [Model](https://zenodo.org/records/21131669) |
 | 2026.04 | **AgileLens** [Euclid Quick Data Release (Q1). AgileLens: A Scalable CNN-Based Pipeline for Strong Gravitational Lens Identification](https://arxiv.org/abs/2604.06648 "Iterative fine-tuning of a modified VGG16 from 27 seed lenses to 30,686 training images, yielding 441 grade A or B candidates in Euclid Q1, 130 of them new.") | arXiv 2026 | - | - |
 | 2025.11 | [Euclid Quick Data Release (Q1). Searching for Giant Gravitational Arcs in Galaxy Clusters with Mask Region-based Convolutional Neural Networks](https://arxiv.org/abs/2511.03064 "Mask R-CNN instance segmentation of cluster-scale lensed arcs trained on Euclidised HST simulations.") | arXiv 2025 | - | - |
 | 2025.05 | **GLUE I** [Gravitational Lenses in UNIONS and Euclid (GLUE) I: A Search for Strong Gravitational Lenses in UNIONS with Subaru, CFHT, and Pan-STARRS Data](https://arxiv.org/abs/2505.05032 "ResNet lens finder based on CMU-DeepLens applied to 8 million UNIONS galaxies.") | arXiv 2025 | - | - |
