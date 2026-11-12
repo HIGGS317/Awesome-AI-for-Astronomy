@@ -63,10 +63,27 @@ SECTIONS = [s["title"] for s in yaml.safe_load((ROOT / "data" / "entries.yml").r
 
 # arXiv ---------------------------------------------------------------------------
 
+class _NoRedirect(urllib.request.HTTPRedirectHandler):
+    def redirect_request(self, *args, **kwargs):
+        return None
+
+
+_opener = urllib.request.build_opener(_NoRedirect)
+
+
 def http(url, data=None, headers=None, timeout=90):
-    req = urllib.request.Request(url, data=data, headers={"User-Agent": UA, **(headers or {})})
-    with urllib.request.urlopen(req, timeout=timeout) as r:
-        return r.read()
+    """GET, or POST when data is given. Redirects are followed with the same method and body."""
+    for _ in range(4):
+        req = urllib.request.Request(url, data=data, headers={"User-Agent": UA, **(headers or {})})
+        try:
+            with _opener.open(req, timeout=timeout) as r:
+                return r.read()
+        except urllib.error.HTTPError as exc:
+            if exc.code in (301, 302, 303, 307, 308) and exc.headers.get("Location"):
+                url = urllib.parse.urljoin(url, exc.headers["Location"])
+                continue
+            raise
+    raise urllib.error.URLError(f"too many redirects for {url}")
 
 
 def clause(field, terms):
@@ -111,16 +128,26 @@ def parse(body):
     return out
 
 
-def recent(query, since, page=500):
-    """All papers matching `query` submitted after `since`, newest first."""
-    out, start = [], 0
-    while start < 6000:
+def recent(query, since, page=200):
+    """All papers matching `query` submitted after `since`, newest first.
+
+    The arXiv API sometimes returns fewer entries than requested, so paging continues from
+    the number actually received until a paper older than `since` appears.
+    """
+    out, start, empty = [], 0, 0
+    while start < 8000:
         batch = arxiv_api({"search_query": query, "sortBy": "submittedDate", "sortOrder": "descending",
                            "start": start, "max_results": page})
+        if not batch:
+            empty += 1
+            if empty == 3:
+                break
+            continue
+        empty = 0
         out += [p for p in batch if p["published"] >= since]
-        if len(batch) < page or batch[-1]["published"] < since:
+        if batch[-1]["published"] < since:
             break
-        start += page
+        start += len(batch)
     return out
 
 
