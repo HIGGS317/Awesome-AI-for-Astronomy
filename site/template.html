@@ -206,7 +206,7 @@
   /* Section navigation */
   var h = '<h2>Sections</h2><ol><li class="all"><a href="#" data-sec=""><span>All sections</span><span class="c"></span></a></li>';
   topSecs.forEach(function (s) {
-    h += '<li><a href="#' + s.id + '" data-sec="' + s.id + '"><span>' + esc(s.title) + '</span><span class="c"></span></a>';
+    h += '<li data-top="' + s.id + '"><a href="#' + s.id + '" data-sec="' + s.id + '"><span>' + esc(s.title) + '</span><span class="c"></span></a>';
     if (children[s.id]) {
       h += "<ol>" + children[s.id].map(function (c) {
         return '<li><a href="#' + c + '" data-sec="' + c + '"><span>' + esc(byId[c].title) + '</span><span class="c"></span></a></li>';
@@ -215,6 +215,13 @@
     h += "</li>";
   });
   $("toc").innerHTML = h + "</ol>";
+  /* The list is taller than most screens; fade its lower edge while more sections are below. */
+  function tocFade() {
+    var t = $("toc");
+    t.classList.toggle("more", t.scrollTop + t.clientHeight < t.scrollHeight - 4);
+  }
+  $("toc").addEventListener("scroll", tocFade, { passive: true });
+  window.addEventListener("resize", tocFade);
   var sel = $("secsel");
   sel.innerHTML = '<option value="">All sections</option>' + topSecs.map(function (s) {
     return '<option value="' + s.id + '">' + esc(s.title) + "</option>" + (children[s.id] || []).map(function (c) {
@@ -294,6 +301,12 @@
       a.classList.toggle("zero", k === 0);
       a.setAttribute("aria-current", id === st.sec ? "true" : "false");
     });
+    /* Subsections are listed under the selected section only, so every top-level section fits in view. */
+    var openTop = st.sec ? (byId[st.sec].parent || st.sec) : "";
+    Array.prototype.forEach.call($("toc").querySelectorAll("li[data-top]"), function (li) {
+      li.classList.toggle("open", li.dataset.top === openTop);
+    });
+    tocFade();
     sel.value = st.sec;
 
     var active = st.terms.length || paperOnly();
