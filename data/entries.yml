@@ -205,6 +205,14 @@ sections:
       desc: Combines frozen embeddings of 22 foundation models from eight families by whitening and randomised SVD, outperforming every member on 19 of 21 metrics for HSC, JWST and Legacy Survey galaxies.
       modality:
       - Images
+      - name:
+      title: A Novel Sector-Based Algorithm for an Optimized Star-Galaxy Classification
+      venue: ICLR 2024 Tiny Papers
+      links:
+        Paper: https://arxiv.org/abs/2404.01049
+      desc: Sector-based methodology for star-galaxy classification using convolutional neural network (CNN).
+      modality: 
+      - Images
   - title: Spectra
     entries:
     - name: SDSS-VAE
