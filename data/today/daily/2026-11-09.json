@@ -21,15 +21,66 @@
     "Nolan Koblischke"
    ],
    "n_authors": 3,
-   "relevant": null,
-   "summary": "",
+   "relevant": true,
+   "summary": "An LLM pipeline extracts 6,145 dark-matter model cards from arXiv full texts, validates schemas, and maps high-priority infrastructure gaps.",
    "topic": "Language and Vision-Language Models",
-   "model": null,
-   "excerpt": "To use a dark-matter model one needs to know what defines it, which observables it affects, which codes and likelihoods evaluate it, and under what assumptions a published bound applies.",
+   "model": "deepseek-flash",
    "tldr": "It is found that what blocks the most high-priority models is not missing theory but missing shared infrastructure: model files for existing relic-abundance solvers, a general non-cold Boltzmann-code framework, reusable indirect-detection likelihoods, and a Lyman-$\\alpha$ forest likelihood for non-cold dark matter (the largest gap for structure-formation probes)."
+  },
+  {
+   "id": "2611.08880",
+   "title": "A pipeline for identifying astrophysical signals and instrumental glitches in LISA data",
+   "primary": "gr-qc",
+   "categories": [
+    "gr-qc",
+    "astro-ph.HE",
+    "astro-ph.IM"
+   ],
+   "published": "2026-11-09",
+   "comment": "13 pages, 7 figures",
+   "journal_ref": "",
+   "doi": "",
+   "links": [],
+   "authors": [
+    "Aryamann Rao",
+    "Jess McIver",
+    "Rhiannon Udall",
+    "Natalia Korsakova",
+    "Malvina Bellotti"
+   ],
+   "n_authors": 5,
+   "relevant": true,
+   "summary": "A search plus machine-learning classifier distinguishes gravitational-wave transients from instrumental glitches in simulated LISA data with about 98% accuracy and fast processing.",
+   "topic": "Gravitational Waves",
+   "model": "deepseek-flash"
+  },
+  {
+   "id": "2611.09198",
+   "title": "New optimisations for exact, scalable 2D Gaussian process inference, with applications to astronomical time-series",
+   "primary": "astro-ph.EP",
+   "categories": [
+    "astro-ph.EP",
+    "astro-ph.IM",
+    "stat.CO"
+   ],
+   "published": "2026-11-09",
+   "comment": "Submitted to PASA",
+   "journal_ref": "",
+   "doi": "",
+   "links": [],
+   "authors": [
+    "Mark Fortune",
+    "Neale P. Gibson",
+    "Benjamin Pope"
+   ],
+   "n_authors": 3,
+   "relevant": true,
+   "summary": "New exact Kronecker-product Gaussian process inference in JAX enables scalable 2D modelling of correlated noise in JWST exoplanet spectroscopy and other astronomical time-series.",
+   "topic": "Exoplanets",
+   "model": "deepseek-flash"
   }
  ],
  "excluded": [],
- "updated": "2026-11-12T09:07:23+00:00",
- "model": null
+ "updated": "2026-11-12T09:25:44+00:00",
+ "model": "deepseek-flash"
 }

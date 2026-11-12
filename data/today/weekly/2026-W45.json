@@ -3,27 +3,37 @@
  "start": "2026-11-02",
  "end": "2026-11-08",
  "final": true,
- "count": 27,
+ "count": 35,
  "topics": {
+  "Stars and Stellar Spectroscopy": 4,
   "Galaxies": 4,
+  "Cosmology and Large-Scale Structure": 4,
   "Agents and Retrieval Systems": 3,
-  "Stars and Stellar Spectroscopy": 2,
-  "Other": 2,
-  "Cosmology and Large-Scale Structure": 2,
+  "Solar Physics and Heliophysics": 3,
+  "High-Energy Astrophysics and Astroparticle Physics": 3,
+  "Simulation-Based Inference": 3,
+  "Benchmarks": 3,
+  "Radio Astronomy": 2,
+  "Gravitational Waves": 2,
   "Foundation Models and Representation Learning": 2,
-  "Solar Physics and Heliophysics": 2,
-  "High-Energy Astrophysics and Astroparticle Physics": 2,
-  "Benchmarks": 2,
-  "Gravitational Waves": 1,
-  "Radio Astronomy": 1,
-  "Gravitational Lensing": 1,
   "Time-Domain Astronomy and Transients": 1,
-  "Simulation-Based Inference": 1,
   "Source Detection, Deblending and Image Simulation": 1
  },
- "overview": "",
- "themes": [],
- "highlights": [],
- "model": null,
- "updated": "2026-11-12T09:11:18+00:00"
+ "overview": "Cosmology papers apply normalizing flows and simulation-based inference to DESI DR1 and DES Y3, while neural operators, PINNs and macrocanonical generators emulate MHD, stellar and cosmological fields. LLM agents address simulation calibration, observing strategy and research pipelines. New benchmarks include COSMIO cross-survey imputation and small-data image classifiers; survey catalogues span Fermi-LAT, EMU, SUMSS and a 10.13-million-star homogenised catalogue.",
+ "themes": [
+  "Simulation-based inference and field-level cosmology",
+  "Neural operators and physics-informed surrogates",
+  "LLM agents and autonomous pipelines",
+  "Benchmarks for cross-survey and small-data ML",
+  "Survey catalogues and representation learning"
+ ],
+ "highlights": [
+  "2611.04139",
+  "2611.04389",
+  "2611.04713",
+  "2611.05157",
+  "2611.07936"
+ ],
+ "model": "deepseek-flash",
+ "updated": "2026-11-12T09:27:15+00:00"
 }

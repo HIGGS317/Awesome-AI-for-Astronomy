@@ -24,11 +24,10 @@
     "Sascha Caron"
    ],
    "n_authors": 8,
-   "relevant": null,
-   "summary": "",
+   "relevant": true,
+   "summary": "Deep-learning pipeline using U-Net and DNNs on simulated Fermi-LAT data produces first all-sky gamma-ray source list of >3800 sources.",
    "topic": "High-Energy Astrophysics and Astroparticle Physics",
-   "model": null,
-   "excerpt": "Aims: We develop a deep-learning-based pipeline to construct a list of {\\gamma}-ray sources and to quantitatively assess the impact of background uncertainties on source detection and characterization.",
+   "model": "deepseek-flash",
    "tldr": "The first Fermi-LAT {\\gamma}-ray all-sky source list derived using a deep-learning-based method (1FDL), containing more than 3800 sources with estimated positions, fluxes, and probability scores that quantify the likelihood of each detection being genuine or spurious."
   },
   {
@@ -55,11 +54,10 @@
     "Yuanpeng Liu"
    ],
    "n_authors": 11,
-   "relevant": null,
-   "summary": "",
+   "relevant": true,
+   "summary": "COSMIO benchmark forward-renders aligned LSST, Euclid, Roman scenes to test cross-survey modality imputation, revealing poor transfer and rare-event lens challenges.",
    "topic": "Benchmarks",
-   "model": null,
-   "excerpt": "Large-scale astronomical surveys define a heterogeneous, partially observed multi-survey learning setting: each object is observed by only a subset of surveys, while survey observations differ in resolutions, wavelength coverage, noise characteristics, and...",
+   "model": "deepseek-flash",
    "tldr": "COSMIO is introduced, a multi-survey benchmark of aligned observations obtained by forward-rendered shared astrophysical scenes across LSST, Euclid, and Roman under survey-specific instrument characteristics, which enables systematic evaluation of imputation across source-target survey combinations and missing-survey patterns."
   },
   {
@@ -83,11 +81,10 @@
     "Jason D. McEwen"
    ],
    "n_authors": 4,
-   "relevant": null,
-   "summary": "",
-   "topic": "Gravitational Lensing",
-   "model": null,
-   "excerpt": "Many fields of physical interest on the sphere, such as wind, the polarisation of the cosmic microwave background and the shear of weak gravitational lensing, are spin fields, whose values change phase when the local frame rotates.",
+   "relevant": true,
+   "summary": "Spin spherical Fourier neural operators extend SFNOs to equivariant vector and spin fields on the sphere, matching machine-precision equivariance and state-of-the-art benchmarks.",
+   "topic": "Foundation Models and Representation Learning",
+   "model": "deepseek-flash",
    "tldr": "This work extends spherical Fourier neural operators (SFNOs) to fields of any spin, through lifted spherical convolutions that are exactly rotationally equivariant, and demonstrates empirically that rotational equivariance holds to machine precision for these layers."
   },
   {
@@ -112,11 +109,10 @@
     "M. Zedan"
    ],
    "n_authors": 10,
-   "relevant": null,
-   "summary": "",
+   "relevant": true,
+   "summary": "Comparing feature-based ML and end-to-end deep learning on 40,000 ZTF light curves, classical features outperform deep networks for variable star classification.",
    "topic": "Time-Domain Astronomy and Transients",
-   "model": null,
-   "excerpt": "We compare feature-based machine learning and end-to-end deep learning for variable star classification using the Zwicky Transient Facility (ZTF) StarEmbed dataset, which contains about 40,000 objects across seven imbalanced classes.",
+   "model": "deepseek-flash",
    "tldr": "It is found that limited labeled data contributes to the performance gap, while the multivariate, irregularly sampled, and morphologically diverse nature of light curves poses additional challenges for deep learning models."
   },
   {
@@ -138,11 +134,10 @@
     "Benjamin D. Wandelt"
    ],
    "n_authors": 2,
-   "relevant": null,
-   "summary": "",
+   "relevant": true,
+   "summary": "Macrocanonical generator networks learn data-efficient neural surrogates by matching multiscale statistics, recovering cosmology and fluid simulations from tiny training sets over 10^6 times faster.",
    "topic": "Simulation-Based Inference",
-   "model": null,
-   "excerpt": "Many scientific simulations are computationally expensive, limiting their use in simulation-based inference, uncertainty quantification, and decision making.",
+   "model": "deepseek-flash",
    "tldr": "It is proved that gradient-descent training induces preconditioned gradient-descent dynamics in sample space that inherit the symmetry-preservation properties of the microcanonical gradient descent of Bruna and Mallat, amortizing its per-sample inner-loop optimization into a single training run after which every sample is generated in one forward pass."
   },
   {
@@ -162,14 +157,89 @@
     "Fang Zhou"
    ],
    "n_authors": 1,
-   "relevant": null,
-   "summary": "",
+   "relevant": true,
+   "summary": "Semi-autonomous LLM multi-agent pipeline retrieves HEASARC data, writes and validates tools with provenance checks, reproducing IXPE Cyg X-1 results.",
    "topic": "Agents and Retrieval Systems",
-   "model": null,
-   "excerpt": "Large language model (LLM) agents are now applied to astronomical data analysis."
+   "model": "deepseek-flash"
+  },
+  {
+   "id": "2611.04484",
+   "title": "Structural axes of sources in the SUMSS survey and their alignments",
+   "primary": "astro-ph.CO",
+   "categories": [
+    "astro-ph.CO"
+   ],
+   "published": "2026-11-04",
+   "comment": "9 pages, 6 figures",
+   "journal_ref": "",
+   "doi": "",
+   "links": [],
+   "authors": [
+    "D. Blinov",
+    "T. Bhattarai",
+    "I. Liodakis",
+    "A. Kumar",
+    "P. Bonfini"
+   ],
+   "n_authors": 5,
+   "relevant": true,
+   "summary": "CNN-derived position angles for 4087 SUMSS radio sources show no statistically significant local alignments after look-elsewhere calibration, providing a southern-sky morphology catalogue.",
+   "topic": "Radio Astronomy",
+   "model": "deepseek-flash"
+  },
+  {
+   "id": "2611.04713",
+   "title": "A Unified AI Framework for Rapid and Accurate Waveform Generation of Compact Binary Coalescences",
+   "primary": "gr-qc",
+   "categories": [
+    "gr-qc",
+    "astro-ph.IM"
+   ],
+   "published": "2026-11-04",
+   "comment": "15 pages, 6 figures, 4 tables. Supplementary material included",
+   "journal_ref": "",
+   "doi": "",
+   "links": [],
+   "authors": [
+    "Mengfei Sun",
+    "Jin Li",
+    "Yuanhong Zhong",
+    "Jie Wu",
+    "Borui Wang",
+    "Xianghe Ma"
+   ],
+   "n_authors": 7,
+   "relevant": true,
+   "summary": "Deep-learning generator produces black-hole, neutron-star, and mixed-binary waveforms including spin, matter, and postmerger effects, with mismatches 5.9e-4–5.3e-2 and up to 1800× speedup.",
+   "topic": "Gravitational Waves",
+   "model": "deepseek-flash"
+  },
+  {
+   "id": "2611.05367",
+   "title": "SBi3PCF: cosmology with Dark Energy Survey Year 3 cosmic shear",
+   "primary": "astro-ph.CO",
+   "categories": [
+    "astro-ph.CO"
+   ],
+   "published": "2026-11-04",
+   "comment": "20 pages (4 figures, 6 tables) + appendices. Comments are welcome!",
+   "journal_ref": "",
+   "doi": "",
+   "links": [],
+   "authors": [
+    "David Gebauer",
+    "Anik Halder",
+    "Zhengyangguang Gong",
+    "Cora Uhlemann"
+   ],
+   "n_authors": 4,
+   "relevant": true,
+   "summary": "Simulation-based inference of integrated three-point cosmic shear from DES Y3, combined with two-point functions, tightens cosmological constraints and yields Ωm=0.272, S8=0.784, w0=-1.04.",
+   "topic": "Simulation-Based Inference",
+   "model": "deepseek-flash"
   }
  ],
  "excluded": [],
- "updated": "2026-11-12T09:07:23+00:00",
- "model": null
+ "updated": "2026-11-12T09:25:44+00:00",
+ "model": "deepseek-flash"
 }

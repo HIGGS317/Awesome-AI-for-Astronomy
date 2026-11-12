@@ -20,11 +20,10 @@
     "Cosmin Ilie"
    ],
    "n_authors": 3,
-   "relevant": null,
-   "summary": "",
+   "relevant": true,
+   "summary": "A feedforward neural network trained on synthetic JWST/NIRSpec dark-star spectra identifies and characterizes candidates, re-confirming four supermassive dark star spectra and predicting parameters far faster.",
    "topic": "Stars and Stellar Spectroscopy",
-   "model": null,
-   "excerpt": "Some of the first stars in the Universe might be powered by Dark Matter (DM) annihilations, rather than nuclear fusion."
+   "model": "deepseek-flash"
   },
   {
    "id": "2610.40685",
@@ -46,11 +45,10 @@
     "Matthew Ho"
    ],
    "n_authors": 2,
-   "relevant": null,
-   "summary": "",
+   "relevant": true,
+   "summary": "AgenticTuner uses a present-day large language model as an optimizer to propose cosmological simulation parameters, achieving competitive calibration at reduced CPU cost with human-readable priors.",
    "topic": "Agents and Retrieval Systems",
-   "model": null,
-   "excerpt": "Calibrating a cosmological simulation is an expensive, high-dimensional parameter optimization task."
+   "model": "deepseek-flash"
   },
   {
    "id": "2610.41052",
@@ -73,15 +71,38 @@
     "Brian E. Svoboda"
    ],
    "n_authors": 3,
-   "relevant": null,
-   "summary": "",
-   "topic": "",
-   "model": null,
-   "excerpt": "The next-generation Very Large Array (ngVLA) intends to use 22 GHz water vapor radiometry (WVR) to correct for tropospheric phase fluctuations in its high-frequency bands.",
+   "relevant": true,
+   "summary": "A machine-learning sensor-fusion architecture uses atmospheric profiles, weather data and water-vapor radiometer spectra with a learned Kalman filter to estimate tropospheric delay for ngVLA/ALMA.",
+   "topic": "Radio Astronomy",
+   "model": "deepseek-flash",
    "tldr": "A machine-learning based retrieval concept and a preliminary architecture, framed as heterogeneous, multi-rate sensor fusion, are proposed to correct for tropospheric phase fluctuations in the next-generation Very Large Array."
+  },
+  {
+   "id": "2610.40789",
+   "title": "Learning Galaxy Kinematics from Spatially Unresolved Spectra",
+   "primary": "astro-ph.GA",
+   "categories": [
+    "astro-ph.GA"
+   ],
+   "published": "2026-11-02",
+   "comment": "9 pages, 6 figures",
+   "journal_ref": "",
+   "doi": "",
+   "links": [],
+   "authors": [
+    "Preston G. Waldrop",
+    "Dimitrios Psaltis",
+    "Feryal Özel",
+    "Tolga Güver"
+   ],
+   "n_authors": 4,
+   "relevant": true,
+   "summary": "A neural network trained on spatially resolved spectra infers galaxy kinematic parameters from spatially integrated spectra, enabling kinematic measurements for millions of unresolved galaxies.",
+   "topic": "Galaxies",
+   "model": "deepseek-flash"
   }
  ],
  "excluded": [],
- "updated": "2026-11-12T09:07:23+00:00",
- "model": null
+ "updated": "2026-11-12T09:25:44+00:00",
+ "model": "deepseek-flash"
 }

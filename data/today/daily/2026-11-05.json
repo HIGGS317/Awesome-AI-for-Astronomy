@@ -23,11 +23,10 @@
     "Ye Zhu"
    ],
    "n_authors": 5,
-   "relevant": null,
-   "summary": "",
+   "relevant": true,
+   "summary": "Benchmarks regression models and physics foundation models on simulated chaotic three-body systems: early stability classification is accurate, but precise long-horizon trajectory prediction remains difficult.",
    "topic": "Benchmarks",
-   "model": null,
-   "excerpt": "Machine learning (ML) and generative AI have recently made impressive progress in understanding physics.",
+   "model": "deepseek-flash",
    "tldr": "A hierarchy of prediction problems stemming from chaotic three-body systems is explored and a range of ML approaches are benchmarked, including general-purpose prediction algorithms and those that build on top of foundational physics models."
   },
   {
@@ -53,11 +52,10 @@
     "J. Carretero"
    ],
    "n_authors": 15,
-   "relevant": null,
-   "summary": "",
+   "relevant": true,
+   "summary": "Adds a bounded output layer and flux-aware LoRA fine-tuning to Noise2Void denoising of PAUS images, reducing repeated-exposure flux scatter by 47% while keeping fluxes unbiased.",
    "topic": "Source Detection, Deblending and Image Simulation",
-   "model": null,
-   "excerpt": "Context.",
+   "model": "deepseek-flash",
    "tldr": "This work evaluates and improves Noise2Void for denoising real astronomical images, focusing on preserving fluxes, reducing photometric scatter, and retaining the main source features across a wide magnitude range, and shows that standard N2V systematically underestimates galaxy fluxes, especially for faint galaxies."
   },
   {
@@ -104,11 +102,10 @@
     "Qingwen Wu"
    ],
    "n_authors": 3,
-   "relevant": null,
-   "summary": "",
+   "relevant": true,
+   "summary": "A cross-modal framework transferring NIRSpec spectroscopic information into NIRCam imaging representations finds 35 new Little Red Dot candidates and hundreds more in archival JWST imaging.",
    "topic": "Galaxies",
-   "model": null,
-   "excerpt": "Little Red Dots (LRDs) are a population of compact, red sources discovered at high redshift with JWST that exhibit distinctive V-shaped spectral energy distributions (SEDs).",
+   "model": "deepseek-flash",
    "tldr": "A cross-modal machine-learning framework is developed that combines matched NIRCam imaging and NIRSpec/PRISM spectroscopy to transfer spectroscopic information into imaging-based representations, enabling LRD identification from JWST/NIRCam imaging alone."
   },
   {
@@ -156,15 +153,19 @@
     "Eraldo Pereira Marinho"
    ],
    "n_authors": 1,
-   "relevant": null,
-   "summary": "",
-   "topic": "Galaxies",
-   "model": null,
-   "excerpt": "Reported performance in small astronomical image datasets can reflect object reuse, field-of-view differences, acquisition settings, and catalogue-derived properties as well as astronomical morphology.",
+   "relevant": true,
+   "summary": "A 370-object three-band imaging benchmark with group-constrained splits shows CNN-Transformer, ResNet-50 and ViT-B/16 perform similarly, and that acquisition and catalogue metadata leak class information.",
+   "topic": "Benchmarks",
+   "model": "deepseek-flash",
    "tldr": "These results demonstrate generalisation to unseen physical objects, but also show that image context, acquisition settings, and catalogue-derived object properties carry substantial class information."
   }
  ],
- "excluded": [],
- "updated": "2026-11-12T09:07:23+00:00",
- "model": null
+ "excluded": [
+  {
+   "id": "2611.05808",
+   "title": "A Laplace-Transform Green's Function for Two-Zone Diffusion with Energy Losses: Application to the Geminga Pulsar Halo"
+  }
+ ],
+ "updated": "2026-11-12T09:25:44+00:00",
+ "model": "deepseek-flash"
 }

@@ -19,11 +19,10 @@
     "Nikolaos Stergioulas"
    ],
    "n_authors": 3,
-   "relevant": null,
-   "summary": "",
+   "relevant": true,
+   "summary": "Compact neural architecture with staged spectral token refinement predicts gravitational-wave signal-to-noise ratios for precessing binary black hole signals, reaching high accuracy and about 100-fold speedup.",
    "topic": "Gravitational Waves",
-   "model": null,
-   "excerpt": "Quantifying selection effects in gravitational-wave population studies requires millions of costly signal-to-noise ratio (SNR) calculations.",
+   "model": "deepseek-flash",
    "tldr": "asmaNet is presented, a compact neural architecture for structured tabular regression, with staged spectral refinement as an explicit architectural prior, for gravitational-wave population studies and results on public tabular datasets indicate competitiveness beyond gravitational-wave applications."
   },
   {
@@ -45,11 +44,10 @@
     "Jean-Paul Kneib"
    ],
    "n_authors": 4,
-   "relevant": null,
-   "summary": "",
+   "relevant": true,
+   "summary": "Conditional normalizing flows trained on DESI DR1 and Legacy Surveys photometry reconstruct tomographic redshift distributions, outperforming random-forest baselines at high redshift.",
    "topic": "Cosmology and Large-Scale Structure",
-   "model": null,
-   "excerpt": "Accurate calibration of tomographic redshift distributions, $N(z)$ is essential for cosmological analysis of weak lensing data."
+   "model": "deepseek-flash"
   },
   {
    "id": "2611.00150",
@@ -70,11 +68,10 @@
     "Guillermo Cabrera-Vives"
    ],
    "n_authors": 3,
-   "relevant": null,
-   "summary": "",
+   "relevant": true,
+   "summary": "Two-stage contrastive adaptation of ASTROMER light-curve representations improves frozen-encoder classification, reaching macro-F1 0.794 with 500 labeled examples per class.",
    "topic": "Foundation Models and Representation Learning",
-   "model": null,
-   "excerpt": "Large astronomical surveys collect abundant light curves, but reliable class labels remain scarce.",
+   "model": "deepseek-flash",
    "tldr": "Results show that contrastive adaptation makes pretrained light-curve representations more effective for classification and more informative about the structure of variability classes."
   },
   {
@@ -97,11 +94,10 @@
     "Luke Oluwaseye Joel"
    ],
    "n_authors": 1,
-   "relevant": null,
-   "summary": "",
+   "relevant": true,
+   "summary": "Physics-informed neural networks boosted by tree ensembles and support vector regression solve Lane-Emden equations for stellar-structure models, reducing error versus standard PINN baselines.",
    "topic": "Stars and Stellar Spectroscopy",
-   "model": null,
-   "excerpt": "The Lane-Emden Equation is a class of nonlinear differential equations commonly used to model phenomena in astrophysics and mathematical physics, such as stellar structure and thermal behavior in polytropic gas spheres.",
+   "model": "deepseek-flash",
    "tldr": "This study presents a novel hybrid framework that integrates Physics-Informed Neural Networks (PINNs) with boosting methods to enhance the accuracy and robustness of solutions for Lane-Emden type differential equations."
   },
   {
@@ -124,11 +120,10 @@
     "E. A. Huerta"
    ],
    "n_authors": 2,
-   "relevant": null,
-   "summary": "",
-   "topic": "Foundation Models and Representation Learning",
-   "model": null,
-   "excerpt": "Three-dimensional magnetohydrodynamic (MHD) turbulence, the flow of astrophysical and fusion plasmas, is costly to simulate."
+   "relevant": true,
+   "summary": "Convolutional UNet, shifted-window transformer and Fourier neural operator surrogates emulate three-dimensional resistive MHD turbulence, matching simulation statistics and outperforming published benchmarks.",
+   "topic": "Cosmology and Large-Scale Structure",
+   "model": "deepseek-flash"
   },
   {
    "id": "2611.01988",
@@ -151,38 +146,11 @@
     "Xiangkun Liu"
    ],
    "n_authors": 10,
-   "relevant": null,
-   "summary": "",
+   "relevant": true,
+   "summary": "Community hackathon evaluates autonomous systems, including language models, for allocating observing time in a synthetic multi-object survey with faults and competing priorities.",
    "topic": "Agents and Retrieval Systems",
-   "model": null,
-   "excerpt": "Astronomical surveys must allocate observing time while responding to changing conditions and competing scientific priorities.",
+   "model": "deepseek-flash",
    "tldr": "This work evaluates systems submitted by 102 teams on campaigns reserved for evaluation and analyse target completion in a reference campaign, finding the leading systems combine numerical exposure planning with language models for interpreting operational information and supporting longer-term decisions."
-  },
-  {
-   "id": "2611.02697",
-   "title": "Two Fast Radio Burst Candidates Detected in the RATAN-600 Blind Survey",
-   "primary": "astro-ph.HE",
-   "categories": [
-    "astro-ph.HE",
-    "astro-ph.GA"
-   ],
-   "published": "2026-11-03",
-   "comment": "11 pages, 7 figures, 1 table. Accepted to Astrophysical Bulletin, 2026, v.81, N.4",
-   "journal_ref": "",
-   "doi": "",
-   "links": [],
-   "authors": [
-    "S.A. Trushkin",
-    "D.O. Kudryavtsev",
-    "P.G. Tsybulev",
-    "N.N. Bursov"
-   ],
-   "n_authors": 4,
-   "relevant": null,
-   "summary": "",
-   "topic": "Radio Astronomy",
-   "model": null,
-   "excerpt": "We report the detection of two single dispersed pulses with widths of about 6.7\\,ms and 15.6\\,ms and flux densities of about 0.8 and 1.7\\,Jy."
   },
   {
    "id": "2611.03234",
@@ -202,11 +170,10 @@
     "A. B. Bendre"
    ],
    "n_authors": 3,
-   "relevant": null,
-   "summary": "",
+   "relevant": true,
+   "summary": "Two-phase deep-learning pipeline forecasts monthly and next-day solar flare classes from GOES X-ray data, achieving skill but sometimes matching persistence.",
    "topic": "Solar Physics and Heliophysics",
-   "model": null,
-   "excerpt": "Solar flares are the most energetic impulsive events in the solar system, and reliable operational forecasting of the rarest and most destructive M- and X-class events remains an open problem.",
+   "model": "deepseek-flash",
    "tldr": "Solar Heliospherical Analysis and Prediction of Eruptions (SHAPE), a two-phase deep-learning pipeline that bypasses sunspot proxies in favour of direct soft X-ray observations from the GOES X-ray Sensor, shows that competitive flare forecasting is achievable with compact architectures that retain in minutes on standard hardware, without sunspot proxy inputs."
   },
   {
@@ -225,14 +192,119 @@
     "Ashok Mondal"
    ],
    "n_authors": 1,
-   "relevant": null,
-   "summary": "",
+   "relevant": true,
+   "summary": "Physics-informed neural network incorporating external pressure reclassifies 2,091 Milky Way molecular clouds as pressure-confined and links stability to star formation.",
    "topic": "Galaxies",
-   "model": null,
-   "excerpt": "Recent high-sensitivity and high-resolution surveys of the Third Galactic Quadrant [$219.75 \\leq l \\leq 229.75$ and $-5.25 \\leq b \\leq 5.25$], such as the Milky Way Imaging Scroll Painting ( MWISP) survey, have revealed a significant population of molecular..."
+   "model": "deepseek-flash"
+  },
+  {
+   "id": "2611.00415",
+   "title": "A multiprobe $\\Lambda$CDM consistency analysis with gravitational-wave standard sirens",
+   "primary": "astro-ph.CO",
+   "categories": [
+    "astro-ph.CO"
+   ],
+   "published": "2026-11-03",
+   "comment": "7 pages, 3 figures, 3 tables. Submitted to A&A Letters",
+   "journal_ref": "",
+   "doi": "",
+   "links": [],
+   "authors": [
+    "T. M. C. Abbott",
+    "M. Aguena",
+    "F. Andrade-Oliveira",
+    "S. Avila",
+    "D. Bacon",
+    "D. Brooks"
+   ],
+   "n_authors": 47,
+   "relevant": true,
+   "summary": "Normalizing-flow combination of gravitational-wave standard sirens with DES, BAO, supernovae, and CMB probes finds S8=0.793 and H0=69.4, leaving S8 and H0 tensions essentially unchanged.",
+   "topic": "Cosmology and Large-Scale Structure",
+   "model": "deepseek-flash"
+  },
+  {
+   "id": "2611.01310",
+   "title": "Forecasting the Ambient Solar Wind With a Physics-Informed Learned Inner Boundary: Part I-Differentiable Inverse Reconstruction From Solar Images",
+   "primary": "physics.space-ph",
+   "categories": [
+    "physics.space-ph",
+    "astro-ph.SR"
+   ],
+   "published": "2026-11-03",
+   "comment": "",
+   "journal_ref": "",
+   "doi": "",
+   "links": [],
+   "authors": [
+    "Enrico Camporeale",
+    "Andong Hu",
+    "Prateek Mayank",
+    "Thomas E. Berger"
+   ],
+   "n_authors": 4,
+   "relevant": true,
+   "summary": "Differentiable physics-informed model maps SDO images and magnetograms to the 21.5 solar-radii wind boundary, improving >600 km/s forecasting over recurrence and linear baselines.",
+   "topic": "Solar Physics and Heliophysics",
+   "model": "deepseek-flash"
+  },
+  {
+   "id": "2611.02064",
+   "title": "Effects of Competing Reactions on $^{59}\\mathrm{Cu}$ and $^{63}\\mathrm{Ga}$ on Abundance Distributions in Type I X-Ray Bursts",
+   "primary": "astro-ph.HE",
+   "categories": [
+    "astro-ph.HE",
+    "nucl-th"
+   ],
+   "published": "2026-11-03",
+   "comment": "",
+   "journal_ref": "",
+   "doi": "",
+   "links": [],
+   "authors": [
+    "Yinwen Guan",
+    "Ertao Li",
+    "Zhihong Li",
+    "Youbao Wang",
+    "Bing Guo",
+    "Yunju Li"
+   ],
+   "n_authors": 12,
+   "relevant": true,
+   "summary": "XGBoost classification and SHAP attribution of Monte Carlo X-ray burst models identify competing (p,α) and (p,γ) reactions on 59Cu and 63Ga as the main source of secondary abundance peaks.",
+   "topic": "High-Energy Astrophysics and Astroparticle Physics",
+   "model": "deepseek-flash"
+  },
+  {
+   "id": "2611.02627",
+   "title": "Recovering Missing Degrees of Freedom in Simulation-Trained Field-Level Generative Models",
+   "primary": "astro-ph.CO",
+   "categories": [
+    "astro-ph.CO",
+    "cs.LG"
+   ],
+   "published": "2026-11-03",
+   "comment": "4+14 pages, 1+8 figures",
+   "journal_ref": "",
+   "doi": "",
+   "links": [],
+   "authors": [
+    "Masato Shirasaki",
+    "Shiro Ikeda"
+   ],
+   "n_authors": 2,
+   "relevant": true,
+   "summary": "Physics-informed latent corrections to a simulation-trained continuous normalizing flow recover variability lost to variance shrinkage in weak-lensing field-level inference, improving robustness to out-of-distribution shifts.",
+   "topic": "Simulation-Based Inference",
+   "model": "deepseek-flash"
   }
  ],
- "excluded": [],
- "updated": "2026-11-12T09:07:23+00:00",
- "model": null
+ "excluded": [
+  {
+   "id": "2611.02697",
+   "title": "Two Fast Radio Burst Candidates Detected in the RATAN-600 Blind Survey"
+  }
+ ],
+ "updated": "2026-11-12T09:25:44+00:00",
+ "model": "deepseek-flash"
 }

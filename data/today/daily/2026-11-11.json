@@ -21,11 +21,10 @@
     "Prakash Gaikwad"
    ],
    "n_authors": 5,
-   "relevant": null,
-   "summary": "",
+   "relevant": true,
+   "summary": "Convolutional neural network detects and characterizes Lyman-alpha absorbers in quasar spectra, trained on IllustrisTNG synthetic spectra and tested on UVES, with uncertainty estimates.",
    "topic": "Cosmology and Large-Scale Structure",
-   "model": null,
-   "excerpt": "The Ly$\\alpha$ forest is a powerful probe of the intergalactic medium and small-scale matter distribution, but deriving absorber properties traditionally requires computationally expensive Voigt-profile fitting.",
+   "model": "deepseek-flash",
    "tldr": "A convolutional neural network (CNN) is presented that identifies and characterizes H i Lyα absorbers directly from quasar spectra and provides a scalable and uncertainty-aware framework for Lyα forest analysis in upcoming spectroscopic surveys."
   },
   {
@@ -48,15 +47,27 @@
     "Jo Bovy"
    ],
    "n_authors": 2,
-   "relevant": null,
-   "summary": "",
-   "topic": "Galaxies",
-   "model": null,
-   "excerpt": "Astronomers often have difficulty determining whether an object, such as a star or galaxy of interest, has been discussed in the literature.",
+   "relevant": true,
+   "summary": "Language model agents scan 156,006 arXiv astro-ph papers to extract 44,332 discussions and quotes for 13,616 galaxies, building GalaxyWiki.",
+   "topic": "Agents and Retrieval Systems",
+   "model": "deepseek-flash",
    "tldr": "Using language model agents is used to identify galaxies discussed in more than two sentences across a corpus of 156,006 arXiv astro-ph papers and extract those discussions into GalaxyWiki, where users can find literature discussing galaxies, read what was said about them, and follow links to the source papers."
   }
  ],
- "excluded": [],
- "updated": "2026-11-12T09:07:23+00:00",
- "model": null
+ "excluded": [
+  {
+   "id": "2611.13083",
+   "title": "Less is More: Unbiased Galaxy Clustering from Fewer Merger Trees"
+  },
+  {
+   "id": "2611.14238",
+   "title": "Unveiling the Extreme Universe with Recent IACT Discoveries"
+  },
+  {
+   "id": "2611.14301",
+   "title": "SHINE: Shear inference environment - Generative forward modelling for radio weak gravitational lensing"
+  }
+ ],
+ "updated": "2026-11-12T09:25:44+00:00",
+ "model": "deepseek-flash"
 }

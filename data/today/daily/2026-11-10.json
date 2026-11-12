@@ -29,11 +29,10 @@
     "Thomas Borrett"
    ],
    "n_authors": 40,
-   "relevant": null,
-   "summary": "",
-   "topic": "Cosmology and Large-Scale Structure",
-   "model": null,
-   "excerpt": "Weak gravitational lensing is a powerful cosmological probe that enables direct mapping of the matter distribution and precise constraints on the fundamental parameters governing structure formation in the universe.",
+   "relevant": true,
+   "summary": "Presents the FAIR Universe weak-lensing ML uncertainty challenge, with a realistic benchmark dataset containing systematics and the winning solutions, including vision transformers, ensembles and AI agents.",
+   "topic": "Benchmarks",
+   "model": "deepseek-flash",
    "tldr": "This work presents the FAIR Universe Weak Lensing Machine Learning Uncertainty Challenge, one of the NeurIPS 2025 competitions, as a benchmark dataset and evaluation study, and summarizes the main methodological advances developed by the winners."
   },
   {
@@ -57,11 +56,10 @@
     "Berkay Aydin"
    ],
    "n_authors": 4,
-   "relevant": null,
-   "summary": "",
+   "relevant": true,
+   "summary": "Introduces SWXAI, an open-source library unifying explainable-AI workflows for images, time series and tabular data in space weather and heliophysics forecasting models.",
    "topic": "Solar Physics and Heliophysics",
-   "model": null,
-   "excerpt": "Space weather forecasting and heliophysics increasingly rely on machine learning models that process heterogeneous inputs such as multi-viewpoint multi-wavelength solar images and rasters, multivariate time series, spatial annotations, and tabular event-level...",
+   "model": "deepseek-flash",
    "tldr": "SWXAI reduces modality-specific engineering overhead and supports comparable, reusable explanations across heterogeneous scientific machine learning pipelines, and a benchmark against direct backend implementations shows that SWXAI substantially reduces the code users write to produce an explanation, with no practical runtime cost."
   },
   {
@@ -87,15 +85,114 @@
     "Puxun Wu"
    ],
    "n_authors": 6,
-   "relevant": null,
-   "summary": "",
+   "relevant": true,
+   "summary": "Combines neural-network-guided parameter-space localization with particle swarm optimization and MCMC to recover EMRI posteriors from simulated six-month signals without prior knowledge of true parameters.",
    "topic": "Gravitational Waves",
-   "model": null,
-   "excerpt": "Extreme-mass-ratio inspirals (EMRIs) pose a major challenge to Bayesian parameter inference because of their complex, highly multimodal likelihood surfaces.",
+   "model": "deepseek-flash",
    "tldr": "A deep-learning-assisted Bayesian inference framework that combines neural-network-guided parameter-space localization, particle swarm optimization, and Markov chain Monte Carlo sampling and recovers posterior distributions in close agreement with reference MCMC analyses initialized near the true parameter values."
+  },
+  {
+   "id": "2611.07174",
+   "title": "MapHub: Daily Relevance Heatmaps of New arXiv Preprints for a Research Community",
+   "primary": "astro-ph.IM",
+   "categories": [
+    "astro-ph.IM",
+    "cs.DL",
+    "cs.IR"
+   ],
+   "published": "2026-11-10",
+   "comment": "3 pages, 1 figure, matches version accepted for publication",
+   "journal_ref": "",
+   "doi": "",
+   "links": [
+    "https://github.com/kailicao/maphub-public"
+   ],
+   "authors": [
+    "Kaili Cao",
+    "Camille Avestruz",
+    "Feige Wang"
+   ],
+   "n_authors": 3,
+   "relevant": true,
+   "summary": "An LLM scores daily arXiv submissions against researcher portfolios and publishes relevance heatmaps, placing about 70% of blind-rated top papers in its top decile.",
+   "topic": "Language and Vision-Language Models",
+   "model": "deepseek-flash"
+  },
+  {
+   "id": "2611.10132",
+   "title": "Classical Cepheids in the 4MOST era I: Methodology for 4MOST variable stars and NLTE abundance gradients in the Milky Way",
+   "primary": "astro-ph.GA",
+   "categories": [
+    "astro-ph.GA"
+   ],
+   "published": "2026-11-10",
+   "comment": "24 pages, 19 figures, Accepted for publication by A&A",
+   "journal_ref": "",
+   "doi": "",
+   "links": [],
+   "authors": [
+    "R. Albarracín",
+    "M. Bergemann",
+    "N. Storm",
+    "G. Guiglion",
+    "R. I. Anderson",
+    "V. D'Orazi"
+   ],
+   "n_authors": 12,
+   "relevant": true,
+   "summary": "An artificial neural network trained on non-LTE spectra derives Cepheid atmospheric parameters and 17 elemental abundances, producing Milky Way radial abundance gradients for 4MOST.",
+   "topic": "Stars and Stellar Spectroscopy",
+   "model": "deepseek-flash"
+  },
+  {
+   "id": "2611.10133",
+   "title": "Scalable early warning for binary neutron-star mergers in third-generation gravitational-wave detectors",
+   "primary": "gr-qc",
+   "categories": [
+    "gr-qc",
+    "astro-ph.HE"
+   ],
+   "published": "2026-11-10",
+   "comment": "13 pages, 7 figures, 6 tables",
+   "journal_ref": "",
+   "doi": "",
+   "links": [],
+   "authors": [
+    "Martin Gerini",
+    "Rodrigo Tenorio",
+    "Davide Gerosa"
+   ],
+   "n_authors": 3,
+   "relevant": true,
+   "summary": "CNN on short-time Fourier transforms detects binary neutron-star mergers hours before merger in Einstein Telescope simulations, matching matched filtering at four orders lower computational cost.",
+   "topic": "Gravitational Waves",
+   "model": "deepseek-flash"
+  },
+  {
+   "id": "2611.12787",
+   "title": "MarsNet: Learning the Martian Atmosphere from Observations Alone",
+   "primary": "astro-ph.EP",
+   "categories": [
+    "astro-ph.EP",
+    "physics.ao-ph"
+   ],
+   "published": "2026-11-10",
+   "comment": "",
+   "journal_ref": "",
+   "doi": "",
+   "links": [],
+   "authors": [
+    "Sebastian Mengwall",
+    "J. Michael Battalio"
+   ],
+   "n_authors": 2,
+   "relevant": true,
+   "summary": "A learned Martian atmosphere model alternates two-hour forecasts with bounded Kalman observation updates, matching reanalyses near the surface and improving surface pressures on withheld observations.",
+   "topic": "Planetary Science and Small Bodies",
+   "model": "deepseek-flash"
   }
  ],
  "excluded": [],
- "updated": "2026-11-12T09:07:23+00:00",
- "model": null
+ "updated": "2026-11-12T09:25:44+00:00",
+ "model": "deepseek-flash"
 }

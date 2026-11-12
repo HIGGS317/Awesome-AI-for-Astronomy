@@ -20,11 +20,10 @@
     "Francisco Villaescusa-Navarro"
    ],
    "n_authors": 3,
-   "relevant": null,
-   "summary": "",
+   "relevant": true,
+   "summary": "Deep Sets and graph neural networks infer Ωm from simulated CAMELS galaxy catalogs; graph models reach ~10% error, with peculiar velocities dominating set-based inference.",
    "topic": "Cosmology and Large-Scale Structure",
-   "model": null,
-   "excerpt": "We perform field-level likelihood-free inference of the matter density parameter $\\Omega_m$ from simulated galaxy catalogs using machine learning models with differing inductive biases.",
+   "model": "deepseek-flash",
    "tldr": "Results indicate that peculiar velocities provide the dominant source of Ωm information for set-based models in this setting, while spatial information is most effectively used by architectures that explicitly encode galaxy–galaxy relations."
   },
   {
@@ -47,11 +46,10 @@
     "Randall C. Dannen"
    ],
    "n_authors": 2,
-   "relevant": null,
-   "summary": "",
-   "topic": "",
-   "model": null,
-   "excerpt": "We use machine learning (ML) to couple photoionization microphysics to radiation hydrodynamic simulations of line-driven winds.",
+   "relevant": true,
+   "summary": "Random forest models trained on XSTAR outputs predict line-driving force multipliers for Athena++ radiation hydrodynamics, outperforming trilinear interpolation across ionization, optical depth, and SED temperature.",
+   "topic": "Stars and Stellar Spectroscopy",
+   "model": "deepseek-flash",
    "tldr": "This work finds that random forest models provide the highest accuracy and reproduce the force multipliers over a three-dimensional parameter space more accurately, and with less training data, than traditional precomputed tables using trilinear interpolation."
   },
   {
@@ -76,15 +74,41 @@
     "Jingnan Guo"
    ],
    "n_authors": 8,
-   "relevant": null,
-   "summary": "",
+   "relevant": true,
+   "summary": "MP-DualNet, a dual-branch deep learning model, detects magnetopause boundaries in simulated SXI images, achieving >0.94 classification accuracy and >0.97 segmentation IoU.",
    "topic": "Solar Physics and Heliophysics",
-   "model": null,
-   "excerpt": "The Earth's magnetopause is a key boundary governing solar wind-magnetosphere coupling.",
+   "model": "deepseek-flash",
    "tldr": "MP‐DualNet is developed, an end‐to‐end dual‐branch deep learning framework for automated magnetopause detection from simulated SXI observations that maintains robust performance across a wide range of noise levels and generalizes well, as demonstrated by its application to an independent storm event."
+  },
+  {
+   "id": "2611.07936",
+   "title": "Survey of Surveys Data Release 3. Homogenised stellar parameters across nine spectroscopic surveys",
+   "primary": "astro-ph.SR",
+   "categories": [
+    "astro-ph.SR",
+    "astro-ph.GA"
+   ],
+   "published": "2026-11-06",
+   "comment": "Submitted to A&A. 20 pages, 17 figures, 5 tables",
+   "journal_ref": "",
+   "doi": "",
+   "links": [],
+   "authors": [
+    "A. Avdeeva",
+    "E. Pancino",
+    "A. Turchi",
+    "P. M. Marrese",
+    "S. Marinoni",
+    "G. Fanari"
+   ],
+   "n_authors": 15,
+   "relevant": true,
+   "summary": "Machine-learning regression homogenises effective temperature, surface gravity, and metallicity across nine spectroscopic surveys, producing a 10.13-million-star catalogue with reduced survey offsets.",
+   "topic": "Stars and Stellar Spectroscopy",
+   "model": "deepseek-flash"
   }
  ],
  "excluded": [],
- "updated": "2026-11-12T09:07:23+00:00",
- "model": null
+ "updated": "2026-11-12T09:25:44+00:00",
+ "model": "deepseek-flash"
 }
