@@ -12,12 +12,14 @@
 ![Last Commit](https://img.shields.io/github/last-commit/Xin-YuXiao/Awesome-AI-for-Astronomy)
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.24132725.svg)](https://doi.org/10.5281/zenodo.24132725)
 
-**[Web page](https://xin-yuxiao.github.io/Awesome-AI-for-Astronomy/)** &nbsp;|&nbsp; **[Contents](#contents)** &nbsp;|&nbsp; **[Contributing](CONTRIBUTING.md)** &nbsp;|&nbsp; **[Citation](#citation)**
+**[Web page](https://xin-yuxiao.github.io/Awesome-AI-for-Astronomy/)** &nbsp;|&nbsp; **[AstroAI Today](https://xin-yuxiao.github.io/Awesome-AI-for-Astronomy/today.html)** &nbsp;|&nbsp; **[Contents](#contents)** &nbsp;|&nbsp; **[Contributing](CONTRIBUTING.md)** &nbsp;|&nbsp; **[Citation](#citation)**
 
 </div>
 
 > [!TIP]
 > The [searchable web page](https://xin-yuxiao.github.io/Awesome-AI-for-Astronomy/) filters all 388 papers and 65 software packages by section, year, venue type, public code, model weights or data, and data modality, and shows a one-sentence summary for every paper. The full list can also be downloaded as [JSON](https://xin-yuxiao.github.io/Awesome-AI-for-Astronomy/entries.json) or [CSV](https://xin-yuxiao.github.io/Awesome-AI-for-Astronomy/papers.csv).
+>
+> [AstroAI Today](https://xin-yuxiao.github.io/Awesome-AI-for-Astronomy/today.html) collects new arXiv papers on machine learning in astronomy every day, with one-sentence summaries and weekly and monthly digests written by a language model. These papers are not reviewed; the curated list below is.
 
 ## About
 

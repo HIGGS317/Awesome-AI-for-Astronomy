@@ -24,6 +24,8 @@ python scripts/build.py --check  # confirm README.md matches data/entries.yml
 
 Pull requests are checked with `--check`, so commit the regenerated `README.md` together with your change to `data/entries.yml`.
 
+The [AstroAI Today](https://xin-yuxiao.github.io/Awesome-AI-for-Astronomy/today.html) page is separate from the curated list. Every day the AstroAI Today workflow ([`scripts/today.py`](scripts/today.py)) searches arXiv for new papers that combine machine learning and astronomy, asks a language model to screen and summarise them, and stores the result in `data/today/`. The summaries are written by Claude when the repository secret `ANTHROPIC_API_KEY` is set and by GitHub Models otherwise. A paper found there can be proposed for the curated list through an issue or a pull request like any other.
+
 Once a month the Metadata Audit workflow ([`scripts/audit.py`](scripts/audit.py)) compares the entries still listed as arXiv preprints with arXiv and Crossref, and opens an issue listing papers that appear to have been published or retitled. Each finding is confirmed by hand before the entry is changed.
 
 ## Entry format

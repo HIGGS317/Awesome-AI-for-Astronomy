@@ -5,12 +5,16 @@ Usage:
     python scripts/build.py                 # write README.md and the web page in _site/
     python scripts/build.py --check         # exit with status 1 if README.md is out of date
 
-Besides index.html, the site directory receives entries.json, papers.csv and sitemap.xml.
+Besides index.html, the site directory receives style.css, entries.json, papers.csv, sitemap.xml
+and the AstroAI Today page (today.html, today/feed.xml and today/archive/<month>.json),
+built from data/today/ by scripts/today.py.
 
 Requires PyYAML (pip install pyyaml).
 """
 import argparse
 import csv
+import email.utils
+import shutil
 import datetime
 import html
 import json
@@ -402,8 +406,61 @@ def write_exports(data, outdir):
         '<?xml version="1.0" encoding="UTF-8"?>\n'
         '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
         f"  <url><loc>{PAGE}</loc><lastmod>{built}</lastmod></url>\n"
+        f"  <url><loc>{PAGE}today.html</loc><lastmod>{built}</lastmod></url>\n"
         "</urlset>\n", encoding="utf-8")
     return len(papers)
+
+
+# AstroAI Today ------------------------------------------------------------------
+
+TODAY = ROOT / "data" / "today"
+TODAY_FIELDS = ("id", "title", "authors", "n_authors", "primary", "topic", "summary", "excerpt", "links", "published")
+
+
+def today_site(data, outdir):
+    """Write today.html, the monthly archive files and the RSS feed. Returns the number of days."""
+    load = lambda f: json.loads(f.read_text(encoding="utf-8"))
+    days = []
+    for f in sorted((TODAY / "daily").glob("*.json"), reverse=True):
+        day = load(f)
+        papers = [{k: p[k] for k in TODAY_FIELDS if k in p} for p in day["papers"] if p.get("relevant") is not False]
+        days.append({"date": day["date"], "papers": papers, "model": day.get("model")})
+    weekly = [load(f) for f in sorted((TODAY / "weekly").glob("*.json"), reverse=True)]
+    monthly = [load(f) for f in sorted((TODAY / "monthly").glob("*.json"), reverse=True)]
+
+    arch = outdir / "today" / "archive"
+    arch.mkdir(parents=True, exist_ok=True)
+    months = sorted({d["date"][:7] for d in days}, reverse=True)
+    for m in months:
+        (arch / f"{m}.json").write_text(json.dumps(
+            {"month": m, "days": [{"date": d["date"], "papers": d["papers"]} for d in days if d["date"].startswith(m)]},
+            ensure_ascii=False, separators=(",", ":")), encoding="utf-8")
+
+    items = []
+    for d in days[:7]:
+        for p in d["papers"]:
+            when = email.utils.format_datetime(datetime.datetime.fromisoformat(d["date"] + "T06:00:00+00:00"))
+            text = p.get("summary") or p.get("excerpt", "")
+            items.append(
+                f"<item><title>{html.escape(p['title'])}</title><link>https://arxiv.org/abs/{p['id']}</link>"
+                f"<guid isPermaLink=\"true\">https://arxiv.org/abs/{p['id']}</guid><pubDate>{when}</pubDate>"
+                f"<description>{html.escape(text)}</description></item>")
+    (outdir / "today" / "feed.xml").write_text(
+        '<?xml version="1.0" encoding="UTF-8"?>\n<rss version="2.0"><channel>'
+        f"<title>AstroAI Today</title><link>{PAGE}today.html</link>"
+        "<description>New arXiv papers that apply machine learning to astronomy, with one-sentence summaries.</description>"
+        + "".join(items) + "</channel></rss>\n", encoding="utf-8")
+
+    built, _ = built_info()
+    sections = [s["title"] for s in data["sections"] if s.get("kind") != "links"]
+    payload = {"built": built, "model": next((d["model"] for d in days if d.get("model")), None),
+               "sections": sections, "days": days[:45], "weekly": weekly, "monthly": monthly, "months": months}
+    page = (ROOT / "site" / "today.html").read_text(encoding="utf-8")
+    key = "/*__TODAY__*/null"
+    assert key in page, key
+    page = page.replace(key, json.dumps(payload, ensure_ascii=False, separators=(",", ":")).replace("</", "<\\/"))
+    (outdir / "today.html").write_text(page, encoding="utf-8")
+    return len(days)
 
 
 def main():
@@ -434,7 +491,9 @@ def main():
         assert key in page, key
         page = page.replace(key, value)
     out.write_text(page, encoding="utf-8")
-    print(f"wrote README.md, {out} and entries.json, papers.csv, sitemap.xml in {out.parent}")
+    shutil.copyfile(ROOT / "site" / "style.css", out.parent / "style.css")
+    n = today_site(data, out.parent)
+    print(f"wrote README.md, {out}, today.html ({n} days) and the data files in {out.parent}")
 
 
 if __name__ == "__main__":

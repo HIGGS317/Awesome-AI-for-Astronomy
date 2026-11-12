@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AstroAI Today</title>
+<meta name="description" content="New arXiv papers that apply machine learning to astronomy, collected every day with short summaries and weekly and monthly digests.">
+<link rel="canonical" href="https://xin-yuxiao.github.io/Awesome-AI-for-Astronomy/today.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Awesome AI for Astronomy">
+<meta property="og:title" content="AstroAI Today">
+<meta property="og:description" content="New arXiv papers that apply machine learning to astronomy, collected every day with short summaries and weekly and monthly digests.">
+<meta property="og:url" content="https://xin-yuxiao.github.io/Awesome-AI-for-Astronomy/today.html">
+<link rel="alternate" type="application/rss+xml" href="today/feed.xml" title="AstroAI Today">
+<script>document.documentElement.classList.add("js");</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+.tabs { display: inline-flex; padding: 3px; gap: 2px; background: var(--sunken); border: 1px solid var(--rule); border-radius: 9px; }
+.tabs button { font: 500 14px/1 var(--sans); color: var(--muted); background: transparent; border: 0; border-radius: 6px; height: 30px; padding: 0 14px; cursor: pointer; white-space: nowrap; }
+.tabs button:hover { color: var(--ink); }
+.tabs button[aria-selected="true"] { background: var(--surface); color: var(--ink); box-shadow: 0 0 0 1px var(--rule); }
+.wrap { max-width: 1080px; }
+.bar .wrap { min-height: 64px; }
+.bar .search { flex: 1 1 260px; }
+#ftopic { max-width: 230px; }
+.main { padding-top: 24px; padding-bottom: 72px; }
+.digest { background: var(--surface); border: 1px solid var(--rule); border-radius: 12px; padding: 18px 22px 16px; margin-bottom: 22px; }
+.digest h2 { margin: 0; font-size: 18px; font-weight: 600; }
+.dhead { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 12px; }
+.overview { margin: 10px 0 0; font-size: 15px; line-height: 1.6; max-width: 92ch; }
+.themes { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 12px; }
+.themes .tag { font-size: 12.5px; padding: 4px 8px; }
+.digest h3 { margin: 16px 0 6px; font-size: 14px; font-weight: 600; }
+.hl { margin: 0; padding-left: 20px; }
+.hl li { margin: 4px 0; }
+.hl span { color: var(--muted); }
+.aiinfo { margin: 14px 0 0; font-size: 12.5px; color: var(--faint); }
+.topics { display: grid; grid-template-columns: minmax(0, 260px) 36px minmax(0, 1fr); gap: 5px 10px; align-items: center; margin: 4px 0 0; font-size: 13px; }
+.topics .bar-fill { height: 8px; border-radius: 4px; background: color-mix(in srgb, var(--accent) 55%, transparent); }
+.topics .c { text-align: right; color: var(--muted); }
+.titem { display: grid; grid-template-columns: minmax(0, 1fr) 200px; gap: 6px 20px; padding: 13px 20px; border-bottom: 1px solid var(--rule); }
+.rows > .titem:last-child { border-bottom: 0; }
+.titem:hover { background: var(--sunken); }
+.tmeta { margin-top: 3px; color: var(--muted); font-size: 13px; display: flex; flex-wrap: wrap; gap: 4px 8px; align-items: center; }
+.cat { font-size: 12px; padding: 2px 6px; border-radius: 4px; background: var(--pre-bg); color: var(--pre-fg); font-weight: 500; }
+.tsum { margin: 6px 0 0; font-size: 14px; line-height: 1.55; max-width: 92ch; }
+.tsum.excerpt { color: var(--muted); }
+.tsum.excerpt::before { content: "Abstract, first sentence. "; font-weight: 600; font-size: 12.5px; }
+.titem .links { justify-content: flex-end; }
+.note-box { margin: 0 0 18px; padding: 12px 16px; border: 1px solid var(--rule); border-radius: 10px; background: var(--surface); color: var(--muted); font-size: 13.5px; }
+.archive-controls { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; margin-bottom: 18px; }
+.digest-list { display: grid; gap: 10px; margin-bottom: 22px; }
+.digest-list details { background: var(--surface); border: 1px solid var(--rule); border-radius: 10px; padding: 12px 16px; }
+.digest-list summary { cursor: pointer; font-weight: 600; }
+.digest-list p { margin: 8px 0 0; }
+@media (max-width: 720px) {
+  .titem { grid-template-columns: minmax(0, 1fr); padding: 12px 16px; }
+  .titem .links { justify-content: flex-start; }
+  .topics { grid-template-columns: minmax(0, 1fr) 30px; }
+  .topics .bar-fill { display: none; }
+  .tabs { width: 100%; overflow-x: auto; }
+  .bar .ctl, #ftopic { width: 100%; max-width: none; }
+  .actions { flex-wrap: wrap; }
+}
+</style>
+</head>
+<body>
+<header class="band">
+  <div class="wrap">
+    <div>
+      <div class="brand">
+        <svg width="34" height="34" viewBox="0 0 34 34" aria-hidden="true">
+          <circle cx="17" cy="17" r="13.5" fill="none" stroke="#b9c6d8" stroke-width="1.3" stroke-dasharray="2.2 2.6"/>
+          <circle cx="17" cy="17" r="8" fill="none" stroke="#b9c6d8" stroke-width="1.3"/>
+          <circle cx="17" cy="17" r="3.4" fill="#ffffff"/>
+          <circle cx="22.7" cy="11.3" r="2.1" fill="#7ea4ff"/>
+          <circle cx="7.4" cy="26.6" r="1.6" fill="#ffffff"/>
+        </svg>
+        <div>
+          <h1>AstroAI Today</h1>
+          <p class="lede">New arXiv papers that apply machine learning to astronomy, collected every day. Each paper gets a one-sentence summary, and each week and month gets a short overview of its main directions.</p>
+        </div>
+      </div>
+      <ul class="stats" id="stats"></ul>
+    </div>
+    <div class="actions">
+      <a class="btn" href="./">Curated list</a>
+      <a class="btn" href="today/feed.xml">RSS</a>
+      <button type="button" class="btn icon" id="theme" aria-label="Switch to dark theme" title="Switch theme">
+        <svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13Zm0 1.5v10a5 5 0 0 1 0-10Z" fill="currentColor"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<div class="bar">
+  <div class="wrap">
+    <div class="tabs" role="tablist" aria-label="Period">
+      <button type="button" role="tab" data-tab="today">Today</button>
+      <button type="button" role="tab" data-tab="week">This week</button>
+      <button type="button" role="tab" data-tab="month">This month</button>
+      <button type="button" role="tab" data-tab="archive">Archive</button>
+    </div>
+    <div class="search">
+      <svg width="15" height="15" viewBox="0 0 16 16" aria-hidden="true"><path d="M7 1.8a5.2 5.2 0 1 0 3.2 9.3l3.3 3.3 1.1-1.1-3.3-3.3A5.2 5.2 0 0 0 7 1.8Zm0 1.6a3.6 3.6 0 1 1 0 7.2 3.6 3.6 0 0 1 0-7.2Z" fill="currentColor"/></svg>
+      <label class="sr-only" for="q">Search</label>
+      <input id="q" type="search" placeholder="Search titles, authors and summaries" autocomplete="off">
+    </div>
+    <label class="sr-only" for="ftopic">Topic</label>
+    <select class="ctl" id="ftopic"></select>
+    <div class="count" id="count" aria-live="polite"></div>
+  </div>
+</div>
+
+<main class="wrap main" id="view">
+  <noscript><p class="note-box">This page needs JavaScript. The daily data is also available as an <a href="today/feed.xml">RSS feed</a>.</p></noscript>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p id="built"></p>
+    <p>Papers are found by keyword search of arXiv and screened and summarised by a language model, so mistakes are possible. They are not reviewed for the <a href="./">curated list</a>.</p>
+  </div>
+</footer>
+
+<script id="data" type="application/json">/*__TODAY__*/null</script>
+<script>
+(function () {
+  "use strict";
+  var D = JSON.parse(document.getElementById("data").textContent);
+  var $ = function (id) { return document.getElementById(id); };
+  var store = {
+    get: function (k) { try { return localStorage.getItem(k); } catch (e) { return null; } },
+    set: function (k, v) { try { localStorage.setItem(k, v); } catch (e) {} }
+  };
+  function esc(s) {
+    return String(s == null ? "" : s).replace(/[&<>"']/g, function (c) {
+      return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c];
+    });
+  }
+  function fmt(iso, opts) {
+    var d = new Date(iso + "T12:00:00Z");
+    return d.toLocaleDateString("en-GB", Object.assign({ timeZone: "UTC" }, opts || { weekday: "long", day: "numeric", month: "long", year: "numeric" }));
+  }
+  function plural(n, w) { return n + " " + w + (n === 1 ? "" : "s"); }
+
+  /* Theme */
+  function applyTheme(t) {
+    document.documentElement.setAttribute("data-theme", t);
+    $("theme").setAttribute("aria-label", t === "dark" ? "Switch to light theme" : "Switch to dark theme");
+  }
+  applyTheme(store.get("aia-theme") || (window.matchMedia && matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light"));
+  $("theme").addEventListener("click", function () {
+    var t = document.documentElement.getAttribute("data-theme") === "dark" ? "light" : "dark";
+    applyTheme(t); store.set("aia-theme", t);
+  });
+
+  /* Periods */
+  var days = D.days;                       /* newest first */
+  var latest = days.length ? days[0].date : null;
+  function isoWeek(iso) {
+    var d = new Date(iso + "T00:00:00Z"), day = (d.getUTCDay() + 6) % 7;
+    var mon = new Date(d); mon.setUTCDate(d.getUTCDate() - day);
+    var sun = new Date(mon); sun.setUTCDate(mon.getUTCDate() + 6);
+    var th = new Date(mon); th.setUTCDate(mon.getUTCDate() + 3);
+    var y = th.getUTCFullYear(), jan4 = new Date(Date.UTC(y, 0, 4));
+    var w = 1 + Math.round(((th - jan4) / 864e5 - 3 + ((jan4.getUTCDay() + 6) % 7)) / 7);
+    return { key: y + "-W" + (w < 10 ? "0" : "") + w, start: mon.toISOString().slice(0, 10), end: sun.toISOString().slice(0, 10) };
+  }
+  var week = latest ? isoWeek(latest) : null;
+  var month = latest ? latest.slice(0, 7) : null;
+  function within(a, b) { return days.filter(function (d) { return d.date >= a && d.date <= b; }); }
+  function find(list, key) { return list.filter(function (x) { return x.period === key; })[0]; }
+  function count(ds) { return ds.reduce(function (n, d) { return n + d.papers.length; }, 0); }
+
+  var weekDays = week ? within(week.start, week.end) : [];
+  var monthDays = month ? within(month + "-01", month + "-31") : [];
+  var stats = [];
+  if (latest) {
+    stats.push("<li><b>" + days[0].papers.length + "</b>papers on " + esc(fmt(latest, { day: "numeric", month: "short" })) + "</li>");
+    stats.push("<li><b>" + count(weekDays) + "</b>this week</li>");
+    stats.push("<li><b>" + count(monthDays) + "</b>this month</li>");
+  }
+  $("stats").innerHTML = stats.join("");
+  $("built").textContent = "Updated " + D.built + (D.model ? ". Summaries by " + D.model + "." : ".");
+
+  /* Filters */
+  var st = { tab: "today", q: "", topic: "", archive: D.months[0] || "" };
+  $("ftopic").innerHTML = '<option value="">All topics</option>' + D.sections.map(function (s) {
+    return '<option value="' + esc(s) + '">' + esc(s) + "</option>";
+  }).join("");
+  function pass(p) {
+    if (st.topic && p.topic !== st.topic) return false;
+    if (!st.q) return true;
+    var hay = (p.title + " " + p.summary + " " + (p.excerpt || "") + " " + p.authors.join(" ") + " " + p.id).toLowerCase();
+    return st.q.split(/\s+/).every(function (t) { return hay.indexOf(t) >= 0; });
+  }
+
+  /* Rendering */
+  function authors(p) {
+    var a = p.authors.slice(0, 3).join(", ");
+    return p.n_authors > 3 ? a + " et al." : a;
+  }
+  function item(p) {
+    var links = '<a class="pill" href="https://arxiv.org/abs/' + esc(p.id) + '">arXiv</a>' +
+      '<a class="pill" href="https://arxiv.org/pdf/' + esc(p.id) + '">PDF</a>' +
+      p.links.map(function (u) {
+        var label = /github|gitlab/.test(u) ? "Code" : /huggingface/.test(u) ? "Hugging Face" : "Zenodo";
+        return '<a class="pill' + (label === "Code" ? " code" : "") + '" href="' + esc(u) + '">' + label + "</a>";
+      }).join("");
+    var text = p.summary ? '<p class="tsum">' + esc(p.summary) + "</p>" : (p.excerpt ? '<p class="tsum excerpt">' + esc(p.excerpt) + "</p>" : "");
+    return '<article class="titem"><div class="paper">' +
+      '<a class="ttl" href="https://arxiv.org/abs/' + esc(p.id) + '">' + esc(p.title) + "</a>" +
+      '<div class="tmeta"><span>' + esc(authors(p)) + '</span><span class="cat">' + esc(p.primary) + "</span>" +
+      (p.topic ? '<span class="tag">' + esc(p.topic) + "</span>" : "") + "</div>" + text +
+      '</div><div class="links">' + links + "</div></article>";
+  }
+  function block(title, sub, papers) {
+    return '<section class="sec"><div class="sechead"><h2>' + esc(title) + '</h2><span class="n">' + esc(sub) + "</span></div>" +
+      '<div class="rows">' + papers.map(item).join("") + "</div></section>";
+  }
+  function digestPanel(dg, title, papers) {
+    if (!dg) return "";
+    var byId = {};
+    papers.forEach(function (p) { byId[p.id] = p; });
+    var html = '<section class="digest"><div class="dhead"><h2>' + esc(title) + '</h2><span class="n">' +
+      plural(dg.count, "paper") + (dg.final ? "" : ", in progress") + "</span></div>";
+    if (dg.overview) {
+      html += '<p class="overview">' + esc(dg.overview) + "</p>";
+      if (dg.themes.length) html += '<div class="themes">' + dg.themes.map(function (t) { return '<span class="tag">' + esc(t) + "</span>"; }).join("") + "</div>";
+      var hl = dg.highlights.filter(function (id) { return byId[id]; });
+      if (hl.length) {
+        html += "<h3>Highlights</h3><ol class=\"hl\">" + hl.map(function (id) {
+          var p = byId[id];
+          return '<li><a href="https://arxiv.org/abs/' + esc(id) + '">' + esc(p.title) + "</a>" + (p.summary ? " <span>" + esc(p.summary) + "</span>" : "") + "</li>";
+        }).join("") + "</ol>";
+      }
+    }
+    var tops = Object.keys(dg.topics || {});
+    if (tops.length) {
+      var max = Math.max.apply(null, tops.map(function (k) { return dg.topics[k]; }));
+      html += "<h3>By topic</h3><div class=\"topics\">" + tops.map(function (k) {
+        return "<span>" + esc(k) + '</span><span class="c">' + dg.topics[k] + '</span><span class="bar-fill" style="width:' + Math.max(4, 100 * dg.topics[k] / max) + '%"></span>';
+      }).join("") + "</div>";
+    }
+    if (dg.model) html += '<p class="aiinfo">Overview written by ' + esc(dg.model) + " from the titles and summaries of these papers. Check the papers before relying on it.</p>";
+    return html + "</section>";
+  }
+  function papersOf(ds) { return ds.reduce(function (a, d) { return a.concat(d.papers); }, []); }
+  function byDay(ds) {
+    return ds.map(function (d) {
+      var ps = d.papers.filter(pass);
+      return ps.length ? block(fmt(d.date), plural(ps.length, "paper"), ps) : "";
+    }).join("");
+  }
+  function byTopic(ps) {
+    var groups = {};
+    ps.filter(pass).forEach(function (p) { (groups[p.topic || "Other"] = groups[p.topic || "Other"] || []).push(p); });
+    return Object.keys(groups).sort(function (a, b) { return groups[b].length - groups[a].length; }).map(function (k) {
+      return block(k, plural(groups[k].length, "paper"), groups[k]);
+    }).join("");
+  }
+  function empty(msg) { return '<div class="empty"><p>' + msg + "</p></div>"; }
+
+  var archiveCache = {};
+  function render() {
+    Array.prototype.forEach.call(document.querySelectorAll(".tabs button"), function (b) {
+      b.setAttribute("aria-selected", String(b.dataset.tab === st.tab));
+    });
+    var html = "", shown = 0;
+    if (!latest && st.tab !== "archive") {
+      $("view").innerHTML = empty("The first listing will appear after the next daily run.");
+      $("count").textContent = "";
+      return;
+    }
+    if (st.tab === "today") {
+      var ps = days[0].papers.filter(pass);
+      shown = ps.length;
+      html = ps.length ? block(fmt(latest), plural(ps.length, "paper") + " in the latest arXiv listing", ps) : empty("No papers match these filters.");
+    } else if (st.tab === "week") {
+      html = digestPanel(find(D.weekly, week.key), "Week of " + fmt(week.start, { day: "numeric", month: "long", year: "numeric" }), papersOf(weekDays));
+      shown = papersOf(weekDays).filter(pass).length;
+      html += byDay(weekDays) || empty("No papers match these filters.");
+    } else if (st.tab === "month") {
+      var mp = papersOf(monthDays);
+      html = digestPanel(find(D.monthly, month), fmt(month + "-15", { month: "long", year: "numeric" }), mp);
+      shown = mp.filter(pass).length;
+      html += byTopic(mp) || empty("No papers match these filters.");
+    } else {
+      html = '<div class="archive-controls"><label for="amonth">Month</label><select class="ctl" id="amonth">' +
+        D.months.map(function (m) { return '<option value="' + m + '"' + (m === st.archive ? " selected" : "") + ">" + esc(fmt(m + "-15", { month: "long", year: "numeric" })) + "</option>"; }).join("") +
+        "</select></div>";
+      var a = archiveCache[st.archive];
+      if (!st.archive) {
+        html += empty("Nothing has been archived yet.");
+      } else if (!a) {
+        html += empty("Loading " + esc(st.archive) + ".");
+        var key = st.archive;
+        fetch("today/archive/" + key + ".json").then(function (r) {
+          if (!r.ok) throw new Error(r.status);
+          return r.json();
+        }).then(function (j) { archiveCache[key] = j; render(); })
+          .catch(function () { archiveCache[key] = { failed: true, days: [] }; render(); });
+      } else if (a.failed) {
+        html += empty("This month could not be loaded. Reload the page to try again.");
+      } else {
+        var digests = D.weekly.filter(function (w) { return w.start.slice(0, 7) === st.archive || w.end.slice(0, 7) === st.archive; })
+          .concat(D.monthly.filter(function (m) { return m.period === st.archive; }))
+          .filter(function (x) { return x.overview; });
+        if (digests.length) {
+          html += '<div class="digest-list">' + digests.map(function (x) {
+            var label = x.period.indexOf("W") > 0 ? "Week of " + fmt(x.start, { day: "numeric", month: "long" }) : fmt(x.period + "-15", { month: "long", year: "numeric" });
+            return "<details><summary>" + esc(label) + " (" + plural(x.count, "paper") + ")</summary><p>" + esc(x.overview) + "</p></details>";
+          }).join("") + "</div>";
+        }
+        shown = papersOf(a.days).filter(pass).length;
+        html += byDay(a.days) || empty("No papers match these filters.");
+      }
+    }
+    $("view").innerHTML = html;
+    $("count").innerHTML = "<b>" + shown + "</b> " + (shown === 1 ? "paper" : "papers");
+    var am = $("amonth");
+    if (am) am.addEventListener("change", function (ev) { st.archive = ev.target.value; render(); });
+  }
+
+  Array.prototype.forEach.call(document.querySelectorAll(".tabs button"), function (b) {
+    b.addEventListener("click", function () { st.tab = b.dataset.tab; history.replaceState(null, "", "#" + st.tab); render(); });
+  });
+  var timer;
+  $("q").addEventListener("input", function (ev) {
+    clearTimeout(timer);
+    timer = setTimeout(function () { st.q = ev.target.value.trim().toLowerCase(); render(); }, 120);
+  });
+  $("ftopic").addEventListener("change", function (ev) { st.topic = ev.target.value; render(); });
+  var h = location.hash.slice(1);
+  if (["today", "week", "month", "archive"].indexOf(h) >= 0) st.tab = h;
+  render();
+})();
+</script>
+</body>
+</html>

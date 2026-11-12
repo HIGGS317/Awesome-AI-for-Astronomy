@@ -1,0 +1,63 @@
+name: AstroAI Today
+
+# Every day, collect new arXiv papers that apply machine learning to astronomy, summarise them,
+# refresh the weekly and monthly digests, commit data/today/ and rebuild the web page.
+
+on:
+  schedule:
+    - cron: "41 2 * * *"
+  workflow_dispatch:
+    inputs:
+      backfill:
+        description: Collect the last N days (first run only)
+        default: "0"
+      lookup:
+        description: Only print arXiv metadata for these comma-separated ids
+        default: ""
+
+permissions:
+  contents: write
+  actions: write
+  models: read
+
+concurrency:
+  group: astroai-today
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.12"
+      - run: pip install pyyaml
+      - name: Look up arXiv ids
+        if: inputs.lookup != ''
+        env:
+          IDS: ${{ inputs.lookup }}
+        run: python scripts/today.py --lookup "$IDS" | tee -a "$GITHUB_STEP_SUMMARY"
+      - name: Collect and summarise new papers
+        if: inputs.lookup == ''
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          GITHUB_TOKEN: ${{ github.token }}
+          BACKFILL: ${{ inputs.backfill || '0' }}
+        run: python scripts/today.py --backfill "$BACKFILL"
+      - name: Commit the new data and rebuild the web page
+        if: inputs.lookup == ''
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          git add data/today
+          if git diff --cached --quiet; then
+            echo "No new papers."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "AstroAI Today: $(date -u +%Y-%m-%d)"
+          git pull --rebase --quiet
+          git push
+          gh workflow run build.yml --ref main
