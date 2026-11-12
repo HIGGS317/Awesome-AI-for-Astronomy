@@ -12,9 +12,10 @@ Each run
   4. refreshes the digest of the current week and month in data/today/weekly/ and
      data/today/monthly/, finalising the previous week or month once it has ended.
 
-The summaries are written by Claude when ANTHROPIC_API_KEY is set, or by any service with an
-OpenAI-compatible chat completions API when LLM_API_KEY is set (LLM_BASE_URL and LLM_MODEL
-choose the service and model). Without a key, papers pass a stricter keyword screen, get a
+The summaries are written by DeepSeek, or by another service with an OpenAI-compatible chat
+completions API, when LLM_API_KEY is set (LLM_BASE_URL and LLM_MODEL choose the service and
+model; the defaults are https://api.deepseek.com and deepseek-flash), or by Claude when only
+ANTHROPIC_API_KEY is set. Without a key, papers pass a stricter keyword screen, get a
 topic from keyword rules and a TL;DR from Semantic Scholar when one exists, and keep the first
 sentence of the abstract until then.
 
@@ -258,15 +259,17 @@ def oai_recent(since, today):
     return sorted(out, key=lambda p: p["published"], reverse=True)
 
 
-def keyword_match(p):
+def keyword_match(p, loose=False):
     """Keyword screen for papers that apply AI to astronomy.
 
     Machine learning has to be central, which is taken to mean a method term in the title or at
     least two method terms in the abstract; weak terms such as emulator or Gaussian process do not
     count. The paper has to be astronomical, which means an astronomy term in the title, or an
     astro-ph category together with a primary category in astronomy, physics.space-ph, gr-qc, cs
-    or stat, or two astronomy terms in the abstract."""
-    if not ML_STRONG_RE.search(p["title"]) and len(ML_STRONG_RE.findall(p["abstract"])) < 2:
+    or stat, or two astronomy terms in the abstract. With `loose`, used when a language model checks
+    every candidate afterwards, one method term anywhere is enough."""
+    need = 1 if loose else 2
+    if not ML_STRONG_RE.search(p["title"]) and len(ML_STRONG_RE.findall(p["abstract"])) < need:
         return False
     if ASTRO_RE.search(p["title"]):
         return True
@@ -324,7 +327,7 @@ def keyword_topic(p):
     return best if best in SECTIONS else ""
 
 
-def candidates(since, today):
+def candidates(since, today, loose=False):
     """Recent astro-ph papers that mention machine learning, and recent ML papers that mention astronomy.
 
     Keyword matching is done here rather than in the arXiv query, which is less complete for long queries.
@@ -337,7 +340,7 @@ def candidates(since, today):
     ml = recent("(" + " OR ".join(f"cat:{c}" for c in ML_CATS) + ") AND " + clause("abs", ASTRO_TERMS), since)
     seen = {}
     for p in astro + ml:
-        if keyword_match(p):
+        if keyword_match(p, loose):
             seen.setdefault(p["id"], p)
     print(f"scanned {len(astro)} astro-ph and {len(ml)} cs or stat.ML papers; {len(seen)} match the keywords")
     return sorted(seen.values(), key=lambda p: p["published"], reverse=True)
@@ -346,16 +349,17 @@ def candidates(since, today):
 # Language model --------------------------------------------------------------------
 
 class Writer:
-    """Thin client for Claude or an OpenAI-compatible service. `name` is None when no model is available."""
+    """Thin client for an OpenAI-compatible service such as DeepSeek, or for Claude.
+    `name` is None when no model is available."""
 
     def __init__(self):
-        self.anthropic = os.environ.get("ANTHROPIC_API_KEY")
         self.openai = os.environ.get("LLM_API_KEY")
-        self.base = (os.environ.get("LLM_BASE_URL") or "https://api.openai.com/v1").rstrip("/")
-        if self.anthropic:
+        self.anthropic = None if self.openai else os.environ.get("ANTHROPIC_API_KEY")
+        self.base = (os.environ.get("LLM_BASE_URL") or "https://api.deepseek.com").rstrip("/")
+        if self.openai:
+            self.name = os.environ.get("LLM_MODEL") or ("deepseek-flash" if "deepseek.com" in self.base else None)
+        elif self.anthropic:
             self.name = os.environ.get("TODAY_ANTHROPIC_MODEL") or "claude-haiku-5-5"
-        elif self.openai:
-            self.name = os.environ.get("LLM_MODEL") or "gpt-4.1-mini"
         else:
             self.name = None
         self.last = 0.0
@@ -374,9 +378,11 @@ class Writer:
                 r = json.loads(http("https://api.anthropic.com/v1/messages", body, {
                     "x-api-key": self.anthropic, "anthropic-version": "2023-06-01", "content-type": "application/json"}))
                 return "".join(b.get("text", "") for b in r.get("content", []))
-            body = json.dumps({"model": self.name, "temperature": 0.2, "max_tokens": max_tokens,
-                               "messages": [{"role": "system", "content": system},
-                                            {"role": "user", "content": prompt}]}).encode()
+            request = {"model": self.name, "temperature": 0.2, "max_tokens": max_tokens,
+                       "messages": [{"role": "system", "content": system}, {"role": "user", "content": prompt}]}
+            if "deepseek.com" in self.base:
+                request["thinking"] = {"type": "disabled"}  # DeepSeek V4 models think by default
+            body = json.dumps(request).encode()
             raw = http(self.base + "/chat/completions", body,
                        {"Authorization": f"Bearer {self.openai}", "Content-Type": "application/json"})
             try:
@@ -675,7 +681,7 @@ def main():
     window = max(args.backfill, 4)
     since = (today - dt.timedelta(days=window)).isoformat()
     known = known_ids()
-    new = [p for p in candidates(since, today.isoformat()) if p["id"] not in known]
+    new = [p for p in candidates(since, today.isoformat(), loose=bool(writer.name)) if p["id"] not in known]
     print(f"{len(new)} new candidate papers since {since}")
     assess(writer, new)
     # Papers are filed under their arXiv announcement date (the OAI datestamp), or under the
@@ -685,7 +691,7 @@ def main():
         by_day.setdefault(min(p["published"][:10], today.isoformat()), []).append(p)
     for day, papers in sorted(by_day.items()):
         print("wrote", write_day(day, papers, writer))
-    resummarise(writer)
+    resummarise(writer, days=max(7, args.backfill))
     refresh_tldrs()
     digests(writer, today)
 
