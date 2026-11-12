@@ -432,7 +432,8 @@ def assess(writer, papers):
             f"id: {p['id']}\ntitle: {p['title']}\ncategories: {', '.join(p['categories'])}\nabstract: {p['abstract'][:1800]}"
             for p in batch)
         answer = first_json(writer.ask(ASSESS_SYSTEM, prompt, 1800), "[")
-        by_id = {str(a.get("id", "")).strip(): a for a in answer or [] if isinstance(a, dict)}
+        norm = lambda x: re.sub(r"^(?:arxiv:)?|v\d+$", "", str(x).strip(), flags=re.I)
+        by_id = {norm(a.get("id", "")): a for a in answer or [] if isinstance(a, dict)}
         for p in batch:
             a = by_id.get(p["id"])
             if a and isinstance(a.get("relevant"), bool) and a.get("summary"):
