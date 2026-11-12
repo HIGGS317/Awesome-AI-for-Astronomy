@@ -58,6 +58,32 @@
    "excerpt": "Solar radio bursts are generated through the plasma emission mechanism by beams of accelerated electrons travelling along magnetic field lines."
   },
   {
+   "id": "2611.13147",
+   "title": "Identification of chromospheric dynamical signatures in the 2022 December 27 solar flare with DKIST",
+   "primary": "astro-ph.SR",
+   "categories": [
+    "astro-ph.SR"
+   ],
+   "published": "2026-11-09T19:26:59Z",
+   "comment": "17 pages, 10 figures, Accepted in APJ",
+   "journal_ref": "",
+   "doi": "",
+   "links": [],
+   "authors": [
+    "Sarah Riley",
+    "Jiong Qiu",
+    "Graham Kerr",
+    "Dana Longcope",
+    "Gianna Cauzzi"
+   ],
+   "n_authors": 5,
+   "relevant": null,
+   "summary": "",
+   "topic": "",
+   "model": null,
+   "excerpt": "Spectroscopic observations by the Daniel K."
+  },
+  {
    "id": "2611.13118",
    "title": "Extracting Published Discussions of 13,616 Galaxies with Language Models",
    "primary": "astro-ph.IM",
@@ -241,6 +267,6 @@
   }
  ],
  "excluded": [],
- "updated": "2026-11-12T08:48:44+00:00",
+ "updated": "2026-11-12T08:51:03+00:00",
  "model": null
 }

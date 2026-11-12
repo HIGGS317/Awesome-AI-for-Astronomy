@@ -136,6 +136,34 @@
    "excerpt": "Classical Cepheids (CCs) are key distance indicators and tracers of young stellar populations in the Milky Way."
   },
   {
+   "id": "2611.09871",
+   "title": "Multi-phase Carbon Structure and Dynamics in NGC 6334: Insights from CO, [C I], and [C II]",
+   "primary": "astro-ph.GA",
+   "categories": [
+    "astro-ph.GA",
+    "astro-ph.SR"
+   ],
+   "published": "2026-11-06T18:48:43Z",
+   "comment": "12+10 pages, 23 figures, Accepted for publication in A&A",
+   "journal_ref": "",
+   "doi": "",
+   "links": [],
+   "authors": [
+    "S. Neupane",
+    "F. Wyrowski",
+    "N. Schneider",
+    "A. G. G. M. Tielens",
+    "R. Simon",
+    "J. S. Urquhart"
+   ],
+   "n_authors": 12,
+   "relevant": null,
+   "summary": "",
+   "topic": "",
+   "model": null,
+   "excerpt": "We present high-angular and velocity resolution observations of the emission lines of [CII] at 158 micron, [CI] at 609 micron, and the 12CO and 13CO (J=3-2) transitions toward the central region of NGC 6334, providing a detailed multi-phase view of carbon in..."
+  },
+  {
    "id": "2611.09657",
    "title": "Advances in High-Precision Astrometry for Exoplanet Detection for Astrometric Missions",
    "primary": "astro-ph.EP",
@@ -300,6 +328,6 @@
   }
  ],
  "excluded": [],
- "updated": "2026-11-12T08:48:44+00:00",
+ "updated": "2026-11-12T08:51:03+00:00",
  "model": null
 }
