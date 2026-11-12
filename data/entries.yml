@@ -1165,6 +1165,14 @@ sections:
       desc: Semi-supervised network that combines contrastive, color and redshift losses on CANDELS images.
 - title: Gravitational Lensing
   entries:
+  - name: SHINE
+    title: 'SHINE: Shear inference environment - Generative forward modelling for radio weak gravitational lensing'
+    venue: arXiv 2026
+    links:
+      Paper: https://arxiv.org/abs/2611.14301
+      Code: https://github.com/CentofantiEze/Radio_WL_Generative_Forward_Model
+      Model: https://zenodo.org/records/21131669
+    desc: A convolutional autoencoder trained on HST COSMOS galaxy images supplies morphologies for shear inference on 10,000 simulated radio interferometric visibilities.
   - name: CMU DeepLens
     title: 'CMU DeepLens: Deep Learning for Automatic Image-based Galaxy-Galaxy Strong Lens Finding'
     venue: MNRAS 2018
