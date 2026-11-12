@@ -952,6 +952,22 @@ sections:
       links:
         Paper: https://arxiv.org/abs/2608.02300
       desc: Distils a general-purpose VLM answering Galaxy Zoo decision tree questions into Zoobot through side tuning, with teacher uncertainty guiding which galaxies are sent for human labels.
+    - name: Galaxy_VAE
+      title: 'From Images to Features: Unbiased Morphology Classification via Variational Auto-Encoders and Domain Adaptation'
+      venue: MNRAS 2023
+      links:
+        Paper: https://arxiv.org/abs/2303.08627
+        Code: https://github.com/xuquanfeng/Galaxy_VAE
+        Journal: https://doi.org/10.1093/mnras/stad3181
+      desc: Variational auto-encoder compresses Galaxy Zoo DECaLS images into 40-dimensional latent features for random-forest morphology classification, with domain adaptation that makes the features consistent between DECaLS and BASS+MzLS images.
+    - title: 'From Galaxy Zoo DECaLS to BASS/MzLS: Detailed Galaxy Morphology Classification with Unsupervised Domain Adaption'
+      venue: MNRAS 2025
+      links:
+        Paper: https://arxiv.org/abs/2412.15533
+        Code: https://github.com/Rh-YE/ai4galmorph_desi
+        Data: https://doi.org/10.5281/zenodo.10579386
+        Journal: https://doi.org/10.1093/mnras/staf025
+      desc: Unsupervised domain adaptation transfers a classifier trained on DECaLS images with Galaxy Zoo DECaLS labels to BASS and MzLS images, and releases detailed morphology classifications for 248,088 galaxies.
   - title: Anomaly Detection
     entries:
     - name: Weirdest Galaxies
@@ -1443,6 +1459,14 @@ sections:
       Code: https://github.com/ShuhongLL/Denoising-Deep-Sky
       Data: https://huggingface.co/datasets/ToferFish/MuSCAT-RawImage
     desc: Synthesises paired training data from a CCD noise model covering shot noise, response non-uniformity, dark current, readout effects, cosmic rays and hot pixels on stacked high-SNR bases; releases multi-band raw frames from two twin ground-based telescopes.
+  - name: E-BGS
+    title: 'From DESI to Euclid: A Generative Bridge to Improve Measurements of Galaxy Structure'
+    venue: ApJL 2026
+    links:
+      Paper: https://arxiv.org/abs/2607.06891
+      Code: https://github.com/Rh-YE/EBGS
+      Journal: https://doi.org/10.3847/2041-8213/ae9cbf
+    desc: Image-to-image Schrödinger bridge translates DESI Legacy Survey images of Bright Galaxy Survey targets into Euclid VIS-like images, recovering structure down to 0.37 arcsec and reducing the bias of structural measurements such as the Petrosian radius.
 - title: Stars and Stellar Spectroscopy
   entries:
   - name: astroNN
@@ -3054,4 +3078,7 @@ sections:
   - name: Awesome-Scientific-Language-Models
     url: https://github.com/yuzhimanhua/Awesome-Scientific-Language-Models
     desc: covers scientific language models across domains.
+  - name: Awesome Astro Plates
+    url: https://xuquanfeng.github.io/awesome-astro-plates/
+    desc: covers historical astronomical plate research in Chinese and English, including data archives, digitization, astrometric calibration and photometry.
   kind: links
