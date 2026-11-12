@@ -1,0 +1,35 @@
+{
+ "period": "2026-W46",
+ "start": "2026-11-09",
+ "end": "2026-11-15",
+ "final": false,
+ "count": 11,
+ "topics": {
+  "Gravitational Waves": 3,
+  "Language and Vision-Language Models": 2,
+  "Exoplanets": 1,
+  "Benchmarks": 1,
+  "Solar Physics and Heliophysics": 1,
+  "Stars and Stellar Spectroscopy": 1,
+  "Planetary Science and Small Bodies": 1,
+  "Agents and Retrieval Systems": 1
+ },
+ "overview": "This week: gravitational-wave workflows use CNNs and neural-guided Bayesian inference for LISA, EMRI, and Einstein Telescope; LLM pipelines extract dark-matter models and galaxy discussions, and FAIR Universe releases a weak-lensing uncertainty benchmark. Other work presents JAX Gaussian-process inference, an explainability library, 4MOST Cepheid abundance networks, and a learned Mars atmosphere model.",
+ "themes": [
+  "Gravitational-wave detection and inference",
+  "LLM literature extraction and agents",
+  "Benchmarks and explainability for ML",
+  "Gaussian processes and time-series modeling",
+  "Stellar and planetary ML models"
+ ],
+ "highlights": [
+  "2611.10228",
+  "2611.08583",
+  "2611.13118",
+  "2611.10861",
+  "2611.09198",
+  "2611.12787"
+ ],
+ "model": "deepseek-flash",
+ "updated": "2026-11-12T10:19:18+00:00"
+}

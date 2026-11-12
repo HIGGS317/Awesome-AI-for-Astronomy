@@ -1,0 +1,43 @@
+{
+ "period": "2026-11",
+ "start": "2026-11-01",
+ "end": "2026-11-30",
+ "final": false,
+ "count": 44,
+ "topics": {
+  "Gravitational Waves": 5,
+  "Agents and Retrieval Systems": 4,
+  "Galaxies": 4,
+  "Stars and Stellar Spectroscopy": 4,
+  "Solar Physics and Heliophysics": 4,
+  "Benchmarks": 4,
+  "Cosmology and Large-Scale Structure": 3,
+  "High-Energy Astrophysics and Astroparticle Physics": 3,
+  "Simulation-Based Inference": 3,
+  "Radio Astronomy": 2,
+  "Foundation Models and Representation Learning": 2,
+  "Language and Vision-Language Models": 2,
+  "Time-Domain Astronomy and Transients": 1,
+  "Source Detection, Deblending and Image Simulation": 1,
+  "Exoplanets": 1,
+  "Planetary Science and Small Bodies": 1
+ },
+ "overview": "The period is dominated by agentic and LLM-assisted research workflows—AgenticTuner, provenance-enforcing multi-agent pipelines, GalaxyWiki and DarkMatterFM-Registry—alongside simulation-based inference and generative surrogates: conditional normalizing flows for DESI N(z) and standard sirens, SBi3PCF, Fourier neural operators for MHD and spin fields, and macrocanonical generators. Gravitational-wave work adds unified waveform generators and LISA/ET detection pipelines. New community resources include the COSMIO and FAIR Universe weak-lensing benchmarks, Survey of Surveys DR3 (10.13 million stars), and the SWXAI explainability library.",
+ "themes": [
+  "Agentic and LLM research workflows",
+  "Simulation-based inference and neural surrogates",
+  "Gravitational-wave waveform and detection models",
+  "Cross-survey benchmarks and catalogues",
+  "Solar, stellar and planetary ML applications"
+ ],
+ "highlights": [
+  "2611.04139",
+  "2611.10228",
+  "2611.10861",
+  "2611.07936",
+  "2611.09198",
+  "2611.08583"
+ ],
+ "model": "deepseek-flash",
+ "updated": "2026-11-12T10:19:24+00:00"
+}

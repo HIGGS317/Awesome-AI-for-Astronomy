@@ -1,0 +1,40 @@
+{
+ "period": "2026-W45",
+ "start": "2026-11-02",
+ "end": "2026-11-08",
+ "final": true,
+ "count": 33,
+ "topics": {
+  "Galaxies": 4,
+  "Agents and Retrieval Systems": 3,
+  "Cosmology and Large-Scale Structure": 3,
+  "Stars and Stellar Spectroscopy": 3,
+  "Solar Physics and Heliophysics": 3,
+  "High-Energy Astrophysics and Astroparticle Physics": 3,
+  "Simulation-Based Inference": 3,
+  "Benchmarks": 3,
+  "Radio Astronomy": 2,
+  "Gravitational Waves": 2,
+  "Foundation Models and Representation Learning": 2,
+  "Time-Domain Astronomy and Transients": 1,
+  "Source Detection, Deblending and Image Simulation": 1
+ },
+ "overview": "The period mixes agentic and LLM-driven calibration/observing workflows with simulation-based inference: normalizing flows for DESI photo-z and gravitational-wave cosmology, neural operators and surrogates for MHD turbulence, waveforms and stellar structure. New benchmarks target cross-survey imputation and small-data image classifiers, while catalogues include Fermi-LAT sources, SUMSS position angles and a 10.13-million-star spectroscopic homogenisation.",
+ "themes": [
+  "Agentic and LLM workflows",
+  "Simulation-based inference and normalizing flows",
+  "Neural operators and simulation surrogates",
+  "Cross-survey and small-data benchmarks",
+  "Homogenised catalogues and source detection"
+ ],
+ "highlights": [
+  "2611.04139",
+  "2611.07936",
+  "2611.04389",
+  "2611.04713",
+  "2611.05157",
+  "2610.37287"
+ ],
+ "model": "deepseek-flash",
+ "updated": "2026-11-12T10:19:07+00:00"
+}
