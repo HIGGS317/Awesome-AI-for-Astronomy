@@ -2,8 +2,9 @@
 """AstroAI Today: collect new arXiv papers that apply machine learning to astronomy.
 
 Each run
-  1. reads every recent astro-ph paper from the arXiv API and keeps those whose title or
-     abstract mentions a machine learning term, and adds recent cs and stat.ML papers whose
+  1. reads every astro-ph paper announced in the last days from the arXiv OAI-PMH interface
+     (the search API is the fallback) and keeps those whose title or abstract mentions a
+     machine learning term, and adds recent cs and stat.ML papers from the search API whose
      title or abstract mentions an astronomy term,
   2. asks a language model which of the new papers use machine learning as a central part
      of their method, and writes a one-sentence summary and a topic for each of them,
@@ -22,12 +23,16 @@ Usage:
 """
 import argparse
 import datetime as dt
+import email.utils
 import json
 import os
 import pathlib
 import re
+import subprocess
 import sys
+import tempfile
 import time
+import unicodedata
 import urllib.error
 import urllib.parse
 import urllib.request
@@ -151,12 +156,113 @@ def recent(query, since, page=200):
     return out
 
 
-def candidates(since):
+# arXiv OAI-PMH ---------------------------------------------------------------------
+
+OAI = "https://oaipmh.arxiv.org/oai"
+OAI_NS = {"o": "http://www.openarchives.org/OAI/2.0/", "r": "http://arxiv.org/OAI/arXivRaw/"}
+TEX_ACCENT = {'"': "\u0308", "'": "\u0301", "`": "\u0300", "^": "\u0302", "~": "\u0303", "=": "\u0304",
+              ".": "\u0307", "c": "\u0327", "v": "\u030c", "u": "\u0306", "H": "\u030b", "k": "\u0328"}
+TEX_LETTER = {"ss": "\u00df", "o": "\u00f8", "O": "\u00d8", "aa": "\u00e5", "AA": "\u00c5", "l": "\u0142",
+              "L": "\u0141", "ae": "\u00e6", "AE": "\u00c6", "i": "i", "j": "j"}
+
+
+def detex(text):
+    """Turn the TeX accents that arXiv keeps in author names into Unicode."""
+    text = re.sub(r"\\([\"'`^~=.])\s*\{?\\?([A-Za-z])\}?", lambda m: m.group(2) + TEX_ACCENT[m.group(1)], text)
+    text = re.sub(r"\\([cvuHk])(?:\{\\?([A-Za-z])\}|\s+([A-Za-z]))",
+                  lambda m: (m.group(2) or m.group(3)) + TEX_ACCENT[m.group(1)], text)
+    text = re.sub(r"\\(ss|aa|AA|ae|AE|[oOlLij])(?![A-Za-z])\s*", lambda m: TEX_LETTER[m.group(1)], text)
+    return unicodedata.normalize("NFC", text.replace("{", "").replace("}", ""))
+
+
+def split_authors(text):
+    text = re.sub(r"\([^()]*\)", "", detex(" ".join(text.split())))
+    names = re.split(r",\s*(?:and\s+)?|\s+and\s+", text)
+    return [n.strip() for n in names if n.strip()]
+
+
+def oai_page(params):
+    for attempt in range(6):
+        try:
+            body = http(OAI + "?" + urllib.parse.urlencode(params), timeout=180)
+            time.sleep(3)
+            return ET.fromstring(body)
+        except urllib.error.HTTPError as exc:
+            if exc.code != 503:
+                raise
+            wait = int(exc.headers.get("Retry-After") or 20)
+            print(f"OAI-PMH asks to wait {wait} s", file=sys.stderr)
+            time.sleep(min(wait, 120))
+        except (urllib.error.URLError, TimeoutError) as exc:
+            print(f"OAI-PMH request failed ({exc}), retrying", file=sys.stderr)
+            time.sleep(15 * (attempt + 1))
+    raise RuntimeError("the OAI-PMH interface did not respond")
+
+
+def oai_recent(since, today):
+    """New astro-ph papers announced on or after `since`, newest first.
+
+    A record counts as new when it has a single version, or when its first version was
+    submitted in the window; this leaves out replacements of older papers. The date used is
+    the OAI datestamp, which for a new paper is the day it was announced.
+    """
+    params = {"verb": "ListRecords", "metadataPrefix": "arXivRaw", "set": "physics:astro-ph", "from": since}
+    out, records = [], 0
+    while True:
+        root = oai_page(params)
+        error = root.find("o:error", OAI_NS)
+        if error is not None:
+            if error.get("code") == "noRecordsMatch":
+                break
+            raise RuntimeError(f"OAI-PMH error {error.get('code')}: {error.text}")
+        listing = root.find("o:ListRecords", OAI_NS)
+        for rec in listing.findall("o:record", OAI_NS):
+            records += 1
+            head, meta = rec.find("o:header", OAI_NS), rec.find("o:metadata/r:arXivRaw", OAI_NS)
+            if head.get("status") == "deleted" or meta is None:
+                continue
+            text = lambda tag: " ".join((meta.findtext(f"r:{tag}", "", OAI_NS) or "").split())
+            versions = meta.findall("r:version", OAI_NS)
+            try:
+                first = email.utils.parsedate_to_datetime(versions[0].findtext("r:date", "", OAI_NS)).date().isoformat()
+            except (IndexError, TypeError, ValueError):
+                first = ""
+            stamp = head.findtext("o:datestamp", "", OAI_NS)
+            if len(versions) > 1 and first < since:
+                continue
+            cats = text("categories").split()
+            abstract, comment = text("abstract"), text("comments")
+            out.append({
+                "id": text("id"),
+                "title": text("title") if "$" in text("title") else detex(text("title")),
+                "authors": split_authors(meta.findtext("r:authors", "", OAI_NS)),
+                "abstract": abstract,
+                "comment": comment,
+                "journal_ref": text("journal-ref"),
+                "doi": text("doi"),
+                "primary": cats[0] if cats else "",
+                "categories": cats,
+                "published": min(stamp, today) if stamp else first,
+                "links": sorted({u.rstrip(".") for u in LINK.findall(abstract + " " + comment)}),
+            })
+        token = listing.find("o:resumptionToken", OAI_NS)
+        if token is None or not (token.text or "").strip():
+            break
+        params = {"verb": "ListRecords", "resumptionToken": token.text.strip()}
+    print(f"OAI-PMH returned {records} astro-ph records, {len(out)} of them new papers")
+    return sorted(out, key=lambda p: p["published"], reverse=True)
+
+
+def candidates(since, today):
     """Recent astro-ph papers that mention machine learning, and recent ML papers that mention astronomy.
 
     Keyword matching is done here rather than in the arXiv query, which is less complete for long queries.
     """
-    astro = recent("(" + " OR ".join(f"cat:{c}" for c in ASTRO_CATS) + ")", since)
+    try:
+        astro = oai_recent(since, today)
+    except Exception as exc:
+        print(f"warning: OAI-PMH harvest failed ({exc}); using the search API", file=sys.stderr)
+        astro = recent("(" + " OR ".join(f"cat:{c}" for c in ASTRO_CATS) + ")", since)
     ml = recent("(" + " OR ".join(f"cat:{c}" for c in ML_CATS) + ") AND " + clause("abs", ASTRO_TERMS), since)
     seen = {}
     for p in astro:
@@ -184,7 +290,6 @@ class Writer:
         else:
             self.name = None
         self.last = 0.0
-        self.endpoint = 0
 
     def ask(self, system, prompt, max_tokens=1500):
         if not self.name:
@@ -207,30 +312,34 @@ class Writer:
             self.name = None
             return None
 
-    # GitHub Models has two public endpoints. The second one takes model names without the publisher prefix.
-    GITHUB_ENDPOINTS = [("https://models.github.ai/inference/chat/completions", lambda m: m),
-                        ("https://models.inference.ai.azure.com/chat/completions", lambda m: m.split("/")[-1])]
+    GITHUB_MODELS = "https://models.github.ai/inference/chat/completions"
+    GITHUB_FALLBACK = ["openai/gpt-4.1-mini", "openai/gpt-4o-mini"]
 
     def ask_github(self, system, prompt, max_tokens):
+        """Call GitHub Models with curl, as in the GitHub documentation, trying a second model on failure."""
+        models = [self.name] + [m for m in self.GITHUB_FALLBACK if m != self.name]
         errors = []
-        for i, (url, model) in enumerate(self.GITHUB_ENDPOINTS[self.endpoint:], start=self.endpoint):
-            body = json.dumps({"model": model(self.name), "temperature": 0.2, "max_tokens": max_tokens,
-                               "messages": [{"role": "system", "content": system},
-                                            {"role": "user", "content": prompt}]}).encode()
-            try:
-                raw = http(url, body, {"Authorization": f"Bearer {self.github}", "Content-Type": "application/json"})
-                r = json.loads(raw)
-                text = r["choices"][0]["message"]["content"]
-            except urllib.error.HTTPError as exc:
-                errors.append(f"{url}: HTTP {exc.code} {exc.read().decode(errors='replace')[:300]}")
-                continue
-            except (json.JSONDecodeError, KeyError, IndexError, TypeError):
-                errors.append(f"{url}: unexpected response {raw[:200]!r}")
-                continue
-            if i != self.endpoint:
-                print(f"using {url} with model {model(self.name)}")
-                self.endpoint = i
-            return text
+        with tempfile.NamedTemporaryFile("w", suffix=".headers") as hf:
+            hf.write(f"Authorization: Bearer {self.github}\nAccept: application/vnd.github+json\n"
+                     "X-GitHub-Api-Version: 2022-11-28\nContent-Type: application/json\n")
+            hf.flush()
+            for model in models:
+                body = json.dumps({"model": model, "temperature": 0.2, "max_tokens": max_tokens,
+                                   "messages": [{"role": "system", "content": system},
+                                                {"role": "user", "content": prompt}]}).encode()
+                res = subprocess.run(["curl", "-sS", "-L", "--max-time", "180", "-X", "POST", self.GITHUB_MODELS,
+                                      "-H", f"@{hf.name}", "--data-binary", "@-", "-w", "\n%{http_code} %{content_type}"],
+                                     input=body, capture_output=True, timeout=200)
+                raw, _, status = res.stdout.decode(errors="replace").rpartition("\n")
+                try:
+                    text = json.loads(raw)["choices"][0]["message"]["content"]
+                except (json.JSONDecodeError, KeyError, IndexError, TypeError):
+                    errors.append(f"{model}: status {status or 'none'}, body {raw[:240]!r} {res.stderr.decode(errors='replace')[:160]}")
+                    continue
+                if model != self.name:
+                    print(f"switching to {model}")
+                    self.name = model
+                return text
         raise RuntimeError("; ".join(errors))
 
 
@@ -461,7 +570,7 @@ def main():
     window = max(args.backfill, 4)
     since = (today - dt.timedelta(days=window)).isoformat()
     known = known_ids()
-    new = [p for p in candidates(since) if p["id"] not in known]
+    new = [p for p in candidates(since, today.isoformat()) if p["id"] not in known]
     print(f"{len(new)} new candidate papers since {since}")
     assess(writer, new)
     if args.backfill:
