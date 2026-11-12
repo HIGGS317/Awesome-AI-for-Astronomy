@@ -20,6 +20,8 @@
 > The [searchable web page](https://xin-yuxiao.github.io/Awesome-AI-for-Astronomy/) filters all 396 papers and 65 software packages by section, year, venue type, public code, model weights or data, and data modality, and shows a one-sentence summary for every paper. The full list can also be downloaded as [JSON](https://xin-yuxiao.github.io/Awesome-AI-for-Astronomy/entries.json) or [CSV](https://xin-yuxiao.github.io/Awesome-AI-for-Astronomy/papers.csv).
 >
 > [AstroAI Today](https://xin-yuxiao.github.io/Awesome-AI-for-Astronomy/today.html) collects new arXiv papers on machine learning in astronomy every day, with one-sentence summaries and weekly and monthly digests written by a language model. These papers are not reviewed; the curated list below is.
+>
+> Use the [AstroAI Research skill](.agents/skills/astroai-research/SKILL.md) in compatible AI tools to query the curated catalogue and AstroAI Today.
 
 ## About
 
