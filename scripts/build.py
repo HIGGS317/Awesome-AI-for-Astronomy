@@ -414,7 +414,22 @@ def write_exports(data, outdir):
 # AstroAI Today ------------------------------------------------------------------
 
 TODAY = ROOT / "data" / "today"
-TODAY_FIELDS = ("id", "title", "authors", "n_authors", "primary", "topic", "summary", "excerpt", "links", "published")
+GREEK = dict(zip("alpha beta gamma delta epsilon varepsilon zeta eta theta lambda mu nu xi pi rho sigma tau phi varphi chi psi omega "
+                 "Gamma Delta Theta Lambda Xi Pi Sigma Phi Psi Omega".split(), "αβγδεεζηθλμνξπρστφφχψωΓΔΘΛΞΠΣΦΨΩ"))
+TEX_SYMBOLS = {"sim": "~", "approx": "≈", "times": "×", "pm": "±", "odot": "⊙", "leq": "≤", "geq": "≥", "le": "≤", "ge": "≥",
+               "rm": "", "mathrm": "", "textrm": "", "it": "", "mathit": "", ",": " ", "!": "", "-": "-"}
+
+
+def tex_title(text):
+    """Render the simple inline math of arXiv titles, such as Ly$\\alpha$ or $z\\sim2$, as plain Unicode.
+    Math that still contains a TeX command after the substitutions is left as it is."""
+    def inline(m):
+        body = re.sub(r"\\([A-Za-z]+|[,!-])", lambda c: GREEK.get(c.group(1), TEX_SYMBOLS.get(c.group(1), c.group(0))), m.group(1))
+        body = re.sub(r"[_^]\{?([^{}]*)\}?", r"\1", body).replace("{", "").replace("}", "")
+        return m.group(0) if "\\" in body else body
+    return re.sub(r"\$([^$]{1,60})\$", inline, text)
+TODAY_FIELDS = ("id", "title", "authors", "n_authors", "primary", "topic", "summary", "model", "tldr", "excerpt",
+                "links", "published")
 
 
 def today_site(data, outdir):
@@ -424,6 +439,8 @@ def today_site(data, outdir):
     for f in sorted((TODAY / "daily").glob("*.json"), reverse=True):
         day = load(f)
         papers = [{k: p[k] for k in TODAY_FIELDS if k in p} for p in day["papers"] if p.get("relevant") is not False]
+        for p in papers:
+            p["title"] = tex_title(p["title"])
         days.append({"date": day["date"], "papers": papers, "model": day.get("model")})
     weekly = [load(f) for f in sorted((TODAY / "weekly").glob("*.json"), reverse=True)]
     monthly = [load(f) for f in sorted((TODAY / "monthly").glob("*.json"), reverse=True)]
@@ -440,7 +457,8 @@ def today_site(data, outdir):
     for d in days[:7]:
         for p in d["papers"]:
             when = email.utils.format_datetime(datetime.datetime.fromisoformat(d["date"] + "T06:00:00+00:00"))
-            text = p.get("summary") or p.get("excerpt", "")
+            short = p.get("summary") or p.get("tldr")
+            text = f"TL;DR {short}" if short else p.get("excerpt", "")
             items.append(
                 f"<item><title>{html.escape(p['title'])}</title><link>https://arxiv.org/abs/{p['id']}</link>"
                 f"<guid isPermaLink=\"true\">https://arxiv.org/abs/{p['id']}</guid><pubDate>{when}</pubDate>"
