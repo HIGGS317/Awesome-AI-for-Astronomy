@@ -18,7 +18,6 @@ on:
 permissions:
   contents: write
   actions: write
-  models: read
 
 concurrency:
   group: astroai-today
@@ -41,8 +40,15 @@ jobs:
       - name: Collect and summarise new papers
         if: inputs.lookup == ''
         env:
+          # Summaries need one of these repository secrets. ANTHROPIC_API_KEY uses Claude.
+          # LLM_API_KEY uses an OpenAI-compatible service chosen with the LLM_BASE_URL and
+          # LLM_MODEL repository variables.
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
-          GITHUB_TOKEN: ${{ github.token }}
+          LLM_API_KEY: ${{ secrets.LLM_API_KEY }}
+          LLM_BASE_URL: ${{ vars.LLM_BASE_URL }}
+          LLM_MODEL: ${{ vars.LLM_MODEL }}
+          # Optional. Raises the Semantic Scholar rate limit for the TL;DR lookups.
+          S2_API_KEY: ${{ secrets.S2_API_KEY }}
           BACKFILL: ${{ inputs.backfill || '0' }}
         run: python scripts/today.py --backfill "$BACKFILL"
       - name: Commit the new data and rebuild the web page

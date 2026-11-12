@@ -12,9 +12,11 @@ Each run
   4. refreshes the digest of the current week and month in data/today/weekly/ and
      data/today/monthly/, finalising the previous week or month once it has ended.
 
-The summaries are written by Claude when ANTHROPIC_API_KEY is set, otherwise by GitHub
-Models with the GITHUB_TOKEN of the workflow. Without either, papers are kept with a short
-excerpt of the abstract and no relevance check.
+The summaries are written by Claude when ANTHROPIC_API_KEY is set, or by any service with an
+OpenAI-compatible chat completions API when LLM_API_KEY is set (LLM_BASE_URL and LLM_MODEL
+choose the service and model). Without a key, papers pass a stricter keyword screen, get a
+topic from keyword rules and a TL;DR from Semantic Scholar when one exists, and keep the first
+sentence of the abstract until then.
 
 Usage:
     python scripts/today.py                      # daily update
@@ -28,9 +30,7 @@ import json
 import os
 import pathlib
 import re
-import subprocess
 import sys
-import tempfile
 import time
 import unicodedata
 import urllib.error
@@ -47,19 +47,24 @@ UA = f"AstroAI Today ({REPO})"
 NS = {"a": "http://www.w3.org/2005/Atom", "x": "http://arxiv.org/schemas/atom"}
 
 ASTRO_CATS = ["astro-ph.GA", "astro-ph.CO", "astro-ph.EP", "astro-ph.HE", "astro-ph.IM", "astro-ph.SR"]
-ML_RE = re.compile(
-    r"\b(machine[- ]learn\w*|deep[- ]learn\w*|neural[- ]\w+|foundation models?|language models?|LLMs?|"
-    r"transformers?|simulation[- ]based inference|normali[sz]ing[- ]flows?|diffusion models?|score[- ]based|"
-    r"convolutional|self[- ]supervised|contrastive|graph neural|random forests?|gradient[- ]boost\w*|XGBoost|"
-    r"autoencoders?|variational auto\w*|reinforcement learning|artificial intelligence|generative (?:model|adversarial)\w*|"
-    r"emulat\w+|k-means|clustering algorithm|anomaly detection|U-Net|ResNet|multi-?layer perceptrons?|"
-    r"agentic|(?:AI|LLM) agents?|supervised learning|unsupervised learning|representation learning|"
-    r"Gaussian process(?:es)? regression|support vector)\b", re.I)
+ML_STRONG = (r"machine[- ]learn\w*|deep[- ]learn\w*|neural[- ](?:network|net|operator|posterior|estimat|emulat|field)\w*|"
+             r"foundation models?|(?:large )?language models?|LLMs?|vision[- ]language|transformers?|"
+             r"simulation[- ]based inference|normali[sz]ing[- ]flows?|diffusion models?|score[- ]based generative|"
+             r"convolutional neural|CNNs?|self[- ]supervised|contrastive learning|graph neural|random forests?|"
+             r"gradient[- ]boost\w*|XGBoost|LightGBM|autoencoders?|variational auto\w*|reinforcement learning|"
+             r"artificial intelligence|generative adversarial|GANs?|U-Net|ResNet|multi-?layer perceptrons?|"
+             r"agentic|(?:AI|LLM) agents?|(?:semi-|un)?supervised learning|representation learning|"
+             r"support vector machines?|physics[- ]informed neural|neural networks?|deep neural")
+ML_WEAK = r"emulat(?:or|ors|ion)|Gaussian process(?:es)?|k-means|clustering algorithm|anomaly detection|classifiers?"
+ML_RE = re.compile(r"\b(" + ML_STRONG + "|" + ML_WEAK + r")\b", re.I)
+ML_STRONG_RE = re.compile(r"\b(" + ML_STRONG + r")\b", re.I)
 ML_CATS = ["cs.LG", "cs.CV", "cs.AI", "cs.CL", "cs.IR", "stat.ML"]
 ASTRO_TERMS = ["astronomy", "astronomical", "astrophysics", "astrophysical", "galaxy", "galaxies", "telescope",
                "cosmology", "cosmological", "exoplanet", "exoplanets", "solar flare", "gravitational wave",
                "supernova", "stellar", "light curves", "sky survey"]
-ASTRO_RE = re.compile(r"\b(" + "|".join(re.escape(t) for t in ASTRO_TERMS) + r")", re.I)
+ASTRO_RE = re.compile(r"\b(" + "|".join(re.escape(t).replace("\\ ", "[- ]") for t in ASTRO_TERMS) + r"|gravitational[- ]waves|supernovae|"
+                      r"telescopes|black[- ]holes?|neutron[- ]stars?|pulsars?|quasars?|interstellar|redshifts?|"
+                      r"solar wind|heliospher\w*|magnetospher\w*|asteroids?|comets?|spectroscopic surveys?)\b", re.I)
 LINK = re.compile(r"https?://(?:github\.com|gitlab\.com|huggingface\.co|zenodo\.org)/[^\s,;)\]}>]+", re.I)
 
 SECTIONS = [s["title"] for s in yaml.safe_load((ROOT / "data" / "entries.yml").read_text(encoding="utf-8"))["sections"]
@@ -253,6 +258,66 @@ def oai_recent(since, today):
     return sorted(out, key=lambda p: p["published"], reverse=True)
 
 
+def keyword_match(p):
+    """Keyword screen for papers that apply AI to astronomy.
+
+    Machine learning has to be central, which is taken to mean a method term in the title or at
+    least two method terms in the abstract; weak terms such as emulator or Gaussian process do not
+    count. The paper has to be astronomical, which means an astro-ph category, or for gr-qc,
+    physics.space-ph, cs and stat papers an astronomy term in the title."""
+    if not ML_STRONG_RE.search(p["title"]) and len(ML_STRONG_RE.findall(p["abstract"])) < 2:
+        return False
+    if any(c.startswith("astro-ph") for c in p["categories"]):
+        return True
+    return bool(ASTRO_RE.search(p["title"]))
+
+TOPIC_RULES = [
+    ("Surveys and Reviews", r"\b(review|overview|perspective|primer|white paper|roadmap)\b", True),
+    ("Agents and Retrieval Systems", r"\b(agents?|agentic|retrieval[- ]augmented|RAG|multi[- ]agent|tool use)\b", False),
+    ("Language and Vision-Language Models", r"\b(language models?|LLMs?|vision[- ]language|GPT|chatbots?|text mining)\b", False),
+    ("Benchmarks", r"\b(benchmarks?|challenge|leaderboard|competition)\b", False),
+    ("Foundation Models and Representation Learning",
+     r"\b(foundation models?|self[- ]supervised|representation learning|pre-?train\w*|contrastive|embeddings?)\b", False),
+    ("Simulation-Based Inference", r"\b(simulation[- ]based inference|likelihood[- ]free|neural posterior|SBI|"
+     r"neural ratio|amortized inference)\b", False),
+    ("Gravitational Waves", r"\b(gravitational[- ]waves?|LIGO|Virgo|KAGRA|LISA|Einstein Telescope|Cosmic Explorer|"
+     r"inspirals?|pulsar timing)\b", False),
+    ("Gravitational Lensing", r"\b(lens(?:ing|es|ed)?|shear|Einstein rings?)\b", False),
+    ("Solar Physics and Heliophysics", r"\b(solar|Sun|coronal?|chromospher\w*|photospher\w*|heliospher\w*|"
+     r"heliophysics|space weather|magnetospher\w*|magnetopause|ionospher\w*|CMEs?)\b", False),
+    ("Exoplanets", r"\b(exoplanets?|planetary systems?|transiting|radial velocit\w*|habitab\w*|protoplanetary)\b", False),
+    ("Planetary Science and Small Bodies", r"\b(Mars|Martian|asteroids?|comets?|meteors?|lunar|Moon|Jupiter|Saturn|"
+     r"Venus|Titan|Europa|small bodies|Kuiper|trans-Neptunian)\b", False),
+    ("Radio Astronomy", r"\b(radio|interferomet\w*|SKA|LOFAR|MeerKAT|ASKAP|FAST|fast radio bursts?|FRBs?|"
+     r"visibilit(?:y|ies)|RFI)\b", False),
+    ("High-Energy Astrophysics and Astroparticle Physics", r"\b(gamma[- ]rays?|X-rays?|neutrinos?|cosmic[- ]rays?|"
+     r"Cherenkov|IACTs?|blazars?|accretion|neutron stars?|equation of state|relativistic)\b", False),
+    ("Cosmology and Large-Scale Structure", r"\b(cosmolog\w*|large[- ]scale structure|dark matter|dark energy|CMB|"
+     r"cosmic microwave|power spectrum|bispectrum|reionization|21[- ]?cm|Lyman[- ]alpha forest|Ly\$\\alpha\$ forest|"
+     r"halos?|N-body|baryon acoustic)\b", False),
+    ("Time-Domain Astronomy and Transients", r"\b(light curves?|transients?|supernovae?|variable stars?|variability|"
+     r"time[- ]domain|ZTF|LSST|Rubin|TESS|Kepler|flares?|kilonovae?|alerts?)\b", False),
+    ("Stars and Stellar Spectroscopy", r"\b(stars?|stellar|spectroscop\w*|Gaia|APOGEE|LAMOST|asteroseismolog\w*|"
+     r"Cepheids?|binaries|white dwarfs?|abundances?)\b", False),
+    ("Galaxies", r"\b(galax(?:y|ies)|morpholog\w*|AGNs?|active galactic|quasars?|Milky Way|star[- ]formation|"
+     r"photometric redshifts?|interstellar)\b", False),
+    ("Source Detection, Deblending and Image Simulation", r"\b(detection|deblend\w*|segmentation|denois\w*|"
+     r"image simulation|PSF|point spread|photometry|astrometry|source extraction|super-resolution)\b", False),
+    ("Datasets", r"\b(datasets?|data releases?|catalogu?es?)\b", False),
+]
+TOPIC_RES = [(name, re.compile(rx, re.I), title_only) for name, rx, title_only in TOPIC_RULES]
+
+
+def keyword_topic(p):
+    """Topic from keyword rules, used when no language model is available. Title matches count three times."""
+    best, score = "", 0
+    for rank, (name, rx, title_only) in enumerate(TOPIC_RES):
+        s = 3 * len(rx.findall(p["title"])) + (0 if title_only else len(rx.findall(p.get("abstract", ""))))
+        if s > score:
+            best, score = name, s
+    return best if best in SECTIONS else ""
+
+
 def candidates(since, today):
     """Recent astro-ph papers that mention machine learning, and recent ML papers that mention astronomy.
 
@@ -265,11 +330,8 @@ def candidates(since, today):
         astro = recent("(" + " OR ".join(f"cat:{c}" for c in ASTRO_CATS) + ")", since)
     ml = recent("(" + " OR ".join(f"cat:{c}" for c in ML_CATS) + ") AND " + clause("abs", ASTRO_TERMS), since)
     seen = {}
-    for p in astro:
-        if ML_RE.search(p["title"] + " " + p["abstract"]):
-            seen.setdefault(p["id"], p)
-    for p in ml:
-        if ASTRO_RE.search(p["title"] + " " + p["abstract"]):
+    for p in astro + ml:
+        if keyword_match(p):
             seen.setdefault(p["id"], p)
     print(f"scanned {len(astro)} astro-ph and {len(ml)} cs or stat.ML papers; {len(seen)} match the keywords")
     return sorted(seen.values(), key=lambda p: p["published"], reverse=True)
@@ -278,15 +340,16 @@ def candidates(since, today):
 # Language model --------------------------------------------------------------------
 
 class Writer:
-    """Thin client for Claude or GitHub Models. `name` is None when no model is available."""
+    """Thin client for Claude or an OpenAI-compatible service. `name` is None when no model is available."""
 
     def __init__(self):
         self.anthropic = os.environ.get("ANTHROPIC_API_KEY")
-        self.github = os.environ.get("GITHUB_TOKEN") if os.environ.get("TODAY_GITHUB_MODELS", "on") != "off" else None
+        self.openai = os.environ.get("LLM_API_KEY")
+        self.base = (os.environ.get("LLM_BASE_URL") or "https://api.openai.com/v1").rstrip("/")
         if self.anthropic:
-            self.name = os.environ.get("TODAY_ANTHROPIC_MODEL", "claude-haiku-5-5")
-        elif self.github:
-            self.name = os.environ.get("TODAY_GITHUB_MODEL", "openai/gpt-4.1-mini")
+            self.name = os.environ.get("TODAY_ANTHROPIC_MODEL") or "claude-haiku-5-5"
+        elif self.openai:
+            self.name = os.environ.get("LLM_MODEL") or "gpt-4.1-mini"
         else:
             self.name = None
         self.last = 0.0
@@ -294,7 +357,7 @@ class Writer:
     def ask(self, system, prompt, max_tokens=1500):
         if not self.name:
             return None
-        wait = 4.5 - (time.time() - self.last)  # stay under 15 requests a minute
+        wait = 2.0 - (time.time() - self.last)
         if wait > 0:
             time.sleep(wait)
         self.last = time.time()
@@ -305,43 +368,20 @@ class Writer:
                 r = json.loads(http("https://api.anthropic.com/v1/messages", body, {
                     "x-api-key": self.anthropic, "anthropic-version": "2023-06-01", "content-type": "application/json"}))
                 return "".join(b.get("text", "") for b in r.get("content", []))
-            return self.ask_github(system, prompt, max_tokens)
+            body = json.dumps({"model": self.name, "temperature": 0.2, "max_tokens": max_tokens,
+                               "messages": [{"role": "system", "content": system},
+                                            {"role": "user", "content": prompt}]}).encode()
+            raw = http(self.base + "/chat/completions", body,
+                       {"Authorization": f"Bearer {self.openai}", "Content-Type": "application/json"})
+            try:
+                return json.loads(raw)["choices"][0]["message"]["content"]
+            except (json.JSONDecodeError, KeyError, IndexError, TypeError):
+                raise ValueError(f"unexpected response {raw[:200]!r}")
         except Exception as exc:
             detail = exc.read().decode(errors="replace")[:400] if isinstance(exc, urllib.error.HTTPError) else ""
             print(f"warning: the model request failed ({exc}) {detail}; continuing without summaries", file=sys.stderr)
             self.name = None
             return None
-
-    GITHUB_MODELS = "https://models.github.ai/inference/chat/completions"
-    GITHUB_FALLBACK = ["openai/gpt-4.1-mini", "openai/gpt-4o-mini"]
-
-    def ask_github(self, system, prompt, max_tokens):
-        """Call GitHub Models with curl, as in the GitHub documentation, trying a second model on failure."""
-        models = [self.name] + [m for m in self.GITHUB_FALLBACK if m != self.name]
-        errors = []
-        with tempfile.NamedTemporaryFile("w", suffix=".headers") as hf:
-            hf.write(f"Authorization: Bearer {self.github}\nAccept: application/vnd.github+json\n"
-                     "X-GitHub-Api-Version: 2022-11-28\nContent-Type: application/json\n")
-            hf.flush()
-            for model in models:
-                body = json.dumps({"model": model, "temperature": 0.2, "max_tokens": max_tokens,
-                                   "messages": [{"role": "system", "content": system},
-                                                {"role": "user", "content": prompt}]}).encode()
-                res = subprocess.run(["curl", "-sS", "-L", "--max-time", "180", "-X", "POST", self.GITHUB_MODELS,
-                                      "-H", f"@{hf.name}", "--data-binary", "@-", "-w", "\n%{http_code} %{content_type}"],
-                                     input=body, capture_output=True, timeout=200)
-                raw, _, status = res.stdout.decode(errors="replace").rpartition("\n")
-                try:
-                    text = json.loads(raw)["choices"][0]["message"]["content"]
-                except (json.JSONDecodeError, KeyError, IndexError, TypeError):
-                    errors.append(f"{model}: status {status or 'none'}, body {raw[:240]!r} {res.stderr.decode(errors='replace')[:160]}")
-                    continue
-                if model != self.name:
-                    print(f"switching to {model}")
-                    self.name = model
-                return text
-        raise RuntimeError("; ".join(errors))
-
 
 def first_json(text, opener):
     if not text:
@@ -359,7 +399,7 @@ def first_json(text, opener):
 ASSESS_SYSTEM = """You curate a daily list of new research papers that apply machine learning to astronomy.
 For every paper you are given, decide three things.
 relevant: true when machine learning or artificial intelligence (neural networks, foundation or language models, agents, learned emulators, neural simulation-based inference, normalizing flows, diffusion models, tree ensembles, learned clustering or representation learning, and similar) is a central part of the method or the contribution, and the work concerns astronomy, astrophysics, cosmology, solar or space physics, or planetary science. false when machine learning is only mentioned or plays a minor role, or when the subject is not astronomy.
-summary: one plain sentence of at most 32 words saying what was done, with which method and data, and the main result if stated. Do not start with "This paper" or "The authors". No praise or hype.
+summary: a TL;DR of one plain sentence, at most 25 words, giving the task, the method and data, and the main result if stated. Do not start with "This paper", "We" or "The authors". No praise or hype.
 topic: the single best matching section title from the list provided, copied exactly.
 Answer with a JSON array only, one object per paper: {"id": ..., "relevant": ..., "summary": ..., "topic": ...}."""
 
@@ -395,7 +435,7 @@ def stored(p):
     out["n_authors"] = len(p["authors"])
     out["relevant"] = p.get("relevant")
     out["summary"] = p.get("summary", "")
-    out["topic"] = p.get("topic", "")
+    out["topic"] = p.get("topic") or keyword_topic(p)
     out["model"] = p.get("model")
     if not out["summary"]:
         out["excerpt"] = excerpt(p["abstract"])
@@ -441,6 +481,65 @@ def write_day(date, papers, writer):
     return path
 
 
+# Semantic Scholar TL;DR ---------------------------------------------------------------
+
+S2_BATCH = "https://api.semanticscholar.org/graph/v1/paper/batch?fields=tldr"
+
+
+def s2_tldrs(ids):
+    """One-sentence TL;DRs that Semantic Scholar generates for papers, keyed by arXiv id.
+
+    Papers that Semantic Scholar has not processed yet are left out; they are tried again in later runs.
+    S2_API_KEY is optional and only raises the rate limit.
+    """
+    key = os.environ.get("S2_API_KEY")
+    headers = {"Content-Type": "application/json", **({"x-api-key": key} if key else {})}
+    out = {}
+    for i in range(0, len(ids), 400):
+        chunk = ids[i:i + 400]
+        body = json.dumps({"ids": [f"ARXIV:{x}" for x in chunk]}).encode()
+        rows = None
+        for attempt in range(6):
+            try:
+                rows = json.loads(http(S2_BATCH, body, headers, timeout=90))
+                break
+            except urllib.error.HTTPError as exc:
+                if exc.code not in (429, 500, 502, 503, 504):
+                    print(f"warning: Semantic Scholar answered HTTP {exc.code}", file=sys.stderr)
+                    return out
+                time.sleep(min(int(exc.headers.get("Retry-After") or 0) or 15 * (attempt + 1), 90))
+            except (urllib.error.URLError, TimeoutError, json.JSONDecodeError) as exc:
+                print(f"Semantic Scholar request failed ({exc}), retrying", file=sys.stderr)
+                time.sleep(15 * (attempt + 1))
+        if not isinstance(rows, list):
+            print("warning: no TL;DRs from Semantic Scholar in this run", file=sys.stderr)
+            return out
+        for x, row in zip(chunk, rows):
+            text = ((row or {}).get("tldr") or {}).get("text")
+            if text:
+                out[x] = " ".join(text.split())
+        time.sleep(2)
+    return out
+
+
+def refresh_tldrs(days=21):
+    """Add Semantic Scholar TL;DRs to recent papers that have no model summary."""
+    files = daily_files()[-days:]
+    todo = sorted({p["id"] for f in files for p in load(f)["papers"] if not p.get("summary") and not p.get("tldr")})
+    if not todo:
+        return
+    found = s2_tldrs(todo)
+    print(f"Semantic Scholar TL;DR found for {len(found)} of {len(todo)} papers")
+    for f in files:
+        day = load(f)
+        changed = False
+        for p in day["papers"]:
+            if p["id"] in found and not p.get("summary") and not p.get("tldr"):
+                p["tldr"], changed = found[p["id"]], True
+        if changed:
+            save(f, day)
+
+
 def resummarise(writer, days=7):
     """Give recent papers that were stored without a model summary a second chance."""
     if not writer.name:
@@ -472,7 +571,7 @@ def resummarise(writer, days=7):
 DIGEST_SYSTEM = """You write the digest of a period of new arXiv papers that apply machine learning to astronomy.
 Write for astronomers and machine learning researchers. Be factual, specific and plain; no hype, no praise, no rhetorical questions.
 Answer with a JSON object only:
-{"overview": a paragraph of at most WORDS words describing the main directions of the period, naming concrete methods, data sets or surveys,
+{"overview": a TL;DR of two or three plain sentences, at most WORDS words, on the main directions of the period, naming concrete methods, data sets or surveys,
  "themes": three to five short noun phrases,
  "highlights": three to six arXiv ids, choosing papers that release data, benchmarks, code or models, or that introduce broadly useful methods}"""
 
@@ -488,7 +587,7 @@ def period_papers(start, end):
 def digest(writer, kind, key, start, end, final, context=""):
     path = DATA / kind / f"{key}.json"
     old = load(path)
-    if old and old.get("final"):
+    if old and old.get("final") and (old.get("overview") or not writer.name):
         return
     papers = period_papers(start, end)
     if not papers:
@@ -503,9 +602,9 @@ def digest(writer, kind, key, start, end, final, context=""):
     if old and old.get("count") == len(papers) and old.get("overview"):
         doc.update({k: old[k] for k in ("overview", "themes", "highlights", "model")})
     elif writer.name:
-        lines = [f"{p['id']} | {p['title']} | {p.get('summary') or p.get('excerpt', '')}" for p in papers[:90]]
+        lines = [f"{p['id']} | {p['title']} | {p.get('summary') or p.get('tldr') or p.get('excerpt', '')}" for p in papers[:90]]
         lines += [f"{p['id']} | {p['title']}" for p in papers[90:160]]
-        words = 120 if kind == "weekly" else 170
+        words = 60 if kind == "weekly" else 90
         prompt = (f"Period: {start} to {end}, {len(papers)} papers.\nTopic counts: {json.dumps(doc['topics'])}\n"
                   + (f"\nEarlier weekly digests in this period:\n{context}\n" if context else "")
                   + "\nPapers (id | title | summary):\n" + "\n".join(lines))
@@ -582,6 +681,7 @@ def main():
     elif new:
         print("wrote", write_day(today.isoformat(), new, writer))
     resummarise(writer)
+    refresh_tldrs()
     digests(writer, today)
 
 
