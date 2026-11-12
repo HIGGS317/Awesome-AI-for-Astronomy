@@ -17,7 +17,7 @@
 </div>
 
 > [!TIP]
-> The [searchable web page](https://xin-yuxiao.github.io/Awesome-AI-for-Astronomy/) filters all 388 papers and 65 software packages by section, year, venue type, public code, model weights or data, and data modality, and shows a one-sentence summary for every paper. The full list can also be downloaded as [JSON](https://xin-yuxiao.github.io/Awesome-AI-for-Astronomy/entries.json) or [CSV](https://xin-yuxiao.github.io/Awesome-AI-for-Astronomy/papers.csv).
+> The [searchable web page](https://xin-yuxiao.github.io/Awesome-AI-for-Astronomy/) filters all 389 papers and 65 software packages by section, year, venue type, public code, model weights or data, and data modality, and shows a one-sentence summary for every paper. The full list can also be downloaded as [JSON](https://xin-yuxiao.github.io/Awesome-AI-for-Astronomy/entries.json) or [CSV](https://xin-yuxiao.github.io/Awesome-AI-for-Astronomy/papers.csv).
 
 ## About
 
@@ -408,6 +408,7 @@ Benchmarks are grouped by input type. Data and modality benchmarks provide obser
 
 | Date | Paper | Venue | Code | Links |
 |:--|:--|:--|:--|:--|
+| 2026.11 | [Learning a model of non-stationary nuisances with non-local correlations for object detection](https://arxiv.org/abs/2611.14479 "Learns a sparse precision matrix for correlated stellar residuals and tests likelihood-ratio exoplanet detection on 13 VLT/SPHERE datasets.") | arXiv 2026 | - | - |
 | 2026.06 | **ExoVeil** [One Transit Is All You Need: Detecting Exoplanets Through Learned Stellar Behaviour with ExoVeil](https://arxiv.org/abs/2606.02778 "Transformer world model trained on 16,499 Kepler light curves predicts stellar flux, with matched filtering on residuals reaching AUC 0.938 on DR25 and recovering 47 TESS planets zero-shot.") | arXiv 2026 | - | - |
 | 2026.04 | [ExoNet: Calibrated Multimodal Deep Learning for TESS Exoplanet Candidate Vetting Using Phase-Folded Light Curves, Stellar Parameters, and Multi-Head Attention](https://arxiv.org/abs/2604.15560 "Late fusion of light-curve CNN features with attention and stellar parameters, calibrated by temperature scaling.") | arXiv 2026 | - | - |
 | 2026.03 | **RAVEN** [Automatic Search for Transiting Planets in TESS-SPOC FFIs with RAVEN: Over 100 Newly Validated Planets and Over 2000 Vetted Candidates](https://arxiv.org/abs/2603.22597 "Machine learning classifiers trained on injected simulations combined with statistical validation for TESS FFI candidates.") | arXiv 2026 | - | - |

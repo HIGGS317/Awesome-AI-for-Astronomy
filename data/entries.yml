@@ -1664,6 +1664,11 @@ sections:
     desc: Shows that transient classifiers pretrained on simulations or ZTF light curves can be adapted to real data and to LSST with small labelled samples.
 - title: Exoplanets
   entries:
+  - title: Learning a model of non-stationary nuisances with non-local correlations for object detection
+    venue: arXiv 2026
+    links:
+      Paper: https://arxiv.org/abs/2611.14479
+    desc: Learns a sparse precision matrix for correlated stellar residuals and tests likelihood-ratio exoplanet detection on 13 VLT/SPHERE datasets.
   - name: Pearson Exoplanet AI
     title: Searching for Exoplanets Using Artificial Intelligence
     venue: MNRAS 2018
