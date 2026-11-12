@@ -1,0 +1,64 @@
+{
+ "date": "2026-11-11",
+ "papers": [
+  {
+   "id": "2607.05494",
+   "title": "Uncertainty-Aware Deep Learning for the Ly$\\alpha$ Forest: CNN-Based Absorber Detection and Characterization",
+   "primary": "astro-ph.GA",
+   "categories": [
+    "astro-ph.GA"
+   ],
+   "published": "2026-11-11",
+   "comment": "Submitted to MNRAS. (Comments are welcome)",
+   "journal_ref": "Mon Not R Astron Soc (2026)",
+   "doi": "10.1093/mnras/stag2027",
+   "links": [],
+   "authors": [
+    "Paryag Sharma",
+    "Vikram Khaire",
+    "Ting-Yun Cheng",
+    "Hum Chand",
+    "Prakash Gaikwad"
+   ],
+   "n_authors": 5,
+   "relevant": null,
+   "summary": "",
+   "topic": "",
+   "model": null,
+   "excerpt": "The Ly$\\alpha$ forest is a powerful probe of the intergalactic medium and small-scale matter distribution, but deriving absorber properties traditionally requires computationally expensive Voigt-profile fitting."
+  },
+  {
+   "id": "2611.12910",
+   "title": "Leveraging Large Language Models to Predict Atomic Oxygen Erosion of Polymers in Low Earth Orbit",
+   "primary": "physics.geo-ph",
+   "categories": [
+    "physics.geo-ph",
+    "astro-ph.EP",
+    "astro-ph.IM",
+    "cond-mat.mtrl-sci"
+   ],
+   "published": "2026-11-11",
+   "comment": "",
+   "journal_ref": "",
+   "doi": "",
+   "links": [],
+   "authors": [
+    "Jared Solovei",
+    "Sakshi Agarwal",
+    "Aubrey Toland",
+    "Jeffrey G. Ethier",
+    "Vikas Varshney",
+    "Lisa M. Hall"
+   ],
+   "n_authors": 8,
+   "relevant": null,
+   "summary": "",
+   "topic": "",
+   "model": null,
+   "excerpt": "Low Earth orbit (LEO), home to most active satellites, is projected to undergo a debris-fragmentation cascade known as Kessler Syndrome."
+  }
+ ],
+ "excluded": [],
+ "updated": "2026-11-12T09:00:30+00:00",
+ "model": null
+}

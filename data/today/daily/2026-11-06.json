@@ -325,9 +325,60 @@
    "topic": "",
    "model": null,
    "excerpt": "The Laser Interferometer Space Antenna (LISA) is a space-based gravitational wave detector scheduled for launch in the 2030s by the European Space Agency."
+  },
+  {
+   "id": "2609.09504",
+   "title": "Inductive Biases in Field-Level Cosmological Inference from Galaxy Catalogs",
+   "primary": "astro-ph.CO",
+   "categories": [
+    "astro-ph.CO",
+    "cs.LG"
+   ],
+   "published": "2026-11-06",
+   "comment": "23 pages, 8 figures, 5 tables. Accepted for publication in The Astrophysical Journal",
+   "journal_ref": "Astrophys. J. 1010, 203 (2026)",
+   "doi": "10.3847/1538-4357/aea400",
+   "links": [],
+   "authors": [
+    "James O. Baldwin",
+    "Shy Genel",
+    "Francisco Villaescusa-Navarro"
+   ],
+   "n_authors": 3,
+   "relevant": null,
+   "summary": "",
+   "topic": "",
+   "model": null,
+   "excerpt": "We perform field-level likelihood-free inference of the matter density parameter $\\Omega_m$ from simulated galaxy catalogs using machine learning models with differing inductive biases."
+  },
+  {
+   "id": "2611.07162",
+   "title": "A Machine Learning Approach to Coupling Photoionization & Multi-Frequency Radiation Hydrodynamics",
+   "primary": "astro-ph.HE",
+   "categories": [
+    "astro-ph.HE",
+    "astro-ph.GA",
+    "astro-ph.IM",
+    "astro-ph.SR"
+   ],
+   "published": "2026-11-06",
+   "comment": "11 pages, 7 figures",
+   "journal_ref": "",
+   "doi": "",
+   "links": [],
+   "authors": [
+    "Sergei Dyda",
+    "Randall C. Dannen"
+   ],
+   "n_authors": 2,
+   "relevant": null,
+   "summary": "",
+   "topic": "",
+   "model": null,
+   "excerpt": "We use machine learning (ML) to couple photoionization microphysics to radiation hydrodynamic simulations of line-driven winds."
   }
  ],
  "excluded": [],
- "updated": "2026-11-12T08:51:03+00:00",
+ "updated": "2026-11-12T09:00:30+00:00",
  "model": null
 }
