@@ -1,0 +1,28 @@
+{
+ "period": "2026-W45",
+ "start": "2026-11-02",
+ "end": "2026-11-08",
+ "final": true,
+ "count": 27,
+ "topics": {
+  "Galaxies": 4,
+  "Stars and Stellar Spectroscopy": 3,
+  "Agents and Retrieval Systems": 3,
+  "Foundation Models and Representation Learning": 3,
+  "Benchmarks": 3,
+  "Solar Physics and Heliophysics": 2,
+  "Source Detection, Deblending and Image Simulation": 2,
+  "Other": 1,
+  "Gravitational Waves": 1,
+  "Radio Astronomy": 1,
+  "Time-Domain Astronomy and Transients": 1,
+  "Simulation-Based Inference": 1,
+  "High-Energy Astrophysics and Astroparticle Physics": 1,
+  "Datasets": 1
+ },
+ "overview": "",
+ "themes": [],
+ "highlights": [],
+ "model": null,
+ "updated": "2026-11-12T09:05:53+00:00"
+}
