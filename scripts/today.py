@@ -685,7 +685,8 @@ def main():
 
     today = dt.date.fromisoformat(args.date) if args.date else dt.datetime.now(dt.timezone.utc).date()
     writer = Writer()
-    print(f"model: {writer.name or 'none'}")
+    thinking = f", reasoning effort {writer.effort}" if writer.name and writer.openai and "deepseek.com" in writer.base else ""
+    print(f"model: {writer.name or 'none'}{thinking}")
     window = max(args.backfill, 4)
     since = (today - dt.timedelta(days=window)).isoformat()
     known = known_ids()
