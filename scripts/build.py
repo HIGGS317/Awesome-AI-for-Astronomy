@@ -33,7 +33,7 @@ YEAR = re.compile(r"(?:19|20)\d{2}")
 MDLINK = re.compile(r"\[([^\]]+)\]\(([^)\s]+)\)")
 ARXIV_ID = re.compile(r"arxiv\.org/abs/(\d{4}\.\d{4,5})")
 DOI = re.compile(r"doi\.org/(10\.\d{4,9}/\S+)$")
-CONFERENCES = re.compile(r"^(NeurIPS|ICML|ICLR|ACL|EMNLP|NAACL|AAAI|IJCAI|CVPR|ICCV|ECCV|COLM|KDD|ICECET)\b")
+CONFERENCES = re.compile(r"^(NeurIPS|ICML|ICLR|ACL|EMNLP|NAACL|AAAI|IJCAI|CVPR|ICCV|ECCV|COLM|KDD|ICECET|EUSIPCO)\b")
 # Observation or data modalities accepted in the optional modality field.
 MODALITIES = ["Images", "Spectra", "Data cubes", "Time series", "Tabular", "Text", "Point clouds", "Simulations"]
 HF_MODEL = re.compile(r"huggingface\.co/(?!datasets/|spaces/|papers/)[^/]+(/[^/]+)?/?$")

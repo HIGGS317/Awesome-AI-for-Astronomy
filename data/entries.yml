@@ -496,9 +496,10 @@ sections:
   entries:
   - name: GalaxyWiki
     title: Extracting Published Discussions of 13,616 Galaxies with Language Models
-    venue: arXiv 2026
+    venue: WASP 2026 Workshop
     links:
       Paper: https://arxiv.org/abs/2611.13118
+      ACL Anthology: https://aclanthology.org/2026.wasp-1.19/
       Code: https://github.com/NolanKoblischke/galaxywiki-paper
       Project: https://galaxywiki.nolank.ca/
     desc: GPT-5.5 agents extract source-linked discussions from arXiv papers and coordinate matching groups the evidence into 13,616 galaxy entries.
@@ -1678,10 +1679,25 @@ sections:
     links:
       Paper: https://arxiv.org/abs/2502.18558
     desc: Shows that transient classifiers pretrained on simulations or ZTF light curves can be adapted to real data and to LSST with small labelled samples.
+  - name: FCN4Flare
+    title: 'FCN4Flare: Fully Convolution Neural Networks for Flare Detection'
+    venue: MNRAS 2025
+    links:
+      Paper: https://arxiv.org/abs/2407.21240
+      Journal: https://doi.org/10.1093/mnras/stae2789
+      Code: https://github.com/NAOC-LAMOST/fcn4flare
+    desc: Fully convolutional networks with a NaN mask and masked Dice loss detect stellar flares point by point in variable-length Kepler light curves, yielding a catalogue of 30,285 flares on 1,426 stars.
+  - name: FLARE
+    title: 'FLARE: A Framework for Stellar Flare Forecasting Using Stellar Physical Properties and Historical Records'
+    venue: IJCAI 2025
+    links:
+      Paper: https://arxiv.org/abs/2502.18218
+      Journal: https://doi.org/10.24963/ijcai.2025/1056
+    desc: Forecasts stellar flares from Kepler light curves by combining stellar physical properties and historical flare records through a soft prompt module and a residual record fusion module.
 - title: Exoplanets
   entries:
   - title: Learning a model of non-stationary nuisances with non-local correlations for object detection
-    venue: arXiv 2026
+    venue: EUSIPCO 2026
     links:
       Paper: https://arxiv.org/abs/2611.14479
     desc: Learns a sparse precision matrix for correlated stellar residuals and tests likelihood-ratio exoplanet detection on 13 VLT/SPHERE datasets.
@@ -2160,6 +2176,14 @@ sections:
     links:
       Paper: https://arxiv.org/abs/2609.07833
     desc: Amortised network that maps multiband images directly to a variational posterior over tomographic shear and convergence, validated on LSST DESC DC2 images.
+  - name: CLiENT
+    title: 'CLiENT: A New Tool for Emulating Cosmological Likelihoods Using Deep Neural Networks'
+    venue: JCAP 2026
+    links:
+      Paper: https://arxiv.org/abs/2512.17509
+      Journal: https://doi.org/10.1088/1475-7516/2026/08/018
+      Code: https://github.com/AarhusCosmology/client_public
+    desc: Emulates the likelihood of a data set directly with neural networks, giving an auto-differentiable surrogate that matches true-likelihood credible intervals to within 0.1 sigma using fewer than 20,000 evaluations.
 - title: Simulation-Based Inference
   entries:
   - name: pydelfi
