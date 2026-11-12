@@ -263,21 +263,27 @@ def keyword_match(p):
 
     Machine learning has to be central, which is taken to mean a method term in the title or at
     least two method terms in the abstract; weak terms such as emulator or Gaussian process do not
-    count. The paper has to be astronomical, which means an astro-ph category, or for gr-qc,
-    physics.space-ph, cs and stat papers an astronomy term in the title."""
+    count. The paper has to be astronomical, which means an astronomy term in the title, or an
+    astro-ph category together with a primary category in astronomy, physics.space-ph, gr-qc, cs
+    or stat, or two astronomy terms in the abstract."""
     if not ML_STRONG_RE.search(p["title"]) and len(ML_STRONG_RE.findall(p["abstract"])) < 2:
         return False
-    if any(c.startswith("astro-ph") for c in p["categories"]):
+    if ASTRO_RE.search(p["title"]):
         return True
-    return bool(ASTRO_RE.search(p["title"]))
+    if not any(c.startswith("astro-ph") for c in p["categories"]):
+        return False
+    if p["primary"].startswith(("astro-ph", "gr-qc", "physics.space-ph", "cs.", "stat.")):
+        return True
+    # Papers from other fields that are only cross-listed to astro-ph need two astronomy terms.
+    return len({t.lower() for t in ASTRO_RE.findall(p["abstract"])}) >= 2
 
 TOPIC_RULES = [
     ("Surveys and Reviews", r"\b(review|overview|perspective|primer|white paper|roadmap)\b", True),
     ("Agents and Retrieval Systems", r"\b(agents?|agentic|retrieval[- ]augmented|RAG|multi[- ]agent|tool use)\b", False),
     ("Language and Vision-Language Models", r"\b(language models?|LLMs?|vision[- ]language|GPT|chatbots?|text mining)\b", False),
-    ("Benchmarks", r"\b(benchmarks?|challenge|leaderboard|competition)\b", False),
+    ("Benchmarks", r"\b(benchmarks?|challenge|leaderboard|competition)\b", True),
     ("Foundation Models and Representation Learning",
-     r"\b(foundation models?|self[- ]supervised|representation learning|pre-?train\w*|contrastive|embeddings?)\b", False),
+     r"\b(foundation models?|self[- ]supervised|representation learning|contrastive)\b", False),
     ("Simulation-Based Inference", r"\b(simulation[- ]based inference|likelihood[- ]free|neural posterior|SBI|"
      r"neural ratio|amortized inference)\b", False),
     ("Gravitational Waves", r"\b(gravitational[- ]waves?|LIGO|Virgo|KAGRA|LISA|Einstein Telescope|Cosmic Explorer|"
@@ -294,25 +300,25 @@ TOPIC_RULES = [
      r"Cherenkov|IACTs?|blazars?|accretion|neutron stars?|equation of state|relativistic)\b", False),
     ("Cosmology and Large-Scale Structure", r"\b(cosmolog\w*|large[- ]scale structure|dark matter|dark energy|CMB|"
      r"cosmic microwave|power spectrum|bispectrum|reionization|21[- ]?cm|Lyman[- ]alpha forest|Ly\$\\alpha\$ forest|"
-     r"halos?|N-body|baryon acoustic)\b", False),
+     r"halos?|N-body|baryon acoustic|field[- ]level|tomograph\w*|weak lensing|n\(z\))\b", False),
     ("Time-Domain Astronomy and Transients", r"\b(light curves?|transients?|supernovae?|variable stars?|variability|"
      r"time[- ]domain|ZTF|LSST|Rubin|TESS|Kepler|flares?|kilonovae?|alerts?)\b", False),
-    ("Stars and Stellar Spectroscopy", r"\b(stars?|stellar|spectroscop\w*|Gaia|APOGEE|LAMOST|asteroseismolog\w*|"
+    ("Stars and Stellar Spectroscopy", r"\b(stars?|stellar|Gaia|APOGEE|LAMOST|asteroseismolog\w*|"
      r"Cepheids?|binaries|white dwarfs?|abundances?)\b", False),
     ("Galaxies", r"\b(galax(?:y|ies)|morpholog\w*|AGNs?|active galactic|quasars?|Milky Way|star[- ]formation|"
      r"photometric redshifts?|interstellar)\b", False),
     ("Source Detection, Deblending and Image Simulation", r"\b(detection|deblend\w*|segmentation|denois\w*|"
      r"image simulation|PSF|point spread|photometry|astrometry|source extraction|super-resolution)\b", False),
-    ("Datasets", r"\b(datasets?|data releases?|catalogu?es?)\b", False),
+    ("Datasets", r"\b(datasets?|data releases?|catalogu?es?)\b", True),
 ]
 TOPIC_RES = [(name, re.compile(rx, re.I), title_only) for name, rx, title_only in TOPIC_RULES]
 
 
 def keyword_topic(p):
-    """Topic from keyword rules, used when no language model is available. Title matches count three times."""
+    """Topic from keyword rules, used when no language model is available. Title matches count five times."""
     best, score = "", 0
     for rank, (name, rx, title_only) in enumerate(TOPIC_RES):
-        s = 3 * len(rx.findall(p["title"])) + (0 if title_only else len(rx.findall(p.get("abstract", ""))))
+        s = 5 * len(rx.findall(p["title"])) + (0 if title_only else len(rx.findall(p.get("abstract", ""))))
         if s > score:
             best, score = name, s
     return best if best in SECTIONS else ""
