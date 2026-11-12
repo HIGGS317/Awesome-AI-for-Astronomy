@@ -1,0 +1,194 @@
+{
+ "date": "2026-11-05",
+ "papers": [
+  {
+   "id": "2611.08634",
+   "title": "Benchmarking Machine Learning for Chaotic Three-Body Dynamics in Astrophysics",
+   "primary": "cs.LG",
+   "categories": [
+    "cs.LG"
+   ],
+   "published": "2026-11-05T19:29:55Z",
+   "comment": "Accepted at the NeurIPS 2026 Workshop on Sim2Science: ML with Imperfect Scientific Models",
+   "journal_ref": "",
+   "doi": "",
+   "links": [
+    "https://github.com/Simonwan03/ThreeBodyMLBench"
+   ],
+   "authors": [
+    "Sheng Wan",
+    "Pavan Vynatheya",
+    "Duo Xu",
+    "Li Kevin Wenliang",
+    "Ye Zhu"
+   ],
+   "n_authors": 5,
+   "relevant": null,
+   "summary": "",
+   "topic": "",
+   "model": null,
+   "excerpt": "Machine learning (ML) and generative AI have recently made impressive progress in understanding physics."
+  },
+  {
+   "id": "2611.08583",
+   "title": "DarkMatterFM-Registry: A Machine-Readable Registry of Dark-Matter Models Extracted from the arXiv Literature",
+   "primary": "astro-ph.CO",
+   "categories": [
+    "astro-ph.CO",
+    "astro-ph.IM",
+    "hep-ph"
+   ],
+   "published": "2026-11-05T19:00:01Z",
+   "comment": "8 pages, 2 figures. Accepted at the Machine Learning and the Physical Sciences Workshop (ML4PS), NeurIPS 2026. Registry, schemas, and code: https://ioanazelko.github.io/darkmatterfm-registry/",
+   "journal_ref": "",
+   "doi": "",
+   "links": [],
+   "authors": [
+    "Ioana A. Zelko",
+    "Jo Bovy",
+    "Nolan Koblischke"
+   ],
+   "n_authors": 3,
+   "relevant": null,
+   "summary": "",
+   "topic": "",
+   "model": null,
+   "excerpt": "To use a dark-matter model one needs to know what defines it, which observables it affects, which codes and likelihoods evaluate it, and under what assumptions a published bound applies."
+  },
+  {
+   "id": "2611.07936",
+   "title": "Survey of Surveys Data Release 3. Homogenised stellar parameters across nine spectroscopic surveys",
+   "primary": "astro-ph.SR",
+   "categories": [
+    "astro-ph.SR",
+    "astro-ph.GA"
+   ],
+   "published": "2026-11-05T12:38:44Z",
+   "comment": "Submitted to A&A. 20 pages, 17 figures, 5 tables",
+   "journal_ref": "",
+   "doi": "",
+   "links": [],
+   "authors": [
+    "A. Avdeeva",
+    "E. Pancino",
+    "A. Turchi",
+    "P. M. Marrese",
+    "S. Marinoni",
+    "G. Fanari"
+   ],
+   "n_authors": 15,
+   "relevant": null,
+   "summary": "",
+   "topic": "",
+   "model": null,
+   "excerpt": "Large spectroscopic surveys have measured atmospheric parameters for millions of Milky Way stars, but differences in instruments, wavelength ranges, analysis methods, and assumptions introduce survey-dependent systematics that complicate their joint use."
+  },
+  {
+   "id": "2611.07666",
+   "title": "Extracting Single-Mode Rayleigh--Taylor Instability dynamics from data via SINDy",
+   "primary": "physics.flu-dyn",
+   "categories": [
+    "physics.flu-dyn",
+    "cs.LG"
+   ],
+   "published": "2026-11-05T08:48:54Z",
+   "comment": "",
+   "journal_ref": "",
+   "doi": "",
+   "links": [],
+   "authors": [
+    "Chuanxing Wang",
+    "Hui Luo",
+    "Guohuai Zhu",
+    "Hongbo Cai",
+    "Shaoping Zhu",
+    "Mingxing Luo"
+   ],
+   "n_authors": 6,
+   "relevant": null,
+   "summary": "",
+   "topic": "",
+   "model": null,
+   "excerpt": "Rayleigh-Taylor instability (RTI) is of fundamental importance in fields such as inertial confinement fusion and supernova explosions, and its evolution is commonly described by potential--flow theory and buoyancy--drag models."
+  },
+  {
+   "id": "2611.07629",
+   "title": "Online Learning with Ordered Experts (via Two-point Feedback)",
+   "primary": "cs.LG",
+   "categories": [
+    "cs.LG"
+   ],
+   "published": "2026-11-05T08:14:00Z",
+   "comment": "",
+   "journal_ref": "",
+   "doi": "",
+   "links": [],
+   "authors": [
+    "Shiliang Zuo"
+   ],
+   "n_authors": 1,
+   "relevant": null,
+   "summary": "",
+   "topic": "",
+   "model": null,
+   "excerpt": "We study adversarial online learning with expert recommendations in a totally ordered action space, where the experts' recommendations may change and be reordered arbitrarily."
+  },
+  {
+   "id": "2611.07433",
+   "title": "MP-DualNet: A Dual-Branch Deep Learning Approach for Magnetopause Boundary Detection Using Simulated SXI Images",
+   "primary": "astro-ph.SR",
+   "categories": [
+    "astro-ph.SR",
+    "astro-ph.IM"
+   ],
+   "published": "2026-11-05T04:31:15Z",
+   "comment": "",
+   "journal_ref": "",
+   "doi": "",
+   "links": [],
+   "authors": [
+    "Cheng Zhong",
+    "Zhongwei Yang",
+    "Tianran Sun",
+    "Chengyan Huang",
+    "Jiajia Liu",
+    "Jingnan Guo"
+   ],
+   "n_authors": 8,
+   "relevant": null,
+   "summary": "",
+   "topic": "",
+   "model": null,
+   "excerpt": "The Earth's magnetopause is a key boundary governing solar wind-magnetosphere coupling."
+  },
+  {
+   "id": "2611.08539",
+   "title": "Predicting next-week VIIRS fire detections in Bolivia: a reproducible benchmark with temporal and geographic evaluation",
+   "primary": "physics.soc-ph",
+   "categories": [
+    "physics.soc-ph",
+    "astro-ph.EP",
+    "astro-ph.IM"
+   ],
+   "published": "2026-11-05T00:29:55Z",
+   "comment": "24 pages, 4 figures, 21 tables. Code: https://github.com/Cupesi/bolivia-fire ; data: https://doi.org/10.5281/zenodo.23895316",
+   "journal_ref": "",
+   "doi": "",
+   "links": [
+    "https://github.com/Cupesi/bolivia-fire"
+   ],
+   "authors": [
+    "Victor Hugo Cuellar Flores"
+   ],
+   "n_authors": 1,
+   "relevant": null,
+   "summary": "",
+   "topic": "",
+   "model": null,
+   "excerpt": "Weekly detection forecasts could help prioritize fire monitoring across Bolivia."
+  }
+ ],
+ "excluded": [],
+ "updated": "2026-11-12T08:48:44+00:00",
+ "model": null
+}

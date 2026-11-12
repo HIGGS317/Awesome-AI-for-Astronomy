@@ -1,0 +1,58 @@
+{
+ "date": "2026-11-07",
+ "papers": [
+  {
+   "id": "2611.10861",
+   "title": "SWXAI: A Unified Multimodal Explainability Library for Space Weather Forecasting and Heliophysics",
+   "primary": "cs.LG",
+   "categories": [
+    "cs.LG",
+    "astro-ph.SR",
+    "physics.space-ph"
+   ],
+   "published": "2026-11-07T17:22:48Z",
+   "comment": "6 pages, 5 figures. Accepted at CIKM 2026 (Resource Track), Rome, Italy, November 7-11, 2026. Code: https://bitbucket.org/gsudmlab/swxai Docs: https://swxai.readthedocs.io",
+   "journal_ref": "Proceedings of the 35th ACM International Conference on Information and Knowledge Management (CIKM '26), 2026",
+   "doi": "10.1145/3799682.3840198",
+   "links": [],
+   "authors": [
+    "Benedict Antonio Mervyn",
+    "Anli Ji",
+    "Manolis K. Georgoulis",
+    "Berkay Aydin"
+   ],
+   "n_authors": 4,
+   "relevant": null,
+   "summary": "",
+   "topic": "",
+   "model": null,
+   "excerpt": "Space weather forecasting and heliophysics increasingly rely on machine learning models that process heterogeneous inputs such as multi-viewpoint multi-wavelength solar images and rasters, multivariate time series, spatial annotations, and tabular event-level..."
+  },
+  {
+   "id": "2611.10548",
+   "title": "The hierarchical structure of the Milky Way I. A model-agnostic clustering of 1 billion stars in 5D",
+   "primary": "astro-ph.GA",
+   "categories": [
+    "astro-ph.GA"
+   ],
+   "published": "2026-11-07T07:34:52Z",
+   "comment": "16 pages, 13 figures, 1 table",
+   "journal_ref": "",
+   "doi": "",
+   "links": [],
+   "authors": [
+    "William H. Oliver",
+    "Tobias Buck"
+   ],
+   "n_authors": 2,
+   "relevant": null,
+   "summary": "",
+   "topic": "",
+   "model": null,
+   "excerpt": "The Milky Way exhibits a hierarchical structure shaped by mergers, accretion, and internal dynamics."
+  }
+ ],
+ "excluded": [],
+ "updated": "2026-11-12T08:48:44+00:00",
+ "model": null
+}

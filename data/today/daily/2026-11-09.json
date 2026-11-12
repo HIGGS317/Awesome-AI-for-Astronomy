@@ -1,0 +1,246 @@
+{
+ "date": "2026-11-09",
+ "papers": [
+  {
+   "id": "2611.13309",
+   "title": "PegasusAI Studio: Legible Cyberinfrastructure and Accountable AI Agents for Scientific Workflows",
+   "primary": "cs.DC",
+   "categories": [
+    "cs.DC",
+    "cs.AI",
+    "cs.SE"
+   ],
+   "published": "2026-11-09T22:22:25Z",
+   "comment": "",
+   "journal_ref": "",
+   "doi": "",
+   "links": [],
+   "authors": [
+    "Komal Thareja",
+    "Mats Rynge",
+    "Berent Aldikacti",
+    "Angelina Ju",
+    "Ian Lumsden",
+    "Anirban Mandal"
+   ],
+   "n_authors": 15,
+   "relevant": null,
+   "summary": "",
+   "topic": "",
+   "model": null,
+   "excerpt": "AI coding agents can now construct scientific workflows, but operating them on shared cyberinfrastructure (CI) raises problems that code generation does not solve."
+  },
+  {
+   "id": "2611.13255",
+   "title": "Understanding Coronal `Seeing' using High Angular Resolution Radio Observations of Active Solar Emissions",
+   "primary": "astro-ph.SR",
+   "categories": [
+    "astro-ph.SR"
+   ],
+   "published": "2026-11-09T21:25:36Z",
+   "comment": "Published in Advancing Astrophysics with SKA II (AASKAII), 2026 (arxiv:2606.20366). Report-no:AASKAII/Dey01",
+   "journal_ref": "",
+   "doi": "",
+   "links": [],
+   "authors": [
+    "Soham Dey",
+    "Deepan Patra",
+    "Divya Oberoi",
+    "Anshu Kumari",
+    "Atul Mohan",
+    "Surajit Mondal"
+   ],
+   "n_authors": 7,
+   "relevant": null,
+   "summary": "",
+   "topic": "",
+   "model": null,
+   "excerpt": "Solar radio bursts are generated through the plasma emission mechanism by beams of accelerated electrons travelling along magnetic field lines."
+  },
+  {
+   "id": "2611.13118",
+   "title": "Extracting Published Discussions of 13,616 Galaxies with Language Models",
+   "primary": "astro-ph.IM",
+   "categories": [
+    "astro-ph.IM",
+    "astro-ph.GA"
+   ],
+   "published": "2026-11-09T19:05:31Z",
+   "comment": "Accepted to the Workshop on Artificial Intelligence for Scientific Publications (WASP) 2026",
+   "journal_ref": "",
+   "doi": "",
+   "links": [
+    "https://github.com/NolanKoblischke/galaxywiki-paper"
+   ],
+   "authors": [
+    "Nolan Koblischke",
+    "Jo Bovy"
+   ],
+   "n_authors": 2,
+   "relevant": null,
+   "summary": "",
+   "topic": "",
+   "model": null,
+   "excerpt": "Astronomers often have difficulty determining whether an object, such as a star or galaxy of interest, has been discussed in the literature."
+  },
+  {
+   "id": "2611.13083",
+   "title": "Less is More: Unbiased Galaxy Clustering from Fewer Merger Trees",
+   "primary": "astro-ph.CO",
+   "categories": [
+    "astro-ph.CO"
+   ],
+   "published": "2026-11-09T19:00:02Z",
+   "comment": "15 pages, 12 figures, 4 tables. Submitted to MNRAS",
+   "journal_ref": "",
+   "doi": "",
+   "links": [],
+   "authors": [
+    "Oscar J. Hickman",
+    "Sownak Bose",
+    "Kai Wang",
+    "Carlton M. Baugh",
+    "Baojiu Li"
+   ],
+   "n_authors": 5,
+   "relevant": null,
+   "summary": "",
+   "topic": "",
+   "model": null,
+   "excerpt": "Galaxy clustering could strongly constrain galaxy formation models but is rarely used, because the two-point correlation function (2PCF) requires a complete galaxy catalogue at every point in parameter space."
+  },
+  {
+   "id": "2611.12787",
+   "title": "MarsNet: Learning the Martian Atmosphere from Observations Alone",
+   "primary": "astro-ph.EP",
+   "categories": [
+    "astro-ph.EP",
+    "physics.ao-ph"
+   ],
+   "published": "2026-11-09T17:57:01Z",
+   "comment": "",
+   "journal_ref": "",
+   "doi": "",
+   "links": [],
+   "authors": [
+    "Sebastian Mengwall",
+    "J. Michael Battalio"
+   ],
+   "n_authors": 2,
+   "relevant": null,
+   "summary": "",
+   "topic": "",
+   "model": null,
+   "excerpt": "We present MarsNet, a machine-learned model of the Martian atmosphere trained only on observations."
+  },
+  {
+   "id": "2611.12704",
+   "title": "Ångström Exponent Calculation Using Wide-Field Stellar Photometry",
+   "primary": "astro-ph.IM",
+   "categories": [
+    "astro-ph.IM"
+   ],
+   "published": "2026-11-09T16:58:36Z",
+   "comment": "",
+   "journal_ref": "",
+   "doi": "",
+   "links": [],
+   "authors": [
+    "Shefali Negi",
+    "Jan Ebr",
+    "Sergey Karpov",
+    "Jiří Eliášek"
+   ],
+   "n_authors": 4,
+   "relevant": null,
+   "summary": "",
+   "topic": "",
+   "model": null,
+   "excerpt": "The FRAM (F/Photometric Robotic Atmospheric Monitor) telescopes can measure the aerosol extinction at optical wavelengths using wide-field stellar photometry at the Cherenkov Telescope Array Observatory (CTAO) sites."
+  },
+  {
+   "id": "2611.12689",
+   "title": "CoilStellaration: A Dataset and Benchmark for Engineering-Aware Stellarator Coilset Generation",
+   "primary": "cs.LG",
+   "categories": [
+    "cs.LG",
+    "physics.plasm-ph"
+   ],
+   "published": "2026-11-09T16:50:14Z",
+   "comment": "40th Conference on Neural Information Processing Systems (NeurIPS 2026). Track on Evaluations and Datasets",
+   "journal_ref": "",
+   "doi": "",
+   "links": [],
+   "authors": [
+    "Jan-Hendrik Ewers",
+    "Santiago A. Cadena",
+    "Nicolò Foppiani",
+    "Andrea Merlo"
+   ],
+   "n_authors": 4,
+   "relevant": null,
+   "summary": "",
+   "topic": "",
+   "model": null,
+   "excerpt": "Stellarators are fusion devices that use externally generated, three-dimensional magnetic fields to confine hot plasma and offer a promising route to commercial fusion."
+  },
+  {
+   "id": "2611.12422",
+   "title": "Two-Phase Rapid Simulation-Based Inference with Differentiable Simulators",
+   "primary": "cs.LG",
+   "categories": [
+    "cs.LG",
+    "stat.ML"
+   ],
+   "published": "2026-11-09T13:49:15Z",
+   "comment": "NeurIPS Camera Ready",
+   "journal_ref": "",
+   "doi": "",
+   "links": [],
+   "authors": [
+    "Uros Zivanovic",
+    "Rahul Srinivasan",
+    "Roberto Trotta",
+    "Andre Scaffidi"
+   ],
+   "n_authors": 4,
+   "relevant": null,
+   "summary": "",
+   "topic": "",
+   "model": null,
+   "excerpt": "We introduce Rapid Simulation Based Inference (RSBI), a diffusion-based variational approach to likelihood-free Bayesian inference that achieves high sampling efficiency under large prior-to-posterior volumes."
+  },
+  {
+   "id": "2611.11922",
+   "title": "Deep-Learning-Assisted Bayesian Inference for Extreme-Mass-Ratio Inspirals",
+   "primary": "gr-qc",
+   "categories": [
+    "gr-qc",
+    "astro-ph.IM",
+    "stat.ML"
+   ],
+   "published": "2026-11-09T05:49:14Z",
+   "comment": "",
+   "journal_ref": "",
+   "doi": "",
+   "links": [],
+   "authors": [
+    "Jian-Jun Song",
+    "Zhong-Wu Xia",
+    "Wen-Hong Ruan",
+    "Zu-Cheng Chen",
+    "Hongwei Yu",
+    "Puxun Wu"
+   ],
+   "n_authors": 6,
+   "relevant": null,
+   "summary": "",
+   "topic": "",
+   "model": null,
+   "excerpt": "Extreme-mass-ratio inspirals (EMRIs) pose a major challenge to Bayesian parameter inference because of their complex, highly multimodal likelihood surfaces."
+  }
+ ],
+ "excluded": [],
+ "updated": "2026-11-12T08:48:44+00:00",
+ "model": null
+}
