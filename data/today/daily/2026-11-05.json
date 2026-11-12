@@ -25,7 +25,7 @@
    "n_authors": 5,
    "relevant": null,
    "summary": "",
-   "topic": "",
+   "topic": "Benchmarks",
    "model": null,
    "excerpt": "Machine learning (ML) and generative AI have recently made impressive progress in understanding physics.",
    "tldr": "A hierarchy of prediction problems stemming from chaotic three-body systems is explored and a range of ML approaches are benchmarked, including general-purpose prediction algorithms and those that build on top of foundational physics models."
