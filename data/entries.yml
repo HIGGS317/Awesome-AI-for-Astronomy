@@ -1835,6 +1835,12 @@ sections:
     desc: Transformer world model trained on 16,499 Kepler light curves predicts stellar flux, with matched filtering on residuals reaching AUC 0.938 on DR25 and recovering 47 TESS planets zero-shot.
 - title: Cosmology and Large-Scale Structure
   entries:
+  - title: 'Self-Interacting Neutrinos in NEDE and DRMD Cosmologies: Posteriors, profiles and evidence using CLiENT'
+    venue: arXiv 2026
+    links:
+      Paper: https://arxiv.org/abs/2611.13756
+      Code: https://github.com/AarhusCosmology/client-f/tree/papers/2026-sidr-drmd
+    desc: An actively trained neural emulator approximates the joint cosmological and nuisance-parameter log posterior using roughly 300,000 likelihood evaluations per dataset.
   - name: CosmoGAN
     title: 'CosmoGAN: Creating High-fidelity Weak Lensing Convergence Maps Using Generative Adversarial Networks'
     venue: Comput. Astrophys. Cosmol. 2019
