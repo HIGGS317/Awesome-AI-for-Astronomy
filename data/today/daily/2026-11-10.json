@@ -1,0 +1,101 @@
+{
+ "date": "2026-11-10",
+ "papers": [
+  {
+   "id": "2611.10228",
+   "title": "FAIR Universe Weak Lensing ML Uncertainty Challenge: Dataset and Cosmological Inference Competition",
+   "primary": "astro-ph.CO",
+   "categories": [
+    "astro-ph.CO",
+    "cs.AI",
+    "cs.CV",
+    "cs.LG",
+    "physics.data-an"
+   ],
+   "published": "2026-11-10",
+   "comment": "10+7 pages, 2+4 figures, 2+1 tables. Key results of the NeurIPS 2025 FAIR Universe Weak Lensing ML Challenge Phase 1. The challenge dataset is publicly available at Zenodo: https://zenodo.org/records/20056065. Challenge GitHub repository: https://github.com/FAIR-Universe/Cosmology_Challenge",
+   "journal_ref": "",
+   "doi": "",
+   "links": [
+    "https://github.com/FAIR-Universe/Cosmology_Challenge",
+    "https://zenodo.org/records/20056065"
+   ],
+   "authors": [
+    "Biwei Dai",
+    "Po-Wen Chang",
+    "Erwan Allys",
+    "Wahid Bhimji",
+    "Boris Bolliet",
+    "Thomas Borrett"
+   ],
+   "n_authors": 40,
+   "relevant": null,
+   "summary": "",
+   "topic": "Cosmology and Large-Scale Structure",
+   "model": null,
+   "excerpt": "Weak gravitational lensing is a powerful cosmological probe that enables direct mapping of the matter distribution and precise constraints on the fundamental parameters governing structure formation in the universe.",
+   "tldr": "This work presents the FAIR Universe Weak Lensing Machine Learning Uncertainty Challenge, one of the NeurIPS 2025 competitions, as a benchmark dataset and evaluation study, and summarizes the main methodological advances developed by the winners."
+  },
+  {
+   "id": "2611.10861",
+   "title": "SWXAI: A Unified Multimodal Explainability Library for Space Weather Forecasting and Heliophysics",
+   "primary": "cs.LG",
+   "categories": [
+    "cs.LG",
+    "astro-ph.SR",
+    "physics.space-ph"
+   ],
+   "published": "2026-11-10",
+   "comment": "6 pages, 5 figures. Accepted at CIKM 2026 (Resource Track), Rome, Italy, November 7-11, 2026. Code: https://bitbucket.org/gsudmlab/swxai Docs: https://swxai.readthedocs.io",
+   "journal_ref": "Proceedings of the 35th ACM International Conference on Information and Knowledge Management (CIKM '26), 2026",
+   "doi": "10.1145/3799682.3840198",
+   "links": [],
+   "authors": [
+    "Benedict Antonio Mervyn",
+    "Anli Ji",
+    "Manolis K. Georgoulis",
+    "Berkay Aydin"
+   ],
+   "n_authors": 4,
+   "relevant": null,
+   "summary": "",
+   "topic": "Solar Physics and Heliophysics",
+   "model": null,
+   "excerpt": "Space weather forecasting and heliophysics increasingly rely on machine learning models that process heterogeneous inputs such as multi-viewpoint multi-wavelength solar images and rasters, multivariate time series, spatial annotations, and tabular event-level...",
+   "tldr": "SWXAI reduces modality-specific engineering overhead and supports comparable, reusable explanations across heterogeneous scientific machine learning pipelines, and a benchmark against direct backend implementations shows that SWXAI substantially reduces the code users write to produce an explanation, with no practical runtime cost."
+  },
+  {
+   "id": "2611.11922",
+   "title": "Deep-Learning-Assisted Bayesian Inference for Extreme-Mass-Ratio Inspirals",
+   "primary": "gr-qc",
+   "categories": [
+    "gr-qc",
+    "astro-ph.IM",
+    "stat.ML"
+   ],
+   "published": "2026-11-10",
+   "comment": "",
+   "journal_ref": "",
+   "doi": "",
+   "links": [],
+   "authors": [
+    "Jian-Jun Song",
+    "Zhong-Wu Xia",
+    "Wen-Hong Ruan",
+    "Zu-Cheng Chen",
+    "Hongwei Yu",
+    "Puxun Wu"
+   ],
+   "n_authors": 6,
+   "relevant": null,
+   "summary": "",
+   "topic": "Gravitational Waves",
+   "model": null,
+   "excerpt": "Extreme-mass-ratio inspirals (EMRIs) pose a major challenge to Bayesian parameter inference because of their complex, highly multimodal likelihood surfaces.",
+   "tldr": "A deep-learning-assisted Bayesian inference framework that combines neural-network-guided parameter-space localization, particle swarm optimization, and Markov chain Monte Carlo sampling and recovers posterior distributions in close agreement with reference MCMC analyses initialized near the true parameter values."
+  }
+ ],
+ "excluded": [],
+ "updated": "2026-11-12T09:07:23+00:00",
+ "model": null
+}

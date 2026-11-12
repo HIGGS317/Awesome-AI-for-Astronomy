@@ -1,0 +1,35 @@
+{
+ "date": "2026-11-09",
+ "papers": [
+  {
+   "id": "2611.08583",
+   "title": "DarkMatterFM-Registry: A Machine-Readable Registry of Dark-Matter Models Extracted from the arXiv Literature",
+   "primary": "astro-ph.CO",
+   "categories": [
+    "astro-ph.CO",
+    "astro-ph.IM",
+    "hep-ph"
+   ],
+   "published": "2026-11-09",
+   "comment": "8 pages, 2 figures. Accepted at the Machine Learning and the Physical Sciences Workshop (ML4PS), NeurIPS 2026. Registry, schemas, and code: https://ioanazelko.github.io/darkmatterfm-registry/",
+   "journal_ref": "",
+   "doi": "",
+   "links": [],
+   "authors": [
+    "Ioana A. Zelko",
+    "Jo Bovy",
+    "Nolan Koblischke"
+   ],
+   "n_authors": 3,
+   "relevant": null,
+   "summary": "",
+   "topic": "Language and Vision-Language Models",
+   "model": null,
+   "excerpt": "To use a dark-matter model one needs to know what defines it, which observables it affects, which codes and likelihoods evaluate it, and under what assumptions a published bound applies.",
+   "tldr": "It is found that what blocks the most high-priority models is not missing theory but missing shared infrastructure: model files for existing relic-abundance solvers, a general non-cold Boltzmann-code framework, reusable indirect-detection likelihoods, and a Lyman-$\\alpha$ forest likelihood for non-cold dark matter (the largest gap for structure-formation probes)."
+  }
+ ],
+ "excluded": [],
+ "updated": "2026-11-12T09:07:23+00:00",
+ "model": null
+}
