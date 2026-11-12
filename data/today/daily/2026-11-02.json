@@ -2,30 +2,6 @@
  "date": "2026-11-02",
  "papers": [
   {
-   "id": "2511.04122",
-   "title": "Neural Network identification of Dark Star Candidates. II. Spectroscopy",
-   "primary": "astro-ph.IM",
-   "categories": [
-    "astro-ph.IM",
-    "astro-ph.CO"
-   ],
-   "published": "2026-11-02",
-   "comment": "9 pages, 4 figures, submitted to the Astrophysical Journal",
-   "journal_ref": "Astronomy and Computing, Volume 58, Article 101195 (2027)",
-   "doi": "10.1016/j.ascom.2026.101195",
-   "links": [],
-   "authors": [
-    "Adiba Amira Siddiqa",
-    "Sayed Shafaat Mahmud",
-    "Cosmin Ilie"
-   ],
-   "n_authors": 3,
-   "relevant": true,
-   "summary": "A feedforward neural network trained on synthetic JWST/NIRSpec dark-star spectra identifies and characterizes candidates, re-confirming four supermassive dark star spectra and predicting parameters far faster.",
-   "topic": "Stars and Stellar Spectroscopy",
-   "model": "deepseek-flash"
-  },
-  {
    "id": "2610.40685",
    "title": "Agentic Systems for Calibrating Cosmological Simulations",
    "primary": "astro-ph.IM",

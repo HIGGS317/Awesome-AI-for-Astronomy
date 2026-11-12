@@ -2,31 +2,6 @@
  "date": "2026-11-06",
  "papers": [
   {
-   "id": "2609.09504",
-   "title": "Inductive Biases in Field-Level Cosmological Inference from Galaxy Catalogs",
-   "primary": "astro-ph.CO",
-   "categories": [
-    "astro-ph.CO",
-    "cs.LG"
-   ],
-   "published": "2026-11-06",
-   "comment": "23 pages, 8 figures, 5 tables. Accepted for publication in The Astrophysical Journal",
-   "journal_ref": "Astrophys. J. 1010, 203 (2026)",
-   "doi": "10.3847/1538-4357/aea400",
-   "links": [],
-   "authors": [
-    "James O. Baldwin",
-    "Shy Genel",
-    "Francisco Villaescusa-Navarro"
-   ],
-   "n_authors": 3,
-   "relevant": true,
-   "summary": "Deep Sets and graph neural networks infer Ωm from simulated CAMELS galaxy catalogs; graph models reach ~10% error, with peculiar velocities dominating set-based inference.",
-   "topic": "Cosmology and Large-Scale Structure",
-   "model": "deepseek-flash",
-   "tldr": "Results indicate that peculiar velocities provide the dominant source of Ωm information for set-based models in this setting, while spatial information is most effectively used by architectures that explicitly encode galaxy–galaxy relations."
-  },
-  {
    "id": "2611.07162",
    "title": "A Machine Learning Approach to Coupling Photoionization & Multi-Frequency Radiation Hydrodynamics",
    "primary": "astro-ph.HE",

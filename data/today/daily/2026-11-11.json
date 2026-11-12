@@ -2,32 +2,6 @@
  "date": "2026-11-11",
  "papers": [
   {
-   "id": "2607.05494",
-   "title": "Uncertainty-Aware Deep Learning for the Ly$\\alpha$ Forest: CNN-Based Absorber Detection and Characterization",
-   "primary": "astro-ph.GA",
-   "categories": [
-    "astro-ph.GA"
-   ],
-   "published": "2026-11-11",
-   "comment": "Submitted to MNRAS. (Comments are welcome)",
-   "journal_ref": "Mon Not R Astron Soc (2026)",
-   "doi": "10.1093/mnras/stag2027",
-   "links": [],
-   "authors": [
-    "Paryag Sharma",
-    "Vikram Khaire",
-    "Ting-Yun Cheng",
-    "Hum Chand",
-    "Prakash Gaikwad"
-   ],
-   "n_authors": 5,
-   "relevant": true,
-   "summary": "Convolutional neural network detects and characterizes Lyman-alpha absorbers in quasar spectra, trained on IllustrisTNG synthetic spectra and tested on UVES, with uncertainty estimates.",
-   "topic": "Cosmology and Large-Scale Structure",
-   "model": "deepseek-flash",
-   "tldr": "A convolutional neural network (CNN) is presented that identifies and characterizes H i Lyα absorbers directly from quasar spectra and provides a scalable and uncertainty-aware framework for Lyα forest analysis in upcoming spectroscopic surveys."
-  },
-  {
    "id": "2611.13118",
    "title": "Extracting Published Discussions of 13,616 Galaxies with Language Models",
    "primary": "astro-ph.IM",

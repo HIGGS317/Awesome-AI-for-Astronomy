@@ -4,6 +4,7 @@ from datetime import date
 import json
 import re
 import sys
+from urllib.error import HTTPError
 from urllib.request import Request, urlopen
 
 
@@ -17,7 +18,16 @@ def fetch(path):
         return response.read().decode("utf-8")
 
 
+TODAY_INDEX = "today/index.json"
+
+
 def today_page():
+    """Recent days and the weekly and monthly digests. The page itself is the fallback for older deployments."""
+    try:
+        return json.loads(fetch(TODAY_INDEX))
+    except HTTPError as error:
+        if error.code != 404:
+            raise
     match = PAGE_DATA.search(fetch("today.html"))
     if match is None:
         raise ValueError("AstroAI Today page data is unavailable")
@@ -73,10 +83,15 @@ def today(args):
     month = args.date[:7] if args.date else args.month
     if month:
         path = f"today/archive/{month}.json"
-        days = json.loads(fetch(path))["days"]
+        try:
+            days = json.loads(fetch(path))["days"]
+        except HTTPError as error:
+            if error.code != 404:
+                raise
+            days = []  # no batch was published in that month
         period = args.date or month
     else:
-        path = "today.html"
+        path = TODAY_INDEX
         days = today_page()["days"][:1]
         period = days[0]["date"] if days else None
 
@@ -97,7 +112,8 @@ def digest(args):
     key, anchor = ("weekly", "week") if args.kind == "week" else ("monthly", "month")
     summaries = today_page()[key]
     selected = next((item for item in summaries if not args.period or item["period"] == args.period), None)
-    return {"source": BASE + "today.html#" + anchor, "period": args.period, "digest": selected}
+    return {"source": BASE + TODAY_INDEX, "page": BASE + "today.html#" + anchor, "period": args.period,
+            "digest": selected}
 
 
 def main():

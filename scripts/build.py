@@ -466,13 +466,16 @@ def today_site(data, outdir):
     (outdir / "today" / "feed.xml").write_text(
         '<?xml version="1.0" encoding="UTF-8"?>\n<rss version="2.0"><channel>'
         f"<title>AstroAI Today</title><link>{PAGE}today.html</link>"
-        "<description>New arXiv papers that apply machine learning to astronomy, with one-sentence summaries.</description>"
+        "<description>New arXiv papers that apply machine learning to astronomy, with one-line TL;DR summaries.</description>"
         + "".join(items) + "</channel></rss>\n", encoding="utf-8")
 
     built, _ = built_info()
     sections = [s["title"] for s in data["sections"] if s.get("kind") != "links"]
     payload = {"built": built, "model": next((d["model"] for d in days if d.get("model")), None),
                "sections": sections, "days": days[:45], "weekly": weekly, "monthly": monthly, "months": months}
+    # A stable machine-readable copy of the page data, used by the AstroAI Research skill.
+    (outdir / "today" / "index.json").write_text(json.dumps(payload, ensure_ascii=False, separators=(",", ":")),
+                                                 encoding="utf-8")
     page = (ROOT / "site" / "today.html").read_text(encoding="utf-8")
     key = "/*__TODAY__*/null"
     assert key in page, key

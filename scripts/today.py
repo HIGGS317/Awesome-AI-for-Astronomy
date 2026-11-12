@@ -208,8 +208,9 @@ def oai_page(params):
 def oai_recent(since, today):
     """New astro-ph papers announced on or after `since`, newest first.
 
-    A record counts as new when it has a single version, or when its first version was
-    submitted in the window; this leaves out replacements of older papers. The date used is
+    A record counts as new when its identifier is from the month of `since` or later and it has a
+    single version or a first version submitted in the window; this leaves out replacements and
+    metadata updates of older papers. The date used is
     the OAI datestamp, which for a new paper is the day it was announced.
     """
     params = {"verb": "ListRecords", "metadataPrefix": "arXivRaw", "set": "physics:astro-ph", "from": since}
@@ -235,6 +236,11 @@ def oai_recent(since, today):
                 first = ""
             stamp = head.findtext("o:datestamp", "", OAI_NS)
             if len(versions) > 1 and first < since:
+                continue
+            # A metadata update, such as an added journal reference, also moves the datestamp of an
+            # older paper into the window. New papers carry an identifier of the announcement month.
+            m = re.match(r"(\d{2})(\d{2})\.\d{4,5}$", text("id"))
+            if not m or ("20" + m.group(1), m.group(2)) < (since[:4], since[5:7]):
                 continue
             cats = text("categories").split()
             abstract, comment = text("abstract"), text("comments")
