@@ -17,7 +17,7 @@
 </div>
 
 > [!TIP]
-> The [searchable web page](https://xin-yuxiao.github.io/Awesome-AI-for-Astronomy/) filters all 401 papers and 66 software packages by section, year, venue type, public code, model weights or data, and data modality, and shows a one-sentence summary for every paper. The full list can also be downloaded as [JSON](https://xin-yuxiao.github.io/Awesome-AI-for-Astronomy/entries.json) or [CSV](https://xin-yuxiao.github.io/Awesome-AI-for-Astronomy/papers.csv).
+> The [searchable web page](https://xin-yuxiao.github.io/Awesome-AI-for-Astronomy/) filters all 402 papers and 66 software packages by section, year, venue type, public code, model weights or data, and data modality, and shows a one-sentence summary for every paper. The full list can also be downloaded as [JSON](https://xin-yuxiao.github.io/Awesome-AI-for-Astronomy/entries.json) or [CSV](https://xin-yuxiao.github.io/Awesome-AI-for-Astronomy/papers.csv).
 >
 > [AstroAI Today](https://xin-yuxiao.github.io/Awesome-AI-for-Astronomy/today.html) collects new arXiv papers on machine learning in astronomy every day. A language model (DeepSeek V4.1 Flash) screens them and writes a one-line TL;DR for each paper and a TL;DR for each week and month. These papers are not reviewed; the curated list below is.
 >
@@ -103,9 +103,10 @@ This list tracks machine learning work in astronomy with public papers, linking 
 
 | Date | Paper | Venue | Code | Links |
 |:--|:--|:--|:--|:--|
+| 2026.09 | [Gestalt: A Meta-Foundation Model for Astronomy](https://arxiv.org/abs/2609.38312 "Combines frozen embeddings of 22 foundation models from eight families by whitening and randomised SVD, outperforming every member on 19 of 21 metrics for HSC, JWST and Legacy Survey galaxies.") | **NeurIPS 2026 Workshop (Interpretability for Discovery)** | - | - |
 | 2024.05 | [AstroPT: Scaling Large Observation Models for Astronomy](https://arxiv.org/abs/2405.14930 "Autoregressive transformers from 1M to 2.1B parameters pretrained on 8.6M DESI Legacy Survey galaxy images.") | **ICML 2024 Workshop (AI4Science)** | [Code](https://github.com/Smith42/astroPT) | [Euclid Paper](https://arxiv.org/abs/2503.15312) [Model](https://huggingface.co/Smith42/astroPT_v2.0) |
 | 2024.04 | **Galaxy Scaling Laws** [Scaling Laws for Galaxy Images](https://arxiv.org/abs/2404.02973 "Supervised scaling study on 840k galaxy images with over 100M Galaxy Zoo annotations.") | arXiv 2024 | [Code](https://github.com/mwalmsley/zoobot) | - |
-| 2024.04 | **Gestalt** [A Novel Sector-Based Algorithm for an Optimized Star-Galaxy Classification](https://arxiv.org/abs/2404.01049 "Sector-based methodology for star-galaxy classification using convolutional neural network (CNN).") | **ICLR 2024 Tiny Papers** | - | - |
+| 2024.04 | [A Novel Sector-Based Algorithm for an Optimized Star-Galaxy Classification](https://arxiv.org/abs/2404.01049 "Sector-based methodology for star-galaxy classification using convolutional neural network (CNN).") | **ICLR 2024 Tiny Papers** | [Code](https://github.com/astropi-b/A-NOVEL-SECTOR-BASED-ALGORITHM-FOR-AN-OPTIMIZED-STAR-GALAXY-CLASSIFICATION) | - |
 | 2023.12 | [Rare Galaxy Classes Identified In Foundation Model Representations](https://arxiv.org/abs/2312.02910 "Searches Zoobot representation space for rare morphological classes.") | arXiv 2023 | [Code](https://github.com/mwalmsley/zoobot) | - |
 | 2023 | [Zoobot: Adaptable Deep Learning Models for Galaxy Morphology](https://doi.org/10.21105/joss.05312 "Pretrained galaxy morphology encoders and finetuning utilities, deployed in the Euclid morphology pipeline.") | **JOSS 2023** | [Code](https://github.com/mwalmsley/zoobot) | [PyPI](https://pypi.org/project/zoobot/) |
 | 2022.06 | **Zoobot FM** [Towards Galaxy Foundation Models with Hybrid Contrastive Learning](https://arxiv.org/abs/2206.11927 "Pretraining galaxy morphology encoders on Galaxy Zoo volunteer responses for transfer to downstream tasks.") | **ICML 2022 Workshop (ML4Astro)** | [Code](https://github.com/mwalmsley/zoobot) | - |
