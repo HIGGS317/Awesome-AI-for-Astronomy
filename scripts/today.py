@@ -356,6 +356,8 @@ class Writer:
         self.openai = os.environ.get("LLM_API_KEY")
         self.anthropic = None if self.openai else os.environ.get("ANTHROPIC_API_KEY")
         self.base = (os.environ.get("LLM_BASE_URL") or "https://api.deepseek.com").rstrip("/")
+        # DeepSeek maps the requested effort onto its own levels (medium runs as high); "none" turns thinking off.
+        self.effort = (os.environ.get("LLM_REASONING_EFFORT") or "medium").strip().lower()
         if self.openai:
             self.name = os.environ.get("LLM_MODEL") or ("deepseek-flash" if "deepseek.com" in self.base else None)
         elif self.anthropic:
@@ -381,9 +383,15 @@ class Writer:
             request = {"model": self.name, "temperature": 0.2, "max_tokens": max_tokens,
                        "messages": [{"role": "system", "content": system}, {"role": "user", "content": prompt}]}
             if "deepseek.com" in self.base:
-                request["thinking"] = {"type": "disabled"}  # DeepSeek V4 models think by default
+                if self.effort == "none":
+                    request["thinking"] = {"type": "disabled"}
+                else:
+                    # The reasoning is returned separately from the answer but shares the output budget.
+                    request.update({"thinking": {"type": "enabled"}, "reasoning_effort": self.effort,
+                                    "max_tokens": max_tokens + 8000})
+                    request.pop("temperature")
             body = json.dumps(request).encode()
-            raw = http(self.base + "/chat/completions", body,
+            raw = http(self.base + "/chat/completions", body, timeout=400, headers=
                        {"Authorization": f"Bearer {self.openai}", "Content-Type": "application/json"})
             try:
                 return json.loads(raw)["choices"][0]["message"]["content"]

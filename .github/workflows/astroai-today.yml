@@ -46,6 +46,9 @@ jobs:
           LLM_API_KEY: ${{ secrets.DEEPSEEK_API_KEY || secrets.LLM_API_KEY }}
           LLM_BASE_URL: ${{ vars.LLM_BASE_URL || 'https://api.deepseek.com' }}
           LLM_MODEL: ${{ vars.LLM_MODEL || 'deepseek-flash' }}
+          # DeepSeek V4.1 Flash with thinking at medium effort, which DeepSeek runs as high.
+          # Set the repository variable to low for cheaper runs, or to none to turn thinking off.
+          LLM_REASONING_EFFORT: ${{ vars.LLM_REASONING_EFFORT || 'medium' }}
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
           # Optional. Raises the Semantic Scholar rate limit for the TL;DR lookups.
           S2_API_KEY: ${{ secrets.S2_API_KEY }}
