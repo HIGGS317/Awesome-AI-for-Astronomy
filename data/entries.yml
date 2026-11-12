@@ -494,6 +494,14 @@ sections:
     note: Oral
 - title: Agents and Retrieval Systems
   entries:
+  - name: GalaxyWiki
+    title: Extracting Published Discussions of 13,616 Galaxies with Language Models
+    venue: arXiv 2026
+    links:
+      Paper: https://arxiv.org/abs/2611.13118
+      Code: https://github.com/NolanKoblischke/galaxywiki-paper
+      Project: https://galaxywiki.nolank.ca/
+    desc: GPT-5.5 agents extract source-linked discussions from arXiv papers and coordinate matching groups the evidence into 13,616 galaxy entries.
   - name: pathfinder
     title: 'pathfinder: A Semantic Framework for Literature Review and Knowledge Discovery in Astronomy'
     venue: ApJS 2024
