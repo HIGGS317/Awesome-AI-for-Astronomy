@@ -281,7 +281,7 @@ TOPIC_RULES = [
     ("Surveys and Reviews", r"\b(review|overview|perspective|primer|white paper|roadmap)\b", True),
     ("Agents and Retrieval Systems", r"\b(agents?|agentic|retrieval[- ]augmented|RAG|multi[- ]agent|tool use)\b", False),
     ("Language and Vision-Language Models", r"\b(language models?|LLMs?|vision[- ]language|GPT|chatbots?|text mining)\b", False),
-    ("Benchmarks", r"\b(benchmarks?|challenge|leaderboard|competition)\b", True),
+    ("Benchmarks", r"\b(benchmark\w*|challenge|leaderboard|competition)\b", True),
     ("Foundation Models and Representation Learning",
      r"\b(foundation models?|self[- ]supervised|representation learning|contrastive)\b", False),
     ("Simulation-Based Inference", r"\b(simulation[- ]based inference|likelihood[- ]free|neural posterior|SBI|"
@@ -660,7 +660,7 @@ def lookup(ids):
 
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("--backfill", type=int, default=0, help="collect the last N days, filed under their submission dates")
+    ap.add_argument("--backfill", type=int, default=0, help="collect the last N days instead of the last four")
     ap.add_argument("--lookup", help="comma-separated arXiv ids to print; nothing is written")
     ap.add_argument("--date", help="file today's papers under this date (YYYY-MM-DD) instead of the current UTC date")
     args = ap.parse_args()
@@ -678,14 +678,13 @@ def main():
     new = [p for p in candidates(since, today.isoformat()) if p["id"] not in known]
     print(f"{len(new)} new candidate papers since {since}")
     assess(writer, new)
-    if args.backfill:
-        by_day = {}
-        for p in new:
-            by_day.setdefault(p["published"][:10], []).append(p)
-        for day, papers in sorted(by_day.items()):
-            print("wrote", write_day(day, papers, writer))
-    elif new:
-        print("wrote", write_day(today.isoformat(), new, writer))
+    # Papers are filed under their arXiv announcement date (the OAI datestamp), or under the
+    # submission date for papers found through the search API.
+    by_day = {}
+    for p in new:
+        by_day.setdefault(min(p["published"][:10], today.isoformat()), []).append(p)
+    for day, papers in sorted(by_day.items()):
+        print("wrote", write_day(day, papers, writer))
     resummarise(writer)
     refresh_tldrs()
     digests(writer, today)
