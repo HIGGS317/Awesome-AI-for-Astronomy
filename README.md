@@ -17,7 +17,7 @@
 </div>
 
 > [!TIP]
-> The [searchable web page](https://xin-yuxiao.github.io/Awesome-AI-for-Astronomy/) filters all 388 papers and 65 software packages by section, year, venue type, public code, model weights or data, and data modality, and shows a one-sentence summary for every paper. The full list can also be downloaded as [JSON](https://xin-yuxiao.github.io/Awesome-AI-for-Astronomy/entries.json) or [CSV](https://xin-yuxiao.github.io/Awesome-AI-for-Astronomy/papers.csv).
+> The [searchable web page](https://xin-yuxiao.github.io/Awesome-AI-for-Astronomy/) filters all 389 papers and 65 software packages by section, year, venue type, public code, model weights or data, and data modality, and shows a one-sentence summary for every paper. The full list can also be downloaded as [JSON](https://xin-yuxiao.github.io/Awesome-AI-for-Astronomy/entries.json) or [CSV](https://xin-yuxiao.github.io/Awesome-AI-for-Astronomy/papers.csv).
 
 ## About
 
@@ -558,6 +558,7 @@ Benchmarks are grouped by input type. Data and modality benchmarks provide obser
 
 | Date | Paper | Venue | Code | Links |
 |:--|:--|:--|:--|:--|
+| 2026.11 | [Identification of chromospheric dynamical signatures in the 2022 December 27 solar flare with DKIST](https://arxiv.org/abs/2611.13147 "A two-stage k-means pipeline groups 17,422 DKIST Ca II flare profiles into 19 spectral clusters and maps chromospheric kernel–halo structure.") | arXiv 2026 | - | - |
 | 2026.07 | **FlareEUV** [A Deep Learning Framework for Predicting Solar EUV Irradiance During Significant Flares](https://arxiv.org/abs/2607.19597 "Attention model on 13 co-aligned SDO AIA and HMI channels that forecasts daily 6.5 nm EVE irradiance over three days for 33 significant flares.") | arXiv 2026 | - | - |
 | 2026.04 | [Predicting Associations between Solar Flares and Coronal Mass Ejections Using SDO/HMI Magnetograms and a Hybrid Neural Network](https://arxiv.org/abs/2604.10016 "ViT and LSTM hybrid that predicts whether upcoming flares will be eruptive or confined.") | arXiv 2026 | - | - |
 | 2026.02 | [Prediction of Major Solar Flares Using Interpretable Class-dependent Reward Framework with Active Region Magnetograms and Domain Knowledge](https://arxiv.org/abs/2602.16264 "CNN, CNN-BiLSTM and transformer models with class-dependent rewards for imbalanced M-class flare prediction.") | arXiv 2026 | - | - |

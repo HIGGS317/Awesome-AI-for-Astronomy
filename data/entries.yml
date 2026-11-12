@@ -2430,6 +2430,11 @@ sections:
     desc: Extends DINGO to lensed signals, reducing parameter estimation and lensing Bayes factor computation from weeks to seconds while matching Bilby.
 - title: Solar Physics and Heliophysics
   entries:
+  - title: Identification of chromospheric dynamical signatures in the 2022 December 27 solar flare with DKIST
+    venue: arXiv 2026
+    links:
+      Paper: https://arxiv.org/abs/2611.13147
+    desc: A two-stage k-means pipeline groups 17,422 DKIST Ca II flare profiles into 19 spectral clusters and maps chromospheric kernel–halo structure.
   - name: DeepVel
     title: 'DeepVel: Deep Learning for the Estimation of Horizontal Velocities at the Solar Surface'
     venue: A&A 2017
