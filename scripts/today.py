@@ -2,8 +2,9 @@
 """AstroAI Today: collect new arXiv papers that apply machine learning to astronomy.
 
 Each run
-  1. queries the arXiv API for recent astro-ph papers that mention machine learning terms,
-     and for recent cs and stat.ML papers that mention astronomy terms,
+  1. reads every recent astro-ph paper from the arXiv API and keeps those whose title or
+     abstract mentions a machine learning term, and adds recent cs and stat.ML papers whose
+     title or abstract mentions an astronomy term,
   2. asks a language model which of the new papers use machine learning as a central part
      of their method, and writes a one-sentence summary and a topic for each of them,
   3. stores the result in data/today/daily/<date>.json, and
@@ -41,15 +42,19 @@ UA = f"AstroAI Today ({REPO})"
 NS = {"a": "http://www.w3.org/2005/Atom", "x": "http://arxiv.org/schemas/atom"}
 
 ASTRO_CATS = ["astro-ph.GA", "astro-ph.CO", "astro-ph.EP", "astro-ph.HE", "astro-ph.IM", "astro-ph.SR"]
-ML_TERMS = ["machine learning", "deep learning", "neural network", "neural networks", "foundation model",
-            "language model", "language models", "transformer", "simulation-based inference",
-            "normalizing flow", "normalising flow", "diffusion model", "convolutional", "self-supervised",
-            "graph neural", "random forest", "gradient boosting", "autoencoder", "reinforcement learning",
-            "artificial intelligence", "emulator", "generative model", "contrastive learning", "LLM"]
+ML_RE = re.compile(
+    r"\b(machine[- ]learn\w*|deep[- ]learn\w*|neural[- ]\w+|foundation models?|language models?|LLMs?|"
+    r"transformers?|simulation[- ]based inference|normali[sz]ing[- ]flows?|diffusion models?|score[- ]based|"
+    r"convolutional|self[- ]supervised|contrastive|graph neural|random forests?|gradient[- ]boost\w*|XGBoost|"
+    r"autoencoders?|variational auto\w*|reinforcement learning|artificial intelligence|generative (?:model|adversarial)\w*|"
+    r"emulat\w+|k-means|clustering algorithm|anomaly detection|U-Net|ResNet|multi-?layer perceptrons?|"
+    r"agentic|(?:AI|LLM) agents?|supervised learning|unsupervised learning|representation learning|"
+    r"Gaussian process(?:es)? regression|support vector)\b", re.I)
 ML_CATS = ["cs.LG", "cs.CV", "cs.AI", "cs.CL", "cs.IR", "stat.ML"]
 ASTRO_TERMS = ["astronomy", "astronomical", "astrophysics", "astrophysical", "galaxy", "galaxies", "telescope",
                "cosmology", "cosmological", "exoplanet", "exoplanets", "solar flare", "gravitational wave",
                "supernova", "stellar", "light curves", "sky survey"]
+ASTRO_RE = re.compile(r"\b(" + "|".join(re.escape(t) for t in ASTRO_TERMS) + r")", re.I)
 LINK = re.compile(r"https?://(?:github\.com|gitlab\.com|huggingface\.co|zenodo\.org)/[^\s,;)\]}>]+", re.I)
 
 SECTIONS = [s["title"] for s in yaml.safe_load((ROOT / "data" / "entries.yml").read_text(encoding="utf-8"))["sections"]
@@ -106,22 +111,34 @@ def parse(body):
     return out
 
 
+def recent(query, since, page=500):
+    """All papers matching `query` submitted after `since`, newest first."""
+    out, start = [], 0
+    while start < 6000:
+        batch = arxiv_api({"search_query": query, "sortBy": "submittedDate", "sortOrder": "descending",
+                           "start": start, "max_results": page})
+        out += [p for p in batch if p["published"] >= since]
+        if len(batch) < page or batch[-1]["published"] < since:
+            break
+        start += page
+    return out
+
+
 def candidates(since):
-    """Recent papers that match either query, newest first, submitted after `since`."""
-    queries = [
-        "(" + " OR ".join(f"cat:{c}" for c in ASTRO_CATS) + ") AND (" + clause("abs", ML_TERMS) + " OR " + clause("ti", ML_TERMS) + ")",
-        "(" + " OR ".join(f"cat:{c}" for c in ML_CATS) + ") AND " + clause("abs", ASTRO_TERMS),
-    ]
+    """Recent astro-ph papers that mention machine learning, and recent ML papers that mention astronomy.
+
+    Keyword matching is done here rather than in the arXiv query, which is less complete for long queries.
+    """
+    astro = recent("(" + " OR ".join(f"cat:{c}" for c in ASTRO_CATS) + ")", since)
+    ml = recent("(" + " OR ".join(f"cat:{c}" for c in ML_CATS) + ") AND " + clause("abs", ASTRO_TERMS), since)
     seen = {}
-    for q in queries:
-        for start in (0, 200):
-            batch = arxiv_api({"search_query": q, "sortBy": "submittedDate", "sortOrder": "descending",
-                               "start": start, "max_results": 200})
-            for p in batch:
-                if p["published"] >= since:
-                    seen.setdefault(p["id"], p)
-            if not batch or batch[-1]["published"] < since:
-                break
+    for p in astro:
+        if ML_RE.search(p["title"] + " " + p["abstract"]):
+            seen.setdefault(p["id"], p)
+    for p in ml:
+        if ASTRO_RE.search(p["title"] + " " + p["abstract"]):
+            seen.setdefault(p["id"], p)
+    print(f"scanned {len(astro)} astro-ph and {len(ml)} cs or stat.ML papers; {len(seen)} match the keywords")
     return sorted(seen.values(), key=lambda p: p["published"], reverse=True)
 
 
@@ -157,12 +174,16 @@ class Writer:
                 return "".join(b.get("text", "") for b in r.get("content", []))
             body = json.dumps({"model": self.name, "temperature": 0.2, "max_tokens": max_tokens,
                                "messages": [{"role": "system", "content": system}, {"role": "user", "content": prompt}]}).encode()
-            r = json.loads(http("https://models.github.ai/inference/chat/completions", body, {
+            raw = http("https://models.github.ai/inference/chat/completions", body, {
                 "Authorization": f"Bearer {self.github}", "Content-Type": "application/json",
-                "Accept": "application/vnd.github+json"}))
+                "Accept": "application/json", "X-GitHub-Api-Version": "2022-11-28"})
+            try:
+                r = json.loads(raw)
+            except json.JSONDecodeError:
+                raise ValueError(f"unexpected response from GitHub Models: {raw[:300]!r}")
             return r["choices"][0]["message"]["content"]
         except Exception as exc:
-            detail = exc.read().decode(errors="replace")[:300] if isinstance(exc, urllib.error.HTTPError) else ""
+            detail = exc.read().decode(errors="replace")[:400] if isinstance(exc, urllib.error.HTTPError) else ""
             print(f"warning: the model request failed ({exc}) {detail}; continuing without summaries", file=sys.stderr)
             self.name = None
             return None
