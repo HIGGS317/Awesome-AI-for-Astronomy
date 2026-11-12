@@ -184,6 +184,7 @@ class Writer:
         else:
             self.name = None
         self.last = 0.0
+        self.endpoint = 0
 
     def ask(self, system, prompt, max_tokens=1500):
         if not self.name:
@@ -199,21 +200,38 @@ class Writer:
                 r = json.loads(http("https://api.anthropic.com/v1/messages", body, {
                     "x-api-key": self.anthropic, "anthropic-version": "2023-06-01", "content-type": "application/json"}))
                 return "".join(b.get("text", "") for b in r.get("content", []))
-            body = json.dumps({"model": self.name, "temperature": 0.2, "max_tokens": max_tokens,
-                               "messages": [{"role": "system", "content": system}, {"role": "user", "content": prompt}]}).encode()
-            raw = http("https://models.github.ai/inference/chat/completions", body, {
-                "Authorization": f"Bearer {self.github}", "Content-Type": "application/json",
-                "Accept": "application/json", "X-GitHub-Api-Version": "2022-11-28"})
-            try:
-                r = json.loads(raw)
-            except json.JSONDecodeError:
-                raise ValueError(f"unexpected response from GitHub Models: {raw[:300]!r}")
-            return r["choices"][0]["message"]["content"]
+            return self.ask_github(system, prompt, max_tokens)
         except Exception as exc:
             detail = exc.read().decode(errors="replace")[:400] if isinstance(exc, urllib.error.HTTPError) else ""
             print(f"warning: the model request failed ({exc}) {detail}; continuing without summaries", file=sys.stderr)
             self.name = None
             return None
+
+    # GitHub Models has two public endpoints. The second one takes model names without the publisher prefix.
+    GITHUB_ENDPOINTS = [("https://models.github.ai/inference/chat/completions", lambda m: m),
+                        ("https://models.inference.ai.azure.com/chat/completions", lambda m: m.split("/")[-1])]
+
+    def ask_github(self, system, prompt, max_tokens):
+        errors = []
+        for i, (url, model) in enumerate(self.GITHUB_ENDPOINTS[self.endpoint:], start=self.endpoint):
+            body = json.dumps({"model": model(self.name), "temperature": 0.2, "max_tokens": max_tokens,
+                               "messages": [{"role": "system", "content": system},
+                                            {"role": "user", "content": prompt}]}).encode()
+            try:
+                raw = http(url, body, {"Authorization": f"Bearer {self.github}", "Content-Type": "application/json"})
+                r = json.loads(raw)
+                text = r["choices"][0]["message"]["content"]
+            except urllib.error.HTTPError as exc:
+                errors.append(f"{url}: HTTP {exc.code} {exc.read().decode(errors='replace')[:300]}")
+                continue
+            except (json.JSONDecodeError, KeyError, IndexError, TypeError):
+                errors.append(f"{url}: unexpected response {raw[:200]!r}")
+                continue
+            if i != self.endpoint:
+                print(f"using {url} with model {model(self.name)}")
+                self.endpoint = i
+            return text
+        raise RuntimeError("; ".join(errors))
 
 
 def first_json(text, opener):
