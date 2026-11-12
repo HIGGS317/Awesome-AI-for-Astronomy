@@ -523,7 +523,7 @@ sections:
     venue: Commun. Eng. 2025
     links:
       Paper: https://arxiv.org/abs/2412.06412
-      Code: https://github.com/Yu-Yang-Li/StarWhisper
+      Code: https://github.com/Yu-Yang-Li/StarWhisper/tree/main/projects/ngss
       Journal: https://doi.org/10.1038/s44172-025-00520-4
     desc: LLM agent that plans observations, controls a 10-telescope network and runs transient detection for the Nearby Galaxy Supernovae Survey.
   - name: AstroAgents
@@ -1694,6 +1694,14 @@ sections:
       Paper: https://arxiv.org/abs/2502.18218
       Journal: https://doi.org/10.24963/ijcai.2025/1056
     desc: Forecasts stellar flares from Kepler light curves by combining stellar physical properties and historical flare records through a soft prompt module and a residual record fusion module.
+  - name: StarWhisper LC
+    title: Deep Learning and Methods Based on Large Language Models Applied to Stellar Light Curve Classification
+    venue: Intell. Comput. 2025
+    links:
+      Paper: https://arxiv.org/abs/2404.10757
+      Code: https://github.com/Yu-Yang-Li/StarWhisper/tree/main/projects/light-curves
+      Journal: https://doi.org/10.34133/icomputing.0110
+    desc: Compares Conv1D-BiLSTM and Swin Transformer classifiers with fine-tuned LLM, multimodal LLM and audio LLM models on Kepler and K2 variable-star light curves; the Swin Transformer reaches 99% accuracy and the LLM-based models about 90%.
 - title: Exoplanets
   entries:
   - title: Learning a model of non-stationary nuisances with non-local correlations for object detection
@@ -2667,6 +2675,13 @@ sections:
     links:
       Paper: https://arxiv.org/abs/2608.21474
     desc: Two-stage YOLO detection and characterisation network for flux, size and position angle on SKA SDC1 images.
+  - name: StarWhisper-Pulsar
+    title: Pulsar Candidate Classification with Multimodal Large Language Models
+    venue: NeurIPS 2024 Workshop (FM4Science)
+    links:
+      Paper: https://openreview.net/forum?id=8SKgWpZiDL
+      Code: https://github.com/ACMISLab/StarWhisper-Pulsar
+    desc: Fine-tunes multimodal LLMs on diagnostic plots, text and numerical features to classify pulsar candidates, outperforming earlier machine learning classifiers after a few training epochs.
 - title: Planetary Science and Small Bodies
   entries:
   - name: DeepMoon
@@ -2976,6 +2991,9 @@ sections:
   - name: StarNet
     url: https://github.com/astroai/starnet
     desc: infers stellar parameters from spectra with CNNs.
+  - name: StarWhisper
+    url: https://github.com/Yu-Yang-Li/StarWhisper
+    desc: collects code, data and model weights for astronomy language models, light-curve and spectral classification and autonomous telescope observing, with research skills for AI coding agents.
   - name: sunbird
     url: https://github.com/florpi/sunbird
     desc: emulates galaxy clustering summary statistics with neural networks.
